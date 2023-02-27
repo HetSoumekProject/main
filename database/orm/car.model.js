@@ -9,28 +9,28 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    description : {
       type: DataTypes.STRING,
       allowNull: false,
     }, 
  
-    initial_prise: {
+    initial_price: {
       type:DataTypes.INTEGER,
       allowNull: false,
     },
-    year:{
+    year :{
      type:DataTypes.INTEGER,
      allowNull: false,
     },
-    transmission:{
+    transmission :{
       type:DataTypes.STRING,
       allowNull: false,
      },
-     body_style:{
+     body_style :{
       type:DataTypes.STRING,
       allowNull: false,
      },
-     images:{
+     images :{
       // type:DataTypes.ARRAY(DataTypes.STRING),
       type:DataTypes.STRING,
       allowNull:false,
