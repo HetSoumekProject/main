@@ -1,11 +1,10 @@
 import './App.css';
-import React from 'react';
-import AllPosts from './components/AllPosts';
+import Post from './components/Post.jsx';
 
 function App() {
   return (
     <div className="App">
-    <AllPosts/>
+    <Post/>
     </div>
   );
 }
