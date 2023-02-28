@@ -30,8 +30,7 @@ cloudinary.config({
         res.send(err)
     }
   }
-
-
+   
   module.exports={
     createAcar
   }

@@ -16,8 +16,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         foreignKey:true
       },
-      // jjjjj
-      
     });
     return Room;
   };
