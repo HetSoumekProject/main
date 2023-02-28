@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import axios from 'axios';
+import React,{useEffect, useState} from 'react'
 
 const AllPosts = () => {
 
@@ -6,7 +7,19 @@ const AllPosts = () => {
 const[years,setYears]=useState("")
 const[transmission,setTransmission]= useState("");
 const[bodyStyle,setbodystyle]= useState("");
+const [cars,setCars]=useState([])
+const [refresh,setRefresh]=useState(true)
+const getCarsByCondition=(year,transmission,bodyStyle)=>{
+  axios.post(`/api/car/AllCarsByCondition`,{year:year,transmission:transmission,body_style:bodyStyle}).then(res=>{
+    setCars(res.data)
+  }).catch(err=>console.log(err))
+}
+useEffect(()=>{
+  getCarsByCondition(years,transmission,bodyStyle)
 
+
+
+},[refresh])
 
   return (
     <div>
@@ -50,6 +63,7 @@ const[bodyStyle,setbodystyle]= useState("");
       <h5 >Ending soon  </h5>
       
       </div>
+
     </div>
   )
 }

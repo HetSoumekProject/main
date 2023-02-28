@@ -30,6 +30,50 @@ cloudinary.config({
         res.send(err)
     }
   }
+
+    let getAllCars = async (req, res) => {
+    try {
+      const cars = await orm.Car.findAll({
+
+      })
+      res.status(200).json(cars);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Failed to load resource");
+    }
+    
+  }
+  let getCarsByCondition= async (req, res) => {
+    console.log(req.body);
+    let obj={}
+    obj.where={}
+    if(req.body.year){
+      obj.where.year=req.body.year
+    }
+    if(req.body.transmission){
+      obj.where.transmission=req.body.transmission
+    }
+    
+    if(req.body.body_style){
+      obj.where.body_style=req.body.body_style
+    }
+
+    try {
+      console.log(obj);
+      const cars = await orm.Car.findAll({
+        obj
+      });
+      res.status(200).json(cars);
+    } catch (err) {
+      res.status(500).send(err);
+    }
+
+  }
+  
+  
+
+
+    
   
     const approveCar=async (req,res)=>{
       try{
@@ -83,5 +127,5 @@ cloudinary.config({
   
   module.exports={
     createAcar,
-    approveCar,getAllCars4admin,getTheSeller,declineCar
+    approveCar,getAllCars4admin,getTheSeller,declineCar,createAcar ,getAllCars ,getCarsByCondition 
   }
