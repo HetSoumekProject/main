@@ -29,7 +29,7 @@ function Post() {
     image
   ) => {
     axios
-      .post(`hetsoumek/postACar/${id}`, {
+      .post(`api/car/postACar/${id}`, {
         brandName: brandName,
         description: description,
         initialPrice: initialPrice,
