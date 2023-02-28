@@ -72,8 +72,8 @@ cloudinary.config({
   
   
 
-  module.exports={
-    createAcar ,getAllCars ,getCarsByCondition 
+
+    
   
     const approveCar=async (req,res)=>{
       try{
@@ -127,5 +127,5 @@ cloudinary.config({
   
   module.exports={
     createAcar,
-    approveCar,getAllCars4admin,getTheSeller,declineCar
+    approveCar,getAllCars4admin,getTheSeller,declineCar,createAcar ,getAllCars ,getCarsByCondition 
   }
