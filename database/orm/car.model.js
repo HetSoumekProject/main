@@ -9,31 +9,36 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    description : {
       type: DataTypes.STRING,
       allowNull: false,
     }, 
  
-    initial_prise: {
+    initial_price: {
       type:DataTypes.INTEGER,
       allowNull: false,
     },
-    year:{
+    year :{
      type:DataTypes.INTEGER,
      allowNull: false,
     },
-    transmission:{
+    transmission :{
       type:DataTypes.STRING,
       allowNull: false,
      },
-     body_style:{
+     body_style :{
       type:DataTypes.STRING,
       allowNull: false,
      },
-     images:{
-      // type:DataTypes.ARRAY(DataTypes.STRING),
-      type:DataTypes.STRING,
-      allowNull:false,
+     images :{
+      type: DataTypes.JSON,
+      allowNull: false,
+      get() {
+        return JSON.parse(this.getDataValue("proofResources"));
+      }, 
+      set(value) {
+        return this.setDataValue("proofResources", JSON.stringify(value));
+      }
      },
      status:{
       type:DataTypes.STRING,
@@ -41,15 +46,16 @@ module.exports = (sequelize, DataTypes) => {
      },
      min_amount:{
       type:DataTypes.STRING,
-      allowNull:true,
+      allowNull:false,
       defaultValue:200
      },
-    //  starting_day:{
+     starting_day:{
+      type : DataTypes.DATE,
+     },
+     ending_day:{
+      type : DataTypes.DATE,
 
-    //  },
-    //  ending_day:{
-
-    //  },
+     },
     userId: {
       type: DataTypes.INTEGER,
       allowNull:false,
