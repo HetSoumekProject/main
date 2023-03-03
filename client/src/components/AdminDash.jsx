@@ -1,14 +1,26 @@
 import React, { useState } from "react";
 import './AdminDash.css'
-import { UilSignOutAlt } from "@iconscout/react-unicons";
-import { SidebarData } from "./Icon";
+import Customers from "./Customers";
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
+import AllPending from "./AllPending";
 
-const Dashboard = () => {
-    const [selected, setSelected] = useState(0);
-  
-    const [expanded, setExpaned] = useState(true)
+const Dashboard = (props) => {
+        const [expanded, setExpaned] = useState(true)
+        const [view,setView] = useState("all")
+
+
+const renderView = () => {
+  if(view === 'Customers') {
+    return <Customers data ={props.data} users={props.users}/>
+} 
+if(view === 'Order') {
+  return <AllPending carsPending={props.carsPending}/>
+}
+// if(view === 'create') {
+//   return <Form/>
+// }
+}
   
     const sidebarVariants = {
       true: {
@@ -26,34 +38,60 @@ const Dashboard = () => {
         </div>
       <motion.div className='sidebar'
       variants={sidebarVariants}
-      animate={window.innerWidth<=768?`${expanded}`:''}
+     
       >
         {/* logo */}
         <div className="logo">
           
           <span>
-            Auc<span>t</span>ions
+            Auctions
           </span>
         </div>
   
-        <div className="menu">
-          {SidebarData.map((item, index) => {
-            return (
-              <div
-                className={selected === index ? "menuItem active" : "menuItem"}
-                key={index}
-                onClick={() => setSelected(index)}
-              >
-                <item.icon />
-                <span>{item.heading}</span>
-              </div>
-            );
-          })}
+        <div>
+        <nav className="nav">
+         
           
-          <div className="menuItem">
-            {/* <UilSignOutAlt /> */}
-          </div>
-        </div>
+       
+          <ul className="list">
+            <li >
+              <label class="btn btn-outline-success"  onClick={() => setView('Customers')}>Customers</label>
+            </li>
+            <br/>
+            <li >
+              <label  class="btn btn-outline-success"  onClick={() => setView("Order")}>Order</label>
+            </li>
+            <br/>
+            <li >
+              <label class="btn btn-outline-success"  onClick={() => setView('Transactions')}>Transactions</label>
+            </li>
+            <br/>
+            <li >
+              <label class="btn btn-outline-success"  onClick={() => setView('OverView')}>OverView</label>
+            </li>
+            <br/>
+            <li >
+              <label class="btn btn-outline-success"  onClick={() => setView('Daily')}>Daily</label>
+            </li>
+            <br/>
+            <li >
+              <label class="btn btn-outline-success"  onClick={() => setView('Monthly')}>Monthly</label>
+            </li>
+            <br/>
+            <li >
+              <label class="btn btn-outline-success"  onClick={() => setView('Admin')}>Admin</label>
+            </li>
+
+            {/* <li>
+              <label onClick={() => setView('create')}>Create Blog</label>
+            </li> */}
+           
+          </ul>
+         
+        </nav>
+    
+      {renderView()}
+    </div>
       </motion.div>
       </>
     );

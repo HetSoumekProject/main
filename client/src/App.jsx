@@ -16,11 +16,12 @@ function App() {
   return (
     <div className="App">
     <NavBar/>
+    <Dashboard/>
     <Routes>
     {/* <Route path="/" exact  element={<Home/>}/> */}
       <Route path="/AllPosts" element={<AllPosts/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
-      <Route path="/WhatIs" element={<WhatIs/>}/>
+      {/* <Route path="/WhatIs" element={<WhatIs/>}/> */}
       <Route path="/AllPending" element={<AllPending/>}/>
       <Route path="/Post" element={<Post/>}/>
       <Route path="/PrivatChat" element={<PrivatChat/>}/>
