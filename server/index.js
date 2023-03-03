@@ -14,7 +14,7 @@ const roomsRoute = require('./routes/car.js')
 const bidsRoute = require('./routes/car.js')
 const messagesRoute = require('./routes/car.js')
 const notifivationsRoute = require('./routes/car.js')
-
+const paymentRoute = require('./routes/payment.js')
 
 
 
@@ -29,7 +29,7 @@ app.use('/api/room', roomsRoute);
 app.use('/api/bids', bidsRoute);
 app.use('/api/messages', messagesRoute);
 app.use('/api/notifications', notifivationsRoute);
-
+app.use('/api',paymentRoute)
 
 const server = http.createServer(app);
 
