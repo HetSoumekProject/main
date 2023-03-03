@@ -26,7 +26,9 @@ function App() {
   } , [])
   const getCars = () => {
     axios.get("http://127.0.0.1:3000/api/car/AllCars")
-    .then(response => {setData(response.data),console.log(response.data);})
+    .then(response => {setData(response.data)
+    
+    })
     .catch(error => {console.log(error)})
   }
 
@@ -36,7 +38,7 @@ function App() {
    
   return (
     <div className="App">
-    <NavBar/>
+    {/* <NavBar/> */}
     <Routes>
     {/* <Route path="/" exact  element={<Home/>}/> */}
       <Route path="/AllPosts" element={<AllPosts/>}/>

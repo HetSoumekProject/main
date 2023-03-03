@@ -127,6 +127,9 @@ db.Room.belongsTo(db.Car, {
 db.Room.hasMany(db.Message,{
   foreignKey: "roomId",
 })
+
+
+
 db.Message.belongsTo(db.Room,{
   as: "room",
   foreignKey: "roomId",
