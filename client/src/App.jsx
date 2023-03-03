@@ -1,3 +1,4 @@
+
 import './App.css';
 import Post from './components/Post.jsx';
 import AllPosts from './components/AllPosts.jsx';
@@ -11,6 +12,10 @@ import FailPayment from './components/FailPayment.jsx';
 import Payment from './components/Payment.jsx';
 import Home from './components/Home.jsx';
 
+// import SuccessPayment from "./components/SuccessPayment.jsx"
+// import FailPayment from './components/FailPayment.jsx';
+// import Payment from './components/Payment.jsx';
+import Dashboard from './components/AdminDash.jsx';
 import { Route,Routes } from 'react-router-dom'
 
 
@@ -29,10 +34,14 @@ function App() {
       <Route path="/Payment" element={<Payment/>}/>
       <Route path="/FailPayment" element={<FailPayment/>}/>
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
+      {/* <Route path="/Payment" element={<Payment/>}/> */}
+      {/* <Route path="/FailPayment" element={<FailPayment/>}/>
+      <Route path="/SuccessPayment" element={<SuccessPayment/>}/> */}
+      <Route path="/AdminDashboard" element={<Dashboard/>}/>
     </Routes>
-    
     </div>
   );
 }
+
 
 export default App
