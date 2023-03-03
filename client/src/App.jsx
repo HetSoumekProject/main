@@ -37,7 +37,6 @@ function App() {
   return (
     <div className="App">
     <NavBar/>
-    <Notify/>
     <Routes>
     {/* <Route path="/" exact  element={<Home/>}/> */}
       <Route path="/AllPosts" element={<AllPosts/>}/>
@@ -51,6 +50,8 @@ function App() {
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/> */}
       <Route path="/AdminDashboard" element={<Dashboard/>}/>
     </Routes>
+    <Notify/>
+
     </div>
   );
 }
