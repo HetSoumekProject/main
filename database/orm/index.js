@@ -5,7 +5,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 //You should modify 'database', 'username' and 'password' to fit your own credentials.
 
 
-const sequelize = new Sequelize("Heet_soumekk","root","s07249446667",
+const sequelize = new Sequelize("Heet_soumekk","ahlem","password",
   {
     HOST: "localhost",
     dialect: "mysql",
@@ -111,7 +111,7 @@ db.Car.belongsTo(db.Favourite,{
 db.Car.hasMany(db.Image,{
   foreignKey: "carId",
 })
-db.Image.belongsTo(db.Favourite,{
+db.Image.belongsTo(db.Car,{
   as: "car",
   foreignKey: "carId",
   onDelete: "CASCADE",
