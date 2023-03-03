@@ -103,7 +103,7 @@ function Post() {
         onClick={() => {
           console.log(image)
           postACar(
-            id,
+            // id,
             brandName,
             description,
             initialPrice,
