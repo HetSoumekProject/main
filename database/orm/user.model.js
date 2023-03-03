@@ -21,10 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       allowNull: false,
     },
-    firebase_email:{
-      type:DataTypes.STRING,
-      allowNull: false,
-    },
+    
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -37,12 +34,12 @@ module.exports = (sequelize, DataTypes) => {
 
      cin_f: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       
     }, 
     cin_b: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     role:{
       type: DataTypes.STRING,
@@ -57,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
     }, 
     roomId:{
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       foreignKey:true,
     },
    

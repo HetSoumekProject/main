@@ -55,31 +55,31 @@ if(view === 'Order') {
        
           <ul className="list">
             <li >
-              <label class="btn btn-outline-success"  onClick={() => setView('Customers')}>Customers</label>
+              <label className="btn btn-outline-success"  onClick={() => setView('Customers')}>Customers</label>
             </li>
             <br/>
             <li >
-              <label  class="btn btn-outline-success"  onClick={() => setView("Order")}>Order</label>
+              <label  className="btn btn-outline-success"  onClick={() => setView("Order")}>Order</label>
             </li>
             <br/>
             <li >
-              <label class="btn btn-outline-success"  onClick={() => setView('Transactions')}>Transactions</label>
+              <label className="btn btn-outline-success"  onClick={() => setView('Transactions')}>Transactions</label>
             </li>
             <br/>
             <li >
-              <label class="btn btn-outline-success"  onClick={() => setView('OverView')}>OverView</label>
+              <label className="btn btn-outline-success"  onClick={() => setView('OverView')}>OverView</label>
             </li>
             <br/>
             <li >
-              <label class="btn btn-outline-success"  onClick={() => setView('Daily')}>Daily</label>
+              <label className="btn btn-outline-success"  onClick={() => setView('Daily')}>Daily</label>
             </li>
             <br/>
             <li >
-              <label class="btn btn-outline-success"  onClick={() => setView('Monthly')}>Monthly</label>
+              <label className="btn btn-outline-success"  onClick={() => setView('Monthly')}>Monthly</label>
             </li>
             <br/>
             <li >
-              <label class="btn btn-outline-success"  onClick={() => setView('Admin')}>Admin</label>
+              <label className="btn btn-outline-success"  onClick={() => setView('Admin')}>Admin</label>
             </li>
 
             {/* <li>

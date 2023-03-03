@@ -10,7 +10,6 @@ cloudinary.config({
 
   let createAcar=async (req,res)=>{
     let car={}
-    
     car.body_style=req.body.bodyStyle
     car.transmission=req.body.transmission
     car.year=req.body.year
@@ -53,7 +52,7 @@ cloudinary.config({
     if(req.body.transmission){
       obj.where.transmission=req.body.transmission
     }
-    
+  
     if(req.body.body_style){
       obj.where.body_style=req.body.body_style
     }
@@ -70,10 +69,7 @@ cloudinary.config({
 
   }
   
-  
 
-
-    
   
     const approveCar=async (req,res)=>{
       try{
