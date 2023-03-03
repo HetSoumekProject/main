@@ -25,6 +25,10 @@ db.Bid = require("./bid.model")(sequelize, DataTypes);
 db.Message = require("./message.model")(sequelize, DataTypes);
 db.Notification = require ("./notification.model")(sequelize, DataTypes);
 db.Room =require ("./room.model")(sequelize, DataTypes);
+db.Favourite = require("./favourite.mode")(sequelize, DataTypes);
+db.PrivateMessage = require("./privateMessages.model")(sequelize, DataTypes);
+db.Image=require("./image.model")(sequelize, DataTypes);
+
 
 db.User.hasMany(db.Car, {
   foreignKey: "userId",
@@ -37,6 +41,7 @@ db.Car.belongsTo(db.User, {
 db.User.hasMany(db.Message, {
   foreignKey: "userId",
 });
+
 db.Message.belongsTo(db.User, {
       as: "user",
       foreignKey: "userId",
@@ -50,15 +55,32 @@ db.Notification.belongsTo(db.User, {
      foreignKey: "userId",
      onDelete: "CASCADE",
   });
+ 
+  db.User.hasMany(db.PrivateMessage,{
+    foreignKey: "userId",
+  });
+  db.PrivateMessage.belongsTo(db.User, {
+    as: "user",
+    foreignKey: "userId",
+    onDelete: "CASCADE",
+ });
+
 db.User.hasMany(db.Bid,{
   foreignKey: "userId",
 })
+
 db.Bid.belongsTo(db.User,{
      as: "user",
      foreignKey: "userId",
      onDelete: "CASCADE",
 
 })
+db.User.hasOne(db.Favourite,);
+db.Favourite.belongsTo(db.User, {
+  foreignKey: {
+    name: 'userId'
+  }
+});
 
 db.User.belongsToMany(db.Room,{
   through: "UserRoom"
@@ -71,12 +93,29 @@ db.Room.belongsToMany(db.User,{
 db.Car.hasMany(db.Bid,{
   foreignKey: "carId",
 })
-
 db.Bid.belongsTo(db.Car, {
   as: "car",
   foreignKey: "carId",
   onDelete: "CASCADE",
 });
+db.Favourite.hasMany(db.Car,{
+  foreignKey: "favouriteId",
+})
+
+db.Car.belongsTo(db.Favourite,{
+  as: "favourite",
+  foreignKey: "favouriteId",
+  onDelete: "CASCADE",
+
+})
+db.Car.hasMany(db.Image,{
+  foreignKey: "carId",
+})
+db.Image.belongsTo(db.Favourite,{
+  as: "car",
+  foreignKey: "carId",
+  onDelete: "CASCADE",
+})
 
 db.Car.hasOne(db.Room,);
 db.Room.belongsTo(db.Car, {
@@ -96,12 +135,6 @@ db.Message.belongsTo(db.Room,{
 })
 
 db.sequelize.sync()
-db.User.sync()
-db.Car.sync()
-db.Bid.sync()
-db.Notification.sync()
-db.Message.sync()
-db.Room.sync()
 db.sequelize
   .authenticate()
   .then(() => console.log("Connected"))
