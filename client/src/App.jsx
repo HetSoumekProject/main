@@ -1,21 +1,43 @@
 
 import './App.css';
+import React,{useEffect,useState} from 'react';
+import axios from 'axios'
 import Post from './components/Post.jsx';
-import AllPosts from './components/AllPosts.jsx';
+import Cars from './components/Cars';
 import ChatRoom from './components/ChatRoom';
 import AllPending from './components/AllPending.jsx'
+import Notify from './components/Notify.jsx'
+import Auctions from './components/Auctions.jsx';
 import WhatIs from './components/WhatIs.jsx';
 import NavBar from './components/NavBar.jsx';
 import PrivatChat from './components/PrivatChat.jsx'
+import AllPosts from './components/AllPosts';
 // import SuccessPayment from "./components/SuccessPayment.jsx"
 // import FailPayment from './components/FailPayment.jsx';
 // import Payment from './components/Payment.jsx';
 import Dashboard from './components/AdminDash.jsx';
 import { Route,Routes } from 'react-router-dom'
 function App() {
+
+  const [data , setData] = useState([])
+
+  useEffect(() => {
+    getCars() 
+  } , [])
+  const getCars = () => {
+    axios.get("http://127.0.0.1:3000/api/car/AllCars")
+    .then(response => {setData(response.data),console.log(response.data);})
+    .catch(error => {console.log(error)})
+  }
+
+
+
+
+   
   return (
     <div className="App">
     <NavBar/>
+    <Notify/>
     <Routes>
     {/* <Route path="/" exact  element={<Home/>}/> */}
       <Route path="/AllPosts" element={<AllPosts/>}/>
