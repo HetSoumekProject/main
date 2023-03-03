@@ -9,7 +9,7 @@ import PrivatChat from './components/PrivatChat.jsx'
 import SuccessPayment from "./components/SuccessPayment.jsx"
 import FailPayment from './components/FailPayment.jsx';
 import Payment from './components/Payment.jsx';
-
+import Home from './components/Home.jsx';
 
 import { Route,Routes } from 'react-router-dom'
 
@@ -17,9 +17,9 @@ import { Route,Routes } from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-    <NavBar/>
+    {/* <NavBar/> */}
     <Routes>
-    {/* <Route path="/" exact  element={<Home/>}/> */}
+    <Route path="/" exact  element={<Home/>}/>
       <Route path="/AllPosts" element={<AllPosts/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
       <Route path="/WhatIs" element={<WhatIs/>}/>
