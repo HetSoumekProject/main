@@ -1,6 +1,7 @@
 const axios =require ("axios")
 module.exports={
-Add:async(req,res)=>{
+Add:(req,res)=>{
+    console.log(req.body)
         const url="http://developers.flouci.com/api/generate_payment"
         const payload={
             "app_token": "b3010a92-21b7-416e-884c-fef8089b56bf",
@@ -12,14 +13,14 @@ Add:async(req,res)=>{
             "fail_link": "https://localhost:3001/fail",
             "developer_tracking_id": "9a649256-d7f2-41a0-be44-e8d09a945959"
         }
-        await axios
+         axios
         .post(url,payload)
         .then(result=>{res.send(result.data)})
         .catch((error)=>{console.log(error)})
     },
-    Verify:async(req,res)=>{
+    Verify:(req,res)=>{
         const payment_id=req.params.id;
-        await axios.get(`https://developers.flouci.com/api/verify_payment/${payment_id}`,
+         axios.get(`https://developers.flouci.com/api/verify_payment/${payment_id}`,
         {
             headers : {
                 'Content-Type': 'application/json',
