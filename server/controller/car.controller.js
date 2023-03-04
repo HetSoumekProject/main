@@ -19,14 +19,10 @@ cloudinary.config({
     car.userId=req.params.id
     car.status="pending"
     try{
-        let rslt=await cloudinary.uploader.upload(req.body.image, function(result) { 
+        let result=await cloudinary.uploader.upload(req.body.image, function(result) { 
         });
+        car.images=[result.secure_url]
         let rs=await orm.Car.create(car)
-        console.log(rs)
-        let result=await orm.Image.create({
-          image:rslt.secure_url,
-          carId:rs.id
-        })
         console.log(rs)
         res.send(rs)
     }catch(err){
@@ -35,72 +31,42 @@ cloudinary.config({
   }
 
     let getAllCars = async (req, res) => {
-      try{
-        let result=await orm.Car.findAll({where : {status:"approved"}, include: {
-          model: orm.Image
-        }})
-        console.log(result)
-        res.json(result)
-      }catch(err){
-        res.json(err)
-      }
+    try {
+      const cars = await orm.Car.findAll({
+      where :{status:"approved"}
+      })
+      res.status(200).json(cars);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Failed to load resource");
+    }
     
   }
-  let getCarsByCondition= async (req, res) => {
-    console.log(req.body);
-    let obj={}
-    obj.where={}
-    if(req.body.year){
-      obj.where.year=req.body.year
-    }
-    if(req.body.transmission){
-      obj.where.transmission=req.body.transmission
-    }
   
-    if(req.body.body_style){
-      obj.where.body_style=req.body.body_style
+    const approveCar=async (req,res)=>{
+      try{
+        let result=await orm.Car.find({where : {id:req.params.id}}) .on('success', function (car) {
+          if (car) {
+            let y=new Date().setDate(new Date().getDate()+7)
+            car.update({
+              starting_day: new Date,
+              ending_day: new Date(y),
+              status:"approved"
+            })
+            .success(function () {})
+          }
+      })
+      res.send(result)
+    }catch(err){
+      res.send(err)
     }
-
-    try {
-      console.log(obj);
-      const cars = await orm.Car.findAll({
-        obj
-      });
-      res.status(200).json(cars);
-    } catch (err) {
-      res.status(500).send(err);
-    }
-
   }
-  
-
-  
-  const approveCar=async (req,res)=>{
-   
-    try{
-      let y=new Date().setDate(new Date().getDate()+7)
-      let x=new Date()
-      let b=new Date(y)
-      let result= await orm.Car.update({
-        starting_day: x,
-        ending_day: b,
-        status:"approved"},
-       { where : {id:req.params.id}})
-    res.status(200).send(result)
-        }
-catch(err){
-   console.log(err)
-  }
-}
   const getAllCars4admin=async(req,res)=>{
     try{
-    let result=await orm.Car.findAll({where : {status:"pending"}, include: {
-      model: orm.Image
-    }})
-    console.log(result)
-    res.json(result)
+    let result=await orm.Car.find({where : {status:"pending"}})
+  res.send(result)
   }catch(err){
-    res.json(err)
+    res.send(err)
   }
   }
   const getTheSeller=async(req,res)=>{
@@ -113,9 +79,14 @@ catch(err){
   }
   const declineCar=async (req,res)=>{
     try{
-      let result=await orm.Car.update(
-        {status:"declined"},
-        {where : {id:req.params.id}})
+      let result=await orm.Car.find({where : {id:req.params.id}}) .on('success', function (car) {
+        if (car) {
+          car.update({
+            status:"declined"
+          })
+          .success(function () {})
+        }
+    })
     res.send(result)
   }catch(err){
     res.send(err)
@@ -124,5 +95,5 @@ catch(err){
   
   module.exports={
     createAcar,
-    approveCar,getAllCars4admin,getTheSeller,declineCar,createAcar ,getAllCars ,getCarsByCondition 
+    approveCar,getAllCars4admin,getTheSeller,declineCar,createAcar ,getAllCars  
   }

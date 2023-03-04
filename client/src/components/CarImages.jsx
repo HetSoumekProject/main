@@ -3,7 +3,7 @@ import React from 'react'
 function CarImages(props) {
   return (
     <div>
-        <img src={props.image} />
+        <img style={{width:"150px",height:"150px"}} src={props.images[0].image} />
     </div>
   )
 }
