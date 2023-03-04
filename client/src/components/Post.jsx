@@ -95,7 +95,6 @@ function Post() {
         required
         type="file"
         onChange={(e) => {
-          console.log(e.target.files[0])
           setFileToBase(e.target.files[0])}}
       />
       <button
@@ -103,7 +102,7 @@ function Post() {
         onClick={() => {
           console.log(image)
           postACar(
-            // id,
+            1,
             brandName,
             description,
             initialPrice,

@@ -46,32 +46,6 @@ cloudinary.config({
       }
     
   }
-  let getCarsByCondition= async (req, res) => {
-    console.log(req.body);
-    let obj={}
-    obj.where={}
-    if(req.body.year){
-      obj.where.year=req.body.year
-    }
-    if(req.body.transmission){
-      obj.where.transmission=req.body.transmission
-    }
-  
-    if(req.body.body_style){
-      obj.where.body_style=req.body.body_style
-    }
-
-    try {
-      console.log(obj);
-      const cars = await orm.Car.findAll({
-        obj
-      });
-      res.status(200).json(cars);
-    } catch (err) {
-      res.status(500).send(err);
-    }
-
-  }
   
 
   
@@ -124,5 +98,5 @@ catch(err){
   
   module.exports={
     createAcar,
-    approveCar,getAllCars4admin,getTheSeller,declineCar,createAcar ,getAllCars ,getCarsByCondition 
+    approveCar,getAllCars4admin,getTheSeller,declineCar,createAcar ,getAllCars  
   }
