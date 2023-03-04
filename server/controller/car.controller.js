@@ -1,4 +1,3 @@
-
 const orm=require("../../database/orm")
 var cloudinary = require('cloudinary').v2;
 cloudinary.config({ 
@@ -6,8 +5,6 @@ cloudinary.config({
     api_key: '759392656761466', 
     api_secret: '9pYCbLJHNEY33IJU_l6JcxWI3c4' 
   });
-
-
   let createAcar=async (req,res)=>{
     let car={}
     car.body_style=req.body.bodyStyle
@@ -44,13 +41,13 @@ cloudinary.config({
       }catch(err){
         res.json(err)
       }
-    
-  }
-  
 
-  
+  }
+
+
+
   const approveCar=async (req,res)=>{
-   
+
     try{
       let y=new Date().setDate(new Date().getDate()+7)
       let x=new Date()
@@ -98,5 +95,5 @@ catch(err){
   
   module.exports={
     createAcar,
-    approveCar,getAllCars4admin,getTheSeller,declineCar,createAcar ,getAllCars  
+    approveCar,getAllCars4admin,getTheSeller,declineCar,getAllCars
   }

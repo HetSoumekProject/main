@@ -4,7 +4,6 @@ import AllPosts from './AllPosts';
 
 
 const Cars = () => {
-
     const[years,setYears]=useState("")
     const[transmission,setTransmission]= useState("");
     const[bodyStyle,setbodystyle]= useState("");
@@ -18,8 +17,8 @@ const Cars = () => {
     }
     useEffect(()=>{
    getCarsByCondition()
+   console.log(cars)
    let x=cars.filter(el=>{
-    console.log(el.transmission);
       return (el.year===parseInt(years)&&el.transmission===transmission)&&el.body_style===bodyStyle
     })
     console.log(x)
@@ -31,7 +30,6 @@ const Cars = () => {
       <h1>Auctions</h1>
       <select name="years" id="years"  onChange={(e) => {setYears(e.target.value)
       setRefresh(!refresh)}}>
-
         <option  value="2011"> 2011  </option>
         <option  value="2012"> 2012  </option>
         <option  value="2013"> 2013  </option>
@@ -56,7 +54,6 @@ const Cars = () => {
       </select>
       <select name="bodyStyle" id="bodyStyle" onChange={(e) => {setbodystyle(e.target.value)
       setRefresh(!refresh)} }>
-
       <option value="All"> All  </option>
       <option value="coupe"> coupe  </option>
       <option value="convertible"> convertible  </option>
@@ -82,5 +79,4 @@ const Cars = () => {
     </div>
   )
 }
-
 export default Cars
