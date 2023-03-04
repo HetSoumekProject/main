@@ -7,13 +7,12 @@ import ChatRoom from './components/ChatRoom';
 import AllPending from './components/AllPending.jsx'
 import Notify from './components/Notify.jsx'
 import WhatIs from './components/WhatIs.jsx';
-// import NavBar from './components/NavBar.jsx';
+import NavBar from './components/NavBar.jsx';
 import PrivatChat from './components/PrivatChat.jsx'
 import SuccessPayment from "./components/SuccessPayment.jsx"
 import FailPayment from './components/FailPayment.jsx';
 import Payment from './components/Payment.jsx';
 import Home from './components/Home.jsx';
-import AllPosts from './components/AllPosts';
 // import SuccessPayment from "./components/SuccessPayment.jsx"
 // import FailPayment from './components/FailPayment.jsx';
 // import Payment from './components/Payment.jsx';
@@ -24,12 +23,15 @@ import { Route,Routes } from 'react-router-dom'
 function App() {
 
 
- 
   return (
     <div className="App">
-    {/* <NavBar/> */}
-    {/* <NavBar/> */}
-    
+
+    <NavBar/>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+
     <Routes>
     <Route path="/" exact  element={<Home/>}/>
       <Route path="/Cars" element={<Cars/>}/>
