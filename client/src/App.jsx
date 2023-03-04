@@ -5,7 +5,7 @@ import AllPosts from './components/AllPosts.jsx';
 import ChatRoom from './components/ChatRoom';
 import AllPending from './components/AllPending.jsx'
 import WhatIs from './components/WhatIs.jsx';
-import NavBar from './components/NavBar.jsx';
+// import NavBar from './components/NavBar.jsx';
 import PrivatChat from './components/PrivatChat.jsx'
 import SuccessPayment from "./components/SuccessPayment.jsx"
 import FailPayment from './components/FailPayment.jsx';
