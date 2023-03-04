@@ -29,7 +29,7 @@ function Post() {
     image
   ) => {
     axios
-      .post(`api/car/postACar/${id}`, {
+      .post(`http://localhost:3000/api/car/postACar/${id}`, {
         brandName: brandName,
         description: description,
         initialPrice: initialPrice,
@@ -103,7 +103,7 @@ function Post() {
         onClick={() => {
           console.log(image)
           postACar(
-            id,
+            // id,
             brandName,
             description,
             initialPrice,

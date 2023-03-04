@@ -30,16 +30,6 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       allowNull: false,
      },
-     images :{
-      type: DataTypes.JSON,
-      allowNull: false,
-      get() {
-        return JSON.parse(this.getDataValue("proofResources"));
-      }, 
-      set(value) {
-        return this.setDataValue("proofResources", JSON.stringify(value));
-      }
-     },
      status:{
       type:DataTypes.STRING,
       allowNull:false,
@@ -56,11 +46,16 @@ module.exports = (sequelize, DataTypes) => {
       type : DataTypes.DATE,
 
      },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull:false,
-      foreignKey:true
-    },
+    // userId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull:false,
+    //   foreignKey:true
+    // },
+    // favouriteId:{
+    //   type: DataTypes.INTEGER,
+    //   allowNull:true,
+    //   foreignKey:true
+    // }
   });
 
   return Car;
