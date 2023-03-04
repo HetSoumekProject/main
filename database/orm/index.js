@@ -5,7 +5,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 //You should modify 'database', 'username' and 'password' to fit your own credentials.
 
 
-const sequelize = new Sequelize("Heet_soumekk","ahlem","password",
+const sequelize = new Sequelize("Heet_soumekk","root","s07249446667",
   {
     HOST: "localhost",
     dialect: "mysql",
@@ -127,6 +127,9 @@ db.Room.belongsTo(db.Car, {
 db.Room.hasMany(db.Message,{
   foreignKey: "roomId",
 })
+
+
+
 db.Message.belongsTo(db.Room,{
   as: "room",
   foreignKey: "roomId",

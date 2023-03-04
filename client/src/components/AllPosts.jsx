@@ -7,9 +7,6 @@ const AllPosts = ({car}) => {
     <div>
       <img style={{height:"100px",width:"100px"}} src={car.images[0].image}/>
     </div>
-
-   
   )
 }
-
 export default AllPosts

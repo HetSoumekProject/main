@@ -18,8 +18,10 @@ const Cars = () => {
     }
     useEffect(()=>{
    getCarsByCondition()
+
+   console.log(cars)
    let x=cars.filter(el=>{
-    console.log(el.transmission);
+
       return (el.year===parseInt(years)&&el.transmission===transmission)&&el.body_style===bodyStyle
     })
     console.log(x)
@@ -31,7 +33,6 @@ const Cars = () => {
       <h1>Auctions</h1>
       <select name="years" id="years"  onChange={(e) => {setYears(e.target.value)
       setRefresh(!refresh)}}>
-
         <option  value="2011"> 2011  </option>
         <option  value="2012"> 2012  </option>
         <option  value="2013"> 2013  </option>
@@ -44,19 +45,16 @@ const Cars = () => {
         <option  value="2020"> 2020  </option>
         <option  value="2021"> 2021  </option>
         <option  value="2022"> 2022  </option>
-        <option  value="2023"> 2023  </option> 
+        <option  value="2023"> 2023  </option>
       </select>
       <select name="transmission" id="transmission" onChange={(e) => {setTransmission(e.target.value)
       setRefresh(!refresh)} }>
-
-
       <option value="All"> All  </option>
       <option value="auto"> Automatic  </option>
       <option value="manual"> Manual  </option>
       </select>
       <select name="bodyStyle" id="bodyStyle" onChange={(e) => {setbodystyle(e.target.value)
       setRefresh(!refresh)} }>
-
       <option value="All"> All  </option>
       <option value="coupe"> coupe  </option>
       <option value="convertible"> convertible  </option>
@@ -70,6 +68,7 @@ const Cars = () => {
       <h5 >Ending soon  </h5>
       </div>
       {result.map((item , index) => {
+
       console.log("item",item)
       return(
         <div  key = {index}>
@@ -78,9 +77,9 @@ const Cars = () => {
 
       )
              
+
 })}
     </div>
   )
 }
-
 export default Cars
