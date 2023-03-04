@@ -29,7 +29,10 @@ function App() {
     <div className="App">
 
     <NavBar/>
-    
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
     <Routes>
     <Route path="/" exact  element={<Home/>}/>
       <Route path="/Cars" element={<Cars/>}/>

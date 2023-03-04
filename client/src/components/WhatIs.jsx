@@ -14,7 +14,7 @@ function WhatIs() {
             <nav className='static-sidebar'>
               <ul>
                 <li>
-                  <a className='aboutUs'  title='About Us' href='#section-about-us' className="btn btn-outline-success">
+                  <a className='aboutUs'  title='About Us' href='#section-about-us' class="btn btn-outline-success">
                     About Us
                   </a>
                 </li>
@@ -47,7 +47,7 @@ function WhatIs() {
           <div className='details-page'>
             <div className='col' >
             <h1 className='line'>___________________</h1>
-            <h1 className='whats' className="btn btn-outline-success">What's Chkoun Yzid?
+            <h1 className='whats' class="btn btn-outline-success">What's Chkoun Yzid?
 </h1>
 
 <Container className="facts " >
