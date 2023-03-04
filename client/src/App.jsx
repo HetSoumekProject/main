@@ -32,8 +32,10 @@ function App() {
     getCars() 
   } , [])
   const getCars = () => {
-    axios.get("http://127.0.0.1:3000/api/car/AllCars")
-    .then(response => {setData(response.data)})
+    axios.get("http://localhost:3000/api/car/AllCars")
+    .then(response => {
+      console.log(response)
+      setData(response.data)})
     .catch(error => {console.log(error)})
   }
 
@@ -44,11 +46,11 @@ function App() {
   return (
     <div className="App">
     {/* <NavBar/> */}
-    {/* <NavBar/> */}
+    <NavBar/>
     
     <Routes>
     <Route path="/" exact  element={<Home/>}/>
-      <Route path="/AllPosts" element={<AllPosts/>}/>
+      <Route path="/Cars" element={<Cars data={data}/>}/>
       <Route path="/Notify" element={<Notify/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
       <Route path="/WhatIs" element={<WhatIs/>}/>

@@ -5,7 +5,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 //You should modify 'database', 'username' and 'password' to fit your own credentials.
 
 
-const sequelize = new Sequelize("Heet_soumekk","ahlem","password",
+const sequelize = new Sequelize("Heet_soumekk","root","iLUVmFrlF<3",
   {
     HOST: "localhost",
     dialect: "mysql",
@@ -30,14 +30,14 @@ db.PrivateMessage = require("./privateMessages.model")(sequelize, DataTypes);
 db.Image=require("./image.model")(sequelize, DataTypes);
 
 
-db.User.hasMany(db.Car, {
-  foreignKey: "userId",
-});
-db.Car.belongsTo(db.User, {
-     as: "user",
-     foreignKey: "userId",
-     onDelete: "CASCADE",
-  });
+// db.User.hasMany(db.Car, {
+//   foreignKey: "userId",
+// });
+// db.Car.belongsTo(db.User, {
+//      as: "user",
+//      foreignKey: "userId",
+//      onDelete: "CASCADE",
+//   });
 db.User.hasMany(db.Message, {
   foreignKey: "userId",
 });
