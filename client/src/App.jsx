@@ -42,12 +42,12 @@ function App() {
 
 
 
-   
+ 
   return (
     <div className="App">
     {/* <NavBar/> */}
-    <NavBar/>
-    
+    {/* <NavBar/>
+     */}
     <Routes>
     <Route path="/" exact  element={<Home/>}/>
       <Route path="/Cars" element={<Cars data={data}/>}/>
