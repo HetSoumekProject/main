@@ -111,7 +111,7 @@ db.Car.belongsTo(db.Favourite,{
 db.Car.hasMany(db.Image,{
   foreignKey: "carId",
 })
-db.Image.belongsTo(db.Favourite,{
+db.Image.belongsTo(db.Car,{
   as: "car",
   foreignKey: "carId",
   onDelete: "CASCADE",

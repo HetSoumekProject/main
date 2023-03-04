@@ -12,12 +12,20 @@ import Auctions from './components/Auctions.jsx';
 import WhatIs from './components/WhatIs.jsx';
 import NavBar from './components/NavBar.jsx';
 import PrivatChat from './components/PrivatChat.jsx'
+import SuccessPayment from "./components/SuccessPayment.jsx"
+import FailPayment from './components/FailPayment.jsx';
+import Payment from './components/Payment.jsx';
+import Home from './components/Home.jsx';
+import Customers from './components/Customers';
+
 import AllPosts from './components/AllPosts';
 // import SuccessPayment from "./components/SuccessPayment.jsx"
 // import FailPayment from './components/FailPayment.jsx';
 // import Payment from './components/Payment.jsx';
 import Dashboard from './components/AdminDash.jsx';
 import { Route,Routes } from 'react-router-dom'
+
+
 function App() {
 
   const [data , setData] = useState([])
@@ -37,22 +45,28 @@ function App() {
    
   return (
     <div className="App">
+      { console.log(data,"hu")}
     <NavBar/>
-    <Dashboard/>
-    {/* <Notify/> */}
-    <Routes>
-    {/* <Route path="/" exact  element={<Home/>}/> */}
+    <Customers/>
+    {/* <Dashboard/> */}
+     {/* <WhatIs/> */}
+    {/* <Routes>
+    <Route path="/" exact  element={<Home/>}/>
       <Route path="/AllPosts" element={<AllPosts/>}/>
+      <Route path="/Notify" element={<Notify/>}/> */}
       {/* <Route path="/ChatRoom" element={<ChatRoom/>}/> */}
       {/* <Route path="/WhatIs" element={<WhatIs/>}/> */}
-      <Route path="/AllPending" element={<AllPending/>}/>
+      {/* <Route path="/AllPending" element={<AllPending/>}/>
       <Route path="/Post" element={<Post/>}/>
       <Route path="/PrivatChat" element={<PrivatChat/>}/>
-      {/* <Route path="/Payment" element={<Payment/>}/>
+      <Route path="/Payment" element={<Payment/>}/>
       <Route path="/FailPayment" element={<FailPayment/>}/>
-      <Route path="/SuccessPayment" element={<SuccessPayment/>}/> */}
+      <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
+      {/* <Route path="/Payment" element={<Payment/>}/> */}
+      {/* <Route path="/FailPayment" element={<FailPayment/>}/>
+      <Route path="/SuccessPayment" element={<SuccessPayment/>}/> 
       <Route path="/AdminDashboard" element={<Dashboard/>}/>
-    </Routes>
+    </Routes> */}
     </div>
   );
 }

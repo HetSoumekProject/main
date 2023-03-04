@@ -12,7 +12,7 @@ const Dashboard = (props) => {
 
 const renderView = () => {
   if(view === 'Customers') {
-    return <Customers data ={props.data} users={props.users}/>
+    return <Customers data ={props.data} user={props.user}/>
 } 
 if(view === 'Order') {
   return <AllPending carsPending={props.carsPending}/>
@@ -34,6 +34,7 @@ if(view === 'Order') {
     return (
       <>
         <div className="bars" style={expanded?{left: '60%'}:{left: '5%'}} onClick={()=>setExpaned(!expanded)}>
+          {console.log(props,"mehdi")}
           <UilBars />
         </div>
       <motion.div className='sidebar'
@@ -82,9 +83,7 @@ if(view === 'Order') {
               <label className="btn btn-outline-success"  onClick={() => setView('Admin')}>Admin</label>
             </li>
 
-            {/* <li>
-              <label onClick={() => setView('create')}>Create Blog</label>
-            </li> */}
+           
            
           </ul>
          

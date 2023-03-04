@@ -57,7 +57,7 @@ const NavBar =()=>{
             <Button className="btn btn-outline-success" type="submit">Search</Button>
           </form>
                   </div>
-                  <a className="btn btn-outline-success" aria-current="page" href="/signup">Sign Up</a>
+                  <a className="btn btn-outline-success" aria-current="page" href="./signup">Sign Up</a>
       </div>
    
     </nav>

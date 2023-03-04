@@ -21,7 +21,49 @@ const orm=require("../../database/orm")
       // res.status(500).send(error);
     }
  }
+ let getAllUsers=  async (req, res) => {
+    try {
+      const users = await orm.User.findAll({
+        
+      });
+      res.status(200).json(users);
+      console.log(users);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    }
+  }
+  let getOneUser= async (req, res) => {
+    try {
+      const user = await orm.User.findByPk(req.params.id);
+      res.status(200).json(user);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  }
+   let updateOneUser= async (req, res) => {
+    try {
+      const users = await orm.User.update(req.body,{
+        where: {id: req.params.id},
+      });
+      res.status(200).json(users);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  }
+   let deleteOneUser= async (req, res) => {
+    try {
+      const users = await orm.User.destroy({where:{id:req.params.id}});
+      res.status(200).json(users);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  }
   module.exports={
-    addUser
+    addUser,
+    deleteOneUser,
+    updateOneUser,
+    getOneUser,
+    getAllUsers
      
   }
