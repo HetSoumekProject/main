@@ -4,6 +4,7 @@ import AllPosts from './AllPosts';
 
 
 const Cars = () => {
+
     const[years,setYears]=useState("")
     const[transmission,setTransmission]= useState("");
     const[bodyStyle,setbodystyle]= useState("");
@@ -17,8 +18,10 @@ const Cars = () => {
     }
     useEffect(()=>{
    getCarsByCondition()
+
    console.log(cars)
    let x=cars.filter(el=>{
+
       return (el.year===parseInt(years)&&el.transmission===transmission)&&el.body_style===bodyStyle
     })
     console.log(x)
@@ -67,6 +70,7 @@ const Cars = () => {
       <h5 >Ending soon  </h5>
       </div>
       {result.map((item , index) => {
+
       console.log("item",item)
       return(
         <div  key = {index}>
@@ -75,6 +79,7 @@ const Cars = () => {
 
       )
              
+
 })}
     </div>
   )

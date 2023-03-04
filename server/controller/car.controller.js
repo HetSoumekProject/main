@@ -32,6 +32,7 @@ cloudinary.config({
   }
 
     let getAllCars = async (req, res) => {
+
       try{
         let result=await orm.Car.findAll({where : {status:"approved"}, include: {
           model: orm.Image
