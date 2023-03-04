@@ -22,6 +22,7 @@ import Dashboard from './components/AdminDash.jsx';
 import { Route,Routes } from 'react-router-dom'
 
 
+
 function App() {
 
 
@@ -50,6 +51,7 @@ function App() {
       {/* <Route path="/FailPayment" element={<FailPayment/>}/>
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/> */}
       <Route path="/AdminDashboard" element={<Dashboard/>}/>
+      <Route path="/Signup" element={<Signup/>}/>
     </Routes>
     
 
