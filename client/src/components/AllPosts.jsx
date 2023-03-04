@@ -6,7 +6,7 @@ const AllPosts = ({car}) => {
 
   return (
     <div>
-      <img src={car.image1}/>
+      <img src={car.image}/>
     </div>
 
    
