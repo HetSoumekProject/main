@@ -21,19 +21,12 @@ module.exports = (sequelize, DataTypes) => {
       type:DataTypes.STRING,
       allowNull: false,
     },
-    firebase_email:{
-      type:DataTypes.STRING,
-      allowNull: false,
-    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     }, 
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+   
 
      cin_f: {
       type: DataTypes.STRING,
