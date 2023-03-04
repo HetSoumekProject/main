@@ -11,12 +11,19 @@ import Auctions from './components/Auctions.jsx';
 import WhatIs from './components/WhatIs.jsx';
 import NavBar from './components/NavBar.jsx';
 import PrivatChat from './components/PrivatChat.jsx'
+import SuccessPayment from "./components/SuccessPayment.jsx"
+import FailPayment from './components/FailPayment.jsx';
+import Payment from './components/Payment.jsx';
+import Home from './components/Home.jsx';
+
 import AllPosts from './components/AllPosts';
 // import SuccessPayment from "./components/SuccessPayment.jsx"
 // import FailPayment from './components/FailPayment.jsx';
 // import Payment from './components/Payment.jsx';
 import Dashboard from './components/AdminDash.jsx';
 import { Route,Routes } from 'react-router-dom'
+
+
 function App() {
 
   const [data , setData] = useState([])
@@ -25,8 +32,10 @@ function App() {
     getCars() 
   } , [])
   const getCars = () => {
-    axios.get("http://127.0.0.1:3000/api/car/AllCars")
-    .then(response => {setData(response.data),console.log(response.data);})
+    axios.get("http://localhost:3000/api/car/AllCars")
+    .then(response => {
+      console.log(response)
+      setData(response.data)})
     .catch(error => {console.log(error)})
   }
 
@@ -36,16 +45,21 @@ function App() {
    
   return (
     <div className="App">
+    {/* <NavBar/> */}
     <NavBar/>
-    <Notify/>
+    
     <Routes>
-    {/* <Route path="/" exact  element={<Home/>}/> */}
-      <Route path="/AllPosts" element={<AllPosts/>}/>
+    <Route path="/" exact  element={<Home/>}/>
+      <Route path="/Cars" element={<Cars data={data}/>}/>
+      <Route path="/Notify" element={<Notify/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
       <Route path="/WhatIs" element={<WhatIs/>}/>
       <Route path="/AllPending" element={<AllPending/>}/>
       <Route path="/Post" element={<Post/>}/>
       <Route path="/PrivatChat" element={<PrivatChat/>}/>
+      <Route path="/Payment" element={<Payment/>}/>
+      <Route path="/FailPayment" element={<FailPayment/>}/>
+      <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
       {/* <Route path="/Payment" element={<Payment/>}/> */}
       {/* <Route path="/FailPayment" element={<FailPayment/>}/>
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/> */}

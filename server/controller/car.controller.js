@@ -35,15 +35,15 @@ cloudinary.config({
   }
 
     let getAllCars = async (req, res) => {
-    try {
-      const cars = await orm.Car.findAll({
-
-      })
-      res.status(200).json(cars);
-    } catch (error) {
-      console.log(error);
-      res.status(500).send("Failed to load resource");
-    }
+      try{
+        let result=await orm.Car.findAll({where : {status:"approved"}, include: {
+          model: orm.Image
+        }})
+        console.log(result)
+        res.json(result)
+      }catch(err){
+        res.json(err)
+      }
     
   }
   let getCarsByCondition= async (req, res) => {
@@ -76,7 +76,7 @@ cloudinary.config({
 
   
   const approveCar=async (req,res)=>{
-    // console.log(orm,"orm test");
+   
     try{
       let y=new Date().setDate(new Date().getDate()+7)
       let x=new Date()
