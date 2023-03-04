@@ -1,16 +1,12 @@
-import axios from 'axios';
-import React,{useEffect, useState} from 'react'
+
+import React from 'react'
 
 const AllPosts = ({car}) => {
-  console.log("that's",car);
 
   return (
     <div>
-      <img src={car.image1}/>
+      <img style={{height:"100px",width:"100px"}} src={car.images[0].image}/>
     </div>
-
-   
   )
 }
-
 export default AllPosts
