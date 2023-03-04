@@ -17,6 +17,7 @@ import AllPosts from './components/AllPosts';
 // import Payment from './components/Payment.jsx';
 import Dashboard from './components/AdminDash.jsx';
 import { Route,Routes } from 'react-router-dom'
+import Signup from "./components/auth/Signup.jsx"
 function App() {
 
   const [data , setData] = useState([])
@@ -26,7 +27,7 @@ function App() {
   } , [])
   const getCars = () => {
     axios.get("http://127.0.0.1:3000/api/car/AllCars")
-    .then(response => {setData(response.data),console.log(response.data);})
+    .then(response => {setData(response.data)})
     .catch(error => {console.log(error)})
   }
 
@@ -50,6 +51,7 @@ function App() {
       {/* <Route path="/FailPayment" element={<FailPayment/>}/>
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/> */}
       <Route path="/AdminDashboard" element={<Dashboard/>}/>
+      <Route path="/Signup" element={<Signup/>}/>
     </Routes>
     </div>
   );
