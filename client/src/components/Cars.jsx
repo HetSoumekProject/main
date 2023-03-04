@@ -1,7 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import AllPosts from './AllPosts';
+
+
 const Cars = () => {
+
     const[years,setYears]=useState("")
     const[transmission,setTransmission]= useState("");
     const[bodyStyle,setbodystyle]= useState("");
@@ -15,8 +18,10 @@ const Cars = () => {
     }
     useEffect(()=>{
    getCarsByCondition()
+
    console.log(cars)
    let x=cars.filter(el=>{
+
       return (el.year===parseInt(years)&&el.transmission===transmission)&&el.body_style===bodyStyle
     })
     console.log(x)
@@ -28,7 +33,6 @@ const Cars = () => {
       <h1>Auctions</h1>
       <select name="years" id="years"  onChange={(e) => {setYears(e.target.value)
       setRefresh(!refresh)}}>
-        <option  value="2000"> 2000  </option>
         <option  value="2011"> 2011  </option>
         <option  value="2012"> 2012  </option>
         <option  value="2013"> 2013  </option>
@@ -64,11 +68,16 @@ const Cars = () => {
       <h5 >Ending soon  </h5>
       </div>
       {result.map((item , index) => {
+
+      console.log("item",item)
       return(
         <div  key = {index}>
        <AllPosts car={item}/>
- </div>
+ </div>    
+
       )
+             
+
 })}
     </div>
   )
