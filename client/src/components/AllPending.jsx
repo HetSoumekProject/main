@@ -7,18 +7,21 @@ function AllPending() {
     const [carsPending,setPending]=useState([])
     const [refreshPending,setRefreshPending]=useState(true)
     const getALLPendingCars=()=>{
-        axios.get("/api/car/allPending").then(res=>setPending(res.data)).catch(err=>console.log(err));
+        axios.get("http://localhost:3000/api/car/allPending").then(res=>{ 
+        setPending(res.data)
+        console.log(carsPending)}).catch(err=>console.log(err));
     }
     useEffect(()=>{
         getALLPendingCars()
-    },[refreshPending])
+    },[])
   return (
     <div>
         <h1>AllPending</h1>
         {carsPending.map((el,i)=>{
+            return(
             <div>
-                <OneCarPending setRefreshPending={setRefreshPending} refreshPending={refreshPending} car={el} key={i}/>
-            </div>
+                <OneCarPending  setRefreshPending={setRefreshPending} refreshPending={refreshPending} car={el} key={i}/>
+            </div>)
         })}
     </div>
   )

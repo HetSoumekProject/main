@@ -38,6 +38,9 @@ io.on("connection", (socket) => {
   socket.on("join_room", (data) => {
     socket.join(data);
   });
+  socket.on("send_message", (data) => {
+    io.to(data.room).emit("receive_message", data);
+  });
   socket.on('bid', (data) => {
     // Emit notification event to all connected clients
     io.emit('notification', [  `Somebody bid on ${data.carName}` ]);

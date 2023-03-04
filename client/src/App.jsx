@@ -7,7 +7,6 @@ import Cars from './components/Cars';
 import ChatRoom from './components/ChatRoom';
 import AllPending from './components/AllPending.jsx'
 import Notify from './components/Notify.jsx'
-import Auctions from './components/Auctions.jsx';
 import WhatIs from './components/WhatIs.jsx';
 import NavBar from './components/NavBar.jsx';
 import PrivatChat from './components/PrivatChat.jsx'
@@ -26,27 +25,16 @@ import { Route,Routes } from 'react-router-dom'
 
 function App() {
 
-  const [data , setData] = useState([])
-
-  useEffect(() => {
-    getCars() 
-  } , [])
-  const getCars = () => {
-    axios.get("http://127.0.0.1:3000/api/car/AllCars")
-    .then(response => {setData(response.data),console.log(response.data);})
-    .catch(error => {console.log(error)})
-  }
-
-
-
 
    
   return (
     <div className="App">
-    <NavBar/>
+    {/* <NavBar/> */}
+    {/* <NavBar/> */}
+    
     <Routes>
     <Route path="/" exact  element={<Home/>}/>
-      <Route path="/AllPosts" element={<AllPosts/>}/>
+      <Route path="/Cars" element={<Cars/>}/>
       <Route path="/Notify" element={<Notify/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
       <Route path="/WhatIs" element={<WhatIs/>}/>
