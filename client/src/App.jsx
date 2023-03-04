@@ -1,6 +1,6 @@
 
 import './App.css';
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import Post from './components/Post.jsx';
 import Cars from './components/Cars';
 import ChatRoom from './components/ChatRoom';

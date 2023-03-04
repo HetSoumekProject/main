@@ -33,6 +33,7 @@ const Cars = () => {
       <h1>Auctions</h1>
       <select name="years" id="years"  onChange={(e) => {setYears(e.target.value)
       setRefresh(!refresh)}}>
+        <option  value="2010"> 2010  </option>
         <option  value="2011"> 2011  </option>
         <option  value="2012"> 2012  </option>
         <option  value="2013"> 2013  </option>
@@ -45,10 +46,12 @@ const Cars = () => {
         <option  value="2020"> 2020  </option>
         <option  value="2021"> 2021  </option>
         <option  value="2022"> 2022  </option>
-        <option  value="2023"> 2023  </option>
+        <option  value="2023"> 2023  </option> 
       </select>
       <select name="transmission" id="transmission" onChange={(e) => {setTransmission(e.target.value)
       setRefresh(!refresh)} }>
+
+
       <option value="All"> All  </option>
       <option value="auto"> Automatic  </option>
       <option value="manual"> Manual  </option>
