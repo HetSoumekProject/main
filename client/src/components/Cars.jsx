@@ -45,10 +45,12 @@ const Cars = () => {
         <option  value="2020"> 2020  </option>
         <option  value="2021"> 2021  </option>
         <option  value="2022"> 2022  </option>
-        <option  value="2023"> 2023  </option>
+        <option  value="2023"> 2023  </option> 
       </select>
       <select name="transmission" id="transmission" onChange={(e) => {setTransmission(e.target.value)
       setRefresh(!refresh)} }>
+
+
       <option value="All"> All  </option>
       <option value="auto"> Automatic  </option>
       <option value="manual"> Manual  </option>
