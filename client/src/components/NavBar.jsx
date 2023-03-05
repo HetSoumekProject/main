@@ -13,7 +13,7 @@ import SignUp from "./auth/SignUp";
 import Home from "./Home";
 import WhatIs from "./WhatIs";
 import { Link } from "react-router-dom";
-//...
+//.....
 
 const NavBar =(props)=>{
   console.log('hh',props);
