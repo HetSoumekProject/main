@@ -1,4 +1,4 @@
-import '../App.css';
+import '../ChatRoom.css';
 import io from "socket.io-client";
 import { useEffect, useState, useCallback } from "react";
 

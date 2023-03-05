@@ -48,9 +48,7 @@ if(view === 'monthly') {
 if(view === 'order') {
   return <AllPending/>
 }
-if(view === 'Signup') {
-  return <Signup/>
-}
+
 // if(view === 'create') {
 //   return <Form/>
 // }
@@ -86,6 +84,7 @@ if(view === 'Signup') {
       <Route path="/FailPayment" element={<FailPayment/>}/>
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/> 
       <Route path="/NavBar" element={<NavBar/>}/>
+      <Route path="/Customers" element={<Customers/>}/>
 
       <Route path="/AdminDashboard" element={<Dashboard setView={setView}/>}/>
       {/* <Route path="/Signup" element={<Signup/>}/> */}

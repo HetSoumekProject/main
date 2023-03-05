@@ -12,7 +12,8 @@ import {Navbar, Nav, Button} from 'react-bootstrap';
 import SignUp from "./auth/SignUp";
 import Home from "./Home";
 import WhatIs from "./WhatIs";
-
+import { Link } from "react-router-dom";
+//.....
 
 const NavBar =(props)=>{
   console.log('hh',props);
@@ -71,7 +72,7 @@ const NavBar =(props)=>{
             <Button className="btn btn-outline-success" type="submit">Search</Button>
           </form>
                   </div>
-                  <a className="btn btn-outline-success" aria-current="page" onClick={() => props.setView("SignUp")}>Sign Up</a>
+                  <a className="btn btn-outline-success" aria-current="page" > <Link to ="/SignUp">Sign Up </Link></a>
       </div>
    
     </nav>
