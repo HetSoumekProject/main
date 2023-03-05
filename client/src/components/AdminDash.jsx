@@ -5,7 +5,7 @@ import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
 import AllPending from "./AllPending";
 import Monthly from "./Monthly";
-import Signup from "./auth/Signup";
+import Signup from "./auth/SignUp";
 import NavBar from "./NavBar";
 
 

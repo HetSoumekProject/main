@@ -3,6 +3,7 @@
 
 import './App.css';
 import React,{useEffect,useState} from 'react';
+import SignUp from './components/auth/SignUp';
 import Post from './components/Post.jsx';
 import Cars from './components/Cars.jsx';
 import ChatRoom from './components/ChatRoom';
@@ -15,8 +16,9 @@ import SuccessPayment from "./components/SuccessPayment.jsx"
 import FailPayment from './components/FailPayment.jsx';
 import Payment from './components/Payment.jsx';
 import Home from './components/Home.jsx';
-import Customers from './components/Customers';
-import Signup from "../src/components/auth/Signup"
+import Customers from './components/Customers'
+import Login from './components/auth/Login';
+
 import AllPosts from './components/AllPosts';
 // import SuccessPayment from "./components/SuccessPayment.jsx"
 // import FailPayment from './components/FailPayment.jsx';
@@ -64,16 +66,13 @@ if(view === 'Signup') {
     <br></br>
     <br></br>
     <br></br>
-    {/* <NavBar/> */}
-      {/* <Customers/> */}
-      <Dashboard setView={setView}/>
-      {/* <WhatIs/> */}
-      <Routes>
-    
-      
-      
-      <Route path="/Home" exact  element={<Home/>}/>
+    {/* <Dashboard setView={setView}/> */}
+
+    <Routes>
+    <Route path="/" exact  element={<Home/>}/>
       <Route path="/Cars" element={<Cars/>}/>
+      <Route path="/SignUp" element={<SignUp/>}/>
+      <Route path="/Login" element={<Login/>}/>
       <Route path="/Notify" element={<Notify/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
       <Route path="/WhatIs" element={<WhatIs/>}/>
@@ -87,7 +86,8 @@ if(view === 'Signup') {
       <Route path="/FailPayment" element={<FailPayment/>}/>
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/> 
       <Route path="/NavBar" element={<NavBar/>}/>
-      <Route path="/AdminDashboard" element={<Dashboard/>}/>
+
+      <Route path="/AdminDashboard" element={<Dashboard setView={setView}/>}/>
       {/* <Route path="/Signup" element={<Signup/>}/> */}
     </Routes> 
     
