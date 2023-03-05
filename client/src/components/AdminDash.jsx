@@ -4,23 +4,14 @@ import Customers from "./Customers";
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
 import AllPending from "./AllPending";
+import Monthly from "./Monthly";
+import Signup from "./auth/Signup";
+import NavBar from "./NavBar";
+
 
 const Dashboard = (props) => {
         const [expanded, setExpaned] = useState(true)
-        const [view,setView] = useState("all")
-
-
-const renderView = () => {
-  if(view === 'Customers') {
-    return <Customers data ={props.data} user={props.user}/>
-} 
-if(view === 'Order') {
-  return <AllPending carsPending={props.carsPending}/>
-}
-// if(view === 'create') {
-//   return <Form/>
-// }
-}
+        
   
     const sidebarVariants = {
       true: {
@@ -56,31 +47,32 @@ if(view === 'Order') {
        
           <ul className="list">
             <li >
-              <label className="btn btn-outline-success"  onClick={() => setView('Customers')}>Customers</label>
+              <label className="btn btn-outline-success"  onClick={() => props.setView('Customers')}>Customers</label>
             </li>
             <br/>
             <li >
-              <label  className="btn btn-outline-success"  onClick={() => setView("Order")}>Order</label>
+              <label  className="btn btn-outline-success"  onClick={() => props.setView("order")}>Order</label>
             </li>
             <br/>
             <li >
-              <label className="btn btn-outline-success"  onClick={() => setView('Transactions')}>Transactions</label>
+              <label className="btn btn-outline-success"  onClick={() => props.setView('Transactions')}>Transactions</label>
             </li>
             <br/>
             <li >
-              <label className="btn btn-outline-success"  onClick={() => setView('OverView')}>OverView</label>
+              <label className="btn btn-outline-success"  onClick={() => props.setView('#')}>OverView</label>
+            </li>
+            <br/>
+           
+            <li >
+              <label className="btn btn-outline-success"  onClick={() => props.setView('Daily')}>Daily</label>
             </li>
             <br/>
             <li >
-              <label className="btn btn-outline-success"  onClick={() => setView('Daily')}>Daily</label>
+              <label className="btn btn-outline-success"  onClick={() => props.setView('monthly')}>Monthly</label>
             </li>
             <br/>
             <li >
-              <label className="btn btn-outline-success"  onClick={() => setView('Monthly')}>Monthly</label>
-            </li>
-            <br/>
-            <li >
-              <label className="btn btn-outline-success"  onClick={() => setView('Admin')}>Admin</label>
+              <label className="btn btn-outline-success"  onClick={() => props.setView('Admin')}>Admin</label>
             </li>
 
            
@@ -89,7 +81,7 @@ if(view === 'Order') {
          
         </nav>
     
-      {renderView()}
+     
     </div>
       </motion.div>
       </>

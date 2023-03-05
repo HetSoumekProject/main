@@ -1,10 +1,10 @@
-/* eslint-disable array-callback-return */
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import Chart from "chart.js/auto";
+import { Bar } from 'react-chartjs-2';
 import OneCarPending from './OneCarPending.jsx'
 
-function AllPending() {
-
+const AllPending=()=> {
     const [carsPending,setPending]=useState([])
     const [refreshPending,setRefreshPending]=useState(true)
     const getALLPendingCars=()=>{
@@ -13,16 +13,15 @@ function AllPending() {
     useEffect(()=>{
         getALLPendingCars()
     },[refreshPending])
+ 
+
+
+
   return (
     <div>
-        <h1>AllPending</h1>
-        {carsPending.map((el,i)=>{
-            <div>
-                <OneCarPending setRefreshPending={setRefreshPending} refreshPending={refreshPending} car={el} key={i}/>
-            </div>
-        })}
+      <h2>Auction Data</h2>
+     
     </div>
-  )
-}
-
+  );
+};
 export default AllPending

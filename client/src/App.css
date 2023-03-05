@@ -715,7 +715,7 @@ orange circle
 .orange01{
     width: 27vw;
     height: 27vw;
-    background: #f47141;
+    background: #50da3eb8;
     z-index: 1;
     top: 50%;
     left: 50%;
@@ -751,11 +751,11 @@ orange circle
     }
     50.01% {
         transform: rotate(-360deg);
-        background: #f47141;
+        background: #50da3eb8;
     }
     100% {
         transform: rotate(-360deg);
-        background: #f47141;
+        background: #50da3eb8;
     }
 }
 

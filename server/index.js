@@ -14,6 +14,8 @@ const bidsRoute = require('./routes/car.js')
 const messagesRoute = require('./routes/car.js')
 const notifivationsRoute = require('./routes/car.js')
 const favouriteRoute = require('./routes/favourite.js')
+const paymentRoute = require('./routes/payment.js')
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -24,6 +26,8 @@ app.use('/api/room', roomsRoute);
 app.use('/api/bids', bidsRoute);
 app.use('/api/messages', messagesRoute);
 app.use('/api/notifications', notifivationsRoute);
+app.use('/api',paymentRoute)
+
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 const server = http.createServer(app);
@@ -37,7 +41,7 @@ io.on("connection", (socket) => {
   console.log(`User Connected: ${socket.id}`);
   socket.on("join_room", (data) => {
     socket.join(data);
-  })
+  });
   socket.on("send_message", (data) => {
     io.to(data.room).emit("receive_message", data);
   });

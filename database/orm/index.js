@@ -30,14 +30,14 @@ db.PrivateMessage = require("./privateMessages.model")(sequelize, DataTypes);
 db.Image=require("./image.model")(sequelize, DataTypes);
 
 
-db.User.hasMany(db.Car, {
-  foreignKey: "userId",
-});
-db.Car.belongsTo(db.User, {
-     as: "user",
-     foreignKey: "userId",
-     onDelete: "CASCADE",
-  });
+// db.User.hasMany(db.Car, {
+//   foreignKey: "userId",
+// });
+// db.Car.belongsTo(db.User, {
+//      as: "user",
+//      foreignKey: "userId",
+//      onDelete: "CASCADE",
+//   });
 db.User.hasMany(db.Message, {
   foreignKey: "userId",
 });
@@ -127,6 +127,9 @@ db.Room.belongsTo(db.Car, {
 db.Room.hasMany(db.Message,{
   foreignKey: "roomId",
 })
+
+
+
 db.Message.belongsTo(db.Room,{
   as: "room",
   foreignKey: "roomId",
