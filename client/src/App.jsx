@@ -1,6 +1,7 @@
 
 import './App.css';
 import React,{useEffect,useState} from 'react';
+import Signup from './components/auth/Signup';
 import Post from './components/Post.jsx';
 import Cars from './components/Cars';
 import ChatRoom from './components/ChatRoom';
@@ -33,8 +34,8 @@ function App() {
     <br></br>
     <br></br>
 
-    <Routes>
-    <Route path="/" exact  element={<Home/>}/>
+      <Routes>
+      <Route path="/" exact  element={<Home/>}/>
       <Route path="/Cars" element={<Cars/>}/>
       <Route path="/Notify" element={<Notify/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>

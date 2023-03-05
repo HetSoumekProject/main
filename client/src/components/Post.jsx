@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import css from "./post.css"
 function Post() {
   const [brandName, setBrandName] = useState("");
   const [description, setDescription] = useState("");
@@ -42,8 +43,10 @@ function Post() {
       .catch((err) => console.log(err));
   };
   return (
-    <div>
+    
+    <div className="athlete-list-item">
       <h1>Post a car</h1>
+      <br/>
       <form>
       <input
         required
@@ -51,24 +54,33 @@ function Post() {
         placeholder="brand name"
         onChange={(e) => setBrandName(e.target.value)}
       />
-      <input
+            <br/>
+            <br/>
+      <textarea
         required
         type="text"
         placeholder="description"
         onChange={(e) => setDescription(e.target.value)}
       />
+            <br/>
+            <br/>
       <input
         required
         type="number"
         placeholder="initial price"
         onChange={(e) => setInitialPrice(e.target.value)}
       />
+            <br/>
+            <br/>
       <input
         required
         type="number"
         placeholder="year"
         onChange={(e) => setYear(e.target.value)}
       />
+            <br/>
+            <br/>
+
       <select
         required
         name="transmission"
@@ -77,6 +89,9 @@ function Post() {
         <option value="auto">auto</option>
         <option value="manual">manual</option>
       </select>
+          <br/>
+          <br/>
+
       <select
         required
         name="bodyStyle"
@@ -90,14 +105,22 @@ function Post() {
         <option value="truck">truck</option>
         <option value="van">van/minivan</option>
         <option value="wagon">wagon</option>
-      </select>
+        </select>
+        <br/>
+        <br/>
+
       <input
         required
         type="file"
         onChange={(e) => {
           setFileToBase(e.target.files[0])}}
       />
+            <br/>
+            <br/>
+
       <button
+     
+     class="button-55" role="button"
         type="button"
         onClick={() => {
           console.log(image)
