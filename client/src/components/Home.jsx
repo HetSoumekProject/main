@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+
 function Home() {
   return (
     <div>
@@ -43,7 +44,7 @@ function Home() {
           <div className="double_wrapper02 orange02"><div className="double_wrapper01 orange01"></div></div>
         </div>
         <div className="name">
-          <p>CKOUN YZID</p>
+         
           <span className="name_circle01"></span>
           <span className="name_circle02"></span>
         </div>

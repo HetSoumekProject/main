@@ -1,14 +1,13 @@
-import axios, { all } from 'axios';
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import AllPosts from './AllPosts';
 
 
 const Cars = () => {
+    const[years,setYears]=useState("")
+    const[transmission,setTransmission]= useState("");
+    const[bodyStyle,setbodystyle]= useState("");
     const [cars,setCars]=useState([])
-    const[years,setYears]=useState()
-    const[transmission,setTransmission]= useState();
-    const[bodyStyle,setbodystyle]= useState();
-  
     const [result,setResult]=useState([])
     const [refresh,setRefresh]=useState(true)
     const getCarsByCondition=()=>{
@@ -18,6 +17,7 @@ const Cars = () => {
     }
     useEffect(()=>{
    getCarsByCondition()
+
    console.log(cars)
    let x=cars.filter(el=>{
 
@@ -33,7 +33,7 @@ const Cars = () => {
       <div class="chosen-wrapper" data-js="custom-scroll">
       <select name="years" id="years" class="chosen-select" data-placeholder="select a year" onChange={(e) => {setYears(e.target.value)
       setRefresh(!refresh)}}>
-        <option  value="2011"> 2011  </option>
+        <option  value="2000"> 2000  </option>
         <option  value="2012"> 2012  </option>
         <option  value="2013"> 2013  </option>
         <option  value="2014"> 2014  </option>

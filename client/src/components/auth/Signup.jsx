@@ -1,66 +1,84 @@
-import { createUserWithEmailAndPassword} from 'firebase/auth'
-import React, { useState } from 'react'
-import { auth } from '../../firebase'
-import axios from 'axios'
-import Signinwithgoogle from "./Signingoogle"
-
-const Signup = ()=>{
-    const [email,setEmail]= useState("")
-    const [password,setPassword]= useState("")
-    const [firstname,setFirstname]= useState("")
-    const [lastname,setLastname]= useState("")
-    const [phonenumber,setPhonenumber]= useState("")
-    const submitup =(e)=>{
-     e.preventDefault()
-     createUserWithEmailAndPassword(auth,email,password)
-     .then((userInfo)=>{
-        const user = userInfo.user;
-                   alert("account created");
-               console.log(user)
-               console.log(userInfo);
-               return user
-     })
-     .then((user)=>{
-        console.log(user.uid,'uid');
-        axios.post('http://localhost:3000/api/user/AddUser',{
-            email:user.email,
-            password:password,
-            first_name:firstname,
-            last_name:lastname,
-            phone_number:phonenumber,
-            firebase_id:user.uid
-        })
-     })
-     .then((user)=>{
-        localStorage.setItem('curentuser','user.uid');
-     })
-     
-      
-
-     .catch((error)=>{
-        console.log(error);
-     })
+import React, { useEffect, useState } from 'react'
+import css from"./auth.css"
+import {getAuth,createUserWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth'
+import { initializeApp } from 'firebase/app'
+import { useNavigate,Link, Navigate } from 'react-router-dom';
+import { getFirestore, collection, addDoc } from "firebase/firestore";
+import {firebaseConfig} from './config.js'
+const app = initializeApp(firebaseConfig);
+const auth =getAuth(app)
+const initialState = {email:'',password:'',confirmPassword:''}
+const SignUp = () => {
+  const navigate=useNavigate()
+    const [error,setError]=useState("")
+    const[input, setInput]=useState(initialState)
+    const handleChange = ({target}) =>{setInput(
+      {...input,[target.name]:target.value});
+      setError("")
     }
-    return (
-        <div>
-            <form onSubmit={submitup} >
-                <h1>Sign up</h1>
-                <input type="text" placeholder="enter first name" value={firstname} 
-                onChange={(e)=> setFirstname(e.target.value) }  ></input>
-                <input type="text" placeholder="enter last name" value={lastname} 
-                onChange={(e)=> setLastname(e.target.value) }  ></input>
-                <input type="email" placeholder="enter email" value={email} 
-                onChange={(e)=> setEmail(e.target.value) }  ></input>
-                <input type="password" placeholder="enter password" value={password} 
-                onChange={(e)=> setPassword(e.target.value) } ></input>
-                <input type="number" placeholder="phone number" value={phonenumber} 
-                onChange={(e)=> setPhonenumber(e.target.value) } ></input>
-                <button  type='submit' >submit</button>
-                <Signinwithgoogle />
-                
-            </form>
-        </div>
-    )
+    const handleSubmit =(e) =>{
+      e.preventDefault();
+      const db = getFirestore(app);
+      const dbRef = collection(db, "users");
+      const data = {
+       email:input.email,
+       password:input.password
+     };
+     addDoc(dbRef, data)
+.then(() => {
+    console.log("Document has been added successfully")
+})
+.catch(error => {
+    console.log(error);
+})
+      if(input.password!=input.confirmPassword)
+      {setError('password not match')}
+    else{
+      const {user }
+      =createUserWithEmailAndPassword(auth,input.email, input.password)
+     .then((res)=>{
+      console.log(res)
+      setInput(initialState)
+      alert("sign up succefully")})
+      .catch ((error)=>{
+        console.log(error)
+        setError(error.message)
+      })
+    }
+      }
+  return (
+    <div className='signup'>
+        <h1>signup page</h1>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor='email'>Email</label>
+          <input
+            type="text"
+            value={input.email}
+            autoComplete="off"
+            onChange={handleChange}
+            name="email"/>
+        <label htmlFor='password'>Password</label>
+        <input
+        type="password"
+        value={input.password}
+        autoComplete="off"
+        onChange={handleChange}
+        name="password"/>
+        <label htmlFor='confirmPassword'> confirm Password</label>
+        <input
+            type="password"
+            value={input.confirmPassword}
+            autoComplete="off"
+            onChange={handleChange}
+            name="confirmPassword"/>
+       <button type='submit'>Submit</button>
+       <p className='form__error'>{error}</p>
+<p>
+  Already a user ? <Link to ="/Login">Log in </Link>
+</p>
+      </form>
+    </div>
+  )
 }
-
-export default Signup 
+export default SignUp;
+export const db = getFirestore(app);
