@@ -28,7 +28,7 @@
 /*=================
 Basic style
 ==================*/
-html, body{
+/* html, body{
     position: relative;
     width: 100%;
     height: 100%;
@@ -45,11 +45,11 @@ img{
 }
 h1,h2,p{
     margin: 0;
-}
+} */
 /*===================
 animation01
 ====================*/
-.animation01{
+/* .animation01{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -111,8 +111,8 @@ animation01
     height: 0.15vw;
     transform-origin: left;
     animation: animation01_line02 0.2s linear 0.8s forwards;
-}
-@keyframes animation01_line02{
+} */
+/* @keyframes animation01_line02{
     0%{
         transform: scale3d(0,1,1);
         opacity: 1;
@@ -150,8 +150,8 @@ animation01
     left: -99%;
     margin: 0 auto;
     animation: animation01_circle 0.3s linear 0.65s forwards;
-}
-.circle04{
+} */
+/* .circle04{
     top: -4%;
     left: 96%;
     margin: 0 auto;
@@ -212,8 +212,8 @@ animation01
     100%{
         transform: rotate(0);
     }
-}
-.wave_box{
+} */
+/* .wave_box{
     position: absolute;
     top: 0;
     right: 0;
@@ -273,8 +273,8 @@ animation01
     height: 0.7vw;
     animation: animation_line01 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 1.9s;
     transform-origin: top;
-}
-@keyframes animation_line01{
+} */
+/* @keyframes animation_line01{
     0%{
         transform: translateY(0);
         opacity: 1;
@@ -312,8 +312,8 @@ animation01
         transform: translateX(1.5vw);
         opacity: 1;
     }
-}
-.animation_line05{
+} */
+/* .animation_line05{
     top: 110%;
     left: 0;
     width: 0.2vw;
@@ -405,12 +405,12 @@ animation01
         transform: scale3d(0.15,0.15,0.15);
         opacity: 0;
     }
-}
+} */
 
 /*===================
 animation02
 ====================*/
-.animation02{
+/* .animation02{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -499,8 +499,8 @@ animation02
     height: 100%;
     animation: double_content forwards;
     opacity: 0;
-}
-.double_wrapper01{
+} */
+/* .double_wrapper01{
     display: block;
     position: absolute;
     border-radius: 50%;
@@ -519,11 +519,11 @@ animation02
     position: absolute;
     background: #212022;
     z-index: 3;
-}
+} */
 /*============
 dotted circle
 ============*/
-.dotted02{
+/* .dotted02{
     top: 0;
     animation-delay: 4.2s;
 }
@@ -600,11 +600,11 @@ dotted circle
         transform: rotate(0deg);
         opacity: 0;
     }
-}
+} */
 /*============
 white circle
 ============*/
-.white02{
+/* .white02{
     top: -100%;
     animation-delay: 4.7s;
 }
@@ -651,11 +651,11 @@ white circle
         transform: rotate(-360deg);
         background: #fff;
     }
-}
+} */
 /*============
 gray circle
 ============*/
-.gray02{
+/* .gray02{
     top: -200%;
     animation-delay: 4.8s;
 }
@@ -704,11 +704,11 @@ gray circle
         transform: rotate(-360deg);
         background: #808184;
     }
-}
+} */
 /*============
 orange circle
 ============*/
-.orange02{
+/* .orange02{
     top: -300%;
     animation-delay: 5.3s;
 }
@@ -782,8 +782,8 @@ orange circle
     height: 30vw;
     animation: name 1.0s cubic-bezier(0.165, 0.84, 0.44, 1) 5.9s forwards;
     opacity: 0;
-}
-.name p{
+} */
+/* .name p{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -820,4 +820,4 @@ orange circle
     100%{
         opacity: 1;
     }
-}
+} */

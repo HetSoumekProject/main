@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import './AdminDash.css'
-import { UilSignOutAlt } from "@iconscout/react-unicons";
-import { SidebarData } from "./Icon";
+import Customers from "./Customers";
 import { UilBars } from "@iconscout/react-unicons";
 import { motion } from "framer-motion";
+import AllPending from "./AllPending";
+import Monthly from "./Monthly";
+import Signup from "./auth/Signup";
+import NavBar from "./NavBar";
 
-const Dashboard = () => {
-    const [selected, setSelected] = useState(0);
-  
-    const [expanded, setExpaned] = useState(true)
+
+const Dashboard = (props) => {
+        const [expanded, setExpaned] = useState(true)
+        
   
     const sidebarVariants = {
       true: {
@@ -22,38 +25,64 @@ const Dashboard = () => {
     return (
       <>
         <div className="bars" style={expanded?{left: '60%'}:{left: '5%'}} onClick={()=>setExpaned(!expanded)}>
+          {console.log(props,"mehdi")}
           <UilBars />
         </div>
       <motion.div className='sidebar'
       variants={sidebarVariants}
-      animate={window.innerWidth<=768?`${expanded}`:''}
+     
       >
         {/* logo */}
         <div className="logo">
           
           <span>
-            Auc<span>t</span>ions
+            Auctions
           </span>
         </div>
   
-        <div className="menu">
-          {SidebarData.map((item, index) => {
-            return (
-              <div
-                className={selected === index ? "menuItem active" : "menuItem"}
-                key={index}
-                onClick={() => setSelected(index)}
-              >
-                <item.icon />
-                <span>{item.heading}</span>
-              </div>
-            );
-          })}
+        <div>
+        <nav className="nav">
+         
           
-          <div className="menuItem">
-            {/* <UilSignOutAlt /> */}
-          </div>
-        </div>
+       
+          <ul className="list">
+            <li >
+              <label className="btn btn-outline-success"  onClick={() => props.setView('Customers')}>Customers</label>
+            </li>
+            <br/>
+            <li >
+              <label  className="btn btn-outline-success"  onClick={() => props.setView("order")}>Order</label>
+            </li>
+            <br/>
+            <li >
+              <label className="btn btn-outline-success"  onClick={() => props.setView('Transactions')}>Transactions</label>
+            </li>
+            <br/>
+            <li >
+              <label className="btn btn-outline-success"  onClick={() => props.setView('#')}>OverView</label>
+            </li>
+            <br/>
+           
+            <li >
+              <label className="btn btn-outline-success"  onClick={() => props.setView('Daily')}>Daily</label>
+            </li>
+            <br/>
+            <li >
+              <label className="btn btn-outline-success"  onClick={() => props.setView('monthly')}>Monthly</label>
+            </li>
+            <br/>
+            <li >
+              <label className="btn btn-outline-success"  onClick={() => props.setView('Admin')}>Admin</label>
+            </li>
+
+           
+           
+          </ul>
+         
+        </nav>
+    
+     
+    </div>
       </motion.div>
       </>
     );

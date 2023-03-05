@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { auth } from '../../firebase'
 import axios from 'axios'
 import Signinwithgoogle from "./Signingoogle"
+import './auth.css'
 
 const Signup = ()=>{
     const [email,setEmail]= useState("")
@@ -45,17 +46,17 @@ const Signup = ()=>{
         <div>
             <form onSubmit={submitup} >
                 <h1>Sign up</h1>
-                <input type="text" placeholder="enter first name" value={firstname} 
+                <br/> <input type="text" placeholder="enter first name" value={firstname} 
                 onChange={(e)=> setFirstname(e.target.value) }  ></input>
-                <input type="text" placeholder="enter last name" value={lastname} 
+              <br/>  <input type="text" placeholder="enter last name" value={lastname} 
                 onChange={(e)=> setLastname(e.target.value) }  ></input>
-                <input type="email" placeholder="enter email" value={email} 
+             <br/>   <input type="email" placeholder="enter email" value={email} 
                 onChange={(e)=> setEmail(e.target.value) }  ></input>
-                <input type="password" placeholder="enter password" value={password} 
+              <br/>  <input type="password" placeholder="enter password" value={password} 
                 onChange={(e)=> setPassword(e.target.value) } ></input>
-                <input type="number" placeholder="phone number" value={phonenumber} 
+              <br/>  <input type="number" placeholder="phone number" value={phonenumber} 
                 onChange={(e)=> setPhonenumber(e.target.value) } ></input>
-                <button  type='submit' >submit</button>
+              <br/>  <button  type='submit' >submit</button>
                 <Signinwithgoogle />
                 
             </form>
