@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Chart from "chart.js/auto";
 import { Bar } from 'react-chartjs-2';
+
 const Customers = () => {
    return (
     <div>

@@ -8,6 +8,7 @@ import Monthly from "./Monthly";
 import Signup from "./auth/SignUp";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
+
 const Dashboard = () => {
         const [expanded, setExpaned] = useState(true)
     const sidebarVariants = {
@@ -22,6 +23,7 @@ const Dashboard = () => {
     return (
       <>
         <div className="bars" style={expanded?{left: '60%'}:{left: '5%'}} onClick={()=>setExpaned(!expanded)}>
+
           <UilBars />
         </div>
       <motion.div className='sidebar'

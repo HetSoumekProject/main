@@ -25,6 +25,7 @@ import Monthly from './components/Monthly';
 import Daily from './components/Daily';
 import Transactions from './components/Transaction';
 import OverView from './components/OverView';
+
 function App() {
   const [user,setUser]=useState({})
   return (
@@ -34,6 +35,7 @@ function App() {
     <br></br>
     <br></br>
     <br></br>
+
       <Routes>
       <Route path="/" exact  element={<Home/>}/>
       <Route path="/Notify" element={<Notify/>}/>
@@ -54,6 +56,7 @@ function App() {
       <Route path="/Customers" element={<Customers/>}/>
       <Route path="/Transactions" element={<Transactions/>}/>
       <Route path="/OverView" element={<OverView/>}/>
+
       <Route path="/Cars" element={<Cars user={user}/>}/>
       <Route path="/AdminDashboard" element={<Dashboard />}/>
       <Route path="/Login" element={<Login setUser={setUser}/>}/>

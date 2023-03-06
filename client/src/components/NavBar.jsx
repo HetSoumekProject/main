@@ -9,7 +9,7 @@ import './NavBar.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 // eslint-disable-next-line no-unused-vars
 import {Navbar, Nav, Button} from 'react-bootstrap';
-import SignUp from "./auth/SignUp";
+import Signup from "./auth/SignUp";
 import Home from "./Home";
 import WhatIs from "./WhatIs";
 import { Link } from "react-router-dom";
