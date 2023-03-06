@@ -4,7 +4,7 @@ import CarImages from './CarImages'
 import ChatRoom from './ChatRoom'
 import Payment from './Payment'
 
-function OneCar() {
+function OneCar(props) {
 const [amount,setAmount]=useState(0)
  const placeAbid=(amount,carId,userId)=>{
     axios.post("http://localhost:3000/bid/placeabid",{
@@ -34,8 +34,8 @@ const [amount,setAmount]=useState(0)
             place a bid
             <input type="number" placeholder='amount' onChange={(e)=>setAmount(e.target.value)}/>
             <button type='button' onClick={()=>{
-                placeAbid(amount,carId,userId)
-            }}></button>
+                placeAbid(amount,props.car.id,props.user.id)
+            }}> Bid</button>
             <Payment/>
         </div>
         </div>

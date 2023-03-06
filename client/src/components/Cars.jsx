@@ -2,14 +2,18 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import AllPosts from './AllPosts';
 import css from "./cars.css"
+import OneCar from './OneCar.jsx'
 
-const Cars = () => {
+
+const Cars = (props) => {
     const[years,setYears]=useState("all")
     const[transmission,setTransmission]= useState("all");
     const[bodyStyle,setbodystyle]= useState("all");
     const [cars,setCars]=useState([])
     const [result,setResult]=useState([])
     const [refresh,setRefresh]=useState(true)
+    const[view,setView]=useState(false)
+    const [car,setCar]=useState({})
     const getCarsByCondition=()=>{
       axios.get('http://localhost:3000/api/car/AllCars').then(res=>{
         console.log(res.data)
@@ -75,21 +79,25 @@ const Cars = () => {
       </select>
       </div>
       <div div className="grid-container ">
+      </div>
+      {view||<div>
       {result.map((item , index) => {
 
       console.log("item",item)
       return(
         <div  key = {index}>
-       <AllPosts car={item}/>
-  
-  </div>
+       <AllPosts setCar={setCar} view={view} setView={setView} car={item}/>
+       
+ </div>    
 
       )
              
 
 })}
+</div>}
+{view &&<OneCar user={props.user} car={car} />}
     </div>
-    </div>  
+     
   )
 }
 export default Cars

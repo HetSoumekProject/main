@@ -7,7 +7,7 @@ import { signInWithEmailAndPassword,getAuth } from 'firebase/auth'
 const initialState = { email: '', password: '' }
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
-const Login = () => {
+const Login = (props) => {
   const navigate = useNavigate()
   const [input, setInput] = useState(initialState)
   const [error, setError] = useState('')
@@ -22,7 +22,7 @@ const Login = () => {
       .then((userCred) => {
         setInput(initialState)
         navigate("/")
-        console.log(userCred);
+        props.setUser(userCred);
       })
       .catch((error) => {
         setError(error.message)

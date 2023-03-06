@@ -5,7 +5,7 @@ function CarImages(props) {
   return (
     <div>
 
-        <img className='pendin' style={{width:"200px",height:"100px"}} src={props.image} />
+        <img className='pendin' style={{width:"400px",height:"200px"}} src={props.image.image} />
 
     </div>
   )

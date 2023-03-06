@@ -32,7 +32,7 @@ import Monthly from './components/Monthly';
 
 function App() {
   const [view,setView] = useState("all")
-
+  const [user,setUser]= useState({})
 
 const renderView = () => {
  
@@ -68,9 +68,9 @@ if(view === 'order') {
 
     <Routes>
     <Route path="/" exact  element={<Home/>}/>
-      <Route path="/Cars" element={<Cars/>}/>
+      <Route path="/Cars" element={<Cars user={user}/>}/>
       <Route path="/SignUp" element={<SignUp/>}/>
-      <Route path="/Login" element={<Login/>}/>
+      <Route path="/Login" element={<Login setUser={setUser}/>}/>
       <Route path="/Notify" element={<Notify/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
       <Route path="/WhatIs" element={<WhatIs/>}/>
