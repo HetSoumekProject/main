@@ -1,21 +1,17 @@
-.athlete-list-item {
+.post-item {
     width: 590px;
     min-height: 250px;
     margin: auto;
     margin-top: 10px;
     border: 1px solid #87bba254;
-    background-image: linear-gradient(144deg,#C9E4CA, #87BBA2 50%,#558288);
+    background-image: linear-gradient(144deg,#558288e5, #3c6064 50%,#364a58);
     border-radius: 4px;
     padding: 20px 60px;
     box-shadow: 0 0 1em #80808066;
   }
   h1 {
-    font-size: 36px;
-    font-weight: bold;
-    color: #364a58;
-    margin-bottom: 20px;
-    text-align: center;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Merriweather', serif; text-align: center;color: white;    text-align: center;
+    margin-top: 29px;
   }
   input {
     padding: 10px;
@@ -93,4 +89,27 @@
 
 .button-55:focus {
   box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+select{
+  padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f2f2f2;
+    transition: box-shadow 0.2s ease-in-out;
+}
+option{
+
+ padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f2f2f2;
+    transition: box-shadow 0.2s ease-in-out;
 }

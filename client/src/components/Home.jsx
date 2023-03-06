@@ -1,5 +1,5 @@
 import React from 'react';
-
+import css from './home.css'
 
 
 function Home() {
@@ -44,7 +44,8 @@ function Home() {
           <div className="double_wrapper02 orange02"><div className="double_wrapper01 orange01"></div></div>
         </div>
         <div className="name">
-         
+           
+           <p>HET-SOUMEK</p>
           <span className="name_circle01"></span>
           <span className="name_circle02"></span>
         </div>

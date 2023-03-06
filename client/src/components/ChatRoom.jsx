@@ -38,6 +38,7 @@ const ChatRoom=()=> {
   }, [socket, handleReceiveMessage]);
 
   return (
+    <div className='contai'>
     <div className="message_container">
       <input
         placeholder="Room Number..."
@@ -45,7 +46,7 @@ const ChatRoom=()=> {
           setRoom(event.target.value);
         }}
       />
-      <button onClick={joinRoom}> Join Room</button>
+      <button className='button-55' onClick={joinRoom}> Join Room</button>
       <input className="text_input" 
         placeholder="Message..."
         onChange={(event) => {
@@ -53,11 +54,12 @@ const ChatRoom=()=> {
          
         }}
       />
-      <button onClick={sendMessage}> Send Message</button>
+      <button className='button-55' onClick={sendMessage}> Send Message</button>
       <h1> Messages:</h1>
       {messages.map((message, index) => (
         <p className='message' key={index}>{message}</p>
       ))}
+    </div>
     </div>
   );
 }

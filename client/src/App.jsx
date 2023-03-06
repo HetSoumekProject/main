@@ -59,7 +59,7 @@ if(view === 'order') {
     <div className="App">
 
     <NavBar setView={setView}/>
-    <Home/>
+    {/* <Home/> */}
     <br></br>
     <br></br>
     <br></br>
@@ -85,7 +85,6 @@ if(view === 'order') {
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/> 
       <Route path="/NavBar" element={<NavBar/>}/>
       <Route path="/Customers" element={<Customers/>}/>
-
       <Route path="/AdminDashboard" element={<Dashboard setView={setView}/>}/>
       {/* <Route path="/Signup" element={<Signup/>}/> */}
     </Routes> 

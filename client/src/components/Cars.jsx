@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import AllPosts from './AllPosts';
+import css from "./cars.css"
 import OneCar from './OneCar.jsx'
 
 
@@ -14,7 +15,7 @@ const Cars = (props) => {
     const[view,setView]=useState(false)
     const [car,setCar]=useState({})
     const getCarsByCondition=()=>{
-      axios.get(`http://localhost:3000/api/car/AllCars`).then(res=>{
+      axios.get('http://localhost:3000/api/car/AllCars').then(res=>{
         console.log(res.data)
         setCars(res.data)
       }).catch(err=>console.log(err))
@@ -34,14 +35,14 @@ const Cars = (props) => {
    setResult(x)
     },[refresh])
   return (
-    <div className='box' >
-      <div>
-      <h1 className='car'>Auctions</h1>
-      <div id='selects' class="chosen-wrapper" data-js="custom-scroll">
-      <select  name="years" id="years" class="chosen-select" data-placeholder="select a year" onChange={(e) => {setYears(e.target.value)
+    <div >
+      <div className='select-container'>
+      <h1>Auctions:</h1>
+      
+      <select name="years" id="years" class="chosen-select" data-placeholder="select a year" onChange={(e) => {setYears(e.target.value)
       setRefresh(!refresh)}}>
-        <option value="all" >All</option>
-        <option  value="2000"> 2000  </option>
+        <option  value="2010"> 2010  </option>
+        <option  value="2011"> 2011  </option>
         <option  value="2012"> 2012  </option>
         <option  value="2013"> 2013  </option>
         <option  value="2014"> 2014  </option>
@@ -55,9 +56,8 @@ const Cars = (props) => {
         <option  value="2022"> 2022  </option>
         <option  value="2023"> 2023  </option> 
       </select>
-      </div>
-      <div className='selects'>
-      <select className='select' name="transmission" id="transmission" onChange={(e) => {setTransmission(e.target.value)
+    
+      <select name="transmission" id="transmission" onChange={(e) => {setTransmission(e.target.value)
       setRefresh(!refresh)} }>
 
 
@@ -78,7 +78,7 @@ const Cars = (props) => {
       <option value="wagon"> wagon  </option>
       </select>
       </div>
-      <h5 className='car' >Ending soon  </h5>
+      <div div className="grid-container ">
       </div>
       {view||<div>
       {result.map((item , index) => {
@@ -97,6 +97,7 @@ const Cars = (props) => {
 </div>}
 {view &&<OneCar user={props.user} car={car} />}
     </div>
+     
   )
 }
 export default Cars
