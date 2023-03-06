@@ -35,7 +35,7 @@ const Monthly=()=> {
 
   return (
     <div>
-      <h2>Auction Data</h2>
+      <h2>Monthly Auctions</h2>
       <Bar
           data={data}
           width={2}

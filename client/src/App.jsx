@@ -26,51 +26,31 @@ import AllPosts from './components/AllPosts';
 import Dashboard from './components/AdminDash.jsx';
 import { Route,Routes } from 'react-router-dom'
 import Monthly from './components/Monthly';
+import Daily from './components/Daily';
+import Transactions from './components/Transaction';
+import OverView from './components/OverView';
 
 
 
 
 function App() {
-  const [view,setView] = useState("all")
-  const [user,setUser]= useState({})
-
-const renderView = () => {
- 
-  if(view === 'Home') {
-    return <Home />
-}
-  if(view === 'Customers') {
-    return <Customers />
-} 
-if(view === 'monthly') {
-  return <Monthly/>
-}
-if(view === 'order') {
-  return <AllPending/>
-}
-
-// if(view === 'create') {
-//   return <Form/>
-// }
-}
-
-
+  
   return (
     <div className="App">
 
-    <NavBar setView={setView}/>
-    {/* <Home/> */}
+    <NavBar />
+    <Home/>
     <br></br>
     <br></br>
     <br></br>
     <br></br>
-    {/* <Dashboard setView={setView}/> */}
-
-    <Routes>
-    <Route path="/" exact  element={<Home/>}/>
-      <Route path="/Cars" element={<Cars user={user}/>}/>
-      <Route path="/SignUp" element={<SignUp/>}/>
-      <Route path="/Login" element={<Login setUser={setUser}/>}/>
+    
+      <Routes>
+    
+      
+      
+      <Route path="/Home" exact  element={<Home/>}/>
+      <Route path="/Cars" element={<Cars/>}/>
       <Route path="/Notify" element={<Notify/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
       <Route path="/WhatIs" element={<WhatIs/>}/>
@@ -84,12 +64,15 @@ if(view === 'order') {
       <Route path="/FailPayment" element={<FailPayment/>}/>
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/> 
       <Route path="/NavBar" element={<NavBar/>}/>
+      <Route path="/AdminDashboard" element={<Dashboard/>}/>
+      <Route path="/Daily" element={<Daily/>}/>
+      <Route path="/Monthly" element={<Monthly/>}/>
       <Route path="/Customers" element={<Customers/>}/>
-      <Route path="/AdminDashboard" element={<Dashboard setView={setView}/>}/>
+      <Route path="/Transactions" element={<Transactions/>}/>
+      <Route path="/OverView" element={<OverView/>}/>
       {/* <Route path="/Signup" element={<Signup/>}/> */}
     </Routes> 
-    
-{renderView()}
+
     </div>
   );
 }
