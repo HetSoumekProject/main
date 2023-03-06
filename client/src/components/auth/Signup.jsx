@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import css from"./auth.css"
+import css from"./signup.css"
 import {getAuth,createUserWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth'
 import { initializeApp } from 'firebase/app'
 import { useNavigate,Link, Navigate } from 'react-router-dom';
@@ -47,8 +47,9 @@ const SignUp = () => {
     }
       }
   return (
-    <div className='signup'>
-        <h1>signup page</h1>
+    <div className='signin-signup'>
+      <div className='sinlog'>
+        <h1>signUp</h1>
         <form onSubmit={handleSubmit}>
           <label htmlFor='email'>Email</label>
           <input
@@ -73,10 +74,11 @@ const SignUp = () => {
             name="confirmPassword"/>
        <button type='submit'>Submit</button>
        <p className='form__error'>{error}</p>
-<p>
+<p className='pp'>
   Already a user ? <Link to ="/Login">Log in </Link>
 </p>
       </form>
+    </div>
     </div>
   )
 }
