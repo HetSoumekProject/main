@@ -39,7 +39,7 @@ function App() {
     <div className="App">
 
     <NavBar />
-    <Home/>
+    {/* <Home/> */}
     <br></br>
     <br></br>
     <br></br>
