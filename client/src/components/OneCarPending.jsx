@@ -22,7 +22,7 @@ function OneCarPending(props) {
     <div>
         <div>
         {/* <h1>{seller}</h1> */}
-        {props.car.images.map((el,i)=><div><CarImages image={el} key={i}/></div>)}
+        {props.car.images.map((el,i)=><div ><CarImages image={el} key={i}/></div>)}
         <h1>{props.car.brand_name}</h1>
         <h1>{props.car.description}</h1> 
         <h1>{props.car.initial_price}</h1>
@@ -31,11 +31,11 @@ function OneCarPending(props) {
         <h1>{props.car.body_style}</h1>
         <h1>{props.car.min_amount}</h1>
         </div>
-    <div>
-        <button type='button' onClick={()=>{
+    <div className='but'>
+        <button className='bouton' type='button' onClick={()=>{
             approve(props.car.id)
         }}>Approve</button>
-        <button type='button' onClick={()=>{
+        <button className='bouton' type='button' onClick={()=>{
             decline(props.car.id)
         }}>Decline</button>
     </div>

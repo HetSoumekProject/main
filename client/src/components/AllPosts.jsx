@@ -5,7 +5,7 @@ const AllPosts = ({car}) => {
 
   return (
     <div>
-      <img style={{height:"100px",width:"100px"}} src={car.images[0].image}/>
+      <img className='imaget' style={{height:"200px",width:"300px"}} src={car.images[0].image}/>
     </div>
   )
 }

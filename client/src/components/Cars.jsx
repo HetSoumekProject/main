@@ -4,14 +4,15 @@ import AllPosts from './AllPosts';
 
 
 const Cars = () => {
-    const[years,setYears]=useState("")
-    const[transmission,setTransmission]= useState("");
-    const[bodyStyle,setbodystyle]= useState("");
+    const[years,setYears]=useState("all")
+    const[transmission,setTransmission]= useState("all");
+    const[bodyStyle,setbodystyle]= useState("all");
     const [cars,setCars]=useState([])
     const [result,setResult]=useState([])
     const [refresh,setRefresh]=useState(true)
     const getCarsByCondition=()=>{
       axios.get(`http://localhost:3000/api/car/AllCars`).then(res=>{
+        console.log(res.data)
         setCars(res.data)
       }).catch(err=>console.log(err))
     }
@@ -20,19 +21,23 @@ const Cars = () => {
 
    console.log(cars)
    let x=cars.filter(el=>{
-
-      return (el.year===parseInt(years)&&el.transmission===transmission)&&el.body_style===bodyStyle
+    if((years!="all"&&transmission!="all")&&bodyStyle!="all"){
+      return (el.year===parseInt(years)&&el.transmission===transmission)&&el.body_style===bodyStyle}
+      else{
+        return el
+      }
     })
     console.log(x)
    setResult(x)
     },[refresh])
   return (
-    <div >
+    <div className='box' >
       <div>
-      <h1>Auctions</h1>
-      <div class="chosen-wrapper" data-js="custom-scroll">
-      <select name="years" id="years" class="chosen-select" data-placeholder="select a year" onChange={(e) => {setYears(e.target.value)
+      <h1 className='car'>Auctions</h1>
+      <div id='selects' class="chosen-wrapper" data-js="custom-scroll">
+      <select  name="years" id="years" class="chosen-select" data-placeholder="select a year" onChange={(e) => {setYears(e.target.value)
       setRefresh(!refresh)}}>
+        <option value="all" >All</option>
         <option  value="2000"> 2000  </option>
         <option  value="2012"> 2012  </option>
         <option  value="2013"> 2013  </option>
@@ -48,17 +53,18 @@ const Cars = () => {
         <option  value="2023"> 2023  </option> 
       </select>
       </div>
-      <select name="transmission" id="transmission" onChange={(e) => {setTransmission(e.target.value)
+      <div className='selects'>
+      <select className='select' name="transmission" id="transmission" onChange={(e) => {setTransmission(e.target.value)
       setRefresh(!refresh)} }>
 
 
-      <option value="All"> All  </option>
+      <option value="all"> All  </option>
       <option value="auto"> Automatic  </option>
       <option value="manual"> Manual  </option>
       </select>
-      <select name="bodyStyle" id="bodyStyle" onChange={(e) => {setbodystyle(e.target.value)
+      <select className='select' name="bodyStyle" id="bodyStyle" onChange={(e) => {setbodystyle(e.target.value)
       setRefresh(!refresh)} }>
-      <option value="All"> All  </option>
+      <option value="all"> All  </option>
       <option value="coupe"> coupe  </option>
       <option value="convertible"> convertible  </option>
       <option value="hatchback"> hatchback  </option>
@@ -68,7 +74,8 @@ const Cars = () => {
       <option value="van">van </option>
       <option value="wagon"> wagon  </option>
       </select>
-      <h5 >Ending soon  </h5>
+      </div>
+      <h5 className='car' >Ending soon  </h5>
       </div>
       {result.map((item , index) => {
 
