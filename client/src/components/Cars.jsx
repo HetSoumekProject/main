@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import AllPosts from './AllPosts';
-
+import css from "./cars.css"
 
 const Cars = () => {
     const[years,setYears]=useState("")
@@ -28,12 +28,13 @@ const Cars = () => {
     },[refresh])
   return (
     <div >
-      <div>
-      <h1>Auctions</h1>
-      <div class="chosen-wrapper" data-js="custom-scroll">
+      <div className='select-container'>
+      <h1>Auctions:</h1>
+      
       <select name="years" id="years" class="chosen-select" data-placeholder="select a year" onChange={(e) => {setYears(e.target.value)
       setRefresh(!refresh)}}>
-        <option  value="2000"> 2000  </option>
+        <option  value="2010"> 2010  </option>
+        <option  value="2011"> 2011  </option>
         <option  value="2012"> 2012  </option>
         <option  value="2013"> 2013  </option>
         <option  value="2014"> 2014  </option>
@@ -47,7 +48,7 @@ const Cars = () => {
         <option  value="2022"> 2022  </option>
         <option  value="2023"> 2023  </option> 
       </select>
-      </div>
+    
       <select name="transmission" id="transmission" onChange={(e) => {setTransmission(e.target.value)
       setRefresh(!refresh)} }>
 
@@ -68,21 +69,23 @@ const Cars = () => {
       <option value="van">van </option>
       <option value="wagon"> wagon  </option>
       </select>
-      <h5 >Ending soon  </h5>
       </div>
+      <div div className="grid-container ">
       {result.map((item , index) => {
 
       console.log("item",item)
       return(
         <div  key = {index}>
        <AllPosts car={item}/>
- </div>    
+  
+  </div>
 
       )
              
 
 })}
     </div>
+    </div>  
   )
 }
 export default Cars

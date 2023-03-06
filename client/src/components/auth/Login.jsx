@@ -1,4 +1,4 @@
-import css from "./auth.css"
+import css from "./login.css"
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { initializeApp } from "firebase/app"

@@ -44,8 +44,9 @@ function Post() {
   };
   return (
     
-    <div className="athlete-list-item">
-      <h1>Post a car</h1>
+    <div className="post-item {
+      ">
+      <h1>sell your car </h1>
       <br/>
       <form>
       <input
