@@ -3,9 +3,10 @@
 
 import './App.css';
 import React,{useEffect,useState} from 'react';
+import SignUp from './components/auth/SignUp.jsx';
 import Post from './components/Post.jsx';
 import Cars from './components/Cars.jsx';
-import ChatRoom from './components/ChatRoom';
+import ChatRoom from './components/ChatRoom.jsx';
 import AllPending from './components/AllPending.jsx'
 import Notify from './components/Notify.jsx'
 import WhatIs from './components/WhatIs.jsx';
@@ -15,8 +16,9 @@ import SuccessPayment from "./components/SuccessPayment.jsx"
 import FailPayment from './components/FailPayment.jsx';
 import Payment from './components/Payment.jsx';
 import Home from './components/Home.jsx';
-import Customers from './components/Customers';
-import Signup from "../src/components/auth/Signup"
+import Customers from './components/Customers.jsx'
+import Login from './components/auth/Login.jsx';
+
 import AllPosts from './components/AllPosts';
 // import SuccessPayment from "./components/SuccessPayment.jsx"
 // import FailPayment from './components/FailPayment.jsx';
@@ -42,11 +44,11 @@ function App() {
     <br></br>
     <br></br>
     <br></br>
-    {/* <NavBar/> */}
-      {/* <Customers/> */}
-      <Dashboard />
-      {/* <WhatIs/> */}
-      <Routes>     
+    
+      <Routes>
+    
+      
+      
       <Route path="/Home" exact  element={<Home/>}/>
       <Route path="/Cars" element={<Cars/>}/>
       <Route path="/Notify" element={<Notify/>}/>

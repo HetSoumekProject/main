@@ -48,6 +48,17 @@ try{
     res.json(err)
 }
 }
+const placeAbid=async (req,res)=>{
+    try{
+        let result= await orm.Bid.create({
+            carId:req.body.carId,userId:req.body.userId,
+            amount:req.body.amount,
+        })
+        res.s=json(result)
+    }catch(err){
+        res.json(err)
+    }
+}
 module.exports={
-    getAllBids4aCar,bidOnAcar,getTheHighestBidOnCar,getCarMin
+    getAllBids4aCar,bidOnAcar,getTheHighestBidOnCar,getCarMin,placeAbid
 }

@@ -2,15 +2,18 @@
 /* eslint-disable jsx-a11y/role-has-required-aria-props */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import Post from "./Post";
+import Cars from "./Cars"
 // import WhatIs from "./WhatIs";
 import './NavBar.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 // eslint-disable-next-line no-unused-vars
 import {Navbar, Nav, Button} from 'react-bootstrap';
-import Signup from "./auth/Signup";
+import Signup from "./auth/SignUp";
 import Home from "./Home";
 import WhatIs from "./WhatIs";
-
+import { Link } from "react-router-dom";
+//.....
 
 const NavBar =(props)=>{
   console.log('hh',props);
@@ -22,7 +25,7 @@ const NavBar =(props)=>{
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
         <img src="https://ymimg1.b8cdn.com/uploads/article/3786/pictures/2777122/Hidden_car_logo.png" width="30" height="30"  className=" rounded-circle" alt=""/>
-          Chkoun Yzid</a>
+        <span> Chkoun Yzid </span></a>
        
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           
@@ -33,7 +36,7 @@ const NavBar =(props)=>{
             Auctions
               </a>
               <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="#">live Auctions</a></li>
+                <li><a className="dropdown-item" href="./Cars">live Auctions</a></li>
                 <li><a className="dropdown-item" href="#">Past Auctions </a></li>
                 <li><hr className="dropdown-divider"/></li>
             <li><a className="dropdown-item" href="#">Live Show</a></li>
@@ -59,7 +62,7 @@ const NavBar =(props)=>{
               <a className="btn btn-outline-success" aria-current="page" href="./WhatIs">what's Chkoun Yzid</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" href="#">Sell a Car</a>
+              <a className="nav-link active" href="./Post">Sell a Car</a>
             </li>
            
            
@@ -69,7 +72,7 @@ const NavBar =(props)=>{
             <Button className="btn btn-outline-success" type="submit">Search</Button>
           </form>
                   </div>
-                  <a className="btn btn-outline-success" aria-current="page" onClick={() => props.setView("Signup")}>Sign Up</a>
+                  <a className="btn btn-outline-success" aria-current="page" > <Link to ="/SignUp">Sign Up </Link></a>
       </div>
    
     </nav>
