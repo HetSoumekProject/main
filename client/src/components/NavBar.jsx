@@ -53,7 +53,7 @@ const NavBar =(props)=>{
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" onClick={() => props.setView("Home")}>Home</a>
+              <a className="nav-link active" aria-current="page" href="./Home">Home</a>
             </li>
             <li className="nav-item">
               <a className="btn btn-outline-success" aria-current="page" href="./WhatIs">what's Chkoun Yzid</a>

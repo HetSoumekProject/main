@@ -7,9 +7,10 @@ import AllPending from "./AllPending";
 import Monthly from "./Monthly";
 import Signup from "./auth/Signup";
 import NavBar from "./NavBar";
+import { Link } from "react-router-dom";
 
 
-const Dashboard = (props) => {
+const Dashboard = () => {
         const [expanded, setExpaned] = useState(true)
         
   
@@ -25,7 +26,7 @@ const Dashboard = (props) => {
     return (
       <>
         <div className="bars" style={expanded?{left: '60%'}:{left: '5%'}} onClick={()=>setExpaned(!expanded)}>
-          {console.log(props,"mehdi")}
+          
           <UilBars />
         </div>
       <motion.div className='sidebar'
@@ -47,32 +48,32 @@ const Dashboard = (props) => {
        
           <ul className="list">
             <li >
-              <label className="btn btn-outline-success"  onClick={() => props.setView('Customers')}>Customers</label>
+              <label className="btn btn-outline-success"  > <Link to="/Customers">Customers</Link></label>
             </li>
             <br/>
             <li >
-              <label  className="btn btn-outline-success"  onClick={() => props.setView("order")}>Order</label>
+              <label  className="btn btn-outline-success"  ><Link to="/AllPending">Order</Link></label>
             </li>
             <br/>
             <li >
-              <label className="btn btn-outline-success"  onClick={() => props.setView('Transactions')}>Transactions</label>
+              <label className="btn btn-outline-success"  ><Link to="/Transactions">Transactions</Link></label>
             </li>
             <br/>
             <li >
-              <label className="btn btn-outline-success"  onClick={() => props.setView('#')}>OverView</label>
+              <label className="btn btn-outline-success"  ><Link to ="/OverView">OverView</Link></label>
             </li>
             <br/>
            
             <li >
-              <label className="btn btn-outline-success"  onClick={() => props.setView('Daily')}>Daily</label>
+              <label className="btn btn-outline-success"  ><Link to="/Daily">Daily</Link></label>
             </li>
             <br/>
             <li >
-              <label className="btn btn-outline-success"  onClick={() => props.setView('monthly')}>Monthly</label>
+              <label className="btn btn-outline-success"  ><Link to ="/Monthly">Monthly</Link></label>
             </li>
             <br/>
             <li >
-              <label className="btn btn-outline-success"  onClick={() => props.setView('Admin')}>Admin</label>
+              <label className="btn btn-outline-success"  ><Link to="/AdminSet">Admin</Link></label>
             </li>
 
            

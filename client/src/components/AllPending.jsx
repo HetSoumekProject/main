@@ -19,7 +19,7 @@ const AllPending=()=> {
 
   return (
     <div>
-      <h2>Auction Data</h2>
+      <h2>AllPending</h2>
      
     </div>
   );
