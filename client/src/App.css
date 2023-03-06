@@ -1,0 +1,37 @@
+.imaget{
+    border: black solid;
+    border-radius: 10px;
+}
+.box{
+    margin: 100px;
+    
+}
+#selects, .selects{
+    display: flex;
+    justify-content: center;
+}
+.select, #years, .bouton{
+    margin-right: 10px;
+    margin-top: 10px;
+    width: 100px;
+    height: 30px;
+    background-color: rgba(0, 160, 160, 0.354);
+    border-radius: 5px;
+    
+    
+
+}
+.car{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.pendin{
+    margin-left: 42%;
+    border: black solid;
+    border-radius: 5px;
+}
+.but{
+    display: flex;
+    justify-content: center;
+
+}

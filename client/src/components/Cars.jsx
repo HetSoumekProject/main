@@ -4,14 +4,15 @@ import AllPosts from './AllPosts';
 import css from "./cars.css"
 
 const Cars = () => {
-    const[years,setYears]=useState("")
-    const[transmission,setTransmission]= useState("");
-    const[bodyStyle,setbodystyle]= useState("");
+    const[years,setYears]=useState("all")
+    const[transmission,setTransmission]= useState("all");
+    const[bodyStyle,setbodystyle]= useState("all");
     const [cars,setCars]=useState([])
     const [result,setResult]=useState([])
     const [refresh,setRefresh]=useState(true)
     const getCarsByCondition=()=>{
-      axios.get(`http://localhost:3000/api/car/AllCars`).then(res=>{
+      axios.get('http://localhost:3000/api/car/AllCars').then(res=>{
+        console.log(res.data)
         setCars(res.data)
       }).catch(err=>console.log(err))
     }
@@ -20,8 +21,11 @@ const Cars = () => {
 
    console.log(cars)
    let x=cars.filter(el=>{
-
-      return (el.year===parseInt(years)&&el.transmission===transmission)&&el.body_style===bodyStyle
+    if((years!="all"&&transmission!="all")&&bodyStyle!="all"){
+      return (el.year===parseInt(years)&&el.transmission===transmission)&&el.body_style===bodyStyle}
+      else{
+        return el
+      }
     })
     console.log(x)
    setResult(x)
@@ -53,13 +57,13 @@ const Cars = () => {
       setRefresh(!refresh)} }>
 
 
-      <option value="All"> All  </option>
+      <option value="all"> All  </option>
       <option value="auto"> Automatic  </option>
       <option value="manual"> Manual  </option>
       </select>
-      <select name="bodyStyle" id="bodyStyle" onChange={(e) => {setbodystyle(e.target.value)
+      <select className='select' name="bodyStyle" id="bodyStyle" onChange={(e) => {setbodystyle(e.target.value)
       setRefresh(!refresh)} }>
-      <option value="All"> All  </option>
+      <option value="all"> All  </option>
       <option value="coupe"> coupe  </option>
       <option value="convertible"> convertible  </option>
       <option value="hatchback"> hatchback  </option>
