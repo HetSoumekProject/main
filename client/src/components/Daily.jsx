@@ -3,7 +3,6 @@ import axios from 'axios';
 import Chart from "chart.js/auto";
 import { Bar } from 'react-chartjs-2';
 
-
 const Daily=()=> {
   const data = {
     labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -30,8 +29,6 @@ const Daily=()=> {
       }
     },
   };
-
-
 
   return (
     <div>

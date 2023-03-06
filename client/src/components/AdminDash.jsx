@@ -9,11 +9,8 @@ import Signup from "./auth/SignUp";
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
 
-
 const Dashboard = () => {
         const [expanded, setExpaned] = useState(true)
-        
-  
     const sidebarVariants = {
       true: {
         left : '0'
@@ -26,26 +23,20 @@ const Dashboard = () => {
     return (
       <>
         <div className="bars" style={expanded?{left: '60%'}:{left: '5%'}} onClick={()=>setExpaned(!expanded)}>
-          
+
           <UilBars />
         </div>
       <motion.div className='sidebar'
       variants={sidebarVariants}
-     
       >
         {/* logo */}
         <div className="logo">
-          
           <span>
             Auctions
           </span>
         </div>
-  
         <div>
         <nav className="nav">
-         
-          
-       
           <ul className="list">
             <li >
               <label className="btn btn-outline-success"  > <Link to="/Customers">Customers</Link></label>
@@ -63,7 +54,6 @@ const Dashboard = () => {
               <label className="btn btn-outline-success"  ><Link to ="/OverView">OverView</Link></label>
             </li>
             <br/>
-           
             <li >
               <label className="btn btn-outline-success"  ><Link to="/Daily">Daily</Link></label>
             </li>
@@ -75,18 +65,11 @@ const Dashboard = () => {
             <li >
               <label className="btn btn-outline-success"  ><Link to="/AdminSet">Admin</Link></label>
             </li>
-
-           
-           
           </ul>
-         
         </nav>
-    
-     
     </div>
       </motion.div>
       </>
     );
   };
-
 export default Dashboard;
