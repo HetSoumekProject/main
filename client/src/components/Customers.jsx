@@ -1,13 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Chart from "chart.js/auto";
-import { Bar } from 'react-chartjs-2';
 
-const Customers = () => {
+
+const Customers = (props) => {
+
+  console.log("this",props.users);
    return (
     <div>
-      <h2>All Users </h2>
+      <table class="table">
+       <thead>
+        <tr>
+            <th style={{color:"white"}} class="text-center">#</th>
+            <th style={{color:"white"}}>first name</th>
+            <th style={{color:"white"}}>last name</th>
+            <th style={{color:"white"}}>phone number</th>
+            <th style={{color:"white"}}>email</th>
+
+            <th style={{color:"white"}} class="text-right">DELETE</th>
+        </tr>
+    </thead>
+   
+     {props.users.map((user, index) => (
+      
+    <tbody>
+        <tr>
+            <td style={{color:"white"}} class="text-center">{user.id}</td>
+            <td style={{color:"white"}}>{user.first_name}</td>
+            <td style={{color:"white"}}>{user.last_name}</td>
+            <td style={{color:"white"}}>{user.phone_number}</td>
+            <td style={{color:"white"}}>{user.email}</td>
+
+            <td class="td-actions text-right">
+                
+                <button 
+                
+                type="button" rel="tooltip" class="btn btn-danger btn-sm btn-icon"
+               onClick=
+               {()=>axios.delete(`http://localhost:3000/api/user/deleteOneUser/${user.id}`)
+               (window.location.reload())
+               .then(function (result){console.log(result)}) 
+               .catch(function(error){console.log(error)})
+               } >
+                   
+                </button>
+            </td>
+       
+        </tr>
+       
+    </tbody>
+    ))}
+</table>
+    
     </div>
   );
-};
+   }
 export default Customers;
