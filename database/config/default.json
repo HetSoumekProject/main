@@ -1,7 +1,10 @@
 {
     "host": "localhost",
-    "user": "ahlem",
-    "password": "password",
+
+    "user": "root",
+
+    "password": "root",
+
     "database": "heet_soumekk"
 
 } 
