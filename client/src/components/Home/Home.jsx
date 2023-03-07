@@ -18,8 +18,8 @@ const Home=()=> {
       </div>
 
       <a data-aos="zoom-in-left" data-aos-delay="150" href="#" className="logo">
-        <FontAwesomeIcon icon={faCarSide} />
-        Logo
+      <img src="/images/logo1.png" width="70px" height="70px" />
+
       </a>
 
       <nav className="navbar">
@@ -30,13 +30,13 @@ const Home=()=> {
           about
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="600" href="#destination">
-          destination
+          Auctions
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="750" href="#services">
-          services
+         Sell your car
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
-          gallery
+          SingUp
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">
           blogs
@@ -54,7 +54,7 @@ const Home=()=> {
     </header>
      <section class="home" id="home">
      <div class="content">
-       <span data-aos="fade-up" data-aos-delay="150"> Car Addict</span>
+       {/* <span data-aos="fade-up" data-aos-delay="150"> Car Addict</span> */}
        <h3 data-aos="fade-up" data-aos-delay="300">HET SOUMEK</h3>
        <p data-aos="fade-up" data-aos-delay="450">
        Whether you're a seasoned car enthusiast or a first-time buyer, our website offers a hassle-free way to buy your next vehicle. So why wait? Start bidding today and drive away with your perfect car!
@@ -66,7 +66,7 @@ const Home=()=> {
    </section>
    <section class="about" id="about">
       <div class="img-container" data-aos="fade-right" data-aos-delay="300">
-        <img src="images/abt.jpeg" alt="" />
+        <img src="images/abt.png" alt="" />
       </div>
 
       <div class="content" data-aos="fade-left" data-aos-delay="600">
@@ -92,7 +92,7 @@ const Home=()=> {
 
       <div class="box-container">
         <div class="box">
-          <span class="price"> $500k - $2000k </span>
+          <span class="price"> 500k - 2000k </span>
           <img src="/images/p-1.jpeg" alt="" />
           <h3>BMW</h3>
           <div class="stars">
@@ -105,7 +105,7 @@ const Home=()=> {
           <a href="#" class="btn">order now</a>
         </div>
         <div class="box">
-          <span class="price"> $500k - $2000k </span>
+          <span class="price"> 500k - 2000k </span>
           <img src="images/p-2.jpeg" alt="" />
           <h3>mercedes</h3>
           <div class="stars">
@@ -118,7 +118,7 @@ const Home=()=> {
           <a href="#" class="btn">order now</a>
         </div>
         <div class="box">
-          <span class="price"> $500k - $2000k </span>
+          <span class="price"> 500k - 2000k </span>
           <img src="images/p-3.jpeg" alt="" />
           <h3>Range Rover</h3>
           <div class="stars">
@@ -131,7 +131,7 @@ const Home=()=> {
           <a href="#" class="btn">order now</a>
         </div>
         <div class="box">
-          <span class="price"> $500k - $2000k </span>
+          <span class="price"> 500k - 2000k </span>
           <img src="images/p-4.jpeg" alt="" />
           <h3>porche</h3>
           <div class="stars">
@@ -144,7 +144,7 @@ const Home=()=> {
           <a href="#" class="btn">order now</a>
         </div>
         <div class="box">
-          <span class="price"> $500k - $2000k </span>
+          <span class="price"> 500k - 2000k </span>
           <img src="images/p-5.jpeg" alt="" />
           <h3>Nisan X</h3>
           <div class="stars">
@@ -157,7 +157,7 @@ const Home=()=> {
           <a href="#" class="btn">order now</a>
         </div>
         <div class="box">
-          <span class="price"> $500k - $2000k </span>
+          <span class="price"> 500k - 2000k </span>
           <img src="images/p-6.jpeg" alt="" />
           <h3>ferrari</h3>
           <div class="stars">
