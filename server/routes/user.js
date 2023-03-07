@@ -4,10 +4,10 @@ const router = express.Router();
 
 const usercontrol=require("../controller/user.controller")
 router.post("/AddUser",usercontrol.addUser)
-router.post("/deleteOneUser/:id",usercontrol.deleteOneUser)
-router.post("/updateOneUser/:id",usercontrol.updateOneUser)
+router.delete("/deleteOneUser/:id",usercontrol.deleteOneUser)
+router.put("/updateOneUser/:id",usercontrol.updateOneUser)
+router.get("/allusers",usercontrol.getAllUsers)
 router.get("/:id",usercontrol.getOneUser)
-router.get("/getallusers",usercontrol.getAllUsers)
 
 
 module.exports=router

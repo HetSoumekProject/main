@@ -32,7 +32,7 @@ const [amount,setAmount]=useState(0)
         </div>
         <div>
             place a bid
-            <input type="number" placeholder='amount' onChange={(e)=>setAmount(e.target.value)}/>
+            <input type="number" min="200" step="200" placeholder='amount' onChange={(e)=>setAmount(e.target.value)}/>
             <button type='button' onClick={()=>{
                 placeAbid(amount,props.car.id,props.user.id)
             }}> Bid</button>

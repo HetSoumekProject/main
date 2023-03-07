@@ -25,7 +25,7 @@ const NavBar =(props)=>{
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
         <img src="https://ymimg1.b8cdn.com/uploads/article/3786/pictures/2777122/Hidden_car_logo.png" width="30" height="30"  className=" rounded-circle" alt=""/>
-        <span> Chkoun Yzid </span></a>
+        </a>
        
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           
@@ -56,7 +56,7 @@ const NavBar =(props)=>{
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="./Home">Home</a>
+              <a className="nav-link active" aria-current="page" href="./">Home</a>
             </li>
             <li className="nav-item">
               <a className="btn btn-outline-success" aria-current="page" href="./WhatIs">what's Chkoun Yzid</a>

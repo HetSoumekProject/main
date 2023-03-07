@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Chart from "chart.js/auto";
 import { Bar } from 'react-chartjs-2';
-
-
 const Monthly=()=> {
   const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December'],
@@ -30,9 +28,6 @@ const Monthly=()=> {
       }
     },
   };
-
-
-
   return (
     <div>
       <h2>Monthly Auctions</h2>

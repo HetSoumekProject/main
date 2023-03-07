@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import css from "./post.css"
+import css from "./post.css";
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 function Post() {
   const [brandName, setBrandName] = useState("");
   const [description, setDescription] = useState("");
@@ -44,12 +49,13 @@ function Post() {
   };
   return (
     
-    <div className="post-item {
-      ">
+    <div className="post-items">
+    <div className="post-item">
       <h1>sell your car </h1>
       <br/>
       <form>
       <input
+      className="inputs"
         required
         type="text"
         placeholder="brand name"
@@ -66,6 +72,7 @@ function Post() {
             <br/>
             <br/>
       <input
+       className="inputs"
         required
         type="number"
         placeholder="initial price"
@@ -74,6 +81,7 @@ function Post() {
             <br/>
             <br/>
       <input
+        className="inputs"
         required
         type="number"
         placeholder="year"
@@ -90,8 +98,7 @@ function Post() {
         <option value="auto">auto</option>
         <option value="manual">manual</option>
       </select>
-          <br/>
-          <br/>
+         
 
       <select
         required
@@ -111,6 +118,7 @@ function Post() {
         <br/>
 
       <input
+        className="inputs"
         required
         type="file"
         onChange={(e) => {
@@ -139,6 +147,27 @@ function Post() {
       > submit</button>
       </form>
     </div>
+    {/* <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          
+          label="Age"
+          onChange={handleChange}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
+    </Box> */}
+    </div>
+
+
+
+
   );
 }
 

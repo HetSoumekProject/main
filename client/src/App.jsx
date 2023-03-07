@@ -1,8 +1,6 @@
-/* eslint-disable react/jsx-no-undef */
-/* eslint-disable no-unused-expressions */
-
 import './App.css';
 import React,{useEffect,useState} from 'react';
+import axios from 'axios';
 import SignUp from './components/auth/SignUp.jsx';
 import Post from './components/Post.jsx';
 import Cars from './components/Cars.jsx';
@@ -18,7 +16,6 @@ import Payment from './components/Payment.jsx';
 import Home from './components/Home.jsx';
 import Customers from './components/Customers.jsx'
 import Login from './components/auth/Login.jsx';
-
 import AllPosts from './components/AllPosts';
 // import SuccessPayment from "./components/SuccessPayment.jsx"
 // import FailPayment from './components/FailPayment.jsx';
@@ -30,27 +27,27 @@ import Daily from './components/Daily';
 import Transactions from './components/Transaction';
 import OverView from './components/OverView';
 
-
-
-
 function App() {
-  
+  const [users,setUser]=useState([])
+
+  useEffect(()=>{
+    
+    axios.get('http://localhost:3000/api/user/allusers').then(res=>{
+      console.log(res.data)
+      setUser(res.data)
+    }).catch(err=>console.log(err))
+  },[])
+
   return (
     <div className="App">
+    {/* <NavBar /> */}
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
 
-    <NavBar />
-    {/* <Home/> */}
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    
       <Routes>
-    
-      
-      
-      <Route path="/Home" exact  element={<Home/>}/>
-      <Route path="/Cars" element={<Cars/>}/>
+      <Route path="/" exact  element={<Home/>}/>
       <Route path="/Notify" element={<Notify/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
       <Route path="/WhatIs" element={<WhatIs/>}/>
@@ -62,20 +59,21 @@ function App() {
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
       <Route path="/Payment" element={<Payment/>}/>
       <Route path="/FailPayment" element={<FailPayment/>}/>
-      <Route path="/SuccessPayment" element={<SuccessPayment/>}/> 
+      <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
       <Route path="/NavBar" element={<NavBar/>}/>
-      <Route path="/AdminDashboard" element={<Dashboard/>}/>
       <Route path="/Daily" element={<Daily/>}/>
       <Route path="/Monthly" element={<Monthly/>}/>
-      <Route path="/Customers" element={<Customers/>}/>
+      <Route path="/Customers" element={<Customers users={users}/>}/>
       <Route path="/Transactions" element={<Transactions/>}/>
       <Route path="/OverView" element={<OverView/>}/>
-      {/* <Route path="/Signup" element={<Signup/>}/> */}
-    </Routes> 
 
+      <Route path="/Cars" element={<Cars/>}/>
+      <Route path="/AdminDashboard" element={<Dashboard />}/>
+      <Route path="/Login" element={<Login setUser={setUser}/>}/>
+
+      <Route path="/SignUp" element={<SignUp/>}/>
+    </Routes>
     </div>
   );
 }
-
-
 export default App

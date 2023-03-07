@@ -1,9 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import AllPosts from './AllPosts';
-import css from "./cars.css"
 import OneCar from './OneCar.jsx'
-
+import css from "./cars.css"
 
 const Cars = (props) => {
     const[years,setYears]=useState("all")
@@ -41,6 +40,7 @@ const Cars = (props) => {
       
       <select name="years" id="years" class="chosen-select" data-placeholder="select a year" onChange={(e) => {setYears(e.target.value)
       setRefresh(!refresh)}}>
+        <option  value="all"> All  </option>
         <option  value="2010"> 2010  </option>
         <option  value="2011"> 2011  </option>
         <option  value="2012"> 2012  </option>
@@ -78,7 +78,7 @@ const Cars = (props) => {
       <option value="wagon"> wagon  </option>
       </select>
       </div>
-      <div div className="grid-container ">
+      <div div className="grid-container">
       </div>
       {view||<div>
       {result.map((item , index) => {
