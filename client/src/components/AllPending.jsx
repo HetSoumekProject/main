@@ -19,7 +19,7 @@ const AllPending=()=> {
 
   return (
     <div>
-        <h1>AllPending</h1>
+       
         {carsPending.map((el,i)=>{
             return(
             <div>
