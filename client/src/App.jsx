@@ -1,6 +1,4 @@
-import './App.css';
-import React,{useEffect,useState} from 'react';
-import SignUp from './components/auth/SignUp.jsx';
+import React,{useState} from 'react';
 import Post from './components/Post.jsx';
 import Cars from './components/Cars.jsx';
 import ChatRoom from './components/ChatRoom.jsx';
@@ -14,7 +12,7 @@ import FailPayment from './components/FailPayment.jsx';
 import Payment from './components/Payment.jsx';
 import Home from './components/Home.jsx';
 import Customers from './components/Customers.jsx'
-import Login from './components/auth/Login.jsx';
+import Signup from './components/auth/Signup.jsx'
 import AllPosts from './components/AllPosts';
 // import SuccessPayment from "./components/SuccessPayment.jsx"
 // import FailPayment from './components/FailPayment.jsx';
@@ -25,16 +23,12 @@ import Monthly from './components/Monthly';
 import Daily from './components/Daily';
 import Transactions from './components/Transaction';
 import OverView from './components/OverView';
-
+import Signin  from "./components/auth/Signin.jsx"
+import Profile from ".//components/profile/Profile.jsx"
 function App() {
   const [user,setUser]=useState({})
   return (
-    <div className="App">
-    <NavBar />
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
+    <div >
 
       <Routes>
       <Route path="/" exact  element={<Home/>}/>
@@ -56,12 +50,12 @@ function App() {
       <Route path="/Customers" element={<Customers/>}/>
       <Route path="/Transactions" element={<Transactions/>}/>
       <Route path="/OverView" element={<OverView/>}/>
-
       <Route path="/Cars" element={<Cars user={user}/>}/>
       <Route path="/AdminDashboard" element={<Dashboard />}/>
-      <Route path="/Login" element={<Login setUser={setUser}/>}/>
-
-      <Route path="/SignUp" element={<SignUp/>}/>
+      <Route path="/Signup" element={<Signup />}/>
+      <Route path="/Signin" element={<Signin />} />
+      <Route path="/Profile" element={<Profile />}/>
+      
     </Routes>
     </div>
   );
