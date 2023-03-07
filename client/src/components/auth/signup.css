@@ -1,23 +1,57 @@
-* {	font-family: 'Merriweather', serif;}
-textarea:focus,input:focus {	outline: none;}
-.signin-signup {	margin: 0;	padding: 0;	display: flex;	justify-content: center;	align-items: center;	min-height: 100vh;	font-family: 'Jost', sans-serif;
-    	background: linear-gradient(to bottom, #f7f3f3, #ffffff,#3c6064d2 );}
-.signin-signup .sinlog {	width: 350px;	height: 450px;	background: #3c6064d2;	overflow: hidden;	/* background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover; */	border-radius: 10px;	box-shadow: 5px 20px 50px #000;}
-.signin-signup a {	color: #fff;}
-.signin-signup .signup {	position: relative;	width: 100%;	height: 100%;}
-.signin-signup .login {	position: relative;	width: 100%;	height: 100%;}
-.signin-signup label {	color: #fff;	font-size: 1em;	justify-content: center;	display: flex;	margin: 31px;	font-weight: bold;	cursor: pointer;	transition: .2s ease-in-out;}
-.signin-signup input {	width: 60%;	height: 20px;	background: #E0DEDE;	justify-content: center;	display: flex;	margin: 20px auto;	padding: 10px;	border: none;	outline: none;	border-radius: 10px;}
-.signin-signup button {	width: 60%;	height: 40px;	margin: 10px auto;	justify-content: center;	display: block;	color: #fff;	background: #364a58;	font-size: 1em;	font-weight: bold;	margin-top: 20px;	outline: none;	border: none;	border-radius: 17px;	transition: .2s ease-in;	cursor: pointer;}
-.signin-signup button:hover {	background: #3c6064;}
-.signin-signup h1 {	font-family: 'Merriweather', serif; text-align: center;color: white;    text-align: center;
-    margin-top: 29px;}
-.signin-signup input {	width: 60%;	height: 20px;	background: #E0DEDE;	justify-content: center;	display: flex;	margin: 20px auto;	padding: 10px;	border: none;	outline: none;	border-radius: 10px;}
-.signin-signup button {	width: 60%;	height: 40px;	margin: 10px auto;	justify-content: center;	display: block;	color: #fff;	background: #364a58;	font-size: 1em;	font-weight: bold;	margin-top: 20px;	outline: none;	border: none;	border-radius: 17px;	transition: .2s ease-in;	cursor: pointer;}
-.signin-signup button:hover {	background: #364a58;}
-.signin-signup .cont {	margin-top: 50px;	margin-left: 500px;	height: 700px;	width: 500px;	background: #1A2547;	border-radius: 10px;	display: flex;	flex-direction: column;	justify-content: center;}
-.signin-signup .im {	width: 150px;	height: 150px;	border-radius: 50%;	object-fit: cover;	object-position: center;}
-.signin-signup .text {	font-size: 23px;	letter-spacing: 0.1em;	font-weight: 500;	color: white;}
-  .pp{
-    margin: 0px 123px 
-  }
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000000; /* black color */
+}
+
+.form-box {
+  background-color: #333333; /* dark gray color */
+  border-radius: 10px;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  width: 600px;
+}
+
+.Signup {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ffffff; /* white color */
+  text-align: center;
+}
+
+.signupinputs {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  color: #ffffff; /* white color */
+  font-size: 1rem;
+  background-color: #444444; /* medium gray color */
+}
+
+.signupinputs:focus {
+  outline: none;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.signupbutton {
+  background-color: #FFA500; /* orange color */
+  color: #ffffff; /* white color */
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  margin-top: 2rem;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out;
+  width: 100%;
+}
+
+.signupbutton:hover {
+  background-color: #FF8C00; /* darker shade of orange */
+}
