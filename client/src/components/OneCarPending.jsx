@@ -1,6 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
+import OneCarDetails from './OneCarDetails.jsx';
 import CarImages from './CarImages.jsx'
+import { Link } from "react-router-dom";
 
 function OneCarPending(props) {
     const [seller,setSeller]=useState({})
@@ -20,25 +23,66 @@ function OneCarPending(props) {
     }
   return (
     <div>
-        <div>
-        {/* <h1>{seller}</h1> */}
-        {props.car.images.map((el,i)=><div ><CarImages image={el} key={i}/></div>)}
-        <h1 style={{color:"black"}}>{props.car.brand_name}</h1>
-        <h1 style={{color:"black"}}>{props.car.description}</h1> 
-        <h1 style={{color:"black"}}>{props.car.initial_price}</h1>
-        <h1 style={{color:"black"}}>{props.car.year}</h1>
-        <h1 style={{color:"black"}}>{props.car.transmission}</h1>
-        <h1 style={{color:"black"}}>{props.car.body_style}</h1>
-        <h1 style={{color:"black"}}>{props.car.min_amount}</h1>
-        </div>
-    <div className='but'>
-        <button className='bouton' type='button' onClick={()=>{
-            approve(props.car.id)
-        }}>Approve</button>
-        <button className='bouton' type='button' onClick={()=>{
-            decline(props.car.id)
-        }}>Decline</button>
-    </div>
+      <table class="table">
+       <thead>
+        <tr>
+            <th style={{color:"white"}}>brand_name</th>
+            <th style={{color:"white"}}>description</th>
+            <th style={{color:"white"}}>initial_price</th>
+            <th style={{color:"white"}}>transmission</th>
+            <th style={{color:"white"}}>body_style</th>
+
+            <th style={{color:"white"}} >min_amount</th>
+            <th style={{color:"white"}} >year</th>
+            <th style={{color:"white"}} >pictures</th>
+            <th style={{color:"white"}} >Actions</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style={{color:"white"}} ><br/>{props.car.brand_name}</td>
+            <td style={{color:"white"}}><br/>{props.car.description}</td>
+            <td style={{color:"white"}}><br/>{props.car.initial_price}</td>
+            <td style={{color:"white"}}><br/>{props.car.transmission}</td>
+            <td style={{color:"white"}}><br/>{props.car.body_style}</td>
+            <td style={{color:"white"}}><br/>{props.car.min_amount}</td>
+            <td style={{color:"white"}}><br/>{props.car.year}</td>
+            <td>
+            
+            <button 
+                style={{color:"white"}}
+                type="button" rel="tooltip" class="btn btn-danger btn-sm btn-icon"
+               >
+                   show
+                </button>
+         </td>
+            <td class="td-actions">
+                
+                <button style={{color:"white"}}
+                
+                type="button" rel="tooltip" class="btn btn-danger btn-sm btn-icon"
+                onClick={()=>{
+                    approve(props.car.id)
+                }} >approve
+                   
+                </button>
+                <button style={{color:"white"}}
+                
+                type="button" rel="tooltip" class="btn btn-danger btn-sm btn-icon"
+                onClick={()=>{
+                    decline(props.car.id)
+                }}>
+                   decline
+                </button>
+            </td>
+       
+        </tr>
+       
+    </tbody>
+    
+</table>
+    
     </div>
   )
 }
