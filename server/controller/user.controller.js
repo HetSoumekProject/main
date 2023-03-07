@@ -2,6 +2,16 @@ const orm=require("../../database/orm")
 
 
 
+let getuserbyuid= async (req, res) => {
+  try {
+    const userbyuid = await orm.User.findOne({ where: { firebase_id: req.params.uid } })
+    res.send(userbyuid)
+  }
+  catch(error){
+    res.status(500).send(error);
+  }
+ }
+
  let addUser= async (req, res) => {
   const user={}
     user.first_name=req.body.first_name,
@@ -21,10 +31,12 @@ const orm=require("../../database/orm")
       // res.status(500).send(error);
     }
  }
+ 
+ 
  let getAllUsers=  async (req, res) => {
     try {
       const users = await orm.User.findAll({
-        
+       where :{role:"user"}
       });
       res.status(200).json(users);
       console.log(users);
@@ -41,7 +53,16 @@ const orm=require("../../database/orm")
       res.status(500).send(error);
     }
   }
-   let updateOneUser= async (req, res) => {
+  let deleteOneUser= async (req, res) => {
+    try {
+      const users = await orm.User.destroy({where:{id:req.params.id}});
+      res.status(200).json(users);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  }
+   
+  let updateOneUser= async (req, res) => {
     try {
       const users = await orm.User.update(req.body,{
         where: {id: req.params.id},
@@ -51,19 +72,14 @@ const orm=require("../../database/orm")
       res.status(500).send(error);
     }
   }
-   let deleteOneUser= async (req, res) => {
-    try {
-      const users = await orm.User.destroy({where:{id:req.params.id}});
-      res.status(200).json(users);
-    } catch (error) {
-      res.status(500).send(error);
-    }
-  }
+   
+   
   module.exports={
     addUser,
     deleteOneUser,
     updateOneUser,
     getOneUser,
-    getAllUsers
+    getAllUsers,
+    getuserbyuid
      
   }
