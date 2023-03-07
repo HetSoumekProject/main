@@ -49,7 +49,7 @@ function Post() {
   };
   return (
     
-    <div className="post-items">
+    
     <div className="post-item">
       <h1>sell your car </h1>
       <br/>
@@ -64,6 +64,7 @@ function Post() {
             <br/>
             <br/>
       <textarea
+      className="inputs"
         required
         type="text"
         placeholder="description"
@@ -91,6 +92,7 @@ function Post() {
             <br/>
 
       <select
+      className="inputs"
         required
         name="transmission"
         onChange={(e) => settransmission(e.target.value)}
@@ -101,6 +103,7 @@ function Post() {
          
 
       <select
+      className="inputs"
         required
         name="bodyStyle"
         onChange={(e) => setbodyStyle(e.target.value)}
@@ -129,7 +132,7 @@ function Post() {
 
       <button
      
-     class="button-55" role="button"
+     class="button-5" role="button"
         type="button"
         onClick={() => {
           console.log(image)
@@ -146,8 +149,7 @@ function Post() {
         }}
       > submit</button>
       </form>
-    </div>
-    {/* <Box sx={{ minWidth: 120 }}>
+      {/* <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
         <InputLabel id="demo-simple-select-label">Age</InputLabel>
         <Select
@@ -164,6 +166,8 @@ function Post() {
       </FormControl>
     </Box> */}
     </div>
+    
+    
 
 
 

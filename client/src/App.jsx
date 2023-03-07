@@ -1,7 +1,6 @@
 import './App.css';
 import React,{useEffect,useState} from 'react';
 import axios from 'axios';
-import SignUp from './components/auth/Signup.jsx';
 import Post from './components/Post.jsx';
 import Cars from './components/Cars.jsx';
 import ChatRoom from './components/ChatRoom.jsx';
@@ -63,10 +62,9 @@ function App() {
       <Route path="/Customers" element={<Customers users={users}/>}/>
       <Route path="/Transactions" element={<Transactions/>}/>
       <Route path="/OverView" element={<OverView/>}/>
-
       <Route path="/Cars" element={<Cars/>}/>
       <Route path="/AdminDashboard" element={<Dashboard />}/>
-      <Route path="/Signup" element={<SignUp />}/>
+      <Route path="/Signup" element={<Signup/>}/>
       <Route path="/Signin" element={<Signin />} />
       <Route path="/Profile" element={<Profile />}/>
       
