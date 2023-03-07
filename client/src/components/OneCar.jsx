@@ -1,16 +1,11 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import CarImages from './CarImages'
-import ChatRoom from './ChatRoom'
-import Payment from './Payment'
-
+import CarImages from './CarImages.jsx'
+import ChatRoom from './ChatRoom.jsx'
+import Payment from './Payment.jsx'
+import Bid from "./Bid.jsx"
 function OneCar(props) {
-const [amount,setAmount]=useState(0)
- const placeAbid=(amount,carId,userId)=>{
-    axios.post("http://localhost:3000/bid/placeabid",{
-        amount:amount,carId:carId,userId:userId
-    }).then(res=>console.log(res)).catch(err=>console.log(err))
- }
+    
 
   return (
     <div>
@@ -31,11 +26,9 @@ const [amount,setAmount]=useState(0)
         <ChatRoom/>
         </div>
         <div>
-            place a bid
-            <input type="number" min="200" step="200" placeholder='amount' onChange={(e)=>setAmount(e.target.value)}/>
-            <button type='button' onClick={()=>{
-                placeAbid(amount,props.car.id,props.user.id)
-            }}> Bid</button>
+            <Bid car={props.car} />
+        </div>
+        <div>
             <Payment/>
         </div>
         </div>

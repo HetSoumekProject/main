@@ -1,11 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import css from "./post.css";
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 function Post() {
   const [brandName, setBrandName] = useState("");
   const [description, setDescription] = useState("");
@@ -15,6 +10,7 @@ function Post() {
   const [bodyStyle, setbodyStyle] = useState("");
   const [image, setImage] = useState("");
 
+  const [user,setUser]=useState({})
 
   const setFileToBase = (file) => {
     console.log(file)
@@ -47,6 +43,14 @@ function Post() {
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
+  useEffect(()=>{
+    axios.get(`http://localhost:3000/api/user/userbyuid/${localStorage.userInfo}`)
+    .then((res)=>{
+        setUser(res.data);
+    }).catch((err)=>{
+        console.log(err);
+    })
+  },[])
   return (
     
     <div className="post-items">
@@ -134,7 +138,7 @@ function Post() {
         onClick={() => {
           console.log(image)
           postACar(
-            1,
+            user.id,
             brandName,
             description,
             initialPrice,
@@ -147,22 +151,6 @@ function Post() {
       > submit</button>
       </form>
     </div>
-    {/* <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          
-          label="Age"
-          onChange={handleChange}
-        >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
-        </Select>
-      </FormControl>
-    </Box> */}
     </div>
 
 
