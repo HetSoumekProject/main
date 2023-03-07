@@ -1,3 +1,9 @@
+
+
+
+import Home from './components/Home/Home.jsx'
+
+
 import React,{useState} from 'react';
 import Post from './components/Post.jsx';
 import Cars from './components/Cars.jsx';
@@ -25,10 +31,16 @@ import Transactions from './components/Transaction';
 import OverView from './components/OverView';
 import Signin  from "./components/auth/Signin.jsx"
 import Profile from ".//components/profile/Profile.jsx"
+
 function App() {
-  const [user,setUser]=useState({})
+  
   return (
     <div >
+
+      
+   <Home/>
+    
+
 
       <Routes>
       <Route path="/" exact  element={<Home/>}/>
@@ -57,6 +69,7 @@ function App() {
       <Route path="/Profile" element={<Profile />}/>
       
     </Routes>
+
     </div>
   );
 }
