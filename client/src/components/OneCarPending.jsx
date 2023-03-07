@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 function OneCarPending(props) {
     const [seller,setSeller]=useState({})
+    const [view , setView]=useState(false)
     // const getTheSeller=(id)=>{
     //     axios.post(`http://localhost:3000/api/car/seller/${id}`).then(res=>setSeller(res.data.first_name+' '+res.data.last_name))
     // }
@@ -53,7 +54,9 @@ function OneCarPending(props) {
             <button 
                 style={{color:"white"}}
                 type="button" rel="tooltip" class="btn btn-danger btn-sm btn-icon"
-               >
+                onClick={()=>{
+                   setView(!view)
+                }} >
                    show
                 </button>
          </td>
@@ -75,6 +78,9 @@ function OneCarPending(props) {
                 }}>
                    decline
                 </button>
+                {view &&<div>
+                    <OneCarDetails/>
+                </div>}
             </td>
        
         </tr>
