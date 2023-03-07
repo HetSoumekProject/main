@@ -26,6 +26,7 @@ import OverView from './components/OverView';
 import Signin  from "./components/auth/Signin.jsx"
 import Profile from ".//components/profile/Profile.jsx"
 import Home from "./components/Home/Home.jsx"
+import OneCarDetails from './components/OneCarDetails';
 function App() {
   const [users,setUser]=useState([])
 
@@ -67,7 +68,7 @@ function App() {
       <Route path="/Signup" element={<Signup/>}/>
       <Route path="/Signin" element={<Signin />} />
       <Route path="/Profile" element={<Profile />}/>
-      
+      <Route path="/OneCarDetails" element={<OneCarDetails />}/>
     </Routes>
 
     </div>
