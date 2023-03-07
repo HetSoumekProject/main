@@ -1,9 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { MDBBadge, MDBBtn, MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
+
 import OneCarDetails from './OneCarDetails.jsx';
-import CarImages from './CarImages.jsx'
-import { Link } from "react-router-dom";
+
 
 function OneCarPending(props) {
     const [seller,setSeller]=useState({})
@@ -79,7 +78,7 @@ function OneCarPending(props) {
                    decline
                 </button>
                 {view &&<div>
-                    <OneCarDetails/>
+                    <OneCarDetails data={props}/>
                 </div>}
             </td>
        
