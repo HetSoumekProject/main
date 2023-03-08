@@ -26,6 +26,7 @@ app.use('/api/room', roomsRoute);
 app.use('/api/bids', bidsRoute);
 app.use('/api/messages', messagesRoute);
 app.use('/api/notifications', notifivationsRoute);
+app.use('/api/fav',favouriteRoute)
 app.use('/api',paymentRoute)
 
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
