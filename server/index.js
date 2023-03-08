@@ -50,7 +50,7 @@ io.on("connection", (socket) => {
     io.emit('notification', [  `Somebody bid on ${data.carName}` ]);
   });
   socket.on('bid&&price', (data) => {
-    io.emit(data);
+    io.emit("bid&&price",data);
   });
 });
 server.listen(PORT, function () {
