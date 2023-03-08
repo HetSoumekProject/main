@@ -69,6 +69,7 @@ const ChatRoom = (props) => {
               <div className="text_message">{message.text}</div>
             </div>
           ))}
+          <div className='in'>
           <input
             className="text_input"
             placeholder="Message..."
@@ -77,9 +78,13 @@ const ChatRoom = (props) => {
               setMessage(event.target.value)
             }}
           />
+          </div>
           <button className="btn" onClick={sendMessage}>
             <AiOutlineSend />
           </button>
+
+          
+          
 
         </div>
       </div>
