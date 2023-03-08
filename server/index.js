@@ -38,17 +38,23 @@ const io = new Server(server, {
   }
 });
 io.on("connection", (socket) => {
-  console.log(`User Connected: ${socket.id}`);
+  // console.log(`User Connected: ${socket.id}`);
   socket.on("join_room", (data) => {
     socket.join(data);
   });
   socket.on("send_message", (data) => {
     io.to(data.room).emit("receive_message", data);
   });
-  socket.on('bid', (data) => {
-    // Emit notification event to all connected clients
-    io.emit('notification', [  `Somebody bid on ${data.carName}` ]);
+  var notifications=[]
+  socket.on("notification", (data) => {
+    console.log("Received notification:", data);
+    notifications.push(data);
+    io.emit("new_notification", data);
   });
+});
+
+app.get("/api/notifications", (req, res) => {
+  res.json(notifications);
 });
 server.listen(PORT, function () {
   console.log(`Listening on port ${PORT}!`);

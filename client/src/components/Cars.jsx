@@ -4,6 +4,8 @@ import AllPosts from './AllPosts';
 import OneCar from './OneCar.jsx'
 import css from "./cars.css"
 
+
+
 const Cars = (props) => {
     const[years,setYears]=useState("all")
     const[transmission,setTransmission]= useState("all");
@@ -13,6 +15,7 @@ const Cars = (props) => {
     const [refresh,setRefresh]=useState(true)
     const[view,setView]=useState(false)
     const [car,setCar]=useState({})
+    
     const getCarsByCondition=()=>{
       axios.get('http://localhost:3000/api/car/AllCars').then(res=>{
         console.log(res.data)
@@ -25,7 +28,7 @@ const Cars = (props) => {
    console.log(cars)
    let x=cars.filter(el=>{
     if((years!="all"&&transmission!="all")&&bodyStyle!="all"){
-      return (el.year===parseInt(years)&&el.transmission===transmission)&&el.body_style===bodyStyle}
+      return (el.year===parseInt(years)&&el.transmission===transmission&&el.body_style===bodyStyle)}
       else{
         return el
       }
@@ -35,7 +38,9 @@ const Cars = (props) => {
     },[refresh])
   return (
     <div >
+      
       <div className='select-container'>
+     
       <h1>Auctions:</h1>
       
       <select name="years" id="years" class="chosen-select" data-placeholder="select a year" onChange={(e) => {setYears(e.target.value)
@@ -85,11 +90,14 @@ const Cars = (props) => {
 
       console.log("item",item)
       return(
-        <div  key = {index}>
-       <AllPosts setCar={setCar} view={view} setView={setView} car={item}/>
-       
- </div>    
+        
+        
 
+        <div  key = {index}>
+          <img src={item.images.image}/>
+       <AllPosts setCar={setCar} view={view} setView={setView} car={item}/>
+       </div> 
+        
       )
              
 
