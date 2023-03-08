@@ -26,10 +26,10 @@ function OneCar(props) {
         </div>
         <div className='paymentOne'>
         <div>
-            <Bid car={props.car} setCurrentHighestBid={setCurrentHighestBid} />
+            <Bid car={props.car} />
         </div>
         <div>
-            <Payment currentHighestBid={currentHighestBid}/>
+            <Payment/>
         </div>
         </div>
         </div>

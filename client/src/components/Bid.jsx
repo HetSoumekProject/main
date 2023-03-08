@@ -1,11 +1,15 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import io from "socket.io-client";
+const socket = io.connect("http://localhost:3000");
 
 function Bid(props) {
   const [highest, setHighest] = useState({});
   const [refresh, setRefresh] = useState(true);
   const [amount, setAmount] = useState(0);
   const [user, setUser] = useState({});
+  const [currentPrice,setCurrentPrice]=useState(0)
+ 
 
   const makeABid = (userId, carId, amount) => {
     axios
@@ -17,6 +21,13 @@ function Bid(props) {
       .then((res) => setHighest(res.data))
       .catch((err) => console.log(err));
   };
+  const newBidPrice=useCallback(
+    (data) => {
+      console.log("this is data",data)
+      setHighest(data);
+      setCurrentPrice(data)
+    },[highest]
+  )
 
   useEffect(() => {
     axios
@@ -24,7 +35,7 @@ function Bid(props) {
       .then((res) => {
         axios
           .get(`http://localhost:3000/api/bids/${props.car.id}`)
-          .then((res2) => {setUser(res.data);setHighest(res2.data);props.setCurrentHighestBid(res2.data)})
+          .then((res2) => {setUser(res.data);setHighest(res2.data)})
           .catch((err2) => console.log("this err:", err2));
         
       })
@@ -32,11 +43,22 @@ function Bid(props) {
         console.log(err);
       });
     console.log(highest);
+
   }, [refresh]);
+
+  useEffect(() => {
+    setCurrentPrice(parseInt(highest.amount) + props.car.initial_price)
+    socket.on("bid&&price", newBidPrice);
+    console.log(newBidPrice)
+    return () => {
+      socket.off("bid&&price", newBidPrice);
+    };
+    
+  }, [socket, makeABid]);
   return (
     <div>
       <h2>
-        current price:{highest? parseInt(highest.amount) + props.car.initial_price:"loading"}
+        current price:{currentPrice?currentPrice:"loading"}
       </h2>
       {console.log(highest,"ksksksksksk")}
       <h2>highest bid : {highest?highest.amount:"loading"}</h2>

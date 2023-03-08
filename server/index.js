@@ -49,6 +49,9 @@ io.on("connection", (socket) => {
     // Emit notification event to all connected clients
     io.emit('notification', [  `Somebody bid on ${data.carName}` ]);
   });
+  socket.on('bid&&price', (data) => {
+    io.emit(data);
+  });
 });
 server.listen(PORT, function () {
   console.log(`Listening on port ${PORT}!`);
