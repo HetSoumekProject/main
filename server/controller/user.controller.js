@@ -22,7 +22,7 @@ let getuserbyuid= async (req, res) => {
      user.password=req.body.password,
      user.role=req.body.role,
      user.phone_number=req.body.phone_number
-  
+     
     try {
       const usser = await orm.User.create(user);
       res.status(201).json(usser);
@@ -45,25 +45,46 @@ let getuserbyuid= async (req, res) => {
       res.status(500).send(error);
     }
   }
-  let getOneUser= async (req, res) => {
-    try {
-      const user = await orm.User.findByPk(req.params.id);
-      res.status(200).json(user);
-    } catch (error) {
-      res.status(500).send(error);
-    }
-  }
   
-   
+  let updateuserprofile =async(req, res) =>{
+    try{
+      const {first_name,last_name,phone_number,img}=req.body
+      
+      const upuserpro=await orm.User.update({
+        first_name:first_name,
+        last_name:last_name,
+        phone_number:phone_number,
+        img:img
+      },{
+        where: { firebase_id: req.params.uid }
+      })
+        res.status(200).json(upuserpro)
+    }
+    catch(error){
+      console.log(error)}
+  }
 
+  let uploadimg =async(req, res) =>{
+    try{
+      const {img}=req.body
+      
+      const uploadimgurl=await orm.User.update({
+        
+        img:img
+      },{
+        where: { firebase_id: req.params.uid }
+      })
+        res.status(200).json(uploadimgurl)
+    }
+    catch(error){
+      console.log(error)}
+  }
    
-   
+  
   module.exports={
     addUser,
-    
-    
-    
     getAllUsers,
-    getuserbyuid
-     
+    getuserbyuid,
+    updateuserprofile,
+    uploadimg,
   }
