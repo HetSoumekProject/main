@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 const AllPosts = ({car,setCar,setView,view}) => {
 
   return (
-    <div>
+    <div className='oneCard'>
  <img className='cars-pic' src={car.images[0].image} onClick={()=>{setView(!view)
       setCar(car)
       }}/>
@@ -16,7 +16,7 @@ const AllPosts = ({car,setCar,setView,view}) => {
       ending in :  {car.ending_day}
       </h4>
       <div>
-        
+        <button type='button' onClick={()=>setView(!view)}>Bid!!</button>
       </div>
     </div>
   )

@@ -52,7 +52,7 @@ io.on("connection", (socket) => {
     io.emit("new_notification", data);
   });
   socket.on('bid&&price', (data) => {
-    io.emit(data);
+    io.emit("bid&&price",data);
   });
 });
 
