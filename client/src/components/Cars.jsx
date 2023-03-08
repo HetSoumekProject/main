@@ -15,26 +15,38 @@ const Cars = (props) => {
     const [refresh,setRefresh]=useState(true)
     const[view,setView]=useState(false)
     const [car,setCar]=useState({})
-    
-    const getCarsByCondition=()=>{
+  
+    useEffect(()=>{
       axios.get('http://localhost:3000/api/car/AllCars').then(res=>{
         console.log(res.data)
         setCars(res.data)
-      }).catch(err=>console.log(err))
-    }
-    useEffect(()=>{
-   getCarsByCondition()
+        let x=cars.filter(el=>{
 
-   console.log(cars)
-   let x=cars.filter(el=>{
-    if((years!="all"&&transmission!="all")&&bodyStyle!="all"){
-      return (el.year===parseInt(years)&&el.transmission===transmission&&el.body_style===bodyStyle)}
-      else{
-        return el
-      }
-    })
-    console.log(x)
-   setResult(x)
+        if(years!="all"&&(transmission==="all"&&bodyStyle==="all")){
+            return parseInt(el.year)===parseInt(years)
+          }
+          else if(transmission!="all"&&(years==="all"&&bodyStyle==="all")){
+            return el.transmission===transmission
+          }
+         else if(bodyStyle!="all"&&(transmission==="all"&&years==="all")){
+          return el.body_style===bodyStyle
+          }
+          else if(years==="all"&&(transmission!="all"&&bodyStyle!="all")){
+            return el.transmission===transmission&&el.body_style===bodyStyle
+          }
+         else if(transmission==="all"&&(years!="all"&&bodyStyle!="all")){
+          return parseInt(el.year)===parseInt(years)&&el.body_style===bodyStyle
+          }
+         else if(bodyStyle==="all"&&(transmission!="all"&&years!="all")){
+          return parseInt(el.year)===parseInt(years)&&el.transmission===transmission
+          }
+          else if(bodyStyle!="all"&&(years!="all"&&transmission!="all")){
+            return parseInt(el.year)===parseInt(years)&&(el.transmission===transmission&&el.body_style===bodyStyle)
+          }
+          })
+          console.log("this is x :",x)
+         setResult(x)
+      }).catch(err=>console.log(err))
     },[refresh])
   return (
     <div >
@@ -85,7 +97,22 @@ const Cars = (props) => {
       </div>
       <div div className="grid-container">
       </div>
-      {view||<div>
+      {view||<div className='cars-container'>
+      {(bodyStyle==="all"&&(years==="all"&&transmission==="all"))&&cars.map((item , index) => {
+
+      console.log("item",item)
+      return(
+        <div  key = {index}>
+       <AllPosts setCar={setCar} view={view} setView={setView} car={item}/>
+       
+ </div>    
+
+      )
+             
+
+})}
+</div>}
+{view||<div className='cars-container'>
       {result.map((item , index) => {
 
       console.log("item",item)

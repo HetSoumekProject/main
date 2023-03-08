@@ -15,7 +15,7 @@ const AllPending=()=> {
 
     useEffect(()=>{
       getALLPendingCars()
-  },[])
+  },[refreshPending])
 
   return (
     <div>

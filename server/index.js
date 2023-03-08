@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 const carsRoute = require('./routes/car.js')
 const usersRoute = require('./routes/user.js')
 const roomsRoute = require('./routes/car.js')
-const bidsRoute = require('./routes/car.js')
+const bidsRoute = require('./routes/bid.js')
 const messagesRoute = require('./routes/car.js')
 const notifivationsRoute = require('./routes/car.js')
 const favouriteRoute = require('./routes/favourite.js')
@@ -50,6 +50,9 @@ io.on("connection", (socket) => {
     console.log("Received notification:", data);
     notifications.push(data);
     io.emit("new_notification", data);
+  });
+  socket.on('bid&&price', (data) => {
+    io.emit(data);
   });
 });
 
