@@ -1,12 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import io from 'socket.io-client';
 
+const socket = io('http://localhost:3000');
 
 const Customers = (props) => {
+    const [notifications, setNotifications] = useState([]);
+    useEffect(() => {
+        socket.on("new_notification", (data) => {
+          console.log("Received notification:", data);
+          setNotifications((prevNotifications) => [...prevNotifications, data]);
+        });
+    
+        axios
+          .get("http://localhost:3000/api/notifications")
+          .then((response) => {
+            console.log("Notifications:", response.data);
+            setNotifications(response.data);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+      }, []);
 
   console.log("this",props.users);
    return (
     <div>
+          
+      <ul>
+        {notifications.map((notification) => (
+          <li key={notification.id}>
+            {notification.message} ({notification.timestamp})
+          </li>
+        ))}
+     </ul>
       <table class="table">
        <thead>
         <tr>
