@@ -1,35 +1,39 @@
-/* .imaget{
-    border: black solid;
+.one-imgdetailes{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    margin-left: 200px;
+}
+.paymentOne{
+    border:rgb(247, 149, 3) solid;
     border-radius: 10px;
+    margin: 50px;
+    background-color: rgba(255, 156, 43, 0.573);
+    width:300px;
+    padding: 15px;
+    display: grid;
+    justify-content: space-between;
+    margin-left:65%;
 }
-.box{
-    margin: 100px;
-    
+.paymentOne button{
+    background-color: orange;
+    width: 60px;
+    height: 40px;
+    margin: 10px;
+    border-radius: 10%;
 }
-#selects, .selects{
-    display: flex;
-    justify-content: center;
+.paymentOne h2{
+color: aliceblue;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.select, #years, .bouton{
-    margin-right: 10px;
-    margin-top: 10px;
-    width: 100px;
-    height: 30px;
-    background-color: rgba(0, 160, 160, 0.354);
-    border-radius: 5px;
+.car_details{
+    border: orangered double;
+    border-radius: 20px;
 }
-.car{
-    margin-bottom: 20px;
-    margin-top: 20px;
+.car_details img{
+    padding: 20px;
 }
-.pendin{
-    margin-left: 42%;
-    border: black solid;
-    border-radius: 5px;
+.car_details h1{
+    line-height:normal;
+    padding: 5px;
 }
-.but{
-    display: flex;
-    justify-content: center;
-
-}
- */
