@@ -5,7 +5,7 @@ import ChatRoom from './ChatRoom.jsx'
 import Payment from './Payment.jsx'
 import Bid from "./Bid.jsx"
 function OneCar(props) {
-    const[currentHighestBid,setCurrentHighestBid]=useState({})
+ 
 
   return (
     <div>
@@ -21,7 +21,7 @@ function OneCar(props) {
         <h1>Min amount to bid: {props.car.min_amount} dt</h1>
         </div>
         <div className='chatroom-one'>
-        <ChatRoom car={props.car} currentHighestBid={currentHighestBid}/>
+        <ChatRoom id={props.car.id}/>
         </div>
         </div>
         <div className='paymentOne'>
