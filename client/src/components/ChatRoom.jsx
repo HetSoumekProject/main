@@ -41,6 +41,7 @@ const ChatRoom=(props)=> {
   };
   const handleReceiveMessage = useCallback(
     (data) => {
+      console.log("this is msg data",data)
       setMessages([...messages, { text: data.message, sender: "other" }]);
     },
     [messages]

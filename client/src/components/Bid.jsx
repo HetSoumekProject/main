@@ -4,13 +4,13 @@ import io from "socket.io-client";
 const socket = io.connect("http://localhost:3000");
 
 function Bid(props) {
-  const [highest, setHighest] = useState({});
+  const [highest, setHighest] = useState(0);
   const [refresh, setRefresh] = useState(true);
   const [amount, setAmount] = useState(0);
   const [user, setUser] = useState({});
   const [currentPrice,setCurrentPrice]=useState(0)
  
-
+    
   const makeABid = (userId, carId, amount) => {
     axios
       .post(`http://localhost:3000/api/bids/placeabid`, {
@@ -18,14 +18,16 @@ function Bid(props) {
         carId: carId,
         amount: amount,
       })
-      .then((res) => setHighest(res.data))
+      .then((res) =>{ setHighest(res.data.amount)
+      socket.emit("bid&&price",highest)
+      setRefresh(!refresh)})
       .catch((err) => console.log(err));
   };
   const newBidPrice=useCallback(
     (data) => {
       console.log("this is data",data)
       setHighest(data);
-      setCurrentPrice(data)
+      setRefresh(!refresh)
     },[highest]
   )
 
@@ -35,7 +37,7 @@ function Bid(props) {
       .then((res) => {
         axios
           .get(`http://localhost:3000/api/bids/${props.car.id}`)
-          .then((res2) => {setUser(res.data);setHighest(res2.data)})
+          .then((res2) => {setUser(res.data);setHighest(res2.data.amount)})
           .catch((err2) => console.log("this err:", err2));
         
       })
@@ -47,26 +49,24 @@ function Bid(props) {
   }, [refresh]);
 
   useEffect(() => {
-    setCurrentPrice(parseInt(highest.amount) + props.car.initial_price)
+    setCurrentPrice(parseInt(highest) + props.car.initial_price)
     socket.on("bid&&price", newBidPrice);
-    console.log(newBidPrice)
     return () => {
       socket.off("bid&&price", newBidPrice);
     };
     
-  }, [socket, makeABid]);
+  }, [socket, newBidPrice]);
   return (
     <div>
       <h2>
         current price:{currentPrice?currentPrice:"loading"}
       </h2>
-      {console.log(highest,"ksksksksksk")}
-      <h2>highest bid : {highest?highest.amount:"loading"}</h2>
+      <h2>highest bid : {highest?highest:"loading"}</h2>
       <h1>Enter a bid</h1>
       <input
         type="number"
         placeholder="enter bid"
-        min={parseInt(highest.amount) + 200}
+        min={parseInt(highest) + 200}
         step={props.car.min_amount}
         onChange={(e) => {
           setAmount(e.target.value);
@@ -75,12 +75,12 @@ function Bid(props) {
       <button
         type="button"
         onClick={() => {
-          console.log(parseInt(highest.amount) + 200);
-          if (amount < parseInt(highest.amount) + 200) {
-            alert(`you can't bid less than ${parseInt(highest.amount) + 200}`);
+          console.log(parseInt(highest) + 200);
+          if (amount < parseInt(highest) + 200) {
+            alert(`you can't bid less than ${parseInt(highest) + 200}`);
           } else {
             makeABid(user.id, props.car.id, amount);
-            setRefresh(!refresh);
+            newBidPrice()
           }
         }}
       >
