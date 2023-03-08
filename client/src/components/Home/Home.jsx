@@ -4,8 +4,6 @@ import 'aos/dist/aos.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCarSide } from '@fortawesome/free-solid-svg-icons';
 import AOS from 'aos';
-import { Link } from 'react-router-dom';
-
 import { useEffect } from 'react';
 const Home=()=> {
   useEffect(() => {
@@ -32,10 +30,10 @@ const Home=()=> {
           about
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="600" href="#destination">
-        <Link to="/Cars">Auctions</Link> 
+          Auctions
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="750" href="#services">
-       <Link to="/Post">Sell your car</Link> 
+         Sell your car
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
           <Link to="/Signup">SingUp</Link>

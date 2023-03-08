@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import css from "./post.css"
 
 function Post() {
   const [brandName, setBrandName] = useState("");
@@ -53,9 +54,9 @@ function Post() {
   },[])
   return (
     
-    <div className="post-items">
+    
     <div className="post-item">
-      <h1>sell your car </h1>
+      <h1 className="h11">sell your car :</h1>
       <br/>
       <form>
       <input
@@ -68,6 +69,7 @@ function Post() {
             <br/>
             <br/>
       <textarea
+      className="inputs"
         required
         type="text"
         placeholder="description"
@@ -95,6 +97,7 @@ function Post() {
             <br/>
 
       <select
+        className="inputs"
         required
         name="transmission"
         onChange={(e) => settransmission(e.target.value)}
@@ -105,6 +108,7 @@ function Post() {
          
 
       <select
+        className="inputs"
         required
         name="bodyStyle"
         onChange={(e) => setbodyStyle(e.target.value)}
@@ -133,7 +137,7 @@ function Post() {
 
       <button
      
-     class="button-55" role="button"
+     class="button-1" role="button"
         type="button"
         onClick={() => {
           console.log(image)
@@ -148,10 +152,10 @@ function Post() {
             image
           );
         }}
-      > submit</button>
+      > ADD</button>
       </form>
     </div>
-    </div>
+    
 
 
 

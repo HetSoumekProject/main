@@ -14,7 +14,7 @@ function OneCar(props) {
                 <div className='car_details'>
             {props.car.images.map((el,i)=><div ><CarImages image={el} key={i}/></div>)}
         <h1>Brand :{props.car.brand_name}</h1>
-        <h1>Description:{props.car.description}</h1> 
+        <p>Description:{props.car.description}</p> 
         <h1>Year: {props.car.year}</h1>
         <h1>Transmition:{props.car.transmission}</h1>
         <h1>Body Style:{props.car.body_style}</h1>
