@@ -32,7 +32,11 @@ const getTheHighestBidOnCar= async(req,res)=>{
         let result= await orm.Bid.findAll({
             where:{carId:req.params.carId}
         })
-        res.json(result[result.length-1])
+        if(result.length>0){
+        res.json(result[result.length-1])}
+        else{
+            res.json(0)
+        }
     }catch(err){
         res.json(err)
     }

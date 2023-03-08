@@ -1,4 +1,4 @@
-/* .select-container{
+.select-container{
   margin-left: 100px;
 }
 .select-container select{
@@ -6,11 +6,11 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 5px rgba(210, 223, 225, 0);
     font-size: 12px;
     font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #056c5941;
+    color: #000000;
+    background-color: #bccfcc41;
     transition: box-shadow 0.2s ease-in-out;
 }
 .select-container option{
@@ -24,7 +24,7 @@
     background-color: #f2f2f2;
     transition: box-shadow 0.2s ease-in-out;
 }
-.select-container h1{	font-family: 'Merriweather', serif; text-align: left ;color: black; 
+.select-container h1{	font-family: 'Merriweather', serif; text-align: left ;color: rgb(232, 98, 2); 
   margin-top: 29px; ;
 }
 .grid-container {
@@ -38,10 +38,18 @@
 .cars-pic{
   margin-left: 65px;
   margin-top: 50px;
-  box-shadow:8px 8px 10px 0 rgba(0,0,0,0.5);
+  box-shadow:8px 8px 10px 0 rgba(65, 62, 62, 0.5);
   border-radius: 5px 5px 5px 5px;
   height: 250px;
   width: 300px;
   display: flex;
   cursor:pointer
-} */
+}
+.cars-container{display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+padding: 20px;
+margin-left: 100px;}
+h4{
+  color: aliceblue;
+}

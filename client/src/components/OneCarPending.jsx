@@ -64,6 +64,7 @@ function OneCarPending(props) {
                 type="button" rel="tooltip" class="btn btn-danger btn-sm btn-icon"
                 onClick={()=>{
                     approve(props.car.id)
+                    props.setRefreshPending(!props.refreshPending)
                 }} >approve
                    
                 </button>
@@ -72,6 +73,7 @@ function OneCarPending(props) {
                 type="button" rel="tooltip" class="btn btn-danger btn-sm btn-icon"
                 onClick={()=>{
                     decline(props.car.id)
+                    props.setRefreshPending(!props.refreshPending)
                 }}>
                    decline
                 </button>

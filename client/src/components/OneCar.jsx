@@ -5,31 +5,32 @@ import ChatRoom from './ChatRoom.jsx'
 import Payment from './Payment.jsx'
 import Bid from "./Bid.jsx"
 function OneCar(props) {
-    
+    const[currentHighestBid,setCurrentHighestBid]=useState({})
 
   return (
     <div>
-        <div>
-            <div>
+        <div className='onecar-css'>
+            <div className='one-imgdetailes'>
+                <div className='car_details'>
             {props.car.images.map((el,i)=><div ><CarImages image={el} key={i}/></div>)}
-            </div>
-            <div>
-        <h1>{props.car.brand_name}</h1>
-        <h1>{props.car.description}</h1> 
-        <h1>{props.car.initial_price}</h1>
-        <h1>{props.car.year}</h1>
-        <h1>{props.car.transmission}</h1>
-        <h1>{props.car.body_style}</h1>
-        <h1>{props.car.min_amount}</h1>
+        <h1>Brand :{props.car.brand_name}</h1>
+        <h1>Description:{props.car.description}</h1> 
+        <h1>Year: {props.car.year}</h1>
+        <h1>Transmition:{props.car.transmission}</h1>
+        <h1>Body Style:{props.car.body_style}</h1>
+        <h1>Min amount to bid: {props.car.min_amount} dt</h1>
+        </div>
+        <div className='chatroom-one'>
+        <ChatRoom car={props.car} currentHighestBid={currentHighestBid}/>
+        </div>
+        </div>
+        <div className='paymentOne'>
+        <div>
+            <Bid car={props.car} setCurrentHighestBid={setCurrentHighestBid} />
         </div>
         <div>
-        <ChatRoom/>
+            <Payment currentHighestBid={currentHighestBid}/>
         </div>
-        <div>
-            <Bid car={props.car} />
-        </div>
-        <div>
-            <Payment/>
         </div>
         </div>
     </div>

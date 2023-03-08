@@ -4,10 +4,10 @@ import { useEffect, useState, useCallback } from "react";
 
 const socket = io.connect("http://localhost:3000");
 
-const ChatRoom=()=> {
+const ChatRoom=(props)=> {
   //Room State
-  const [room, setRoom] = useState("");
-
+  const [room, setRoom] = useState(props.car.id);
+  const [currentBid,setCurrentBid]=useState(props.currentHighestBid.amount)
   // Messages States
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
@@ -25,28 +25,25 @@ const ChatRoom=()=> {
 
   const handleReceiveMessage = useCallback(
     (data) => {
+      console.log(data)
       setMessages((messages) => [...messages, data.message]);
     },
     [setMessages]
   );
 
   useEffect(() => {
+    joinRoom()
     socket.on("receive_message", handleReceiveMessage);
     return () => {
       socket.off("receive_message", handleReceiveMessage);
     };
+    
   }, [socket, handleReceiveMessage]);
 
   return (
     <div className='contai'>
     <div className="message_container">
-      <input
-        placeholder="Room Number..."
-        onChange={(event) => {
-          setRoom(event.target.value);
-        }}
-      />
-      <button className='button-55' onClick={joinRoom}> Join Room</button>
+
       <input className="text_input" 
         placeholder="Message..."
         onChange={(event) => {
@@ -55,6 +52,7 @@ const ChatRoom=()=> {
         }}
       />
       <button className='button-55' onClick={sendMessage}> Send Message</button>
+      <h1>Current Bid :{currentBid}</h1>
       <h1> Messages:</h1>
       {messages.map((message, index) => (
         <p className='message' key={index}>{message}</p>
