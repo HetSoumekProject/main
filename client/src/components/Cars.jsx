@@ -4,8 +4,6 @@ import AllPosts from './AllPosts';
 import OneCar from './OneCar.jsx'
 import css from "./cars.css"
 
-
-
 const Cars = (props) => {
     const[years,setYears]=useState("all")
     const[transmission,setTransmission]= useState("all");
@@ -50,9 +48,7 @@ const Cars = (props) => {
     },[refresh])
   return (
     <div >
-      
       <div className='select-container'>
-     
       <h1>Auctions:</h1>
       
       <select name="years" id="years" class="chosen-select" data-placeholder="select a year" onChange={(e) => {setYears(e.target.value)
@@ -117,14 +113,11 @@ const Cars = (props) => {
 
       console.log("item",item)
       return(
-        
-        
-
         <div  key = {index}>
-          <img src={item.images.image}/>
        <AllPosts setCar={setCar} view={view} setView={setView} car={item}/>
-       </div> 
-        
+       
+ </div>    
+
       )
              
 

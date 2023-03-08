@@ -9,7 +9,12 @@ function Bid(props) {
   const [amount, setAmount] = useState(0);
   const [user, setUser] = useState({});
   const [currentPrice,setCurrentPrice]=useState(0)
- 
+  const handleNotifyClick = () => {
+    socket.emit("notification", {
+      message: "New bid done!",
+      timestamp: new Date().toLocaleString()
+    });
+  };
     
   const makeABid = (userId, carId, amount) => {
     axios
@@ -81,6 +86,7 @@ function Bid(props) {
           } else {
             makeABid(user.id, props.car.id, amount);
             newBidPrice()
+            handleNotifyClick()
           }
         }}
       >

@@ -6,7 +6,7 @@ margin-top: 10px;
 background-color: #090909;
 border-radius: 4px;
 padding: 20px 60px;
-box-shadow: 0 0 1em #ff730098;}
+box-shadow: 0 0 1em #ff7300;}
 
 
 .inputs{
@@ -20,3 +20,24 @@ box-shadow: 0 0 1em #ff730098;}
     margin-bottom: 1rem;
     padding: 1.2rem 1.4rem;
 }
+.button-1{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    color: #ff5722;
+    border: 0.5rem solid #ff5722;
+    border-radius: 5rem;
+    cursor: pointer;
+    background: none;
+    transition: 0.5s;
+    font-weight: bold;
+}
+.button-1:hover {
+    background: #ff5622;
+    color: #111;
+  }
+  .h11{
+    font-family: 'Merriweather', serif; text-align: left ;color: rgb(232, 98, 2); 
+  margin-top: 29px; ;
+  }
