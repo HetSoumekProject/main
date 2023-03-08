@@ -28,7 +28,7 @@ const [amount,setAmount]=useState(0)
         <h1>{props.car.min_amount}</h1>
         </div>
         <div>
-        <ChatRoom/>
+        <ChatRoom id={props.car.id}/>
         </div>
         <div>
             place a bid
