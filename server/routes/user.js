@@ -11,4 +11,10 @@ router.post("/AddUser",usercontrol.addUser)
 router.get("/getallusers",usercontrol.getAllUsers)
 router.patch("/updateuserprofile/:uid",usercontrol.updateuserprofile)
 router.patch("/uploadimg/:uid",usercontrol.uploadimg)
+router.delete("/deleteOneUser/:id",usercontrol.deleteOneUser)
+router.put("/updateOneUser/:id",usercontrol.updateOneUser)
+router.get("/allusers",usercontrol.getAllUsers)
+router.get("/:id",usercontrol.getOneUser)
+
+
 module.exports=router

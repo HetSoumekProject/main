@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import css from "./post.css"
+
 function Post() {
   const [brandName, setBrandName] = useState("");
   const [description, setDescription] = useState("");
@@ -10,6 +10,7 @@ function Post() {
   const [bodyStyle, setbodyStyle] = useState("");
   const [image, setImage] = useState("");
 
+  const [user,setUser]=useState({})
 
   const setFileToBase = (file) => {
     console.log(file)
@@ -42,14 +43,23 @@ function Post() {
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
+  useEffect(()=>{
+    axios.get(`http://localhost:3000/api/user/userbyuid/${localStorage.userInfo}`)
+    .then((res)=>{
+        setUser(res.data);
+    }).catch((err)=>{
+        console.log(err);
+    })
+  },[])
   return (
     
-    <div className="post-item {
-      ">
+    <div className="post-items">
+    <div className="post-item">
       <h1>sell your car </h1>
       <br/>
       <form>
       <input
+      className="inputs"
         required
         type="text"
         placeholder="brand name"
@@ -66,6 +76,7 @@ function Post() {
             <br/>
             <br/>
       <input
+       className="inputs"
         required
         type="number"
         placeholder="initial price"
@@ -74,6 +85,7 @@ function Post() {
             <br/>
             <br/>
       <input
+        className="inputs"
         required
         type="number"
         placeholder="year"
@@ -90,8 +102,7 @@ function Post() {
         <option value="auto">auto</option>
         <option value="manual">manual</option>
       </select>
-          <br/>
-          <br/>
+         
 
       <select
         required
@@ -111,6 +122,7 @@ function Post() {
         <br/>
 
       <input
+        className="inputs"
         required
         type="file"
         onChange={(e) => {
@@ -126,7 +138,7 @@ function Post() {
         onClick={() => {
           console.log(image)
           postACar(
-            1,
+            user.id,
             brandName,
             description,
             initialPrice,
@@ -139,6 +151,11 @@ function Post() {
       > submit</button>
       </form>
     </div>
+    </div>
+
+
+
+
   );
 }
 

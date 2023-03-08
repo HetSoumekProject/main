@@ -46,16 +46,16 @@ module.exports = (sequelize, DataTypes) => {
       type : DataTypes.DATE,
 
      },
-    // userId: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull:false,
-    //   foreignKey:true
-    // },
-    // favouriteId:{
-    //   type: DataTypes.INTEGER,
-    //   allowNull:true,
-    //   foreignKey:true
-    // }
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull:false,
+      foreignKey:true
+    },
+    favouriteId:{
+      type: DataTypes.INTEGER,
+      allowNull:true,
+      foreignKey:true
+    }
   });
 
   return Car;
