@@ -38,7 +38,7 @@ const Home=()=> {
        <Link to="/Post">Sell your car</Link> 
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
-          <Link to="Signup">SingUp</Link>
+          <Link to="/Signup">SingUp</Link>
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">
           blogs

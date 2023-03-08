@@ -30,7 +30,6 @@ const Signup = ()=>{
         console.log(user.uid,'uid');
         axios.post('http://localhost:3000/api/user/AddUser',{
             email:user.email,
-            
             first_name:firstname,
             last_name:lastname,
             phone_number:phonenumber,
