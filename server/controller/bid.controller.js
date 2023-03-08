@@ -26,39 +26,35 @@ const getAllBids4aCar=(req,res)=>{
         res.json(err)
     }
 }
-const getTheHighestBidOnCar=(req,res)=>{
+const getTheHighestBidOnCar= async(req,res)=>{
+    console.log(req.params.carId)
     try{
-        let result=orm.Bid.findAll({
+        let result= await orm.Bid.findAll({
             where:{carId:req.params.carId}
         })
-        res.json(result[result.length-1])
+        if(result.length>0){
+        res.json(result[result.length-1])}
+        else{
+            res.json(0)
+        }
     }catch(err){
         res.json(err)
     }
 }
-const getCarMin=(req,res)=>{
-try{
-    let result=orm.Car.find({
-        where:{
-            id:req.params.carId
-        }
-    })
-    res.json(result.min_amount)
-}catch(err){
-    res.json(err)
-}
-}
+
+
 const placeAbid=async (req,res)=>{
+    console.log("this is the req.body",req.body)
     try{
         let result= await orm.Bid.create({
             carId:req.body.carId,userId:req.body.userId,
             amount:req.body.amount,
         })
-        res.s=json(result)
+        res.json(result)
     }catch(err){
         res.json(err)
     }
 }
 module.exports={
-    getAllBids4aCar,bidOnAcar,getTheHighestBidOnCar,getCarMin,placeAbid
+    getAllBids4aCar,bidOnAcar,getTheHighestBidOnCar,placeAbid
 }

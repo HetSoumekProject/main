@@ -3,7 +3,9 @@ const orm=require("../../database/orm")
 // Create a new favourite
 let createFavourite = (req, res) => {
   const  userId  = req.params.id;
+  const carId = req.body.carId;
   console.log("userId",userId);
+  console.log("carId",carId);
   orm.User.findByPk(userId)
 
     .then(user => {
@@ -15,7 +17,7 @@ let createFavourite = (req, res) => {
       
       orm.Favourite.create({
         userId: userId,
-        carId : req.body.carId
+        carId : carId
       })
         .then(favourite => {
           res.send(favourite);
