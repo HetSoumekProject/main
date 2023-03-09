@@ -9,6 +9,7 @@ const Profile = () => {
   
     useEffect(() => {
         console.log(currentProfile);
+        
       axios
         .get(`http://localhost:3000/api/user/userbyuid/${currentProfile}`)
         .then((res) => {
@@ -31,7 +32,7 @@ const Profile = () => {
          <h1 style={{backgroundColor:"green"}}> {data.phone_number}</h1>
          <Profileimg />
          <Updateinfo />
-         <Itemsdetails  />
+         <Itemsdetails props={data} />
       </div>
     );
   };

@@ -29,12 +29,14 @@ import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
 function App() {
   const [users,setUser]=useState([])
-
+  
   useEffect(()=>{
     
     axios.get('http://localhost:3000/api/user/allusers').then(res=>{
       console.log(res.data)
       setUser(res.data)
+      
+      
     }).catch(err=>console.log(err))
   },[])
 
