@@ -11,7 +11,7 @@ function Bid(props) {
   const [currentPrice,setCurrentPrice]=useState(0)
   const handleNotifyClick = () => {
     socket.emit("notification", {
-      message: "New bid done!",
+      message: ("New bid done!",props.car.brand_name),
       timestamp: new Date().toLocaleString()
     });
   };

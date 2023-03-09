@@ -53,7 +53,16 @@ const placeAbid=async (req,res)=>{
             carId:req.body.carId,userId:req.body.userId,
             amount:req.body.amount,
         })
-        res.json(result)
+        // console.log(result);
+        let current_car= await orm.Car.findByPk(req.body.carId,{include:[{ model: orm.Bid,
+         
+         }]})
+         
+         
+        console.log(current_car);
+        
+
+        res.send(result)
     }catch(err){
         res.json(err)
     }
