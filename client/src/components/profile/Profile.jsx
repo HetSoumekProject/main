@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Profileimg from "../profile/Profileimg.jsx"
 import Updateinfo from "../profile/Updateinfo.jsx"
-
+import Itemsdetails from "../profile/Itemsdetails.jsx"
 const Profile = () => {
     const [data, setData] = useState({});
     const [currentProfile, setCurrentProfile] = useState(localStorage.userInfo);
@@ -18,6 +18,9 @@ const Profile = () => {
           throw error;
         });
     }, []);
+
+   
+
     return (
       <div>
 
@@ -28,6 +31,7 @@ const Profile = () => {
          <h1 style={{backgroundColor:"green"}}> {data.phone_number}</h1>
          <Profileimg />
          <Updateinfo />
+         <Itemsdetails  />
       </div>
     );
   };
