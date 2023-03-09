@@ -40,13 +40,14 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 .oneCard{
 height: 85%;
 display: flex;
- border: orangered solid;
+
 border-radius: 4%;
 background-color: rgba(69, 69, 62, 0.349);
 padding: 50px;
 justify-items: center;
 flex-direction: column;
 width: 80%;
+box-shadow: 0 0 1em #ff9900;
 }
 .oneCard button{
     border: #333 solid;
@@ -71,3 +72,4 @@ width: 80%;
   .table{
     margin-top: 7%;
   }
+  

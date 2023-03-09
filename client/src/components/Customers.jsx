@@ -27,7 +27,7 @@ const Customers = (props) => {
    return (
     <div >
           
-      <ul>
+      <ul className='notification'>
         {notifications.map((notification) => (
           <li key={notification.id}>
             {notification.message} ({notification.timestamp})
