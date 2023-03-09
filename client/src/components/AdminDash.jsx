@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import './AdminDash.css'
 import Customers from "./Customers";
-import { UilBars } from "@iconscout/react-unicons";
-import { motion } from "framer-motion";
+// import { UilBars } from "@iconscout/react-unicons";
+// import { motion } from "framer-motion";
 import AllPending from "./AllPending";
 import Monthly from "./Monthly";
 
@@ -22,15 +22,15 @@ const Dashboard = () => {
     console.log(window.innerWidth)
     return (
       <>
-        <div className="bars" style={expanded?{left: '60%'}:{left: '5%'}} onClick={()=>setExpaned(!expanded)}>
-
-          <UilBars />
-        </div>
+        <div  onClick={()=>setExpaned(!expanded)}>
+</div>
+          {/* <UilBars />
+        
       <motion.div className='sidebar'
       variants={sidebarVariants}
-      >
+      > */}
         {/* logo */}
-        <div className="logo">
+        <div>
           <span>
             Auctions
           </span>
@@ -39,36 +39,36 @@ const Dashboard = () => {
         <nav className="nav">
           <ul className="list">
             <li >
-              <label className="btn btn-outline-success"  > <Link to="/Customers">Customers</Link></label>
+              <label  > <Link to="/Customers">Customers</Link></label>
             </li>
             <br/>
             <li >
-              <label  className="btn btn-outline-success"  ><Link to="/AllPending">Order</Link></label>
+              <label   ><Link to="/AllPending">Order</Link></label>
             </li>
             <br/>
             <li >
-              <label className="btn btn-outline-success"  ><Link to="/Transactions">Transactions</Link></label>
+              <label  ><Link to="/Transactions">Transactions</Link></label>
             </li>
             <br/>
             <li >
-              <label className="btn btn-outline-success"  ><Link to ="/OverView">OverView</Link></label>
+              <label   ><Link to ="/OverView">OverView</Link></label>
             </li>
             <br/>
             <li >
-              <label className="btn btn-outline-success"  ><Link to="/Daily">Daily</Link></label>
+              <label  ><Link to="/Daily">Daily</Link></label>
             </li>
             <br/>
             <li >
-              <label className="btn btn-outline-success"  ><Link to ="/Monthly">Monthly</Link></label>
+              <label   ><Link to ="/Monthly">Monthly</Link></label>
             </li>
             <br/>
             <li >
-              <label className="btn btn-outline-success"  ><Link to="/AdminSet">Admin</Link></label>
+              <label  ><Link to="/AdminSet">Admin</Link></label>
             </li>
           </ul>
         </nav>
     </div>
-      </motion.div>
+      {/* </motion.div> */}
       </>
     );
   };

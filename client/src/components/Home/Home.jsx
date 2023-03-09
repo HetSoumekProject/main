@@ -12,7 +12,7 @@ const Home=()=> {
 
   return (
   <div>
-    <header className="header">
+    {/* <header className="header">
       <div id="menu-btn" className="fas fa-bars">
         <FontAwesomeIcon icon={faBars} />
       </div>
@@ -51,7 +51,7 @@ const Home=()=> {
       >
         book now
       </a>
-    </header>
+    </header> */}
      <section class="home" id="home">
      <div class="content">
        {/* <span data-aos="fade-up" data-aos-delay="150"> Car Addict</span> */}
