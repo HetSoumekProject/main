@@ -5,7 +5,9 @@ const { Sequelize, DataTypes } = require("sequelize");
 //You should modify 'database', 'username' and 'password' to fit your own credentials.
 
 
+
 const sequelize = new Sequelize("Heet_soumekk","root","s07249446667",
+
   {
     HOST: "localhost",
     dialect: "mysql",
@@ -82,14 +84,14 @@ db.Favourite.belongsTo(db.User, {
   }
 });
 
-db.User.belongsToMany(db.Room,{
-  through: "UserRoom"
+// db.User.belongsToMany(db.Room,{
+//   through: "UserRoom"
 
-})
-db.Room.belongsToMany(db.User,{
-  through: "UserRoom"
+// })
+// db.Room.belongsToMany(db.User,{
+//   through: "UserRoom"
 
-})
+// })
 db.Car.hasMany(db.Bid,{
   foreignKey: "carId",
 })
@@ -117,22 +119,21 @@ db.Image.belongsTo(db.Car,{
   onDelete: "CASCADE",
 })
 
-db.Car.hasOne(db.Room,);
-db.Room.belongsTo(db.Car, {
-  foreignKey: {
-    name: 'carId'
-  }
-});
+// db.Car.hasOne(db.Room,);
+// db.Room.belongsTo(db.Car, {
+//   foreignKey: {
+//     name: 'carId'
+//   }
+// });
 
-db.Room.hasMany(db.Message,{
-  foreignKey: "roomId",
+db.Car.hasMany(db.Message,{
+  foreignKey: "carId",
 })
 
 
+db.Message.belongsTo(db.Car,{
 
-db.Message.belongsTo(db.Room,{
-  as: "room",
-  foreignKey: "roomId",
+  foreignKey: "carId",
   onDelete: "CASCADE",
 
 })
