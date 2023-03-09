@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCarSide } from '@fortawesome/free-solid-svg-icons';
 import AOS from 'aos';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 const Home=()=> {
   useEffect(() => {
     AOS.init({ duration: 1000 ,offset: 150,});
