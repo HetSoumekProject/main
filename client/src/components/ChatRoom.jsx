@@ -50,6 +50,7 @@ const ChatRoom = (props) => {
     setMessages((prevMessages) => {
       return [...prevMessages, { text: data.message, sender: "other" }];
     });
+
   }, []);
 
   useEffect(() => {

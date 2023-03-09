@@ -4,9 +4,8 @@ import 'aos/dist/aos.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCarSide } from '@fortawesome/free-solid-svg-icons';
 import AOS from 'aos';
-import { Link } from 'react-router-dom';
-
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 const Home=()=> {
   useEffect(() => {
     AOS.init({ duration: 1000 ,offset: 150,});
@@ -14,7 +13,7 @@ const Home=()=> {
 
   return (
   <div>
-    <header className="header">
+    {/* <header className="header">
       <div id="menu-btn" className="fas fa-bars">
         <FontAwesomeIcon icon={faBars} />
       </div>
@@ -32,13 +31,13 @@ const Home=()=> {
           about
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="600" href="#destination">
-        <Link to="/Cars">Auctions</Link> 
+          Auctions
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="750" href="#services">
-       <Link to="/Post">Sell your car</Link> 
+         Sell your car
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
-          <Link to="Signup">SingUp</Link>
+          <Link to="/Signup">SingUp</Link>
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">
           blogs
@@ -53,7 +52,7 @@ const Home=()=> {
       >
         book now
       </a>
-    </header>
+    </header> */}
      <section class="home" id="home">
      <div class="content">
        {/* <span data-aos="fade-up" data-aos-delay="150"> Car Addict</span> */}
