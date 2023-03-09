@@ -1,16 +1,20 @@
 const orm=require("../../database/orm")
 
 
-const bidOnAcar=(req,res)=>{
+const bidOnAcar=async(req,res)=>{
     try{
-        let highest=orm.Bid.findAll({
+        let highest= await orm.Bid.findAll({
             where:{carId:req.body.carId}
         })
         if(highest[highest.length-1].amount<req.body.amount){
-        let result=orm.Bid.create(req.body)
-        res.send(result)}
+        let result= await orm.Bid.create(req.body)
+
+        res.send(result)
+    
+    
+    }
         else{
-            res.json("can't bid less than the last bid")
+            res.send("can't bid less than the last bid")
         }
     }catch(err){
         res.send(err)
@@ -50,7 +54,16 @@ const placeAbid=async (req,res)=>{
             carId:req.body.carId,userId:req.body.userId,
             amount:req.body.amount,
         })
-        res.json(result)
+        // console.log(result);
+        let current_car= await orm.Car.findByPk(req.body.carId,{include:[{ model: orm.Bid,
+         
+         }]})
+         
+         
+        console.log(current_car);
+        
+
+        res.send(current_car)
     }catch(err){
         res.json(err)
     }
