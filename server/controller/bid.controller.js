@@ -63,7 +63,7 @@ const placeAbid=async (req,res)=>{
         console.log(current_car);
         
 
-        res.send(current_car)
+        res.send(result)
     }catch(err){
         res.json(err)
     }
