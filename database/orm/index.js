@@ -6,7 +6,9 @@ const { Sequelize, DataTypes } = require("sequelize");
 
 
 
+
 const sequelize = new Sequelize("Heet_soumekk","root","root",
+
 
   {
     HOST: "localhost",
