@@ -11,10 +11,11 @@ const carsRoute = require('./routes/car.js')
 const usersRoute = require('./routes/user.js')
 const roomsRoute = require('./routes/car.js')
 const bidsRoute = require('./routes/bid.js')
-const messagesRoute = require('./routes/car.js')
 const notifivationsRoute = require('./routes/car.js')
 const favouriteRoute = require('./routes/favourite.js')
 const paymentRoute = require('./routes/payment.js')
+const messagesRoute = require('./routes/message.js')
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -24,8 +25,10 @@ app.use('/api/car', carsRoute);
 app.use('/api/user', usersRoute);
 app.use('/api/room', roomsRoute);
 app.use('/api/bids', bidsRoute);
-app.use('/api/messages', messagesRoute);
+// app.use('/api/messages', messagesRoute);
 app.use('/api/notifications', notifivationsRoute);
+app.use('/api/message', messagesRoute);
+
 app.use('/api',paymentRoute)
 
 app.use(bodyParser.json({ limit: "10mb", extended: true }));

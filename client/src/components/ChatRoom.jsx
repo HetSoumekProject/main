@@ -3,6 +3,7 @@ import io from "socket.io-client";
 import { useEffect, useState, useCallback } from "react";
 import { getAuth } from "firebase/auth";
 import { AiOutlineSend } from 'react-icons/ai';
+import axios from 'axios'
 const socket = io.connect("http://localhost:3000");
 const ChatRoom=(props)=> {
   const auth = getAuth();
@@ -52,6 +53,15 @@ const ChatRoom=(props)=> {
       socket.off("receive_message", handleReceiveMessage);
     };
   }, [socket, handleReceiveMessage]);
+
+
+  axios.post('/api/message', messages)
+    .then(response => {
+      
+    })
+    .catch(error => {
+      console.log(error)
+    });
   return (
     <div className='all'>
     <div className="contai">
