@@ -38,8 +38,26 @@ const ChatRoom=(props)=> {
     socket.once("receive_message", (data) => {
       setMessages([...messages, { text: data.message, sender: "me" }]);
       setMessage("");
+  
+      axios.post('http://localhost:3000/api/message', {
+        "name": user.displayName,
+        "carId": props.id,
+        "content": message,
+        "photo": user.photoURL
+      }).then((response) => {
+        console.log(response);
+      }).catch((error) => {
+        console.log(error);
+      });
+
+
     });
   };
+
+
+
+
+  
   const handleReceiveMessage = useCallback(
     (data) => {
       setMessages([...messages, { text: data.message, sender: "other" }]);
@@ -55,13 +73,6 @@ const ChatRoom=(props)=> {
   }, [socket, handleReceiveMessage]);
 
 
-  axios.post('/api/message', messages)
-    .then(response => {
-      
-    })
-    .catch(error => {
-      console.log(error)
-    });
   return (
     <div className='all'>
     <div className="contai">
