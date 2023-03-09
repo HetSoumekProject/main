@@ -25,7 +25,7 @@ const Customers = (props) => {
 
   console.log("this",props.users);
    return (
-    <div>
+    <div >
           
       <ul>
         {notifications.map((notification) => (
