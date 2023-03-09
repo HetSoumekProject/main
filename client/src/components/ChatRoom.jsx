@@ -43,6 +43,7 @@ const ChatRoom = (props) => {
     if (message.trim() === '') return;
     socket.emit("send_message", { message, room });
     setMessage("");
+    console.log(message)
   }, [message, room]);
 
   // Receive Message Handler
