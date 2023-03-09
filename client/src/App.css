@@ -58,6 +58,10 @@ width: 80%;
 }
 .oneCard h1{
     margin-left: 40%;
+    color: aliceblue;
+    border: #333 solid;
+    background-color: black;
+    border-radius: 20%;
 }
 .oneCard img{
     height: 200px;
