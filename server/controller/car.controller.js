@@ -15,16 +15,19 @@ cloudinary.config({
     car.brand_name=req.body.brandName
     car.userId=req.params.id
     car.status="pending"
+   console.log(req.body)
     try{
-        let rslt=await cloudinary.uploader.upload(req.body.image, function(result) { 
-        });
-        let rs=await orm.Car.create(car)
-        console.log(rs)
-        let result=await orm.Image.create({
-          image:rslt.secure_url,
-          carId:rs.id
-        })
-        console.log(rs)
+      let rs=await orm.Car.create(car)
+      req.body.image.map(
+        async(el,i)=>{
+          let rslt=await cloudinary.uploader.upload(el);
+          let result=await orm.Image.create({
+            image:rslt.secure_url,
+            carId:rs.id
+          })
+        }
+      )
+        
         res.send(rs)
     }catch(err){
         res.send(err)
@@ -93,8 +96,23 @@ catch(err){
     res.send(err)
   }
 }
+
+let carsofuser=async (req,res)=>{
+  try{
+    const carsbyuser=await orm.Car.findAll({where: {userId:req.params.id}})
+    res.send(carsbyuser)
+  }
+  catch(err){
+    res.send(err)
+  }
+}
   
   module.exports={
     createAcar,
-    approveCar,getAllCars4admin,getTheSeller,declineCar,getAllCars
+    approveCar,
+    getAllCars4admin,
+    getTheSeller,
+    declineCar,
+    getAllCars,
+    carsofuser
   }
