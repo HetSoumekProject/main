@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         foreignKey:true
+      },
+      carId:{
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        foreignKey:true
       }
     });
   

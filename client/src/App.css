@@ -41,7 +41,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
  border: #333 solid;
 border-radius: 20%;
-background-color: rgba(3, 3, 1, 0.365);
+background-color: rgba(36, 36, 32, 0.365);
 padding: 50px;
 justify-items: center;
 flex-direction: column;
@@ -56,6 +56,10 @@ flex-direction: column;
 }
 .oneCard h1{
     margin-left: 40%;
+    color: aliceblue;
+    border: #333 solid;
+    background-color: black;
+    border-radius: 20%;
 }
 .oneCard img{
     height: 200px;

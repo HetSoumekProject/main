@@ -51,11 +51,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull:false,
       foreignKey:true
     },
-    favouriteId:{
-      type: DataTypes.INTEGER,
-      allowNull:true,
-      foreignKey:true
-    }
+    
   });
 
   return Car;

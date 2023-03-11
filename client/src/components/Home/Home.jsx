@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCarSide } from '@fortawesome/free-solid-svg-icons';
 import AOS from 'aos';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 const Home=()=> {
   useEffect(() => {
     AOS.init({ duration: 1000 ,offset: 150,});
@@ -38,7 +39,7 @@ const Home=()=> {
          Sell your car
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
-          SingUp
+          <Link to="/Signup">SingUp</Link>
         </a>
         <a data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">
           blogs

@@ -2,8 +2,8 @@ const orm=require("../../database/orm")
 
 // Create a new favourite
 let createFavourite = (req, res) => {
-  const  userId  = req.params.id;
-  const carId = req.body.carId;
+  const  userId  = req.params.userId;
+  const carId = req.params.carId;
   console.log("userId",userId);
   console.log("carId",carId);
   orm.User.findByPk(userId)
@@ -14,7 +14,6 @@ let createFavourite = (req, res) => {
         return res.status(404).send({ message: `User with id ${userId} not found` });
       }
 
-      
       orm.Favourite.create({
         userId: userId,
         carId : carId
@@ -33,31 +32,18 @@ let createFavourite = (req, res) => {
 
 //get all favourites for user 
  let getFavouritesForUser = (req, res) => {
-  const { userId } = req.params;
-
-  
-  orm.User.findByPk(userId)
-    .then(user => {
-      if (!user) {
-        return res.status(404).send({ message: `User with id ${userId} not found` });
-      }
-
-      
-      Favourite.findAll({
-        where: { userId: userId }
-      })
-        .then(favourites => {
-          res.send(favourites);
-        })
-        .catch(err => {
-          res.status(500).send({ message: err.message });
-        });
-    })
-    .catch(err => {
-      res.status(500).send({ message: err.message });
-    });
+  const userId = req.params.userId;
+  orm.Favourite.findAll({ where: {userId: req.params.userId } })
+    .then(favorites => res.json(favorites))
+    .catch(err => res.status(500).json({ error: err }));
+}; 
+let deleteFav= (req, res) => {
+  orm.Favourite.destroy({ where: { userId:req.params.userId,carId:req.params.carId } })
+    .then(favorites => res.json(favorites))
+    .catch(err => res.status(500).json({ error: err }));
 };
 module.exports={
     createFavourite,
-    getFavouritesForUser
+    getFavouritesForUser,
+    deleteFav
   }

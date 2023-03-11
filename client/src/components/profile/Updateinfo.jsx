@@ -4,6 +4,7 @@ import axios from "axios";
 
 
 const Updateinfo= ( ) => {
+  
     const [first_name1,setFirst_name1]=useState('')
     const [last_name1,setLast_name1]=useState('')
     const [phone_number1,setPhone_number1]=useState('')

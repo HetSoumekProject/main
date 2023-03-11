@@ -77,9 +77,14 @@ db.Bid.belongsTo(db.User,{
      onDelete: "CASCADE",
 
 })
-db.User.hasOne(db.Favourite,);
-db.Favourite.belongsTo(db.User);
-
+db.User.hasMany(db.Favourite, {
+  foreignKey: "userId",
+});
+db.Favourite.belongsTo(db.User, {
+     as: "user",
+     foreignKey: "userId",
+     onDelete: "CASCADE",
+  });
 db.User.belongsToMany(db.Room,{
   through: "UserRoom"
 
@@ -96,13 +101,13 @@ db.Bid.belongsTo(db.Car, {
   foreignKey: "carId",
   onDelete: "CASCADE",
 });
-db.Favourite.hasMany(db.Car,{
-  foreignKey: "favouriteId",
+db.Car.hasMany(db.Favourite,{
+  foreignKey: "carId",
 })
 
-db.Car.belongsTo(db.Favourite,{
-  as: "favourite",
-  foreignKey: "favouriteId",
+db.Favourite.belongsTo(db.Car,{
+  as: "car",
+  foreignKey: "carId",
   onDelete: "CASCADE",
 
 })
