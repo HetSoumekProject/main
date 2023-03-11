@@ -66,6 +66,7 @@ function Bid(props) {
       <h2>
         current price:{currentPrice?currentPrice:"loading"}
       </h2>
+      {console.log("user;",user)}
       <h2>highest bid : {highest?highest:"loading"}</h2>
       <h1>Enter a bid</h1>
       <input
