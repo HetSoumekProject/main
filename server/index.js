@@ -1,8 +1,9 @@
 const express = require("express");
 const cors = require ("cors")
-const db = require('../database/orm/index');
+const orm = require('../database/orm/index');
 const router = require("./routes.js");
 const app = express();
+
 const http = require("http");
 const { Server } = require("socket.io");
 const bodyParser =require ("body-parser")
@@ -11,7 +12,7 @@ const carsRoute = require('./routes/car.js')
 const usersRoute = require('./routes/user.js')
 const roomsRoute = require('./routes/car.js')
 const bidsRoute = require('./routes/bid.js')
-const notifivationsRoute = require('./routes/car.js')
+const notifivationsRoute = require('./routes/notification.js')
 const favouriteRoute = require('./routes/favourite.js')
 const paymentRoute = require('./routes/payment.js')
 const messagesRoute = require('./routes/message.js')
@@ -48,20 +49,57 @@ io.on("connection", (socket) => {
   socket.on("send_message", (data) => {
     io.to(data.room).emit("receive_message", data);
   });
-  var notifications=[]
-  socket.on("notification", (data) => {
-    console.log("Received notification:", data);
-    notifications.push(data);
-    io.emit("new_notification", data);
+  // var notifications=[]
+  socket.on("notification", async(note) => {
+    
+      console.log('this is server notification',note)
+      try{
+
+        let current_user=await orm.User.findByPk(note.userId)
+        let current_car= await orm.Car.findByPk(note.carId,{include:[{ model: orm.Bid,
+        }]})
+        if (current_car){
+          const usersId =current_car.bids.map(e=>e.userId).filter((e)=>{return e!==note.userId })
+          let uniqueId = [...new Set(usersId )];
+      console.log(uniqueId)
+         uniqueId.forEach(async(e)=>{
+
+             try{        
+              const obj = {
+                carId:note.carId,
+                userId:e,
+                bidder_id:note.userId,
+                brand_name:current_car.brand_name,
+                bidder_name:current_user.first_name,
+                added_bid:note.amount
+            } 
+                 const notify= await orm.Notification.create(obj)
+                 
+                 io.emit(`notification/${e}`, obj);
+                 
+                    console.log('notify',notify);
+             }catch(err){
+       console.log(err);
+         }
+
+       
+         })
+          
+  }
+      }catch(err){
+console.log(err);
+      }
+       
   });
   socket.on('bid&&price', (data) => {
+    
     io.emit("bid&&price",data);
   });
 });
 
-app.get("/api/notifications", (req, res) => {
-  res.json(notifications);
-});
+// app.get("/api/notifications", (req, res) => {
+//   res.json(notifications);
+// });
 server.listen(PORT, function () {
   console.log(`Listening on port ${PORT}!`);
 });

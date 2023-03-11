@@ -47,51 +47,50 @@ const getTheHighestBidOnCar= async(req,res)=>{
 
 
 const placeAbid=async (req,res)=>{
-    console.log("this is the req.body",req.body)
+    // console.log("this is the req.body",req.body)
     try{
         let result= await orm.Bid.create({
             carId:req.body.carId,userId:req.body.userId,
             amount:req.body.amount,
         })
-        let current_user=await orm.User.findByPk(req.body.userId)
-        // console.log(result);
-        let current_car= await orm.Car.findByPk(req.body.carId,{include:[{ model: orm.Bid,
+        // let current_user=await orm.User.findByPk(req.body.userId)
+        // let current_car= await orm.Car.findByPk(req.body.carId,{include:[{ model: orm.Bid,
          
-         }]})
-         if (current_car){
-             const usersId =current_car.bids.map((e)=>{return e.userId })
-             let uniqueId = [...new Set(usersId )];
-             const popped= uniqueId.slice(0,uniqueId.length-1)
-             orm.Notification.create({
-                carId:req.body.carId,
-                userId:4,
-                brand_name:current_car.brand_name,
-                bidder_name:current_user.first_name,
+        //  }]})
+        //  if (current_car){
+        //      const usersId =current_car.bids.map(e=>e.userId).filter((e)=>{return e!==req.body.userId })
+        //      let uniqueId = [...new Set(usersId )];
+         
+        //     uniqueId.forEach(async(e)=>{
+        //         try{          
+        //             const notify= await orm.Notification.create({
+        //                 carId:req.body.carId,
+        //                 userId:e,
+        //                 bidder_id:req.body.userId,
+        //                  brand_name:current_car.brand_name,
+        //                 bidder_name:current_user.first_name,
+        //                 added_bid:req.body.amount
+        //             })
+        //             //    console.log('notify',notify);
+        //         }catch(err){
+        //   console.log(err);
+        //     }
 
-            })
-            //   popped.map((e)=>{
-
-            //       orm.Notification.create({
-            //      carId:req.body.carId,
-            //      userId:e,
-            //      brand_name:current_car.brand_name,
-            //      bidder_name:current_user.first_name,
-
-            //  })
-
-            // })
+          
+        //     })
              
      
-             res.send(result )
+         res.send(result)
 
 
-         }
+        //  }
          
          
     }catch(err){
         res.json(err)
     }
 }
+
 module.exports={
     getAllBids4aCar,bidOnAcar,getTheHighestBidOnCar,placeAbid
 }
