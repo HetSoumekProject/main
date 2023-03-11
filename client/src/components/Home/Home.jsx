@@ -12,7 +12,7 @@ const Home=()=> {
   }, []);
 
   return (
-  <div>
+  <div >
     {/* <header className="header">
       <div id="menu-btn" className="fas fa-bars">
         <FontAwesomeIcon icon={faBars} />
