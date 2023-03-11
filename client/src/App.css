@@ -38,13 +38,16 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 5px;
 }
 .oneCard{
-    display: flex;
- border: #333 solid;
-border-radius: 20%;
-background-color: rgba(3, 3, 1, 0.365);
+height: 85%;
+display: flex;
+
+border-radius: 4%;
+background-color: rgba(69, 69, 62, 0.349);
 padding: 50px;
 justify-items: center;
 flex-direction: column;
+width: 80%;
+box-shadow: 0 0 1em #ff9900;
 }
 .oneCard button{
     border: #333 solid;
@@ -56,9 +59,17 @@ flex-direction: column;
 }
 .oneCard h1{
     margin-left: 40%;
+    color: aliceblue;
+    border: #333 solid;
+    background-color: black;
+    border-radius: 20%;
 }
 .oneCard img{
     height: 200px;
     width: 250px;
-    margin-left: 10%;
-}
+    margin-left: -4%;
+    border-radius: 15px 15px 15px 15px;;}
+  .table{
+    margin-top: 7%;
+  }
+  

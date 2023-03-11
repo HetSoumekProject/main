@@ -12,16 +12,21 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      userId: {
+     photo: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+      carId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         foreignKey:true
       },
-      roomId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        foreignKey:true
-      },
-    });
+    },
+    { timestamps: false }
+ );
     return Message;
   };

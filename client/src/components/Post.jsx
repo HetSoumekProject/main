@@ -7,18 +7,21 @@ function Post() {
   const [description, setDescription] = useState("");
   const [initialPrice, setInitialPrice] = useState(0);
   const [year, setYear] = useState(0);
-  const [transmission, settransmission] = useState("");
-  const [bodyStyle, setbodyStyle] = useState("");
-  const [image, setImage] = useState("");
-
+  const [transmission, settransmission] = useState("auto");
+  const [bodyStyle, setbodyStyle] = useState("coupe");
+  const [image, setImage] = useState([]);
   const [user,setUser]=useState({})
 
-  const setFileToBase = (file) => {
-    console.log(file)
-    const img = new FileReader();
-    img.readAsDataURL(file);
-    img.onloadend = () => setImage(img.result);
-    
+  const setFileToBase = (files) => {
+    console.log(files)
+    let i=0
+    while(i<files.length){
+      const img = new FileReader();
+      console.log("files console",files[i]);
+      img.readAsDataURL(files[i]);
+      img.onloadend = () => image.push(img.result);
+      i++
+    }
   };
 
   const postACar = (
@@ -41,7 +44,7 @@ function Post() {
         bodyStyle: bodyStyle,
         image: image,
       })
-      .then((res) => console.log(res))
+      .then((res) => {console.log(res);setImage([])})
       .catch((err) => console.log(err));
   };
   useEffect(()=>{
@@ -49,7 +52,7 @@ function Post() {
     .then((res)=>{
         setUser(res.data);
     }).catch((err)=>{
-        console.log(err);
+        console.log("user err:",err);
     })
   },[])
   return (
@@ -113,7 +116,7 @@ function Post() {
         name="bodyStyle"
         onChange={(e) => setbodyStyle(e.target.value)}
       >
-        <option >coupe</option>
+        <option value="coupe" >coupe</option>
         <option value="convertible">convertible</option>
         <option value="hatchback">hatchback</option>
         <option value="sedan">sedan</option>
@@ -129,8 +132,10 @@ function Post() {
         className="inputs"
         required
         type="file"
+        multiple
         onChange={(e) => {
-          setFileToBase(e.target.files[0])}}
+          console.log("file",e.target.files)
+          setFileToBase(e.target.files)}}
       />
             <br/>
             <br/>

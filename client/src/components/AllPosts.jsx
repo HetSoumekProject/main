@@ -9,7 +9,7 @@ const AllPosts = ({car,setCar,setView,view}) => {
  <img className='cars-pic' src={car.images[0].image} onClick={()=>{setView(!view)
       setCar(car)
       }}/>
-      <h1>
+      <h1 className='h111'>
         {car.brand_name}
       </h1>
       <h4>

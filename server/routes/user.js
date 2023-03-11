@@ -15,6 +15,7 @@ router.delete("/deleteOneUser/:id",usercontrol.deleteOneUser)
 router.put("/updateOneUser/:id",usercontrol.updateOneUser)
 router.get("/allusers",usercontrol.getAllUsers)
 router.get("/:id",usercontrol.getOneUser)
+router.get("userid/:uid",usercontrol.getid)
 
 
 module.exports=router
