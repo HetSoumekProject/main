@@ -16,28 +16,29 @@ const notifivationsRoute = require('./routes/notification.js')
 const favouriteRoute = require('./routes/favourite.js')
 const paymentRoute = require('./routes/payment.js')
 const messagesRoute = require('./routes/message.js')
-
-
+const nodemailer = require('nodemailer');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-// app.use("/hetsoumek",router)
+
+
 app.use('/api/car', carsRoute);
 app.use('/api/user', usersRoute);
 app.use('/api/room', roomsRoute);
 app.use('/api/bids', bidsRoute);
-// app.use('/api/messages', messagesRoute);
+
+
 app.use('/api/notifications', notifivationsRoute);
 app.use('/api/fav',favouriteRoute)
+app.use('/api/message', messagesRoute);
 app.use('/api',paymentRoute)
-
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: "http://localhost:3001", //where react run
-    methods: ["get", "post"]
+    methods:["get", "post"]
   }
 });
 io.on("connection", (socket) => {
@@ -46,7 +47,8 @@ io.on("connection", (socket) => {
     socket.join(data);
   });
   socket.on("send_message", (data) => {
-    io.to(data.room).emit("receive_message", data);
+    console.log("messsage",data)
+    io.to(data.carId).emit("receive_message", data);
   });
   // var notifications=[]
   socket.on("notification", async(note) => {
@@ -96,9 +98,58 @@ console.log(err);
   });
 });
 
-// app.get("/api/notifications", (req, res) => {
-//   res.json(notifications);
-// });
+
+
+// let transporter = nodemailer.createTransport({
+//       service: 'gmail',
+//       auth: {
+//         type: 'OAuth2',
+//         user: process.env.MAIL_USERNAME,
+//         pass: process.env.MAIL_PASSWORD,
+//         clientId: process.env.OAUTH_CLIENTID,
+//         clientSecret: process.env.OAUTH_CLIENT_SECRET,
+//         refreshToken: process.env.OAUTH_REFRESH_TOKEN
+//       }
+//     });
+// const sendEmail=(req, res) =>{
+//   return new Promise((resolve,reject)=>{
+
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      type: 'OAuth2',
+      user: "farhani ahlem",
+      pass: "mynewpassword123@",
+      clientId: "911348413388-bcp6gsrht6adpkfv85l6ql8972b6h314.apps.googleusercontent.com",
+      clientSecret: "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",
+      refreshToken: "https://oauth2.googleapis.com/token"}
+    
+  })
+
+
+  let mailOptions = {
+    // from: req.body.email,
+    to: "ahlemfarhani2@gmail.com",
+    subject: 'Nodemailer Project',
+    html:"hjjjjjj"
+    
+  };
+ 
+  transporter.sendMail(mailOptions, function(err, data) {
+    if (err) {
+      console.log("Error " + err);
+    } else {
+      console.log("Email sent successfully");
+    }
+  });
+
+
+app.get("/api/notifications", (req, res) => {
+  res.json(notifications);
+
+});
+
+
 server.listen(PORT, function () {
   console.log(`Listening on port ${PORT}!`);
 });

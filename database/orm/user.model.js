@@ -46,10 +46,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
       foreignKey:true,
     },
-    // img:{
-    //   type: DataTypes.STRING,
-    //   allowNull: true,
-    // }
+    img:{
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue:"https://cdn1.iconfinder.com/data/icons/basic-ui-set-v5-user-outline/64/Account_profile_user_avatar_small-512.png"
+    }
 
   });
   return User;

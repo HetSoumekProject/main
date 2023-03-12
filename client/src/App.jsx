@@ -28,6 +28,7 @@ import Profile from ".//components/profile/Profile.jsx"
 import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
 import FavoriteList from './components/favourite';
+import Mailer from './components/mailer/Mailer.jsx'
 function App() {
   const [users,setUsers]=useState([])
 const [user,setUser]=useState('')
@@ -64,7 +65,7 @@ const x=localStorage.userInfo
       <Route path="/" exact  element={<Home/>}/>
       <Route path="/Notify" element={<Notify/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
-      
+      <Route path="/mailer" element={<Mailer/>}/>
       <Route path="/AllPending" element={<AllPending/>}/>
       <Route path="/Post" element={<Post/>}/>
       <Route path="/PrivatChat" element={<PrivatChat/>}/>
