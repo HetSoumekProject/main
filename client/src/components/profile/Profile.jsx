@@ -8,12 +8,13 @@ const Profile = () => {
     const [data, setData] = useState({});
     const [currentProfile, setCurrentProfile] = useState(localStorage.userInfo);
     const [showUpdate, setShowUpdate] = useState(false);
-
+    const[refresh,setRefresh] = useState(null)
     useEffect(() => {
         axios
           .get(`http://localhost:3000/api/user/userbyuid/${currentProfile}`)
           .then((res) => {
             setData(res.data);
+            setRefresh('')
           })
           .catch((error) => {
             throw error;
@@ -37,7 +38,7 @@ const Profile = () => {
                 <button className="editbutton" onClick={toggleUpdate}>Update Info</button>
                 {showUpdate && <Updateinfo />}
                 {/* <Profileimg /> */}
-                <Itemsdetails props={data} />
+                <Itemsdetails props={data} refresh={refresh}/>
             </div>
         </div>
     );

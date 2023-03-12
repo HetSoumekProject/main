@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 
-function Itemsdetails({props}) {
+function Itemsdetails({props,refresh}) {
   const [data, setData] = useState([]);
   
   console.log(props.id);
@@ -9,7 +9,7 @@ function Itemsdetails({props}) {
   useEffect(() => {
     
     axios
-      .get(`http://localhost:3000/api/car/carsofuser/${1}`
+      .get(`http://localhost:3000/api/car/carsofuser/${props.id}`
       )
       .then((res) => {
         setData(res.data);
@@ -17,7 +17,7 @@ function Itemsdetails({props}) {
       .catch((error) => {
         throw error;
       });
-  }, []);
+  }, [refresh]);
 
 
   return (
