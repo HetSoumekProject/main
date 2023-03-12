@@ -5,6 +5,8 @@ import Itemsdetails from "../profile/Itemsdetails.jsx"
 import "./profile.css"
 import Updateinfo from "../profile/Updateinfo.jsx"
 const Profile = () => {
+  const [view , setView]=useState(false)
+
     const [data, setData] = useState({});
     const [currentProfile, setCurrentProfile] = useState(localStorage.userInfo);
     const [showUpdate, setShowUpdate] = useState(false);

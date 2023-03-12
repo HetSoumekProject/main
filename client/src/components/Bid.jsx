@@ -11,20 +11,24 @@ function Bid(props) {
   const [currentPrice,setCurrentPrice]=useState(0)
   const handleNotifyClick = () => {
     socket.emit("notification", {
-      message: ("New bid done!",props.car.brand_name),
+      message: ("New bid done!"+props.car.brand_name),
       timestamp: new Date().toLocaleString()
     });
   };
     
   const makeABid = (userId, carId, amount) => {
-    axios
-      .post(`http://localhost:3000/api/bids/placeabid`, {
+    const obj ={
+      
         userId: userId,
         carId: carId,
         amount: amount,
-      })
+      
+    }
+    axios
+      .post(`http://localhost:3000/api/bids/placeabid`, obj)
       .then((res) =>{ setHighest(res.data.amount)
       socket.emit("bid&&price",highest)
+      socket.emit("notification",obj)
       setRefresh(!refresh)})
       .catch((err) => console.log(err));
   };
@@ -35,6 +39,7 @@ function Bid(props) {
       setRefresh(!refresh)
     },[highest]
   )
+
 
   useEffect(() => {
     axios
@@ -56,6 +61,9 @@ function Bid(props) {
   useEffect(() => {
     setCurrentPrice(parseInt(highest) + props.car.initial_price)
     socket.on("bid&&price", newBidPrice);
+   
+
+
     return () => {
       socket.off("bid&&price", newBidPrice);
     };
@@ -87,7 +95,7 @@ function Bid(props) {
           } else {
             makeABid(user.id, props.car.id, amount);
             newBidPrice()
-            handleNotifyClick()
+         
           }
         }}
       >

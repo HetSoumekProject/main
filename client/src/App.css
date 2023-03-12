@@ -72,4 +72,50 @@ box-shadow: 0 0 1em #ff9900;
   .table{
     margin-top: 7%;
   }
-  
+  .notification {
+    position: absolute;
+    margin: -10px;
+    left: 93%;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .notification {
+    margin-top: -2%;
+}
+
+.fa-bell{
+    font-family: "Font Awesome 5 Free";
+    font-size: 250%;
+    margin-left: 93%;
+    margin-top: 8%;
+    color: white;
+}
+.notific {
+    max-height: 500px; /* Set the maximum height for the container */
+    overflow-y: auto; /* Add a scrollbar to the container if its content overflows */
+    position: absolute;
+    margin-top: 1%;
+    right: 5%;
+    width: 250px;
+    background-color: white;
+    box-shadow: 10px 15px 10px rgba(255, 72, 0, 0.274);
+    border-radius: 15px;
+    padding: 10px;
+    z-index: 999;
+    }
+    
+    .notific p {
+        margin: 5px 0;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
