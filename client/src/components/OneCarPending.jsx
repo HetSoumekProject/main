@@ -22,7 +22,7 @@ function OneCarPending(props) {
         axios.put(`http://localhost:3000/api/car/status/decline/${id}`).then(res=>props.setRefreshPending(!props.refreshPending)).catch(err=>console.log(err))
     }
   return (
-    <div>
+    <div className='pending'>
       <table class="table">
        <thead>
         <tr>

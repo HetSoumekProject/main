@@ -29,6 +29,7 @@ import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
 import FavoriteList from './components/favourite';
 import Mailer from './components/mailer/Mailer.jsx'
+import AdminSet from './components/AdminSet';
 function App() {
   const [users,setUsers]=useState([])
 const [user,setUser]=useState('')
@@ -74,17 +75,18 @@ const x=localStorage.userInfo
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
       {/* <Route path="/NavBar" element={<NavBar/>}/> */}
       <Route path="/Daily" element={<Daily/>}/>
-      <Route path="/Monthly" element={<Monthly/>}/>
+      <Route path="/AdminDashboard" element={<Monthly/>}/>
       <Route path="/Customers" element={<Customers users={users}/>}/>
       <Route path="/Transactions" element={<Transactions/>}/>
       <Route path="/OverView" element={<OverView/>}/>
       <Route path="/Cars" element={<Cars/>}/>
-      <Route path="/AdminDashboard" element={<Dashboard />}/>
+      <Route path="/Monthly" element={<Monthly />}/>
       <Route path="/Signup" element={<Signup/>}/>
       <Route path="/Signin" element={<Signin />} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
       <Route path="/FavoriteList" element={<FavoriteList x={user} refresh={refresh}/>}/>
+      <Route path="/AdminSet" element={<AdminSet />}/>
     </Routes>
 
     </div>

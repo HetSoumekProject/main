@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Dashboard from './AdminDash';
 import axios from 'axios';
 import io from 'socket.io-client';
 
@@ -26,7 +27,7 @@ const Customers = (props) => {
   console.log("this",props.users);
    return (
     <div >
-          
+          <Dashboard/>
       {/* <ul className='notification'>
         {notifications.map((notification) => (
           <li key={notification.id}>
