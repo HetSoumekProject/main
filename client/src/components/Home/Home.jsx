@@ -12,7 +12,7 @@ const Home=()=> {
   }, []);
 
   return (
-  <div>
+  <div >
     {/* <header className="header">
       <div id="menu-btn" className="fas fa-bars">
         <FontAwesomeIcon icon={faBars} />
@@ -62,7 +62,7 @@ const Home=()=> {
 
        </p>
        <a data-aos="fade-up" data-aos-delay="600" href="#" class="btn"
-         >book now</a>
+         ><Link to="/cars">JOIN US</Link></a>
      </div>
    </section>
    <section class="about" id="about">

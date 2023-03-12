@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import css from "./post.css"
-
+import { Link } from 'react-router-dom';
 function Post() {
   const [brandName, setBrandName] = useState("");
   const [description, setDescription] = useState("");
@@ -157,7 +157,7 @@ function Post() {
             image
           );
         }}
-      > ADD</button>
+      > <Link to='/cars'>ADD</Link></button>
       </form>
     </div>
     
