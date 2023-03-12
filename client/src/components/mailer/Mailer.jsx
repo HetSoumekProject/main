@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import "./mailer.css"
 const ContactForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -9,7 +9,7 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/send-email', { name, email, message });
+      await axios.post('http://localhost:3000/api/mail/send', { name, email, message });
       alert('Email sent successfully');
       setName('');
       setEmail('');
@@ -21,7 +21,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div>
+    <div className='body'>
       <h2>Contact Form</h2>
       <form onSubmit={handleSubmit}>
         <label>

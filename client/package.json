@@ -22,6 +22,7 @@
     "framer-motion": "^10.0.1",
     "jquery": "^3.6.3",
     "mdb-react-ui-kit": "^5.1.0",
+    "nodemailer": "^6.9.1",
     "nodemon": "^2.0.20",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
@@ -33,6 +34,7 @@
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "socket.io-client": "^4.6.1",
+    "stream": "^0.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
