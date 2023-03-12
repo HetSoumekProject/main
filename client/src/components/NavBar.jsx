@@ -4,6 +4,7 @@ import 'aos/dist/aos.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCarSide } from '@fortawesome/free-solid-svg-icons';
 import AOS from 'aos';
+import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 
@@ -28,22 +29,22 @@ const NavBar =(props)=>{
   
         <nav className="navbar">
           <a data-aos="zoom-in-left" data-aos-delay="300" href="#home">
-            home
+        <Link to ="/" >HOME</Link>
           </a>
           <a data-aos="zoom-in-left" data-aos-delay="450" href="#about">
-            about
+         ABOUT US
           </a>
           <a data-aos="zoom-in-left" data-aos-delay="600" href="#destination">
-            Auctions
+          <Link to="/cars" >AUCTIONS</Link>
           </a>
           <a data-aos="zoom-in-left" data-aos-delay="750" href="#services">
-           Sell your car
+           <Link to='/post'>SELL YOUR CAR</Link>
           </a>
           <a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
-            SingUp
+          <Link to="/Profile" >PROFIL</Link>
           </a>
           <a data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">
-            blogs
+          <Link to='/adminDashboard'>ADMIN</Link> 
           </a>
         </nav>
   
@@ -53,7 +54,7 @@ const NavBar =(props)=>{
           href="#book-form"
           className="btn"
         >
-          book now
+        <Link to ='/signUp'> SIGNUP/LOGIN</Link>
         </a>
       </header>
    

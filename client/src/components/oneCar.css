@@ -1,0 +1,82 @@
+.bodey {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-image:"https://img.freepik.com/free-photo/city-foggy-day_1149-101.jpg?1&w=740&t=st=1678548827~exp=1678549427~hmac=b91abd2217adaad880a37bf06d055b24fdb0718963c051107a05bc547fc8ac4e";
+  }
+  
+  .block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .description {
+    flex: 1;
+  }
+  
+  .car-image {
+    width: 100%;
+    height: 400px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  
+  .car-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .chat-room-container {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  
+  .chat-room {
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+  }
+  
+  .bid {
+    width: 300px;
+    margin-right: 20px;
+  }
+  
+  .payment {
+    width: 300px;
+  }
+  
+  @media (max-width: 768px) {
+    .bodey {
+      flex-direction: column;
+    }
+  
+    .block {
+      margin-right: 0;
+    }
+  
+    .chat-room-container {
+      width: 100%;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  
+    .chat-room {
+      margin: 0;
+    }
+  
+    .bid,
+    .payment {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+  

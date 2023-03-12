@@ -27,6 +27,7 @@ import Signin  from "./components/auth/Signin.jsx"
 import Profile from ".//components/profile/Profile.jsx"
 import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
+import Mailer from './components/mailer/Mailer.jsx'
 function App() {
   const [users,setUser]=useState([])
 
@@ -50,7 +51,7 @@ function App() {
       <Route path="/" exact  element={<Home/>}/>
       {/* <Route path="/Notify" element={<Notify/>}/> */}
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
-      
+      <Route path="/mailer" element={<Mailer/>}/>
       <Route path="/AllPending" element={<AllPending/>}/>
       <Route path="/Post" element={<Post/>}/>
       <Route path="/PrivatChat" element={<PrivatChat/>}/>
