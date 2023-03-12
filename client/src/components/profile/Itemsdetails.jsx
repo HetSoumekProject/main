@@ -9,7 +9,7 @@ function Itemsdetails({props,refresh}) {
   useEffect(() => {
     
     axios
-      .get(`http://localhost:3000/api/car/carsofuser/${props.id}`
+      .get(`http://localhost:3000/api/car/getAllCarsforuser/${props.id}`
       )
       .then((res) => {
         setData(res.data);
@@ -28,6 +28,7 @@ function Itemsdetails({props,refresh}) {
                
                <h1>{val.brand_name}</h1>
                 <p>{val.status}  </p>
+                <img  src={val.images[0].image} alt="car"  />
               </div>
             })}
           </div>

@@ -46,10 +46,10 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true,
       foreignKey:true,
     },
-    // img:{
-    //   type: DataTypes.STRING,
-    //   allowNull: true,
-    // }
+    img:{
+      type: DataTypes.STRING,
+      allowNull: true,
+    }
 
   });
   return User;
