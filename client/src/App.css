@@ -112,6 +112,7 @@ width: 80%;
     }
     
     .notific p {
+        color: black;
         margin: 5px 0;
         padding: 10px;
         background-color: #f2f2f2;

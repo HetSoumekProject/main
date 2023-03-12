@@ -66,7 +66,7 @@ const Notify = () => {
       {isNotificationShown && (
         <div className="notific">
           {notifications.map((notification, index) => (
-            <p key={index} >
+            <p  key={index} >
               {notification.bidder_name} bid on {notification.brand_name} with{' '}
               {notification.added_bid}
             </p>

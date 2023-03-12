@@ -7,7 +7,6 @@ import AOS from 'aos';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import Notify from './Notify';
-import { Link } from "react-router-dom";
 
 
 const NavBar =(props)=>{
