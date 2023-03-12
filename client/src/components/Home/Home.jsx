@@ -62,7 +62,7 @@ const Home=()=> {
 
        </p>
        <a data-aos="fade-up" data-aos-delay="600" href="#" class="btn"
-         >book now</a>
+         ><Link to="/cars">JOIN US</Link></a>
      </div>
    </section>
    <section class="about" id="about">

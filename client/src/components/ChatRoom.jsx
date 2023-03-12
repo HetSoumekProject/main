@@ -1,18 +1,19 @@
 import io from "socket.io-client";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useReducer } from "react";
 import { getAuth } from "firebase/auth";
 import { AiOutlineSend } from 'react-icons/ai';
+import '../ChatRoom.css'
 import axios from 'axios'
 
 const socket = io.connect("http://localhost:3000");
 
 const ChatRoom = (props) => {
-  const auth = getAuth();
-  const user = auth.currentUser;
+  // const auth = getAuth();
+  // const user = auth.currentUser;
 
   // Room State
   const [room, setRoom] = useState(props.id);
-
+const[user,setUser]=useState({})
   // Messages State
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
@@ -39,75 +40,105 @@ const ChatRoom = (props) => {
   }, [room]);
 
   // Send Message Function
-  const sendMessage = useCallback(() => {
+  const sendMessage = () => {
+
+    const obj ={
+      name: user.first_name,
+      carId: room,
+      content:message,
+      photo: user.img
+    }
     if (message.trim() === '') return;
-    socket.emit("send_message", { message, room });
-    setMessage("");
-    console.log(message)
-  }, [message, room]);
+    socket.emit("send_message",obj );
+    axios.post('http://localhost:3000/api/message', obj)
+    .then((response) => {
+
+      console.log("response of post",response);
+      setMessage("");
+    })
+    .catch((error) => {
+      console.log(error.response.data);
+    });
+  }
 
   // Receive Message Handler
   const handleReceiveMessage = useCallback((data) => {
     setMessages((prevMessages) => {
-      return [...prevMessages, { text: data.message, sender: "other" }];
+      return [...prevMessages, data];
     });
-
   }, []);
-
-  useEffect(() => {
-    joinRoom();
-    axios.post('http://localhost:3000/api/message', {
-  "name": user.displayName,
-  "carId": props.id,
-  "content": message,
-  "photo": user.photoURL
-})
+  
+const getUser =()=>{
+  const id =localStorage.getItem("userInfo")
+  axios.get(`http://localhost:3000/api/user/userbyuid/${id}`)
 .then((response) => {
-  console.log(response);
+  setUser(response.data);
+ 
 })
 .catch((error) => {
-  console.log(error.response.data);
-});
-    axios.get(`http://localhost:3000/api/message/getAll/${room+""}`)
+  console.log(error)
+});}
+
+
+  useEffect(() => {
+    
+
+    axios.get(`http://localhost:3000/api/message/getAll/${room}`)
       .then((response) => {
-        setMessages(response.data.map((msg) => ({ text: msg.content, sender: msg.name === user.displayName ? "me" : "other" })));
+        getUser()
+         joinRoom();
+        console.log('resp of',response)
+        setMessages(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
 
-    // Socket Event Listeners
-    socket.on("receive_message", handleReceiveMessage);
+
+      socket.on("receive_message", handleReceiveMessage);
 
   
     return () => {
       socket.off("receive_message", handleReceiveMessage);
     };
-  }, [joinRoom, handleReceiveMessage, room, user]);
+  }, []);
+
 
   return (
-    <div className='all'>
+    <div className='window'>
       <div className="contai">
         <div className="message_container">
 
           {messages.map((message, index) => (
-            <div
-              className={`message ${message.sender === "me" ? "sent" : "received"}`}
-              key={index}
-            >
-              {message.sender === "me" ? getAvatar(user.email) : getAvatar(message.sender)}
-              <div className="text_message">{message.text}</div>
-            </div>
-          ))}
+                 <div
+                //  className={`message ${message.name === currentUser.displayName ? "sent" : "received"}`}
+                 key={index}
+               >
+                 <div className="avatar">
+                   <img src={user.img} />
+                 </div>
+                 <div className="message__bubble">
+                   <div className="message__info">
+                     <div className="message__author">{user.first_name}</div>
+                   </div>
+                   <div className="message__text">{message.content}</div>
+                 </div>
+               </div>
+             ))}
+          
 
-          <input
-            className="text_input"
+<div class="chat-view__input">
+<input
+            className="input"
             placeholder="Message..."
-            value={message}
+            // value={message}
             onChange={(event) => {
               setMessage(event.target.value)
             }}
           />
+          <span class="input__emoticon"></span></div>
+      
+          
           <button className="btn" onClick={sendMessage}>
             <AiOutlineSend />
           </button>

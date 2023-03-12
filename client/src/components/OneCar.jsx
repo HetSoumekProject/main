@@ -4,27 +4,42 @@ import CarImages from './CarImages.jsx'
 import ChatRoom from './ChatRoom.jsx'
 import Payment from './Payment.jsx'
 import Bid from "./Bid.jsx"
+import './oneCar.css'
 function OneCar(props) {
  
 
   return (
-    <div>
-        <div className='onecar-css'>
-            <div className='one-imgdetailes'>
-                <div className='car_details'>
-            {props.car.images.map((el,i)=><div ><CarImages image={el} key={i}/></div>)}
-        <h1>Brand :{props.car.brand_name}</h1>
+    <div className='bodey'>
+        <div className=''>
+            <div className=''>
+                <div className="">
+                <div className='block'>
+  {props.car.images.length > 0 && (
+    <div className="preload-wrap main loaded">
+      <CarImages image={props.car.images[0]} />
+    </div>
+  )}
+  {props.car.images.slice(1).map((el, i) => (
+    <div className={`car-image car-image-${i+1}`} key={i}>
+      <CarImages image={el} />
+    </div>
+  ))}
+</div>
+
+            <div className='description'>
+         <h1>Brand :{props.car.brand_name}</h1>
         <p>Description:{props.car.description}</p> 
         <h1>Year: {props.car.year}</h1>
         <h1>Transmition:{props.car.transmission}</h1>
         <h1>Body Style:{props.car.body_style}</h1>
-        <h1>Min amount to bid: {props.car.min_amount} dt</h1>
+        <h1>Min amount to bid: {props.car.min_amount} dt</h1></div>
+       
         </div>
-        <div className='chatroom-one'>
+        <div className=''>
         <ChatRoom id={props.car.id}/>
         </div>
         </div>
-        <div className='paymentOne'>
+        <div className=''>
         <div>
             <Bid car={props.car} />
         </div>
