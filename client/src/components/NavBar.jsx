@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faCarSide } from '@fortawesome/free-solid-svg-icons';
 import AOS from 'aos';
 import { useEffect } from 'react';
+import Notify from './Notify';
+import { Link } from "react-router-dom";
 
 
 const NavBar =(props)=>{
@@ -55,8 +57,9 @@ const NavBar =(props)=>{
         >
           book now
         </a>
+       
       </header>
-   
+      <Notify/>
     </div>
     )
 }

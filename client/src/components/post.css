@@ -4,7 +4,7 @@
 width: 590px;
 min-height: 250px;
 margin: auto;
-margin-top: 46px;
+margin-top: -63px;
 background-color: #090909;
 border-radius: 4px;
 padding: 20px 60px;
@@ -45,6 +45,4 @@ box-shadow: 0 0 1em #ff7300;}
     text-transform: uppercase;
     font-size: 2.4rem;
   }
-  .notification{
-    margin-top: 5%;
-  }
+  
