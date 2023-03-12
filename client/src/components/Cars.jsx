@@ -13,7 +13,16 @@ const Cars = (props) => {
     const [refresh,setRefresh]=useState(true)
     const[view,setView]=useState(false)
     const [car,setCar]=useState({})
-  
+    const [user,setUser]=useState(0)
+  const x= localStorage.userInfo
+  console.log(x);
+  useEffect(()=>{
+    axios.get(`http://localhost:3000/api/user/real/${x}`).then (res=>{
+      console.log(res.data)
+      setUser(res.data.id)
+      
+    }).catch((err)=>{console.log(err);})
+  },[refresh])
     useEffect(()=>{
       axios.get('http://localhost:3000/api/car/AllCars').then(res=>{
         console.log(res.data)
@@ -99,7 +108,7 @@ const Cars = (props) => {
       console.log("item",item)
       return(
         <div  key = {index}>
-       <AllPosts setCar={setCar} view={view} setView={setView} car={item}/>
+       <AllPosts setCar={setCar} view={view} setView={setView} car={item} user={user} x={x}/>
        
  </div>    
 
@@ -114,13 +123,10 @@ const Cars = (props) => {
       console.log("item",item)
       return(
         <div  key = {index}>
-       <AllPosts setCar={setCar} view={view} setView={setView} car={item}/>
+       <AllPosts user={props.user} setCar={setCar} view={view} setView={setView} car={item}/>
        
  </div>    
-
-      )
-             
-
+)
 })}
 </div>}
 {view &&<OneCar user={props.user} car={car} />}

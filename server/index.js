@@ -29,6 +29,7 @@ app.use('/api/bids', bidsRoute);
 
 
 app.use('/api/notifications', notifivationsRoute);
+app.use('/api/fav',favouriteRoute)
 app.use('/api/message', messagesRoute);
 app.use('/api',paymentRoute)
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
@@ -127,7 +128,7 @@ console.log(err);
 
 
   let mailOptions = {
-    from: req.body.email,
+    // from: req.body.email,
     to: "ahlemfarhani2@gmail.com",
     subject: 'Nodemailer Project',
     html:"hjjjjjj"

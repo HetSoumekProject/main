@@ -56,6 +56,18 @@ let getuserbyuid= async (req, res) => {
       res.status(500).send(error);
     }
   }
+  let getRealId = async (req,res)=> {
+    try {
+      const users = await orm.User.findOne({
+       where :{firebase_id:req.params.id}
+      });
+      res.status(200).json(users);
+      console.log(users);
+    } catch (error) {
+      console.log(error);
+      res.status(500).send(error);
+    }
+  }
   
   let updateuserprofile =async(req, res) =>{
     try{
@@ -128,5 +140,6 @@ let getuserbyuid= async (req, res) => {
     getuserbyuid,
     updateuserprofile,
     uploadimg,
+    getRealId,
     getid
   }
