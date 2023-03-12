@@ -12,6 +12,17 @@ let getuserbyuid= async (req, res) => {
   }
  }
 
+ let getid= async (req, res) => {
+  try {
+    const userid = await orm.User.findOne({ where: { firebase_id: req.params.uid } })
+    res.send(iserid)
+  }
+  catch(error){
+    res.status(500).send(error);
+  } 
+ }
+
+
  let addUser= async (req, res) => {
   const user={}
     user.first_name=req.body.first_name,
@@ -129,5 +140,6 @@ let getuserbyuid= async (req, res) => {
     getuserbyuid,
     updateuserprofile,
     uploadimg,
-    getRealId
+    getRealId,
+    getid
   }

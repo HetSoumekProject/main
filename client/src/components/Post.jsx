@@ -10,7 +10,6 @@ function Post() {
   const [transmission, settransmission] = useState("auto");
   const [bodyStyle, setbodyStyle] = useState("coupe");
   const [image, setImage] = useState([]);
-
   const [user,setUser]=useState({})
 
   const setFileToBase = (files) => {

@@ -5,8 +5,8 @@ import Post from './components/Post.jsx';
 import Cars from './components/Cars.jsx';
 import ChatRoom from './components/ChatRoom.jsx';
 import AllPending from './components/AllPending.jsx'
-// import Notify from './components/Notify.jsx'
-// import NavBar from './components/NavBar.jsx';
+import Notify from './components/Notify.jsx'
+import NavBar from './components/NavBar.jsx';
 import PrivatChat from './components/PrivatChat.jsx'
 import SuccessPayment from "./components/SuccessPayment.jsx"
 import FailPayment from './components/FailPayment.jsx';
@@ -33,11 +33,16 @@ function App() {
 const [user,setUser]=useState('')
 const [refresh,setRefresh]=useState(true)
 const x=localStorage.userInfo
+  
+  
   useEffect(()=>{
     
     axios.get('http://localhost:3000/api/user/allusers').then(res=>{
       console.log(res.data)
       setUsers(res.data)
+      setUser(res.data)
+      
+      
     }).catch(err=>console.log(err))
 
     axios.get(`http://localhost:3000/api/user/real/${x}`).then (res=>{
@@ -49,7 +54,7 @@ const x=localStorage.userInfo
 
   return (
     <div className="App">
-    {/* <NavBar /> */}
+    <NavBar />
     <br></br>
     <br></br>
     <br></br>
@@ -57,7 +62,7 @@ const x=localStorage.userInfo
 
       <Routes>
       <Route path="/" exact  element={<Home/>}/>
-      {/* <Route path="/Notify" element={<Notify/>}/> */}
+      <Route path="/Notify" element={<Notify/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
       
       <Route path="/AllPending" element={<AllPending/>}/>

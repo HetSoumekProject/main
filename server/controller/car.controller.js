@@ -37,7 +37,7 @@ cloudinary.config({
     let getAllCars = async (req, res) => {
 
       try{
-        let result=await orm.Car.findAll({where : {status:"approved"}, include: {
+        let result=await orm.Car.findAll({where : {status:"approved"},include: {
           model: orm.Image
         }})
         console.log(result)
@@ -47,6 +47,20 @@ cloudinary.config({
       }
 
   }
+
+  let getAllCarsforuser = async (req, res) => {
+
+    try{
+      let carss=await orm.Car.findAll({where: { userId: req.params.id}, include: {
+        model: orm.Image
+      }})
+      console.log(carss)
+      res.send(carss)
+    }catch(err){
+      res.json(err)
+    }
+
+}
 
 
 
@@ -114,5 +128,6 @@ let carsofuser=async (req,res)=>{
     getTheSeller,
     declineCar,
     getAllCars,
-    carsofuser
+    carsofuser,
+    getAllCarsforuser
   }

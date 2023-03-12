@@ -89,10 +89,10 @@ db.User.belongsToMany(db.Room,{
   through: "UserRoom"
 
 })
-db.Room.belongsToMany(db.User,{
-  through: "UserRoom"
+// db.Room.belongsToMany(db.User,{
+//   through: "UserRoom"
 
-})
+// })
 db.Car.hasMany(db.Bid,{
   foreignKey: "carId",
 })
@@ -120,22 +120,21 @@ db.Image.belongsTo(db.Car,{
   onDelete: "CASCADE",
 })
 
-db.Car.hasOne(db.Room,);
-db.Room.belongsTo(db.Car, {
-  foreignKey: {
-    name: 'carId'
-  }
-});
+// db.Car.hasOne(db.Room,);
+// db.Room.belongsTo(db.Car, {
+//   foreignKey: {
+//     name: 'carId'
+//   }
+// });
 
-db.Room.hasMany(db.Message,{
-  foreignKey: "roomId",
+db.Car.hasMany(db.Message,{
+  foreignKey: "carId",
 })
 
 
+db.Message.belongsTo(db.Car,{
 
-db.Message.belongsTo(db.Room,{
-  as: "room",
-  foreignKey: "roomId",
+  foreignKey: "carId",
   onDelete: "CASCADE",
 
 })

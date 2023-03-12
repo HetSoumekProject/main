@@ -6,34 +6,34 @@ const socket = io('http://localhost:3000');
 
 const Customers = (props) => {
     const [notifications, setNotifications] = useState([]);
-    useEffect(() => {
-        socket.on("new_notification", (data) => {
-          console.log("Received notification:", data);
-          setNotifications((prevNotifications) => [...prevNotifications, data]);
-        });
+    // useEffect(() => {
+    //     socket.on("new_notification", (data) => {
+    //       console.log("Received notification:", data);
+    //       setNotifications((prevNotifications) => [...prevNotifications, data]);
+    //     });
     
-        axios
-          .get("http://localhost:3000/api/notifications")
-          .then((response) => {
-            console.log("Notifications:", response.data);
-            setNotifications(response.data);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      }, []);
+    //     axios
+    //       .get("http://localhost:3000/api/notifications")
+    //       .then((response) => {
+    //         console.log("Notifications:", response.data);
+    //         setNotifications(response.data);
+    //       })
+    //       .catch((error) => {
+    //         console.error(error);
+    //       });
+    //   }, []);
 
   console.log("this",props.users);
    return (
-    <div>
+    <div >
           
-      <ul>
+      {/* <ul className='notification'>
         {notifications.map((notification) => (
           <li key={notification.id}>
             {notification.message} ({notification.timestamp})
           </li>
         ))}
-     </ul>
+     </ul> */}
       <table class="table">
        <thead>
         <tr>

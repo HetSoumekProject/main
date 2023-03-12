@@ -21,34 +21,29 @@ const AllPosts = ({user,car,setCar,setView,view}) => {
         console.error(error);
       });
   };
-  const handleSubmitfav2 = (event) => {
-    event.preventDefault();
-    
-    axios.delete(`/api/fav/deletefav/${user}/${car.id}`)
-      .then(response => {
-        console.log(response.data); 
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
+ 
   return (
+
     <div className='oneCard'>
+     <div> <button type='button' id='add' onClick={handleSubmitfav}   > ☆</button></div>
 
  { car.images[0]?<img className='cars-pic' src={car.images[0].image} onClick={()=>{setView(!view)
       setCar(car)
-      }}/> :"doesnt exist"}
+      }}/> :"doesnt exist"} 
       <h1>
         {car.brand_name}
       </h1>
       <h4>
       ending in :  {car.ending_day}
       </h4>
+      
       <div>
+      
         <button type='button' onClick={()=>setView(!view)}>Bid!!</button>
-        <button type='button' onClick={handleSubmitfav}>add to favorite <h1>☆</h1></button>
-        <button type='button' onClick={handleSubmitfav2}>remove from favorite<h1>★</h1></button>
+        
+        
       </div>
+      
     </div>
   )
 }           

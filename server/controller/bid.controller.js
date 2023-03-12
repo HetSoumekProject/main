@@ -1,24 +1,27 @@
 const orm=require("../../database/orm")
 
 
-const bidOnAcar=(req,res)=>{
+const bidOnAcar=async (req,res)=>{
+    console.log("hello",req.body)
     try{
-        let highest=orm.Bid.findAll({
+        let highest= await orm.Bid.findAll({
             where:{carId:req.body.carId}
         })
+        console.log(highest)
         if(highest[highest.length-1].amount<req.body.amount){
-        let result=orm.Bid.create(req.body)
+        let result=await orm.Bid.create({carId:req.body.carId,userId:req.body.userId,
+            amount:req.body.amount})
         res.send(result)}
         else{
-            res.json("can't bid less than the last bid")
+            res.send("can't bid less than the last bid")
         }
     }catch(err){
         res.send(err)
     }
 }
-const getAllBids4aCar=(req,res)=>{
+const getAllBids4aCar=async (req,res)=>{
     try{
-        let result=orm.Bid.findAll({
+        let result= await orm.Bid.findAll({
             where:{carId:req.params.carId}
         })
         res.json(result)
@@ -44,17 +47,50 @@ const getTheHighestBidOnCar= async(req,res)=>{
 
 
 const placeAbid=async (req,res)=>{
-    console.log("this is the req.body",req.body)
+    // console.log("this is the req.body",req.body)
     try{
         let result= await orm.Bid.create({
             carId:req.body.carId,userId:req.body.userId,
             amount:req.body.amount,
         })
-        res.json(result)
+        // let current_user=await orm.User.findByPk(req.body.userId)
+        // let current_car= await orm.Car.findByPk(req.body.carId,{include:[{ model: orm.Bid,
+         
+        //  }]})
+        //  if (current_car){
+        //      const usersId =current_car.bids.map(e=>e.userId).filter((e)=>{return e!==req.body.userId })
+        //      let uniqueId = [...new Set(usersId )];
+         
+        //     uniqueId.forEach(async(e)=>{
+        //         try{          
+        //             const notify= await orm.Notification.create({
+        //                 carId:req.body.carId,
+        //                 userId:e,
+        //                 bidder_id:req.body.userId,
+        //                  brand_name:current_car.brand_name,
+        //                 bidder_name:current_user.first_name,
+        //                 added_bid:req.body.amount
+        //             })
+        //             //    console.log('notify',notify);
+        //         }catch(err){
+        //   console.log(err);
+        //     }
+
+          
+        //     })
+             
+     
+         res.send(result)
+
+
+        //  }
+         
+         
     }catch(err){
         res.json(err)
     }
 }
+
 module.exports={
     getAllBids4aCar,bidOnAcar,getTheHighestBidOnCar,placeAbid
 }

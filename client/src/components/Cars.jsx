@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import AllPosts from './AllPosts';
 import OneCar from './OneCar.jsx'
-//import css from "./cars.css"
+import css from "./cars.css"
 
 const Cars = (props) => {
     const[years,setYears]=useState("all")

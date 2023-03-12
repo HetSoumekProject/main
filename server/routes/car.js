@@ -12,6 +12,6 @@ router.put("/status/approve/:id",carcontrol.approveCar)
 router.put("/status/decline/:id",carcontrol.declineCar)
 router.get("/allPending",carcontrol.getAllCars4admin)
 router.post("/seller/:id",carcontrol.getTheSeller)
-
+router.get("/getAllCarsforuser/:id",carcontrol.getAllCarsforuser)
 
 module.exports=router

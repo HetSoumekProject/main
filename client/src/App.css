@@ -4,16 +4,17 @@
     align-content: center;
     margin-left: 200px;
 }
-.paymentOne{
-    border:rgb(247, 149, 3) solid;
-    border-radius: 10px;
+.paymentOne {
+    border: rgb(247, 149, 3) solid;
+    border-radius: 20px;
     margin: 50px;
     background-color: rgba(255, 156, 43, 0.573);
-    width:300px;
+    width: 450px;
     padding: 15px;
     display: grid;
     justify-content: space-between;
-    margin-left:65%;
+    margin-left: 65%;
+    margin-left: 200px;
 }
 .paymentOne button{
     background-color: orange;
@@ -38,13 +39,16 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 5px;
 }
 .oneCard{
-    display: flex;
- border: #333 solid;
-border-radius: 20%;
-background-color: rgba(36, 36, 32, 0.365);
+height: 85%;
+display: flex;
+
+border-radius: 4%;
+background-color: rgba(69, 69, 62, 0.349);
 padding: 50px;
 justify-items: center;
 flex-direction: column;
+width: 80%;
+box-shadow: 0 0 1em #ff9900;
 }
 .oneCard button{
     border: #333 solid;
@@ -64,5 +68,74 @@ flex-direction: column;
 .oneCard img{
     height: 200px;
     width: 250px;
-    margin-left: 10%;
+    margin-left: -4%;
+    border-radius: 15px 15px 15px 15px;;}
+  .table{
+    margin-top: 7%;
+  }
+  .notification {
+    position: absolute;
+    margin: -10px;
+    left: 93%;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  .notification {
+    margin-top: -2%;
 }
+
+.fa-bell{
+    font-family: "Font Awesome 5 Free";
+    font-size: 250%;
+    margin-left: 93%;
+    margin-top: 8%;
+    color: white;
+}
+.notific {
+    max-height: 500px; /* Set the maximum height for the container */
+    overflow-y: auto; /* Add a scrollbar to the container if its content overflows */
+    position: absolute;
+    margin-top: 1%;
+    right: 5%;
+    width: 250px;
+    background-color: white;
+    box-shadow: 10px 15px 10px rgba(255, 72, 0, 0.274);
+    border-radius: 15px;
+    padding: 10px;
+    z-index: 999;
+    }
+    
+    .notific p {
+        margin: 5px 0;
+        padding: 10px;
+        background-color: #f2f2f2;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      #add {
+        
+       
+        
+        background-color: transparent;
+        color: #FFD700;
+        font-size: 40px;
+        margin-top: -50px;
+        border: none;
+        cursor: pointer;
+        margin-top: -100px;
+        margin-bottom: 50px;
+        margin-left: 220px;
+       
+      }
+      
+      #add:hover {
+        color: #FFB700;
+      }
