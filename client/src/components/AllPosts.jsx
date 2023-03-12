@@ -15,8 +15,9 @@ const AllPosts = ({car,setCar,setView,view}) => {
       <h4>
       ending in :  {car.ending_day}
       </h4>
-      <div>
-        <button type='button' onClick={()=>setView(!view)}>Bid!!</button>
+      <div className='bid-btn'>
+        <button type='button' onClick={()=>{setView(!view)
+        setCar(car)}}>Bid!!</button>
       </div>
     </div>
   )
