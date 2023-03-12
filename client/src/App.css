@@ -4,16 +4,17 @@
     align-content: center;
     margin-left: 200px;
 }
-.paymentOne{
-    border:rgb(247, 149, 3) solid;
-    border-radius: 10px;
+.paymentOne {
+    border: rgb(247, 149, 3) solid;
+    border-radius: 20px;
     margin: 50px;
     background-color: rgba(255, 156, 43, 0.573);
-    width:300px;
+    width: 450px;
     padding: 15px;
     display: grid;
     justify-content: space-between;
-    margin-left:65%;
+    margin-left: 65%;
+    margin-left: 200px;
 }
 .paymentOne button{
     background-color: orange;
@@ -117,5 +118,26 @@ box-shadow: 0 0 1em #ff9900;
         padding: 10px;
         background-color: #f2f2f2;
         border: 1px solid #ddd;
-        border-radius: 5px;
-      } */
+        border-radius: 5px;}
+
+      
+
+     
+      #add {
+        
+       
+        
+        background-color: transparent;
+        color: #FFD700;
+        font-size: 40px;
+        margin-top: -50px;
+        border: none;
+        cursor: pointer;
+        margin-top: -100px;
+        margin-bottom: 50px;
+        margin-left: 220px;
+       
+      }
+      
+  
+

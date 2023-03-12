@@ -33,6 +33,7 @@ app.use('/api/bids', bidsRoute);
 // app.use('/api/mail', mailRoute);
 
 app.use('/api/notifications', notifivationsRoute);
+app.use('/api/fav',favouriteRoute)
 app.use('/api/message', messagesRoute);
 app.use('/api',paymentRoute)
 app.use(bodyParser.json({ limit: "10mb", extended: true }));
@@ -163,10 +164,17 @@ io.on('connection', (socket) => {
   
 app.post("api/send_email",(req,res)=>{
   let mailOptions = {
+
     from: "ahlemfarhani2@gmail.com",
     to:res.body.email,
     message:req.body.message,
    
+    // from: req.body.email,
+    to: "ahlemfarhani2@gmail.com",
+    subject: 'Nodemailer Project',
+    html:"hjjjjjj"
+    
+
   };
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {

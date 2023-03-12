@@ -28,18 +28,20 @@ const Profile = () => {
     }
 
     return (
-        <div className="container1">
+        <div className="container" >
             <div className="profile">
                 <img className="profile-image" src={data.img} alt="You" />
+                <Profileimg />
                 <div className="profile-details">
                     <h1 className="profile-email">Email: {data.email}</h1>
                     <h1 className="profile-name">First name: {data.first_name}</h1>
                     <h1 className="profile-last">last name: {data.last_name}</h1>
                     <h1 className="profile-number">Phone number: {data.phone_number}</h1>
+                    
                 </div>
                 <button className="editbutton" onClick={toggleUpdate}>Update Info</button>
                 {showUpdate && <Updateinfo />}
-                {/* <Profileimg /> */}
+                
                 <Itemsdetails props={data} refresh={refresh}/>
             </div>
         </div>
