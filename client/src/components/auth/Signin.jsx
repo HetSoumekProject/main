@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 const Signin = ()=>{
     const [email,setEmail]= useState("")
     const [password,setPassword]= useState("")
+    
     const submit =(e)=>{
      e.preventDefault()
      signInWithEmailAndPassword(auth,email,password)
@@ -15,10 +16,12 @@ const Signin = ()=>{
 
         localStorage.setItem("userInfo",userInfo.user.uid)
         console.log(userInfo);
+        
 
         axios.get(`http://localhost:3000/api/user/userbyuid/${userInfo.user.uid}`)
         .then((res)=>{
-            console.log(res.data);
+            console.log(res);
+           
         }).catch((err)=>{
             console.log(err);
         })
@@ -32,6 +35,7 @@ const Signin = ()=>{
      
     }
     return (
+        
         <div className='form-container' >
              <div className='form-box' >
                 <h1 className='Signup' >log in</h1>

@@ -30,12 +30,14 @@ import OneCarDetails from './components/OneCarDetails';
 import Mailer from './components/mailer/Mailer.jsx'
 function App() {
   const [users,setUser]=useState([])
-
+  
   useEffect(()=>{
     
     axios.get('http://localhost:3000/api/user/allusers').then(res=>{
       console.log(res.data)
       setUser(res.data)
+      
+      
     }).catch(err=>console.log(err))
   },[])
 
