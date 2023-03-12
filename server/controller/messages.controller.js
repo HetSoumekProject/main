@@ -8,15 +8,15 @@ const orm=require("../../database/orm")
     }
   }
     let getAllMessagesForOneCar = async (req, res) => {
-      console.log(req.params);
+      
       try{
         const getMessage=await orm.Message.findAll({where:{carId:req.params.id}})
 res.send(getMessage)
-console.log(res)
+
+// console.log(res)
       }catch(err){
         res.send(err)
       }
-
   }
 
   module.exports={

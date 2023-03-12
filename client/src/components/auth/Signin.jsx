@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { auth } from '../../firebase'
 import Handlesignout from "./Handlesignout"
 import axios from 'axios'
+import { Link } from 'react-router-dom';
 
 const Signin = ()=>{
     const [email,setEmail]= useState("")
@@ -42,7 +43,7 @@ const Signin = ()=>{
                 onChange={(e)=> setEmail(e.target.value) }  ></input>
                 <input className='signupinputs' type="password" placeholder="enter password" value={password} 
                 onChange={(e)=> setPassword(e.target.value) } ></input>
-                <button className='signupbutton' onClick={submit}  type='submit' >submit</button>
+                <button className='signupbutton' onClick={submit}  type='submit' ><Link to ='/cars'>submit</Link></button>
                 <Handlesignout />
                 
         </div>
