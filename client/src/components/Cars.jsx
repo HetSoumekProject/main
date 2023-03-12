@@ -108,7 +108,7 @@ const Cars = (props) => {
       console.log("item",item)
       return(
         <div  key = {index}>
-       <AllPosts setCar={setCar} view={view} setView={setView} car={item} user={user} />
+       <AllPosts setCar={setCar} view={view} setView={setView} car={item} user={user} x={x}/>
        
  </div>    
 

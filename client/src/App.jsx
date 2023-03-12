@@ -6,7 +6,7 @@ import Cars from './components/Cars.jsx';
 import ChatRoom from './components/ChatRoom.jsx';
 import AllPending from './components/AllPending.jsx'
 // import Notify from './components/Notify.jsx'
-import NavBar from './components/NavBar.jsx';
+// import NavBar from './components/NavBar.jsx';
 import PrivatChat from './components/PrivatChat.jsx'
 import SuccessPayment from "./components/SuccessPayment.jsx"
 import FailPayment from './components/FailPayment.jsx';
@@ -29,14 +29,22 @@ import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
 import FavoriteList from './components/favourite';
 function App() {
-  const [users,setUser]=useState([])
-
+  const [users,setUsers]=useState([])
+const [user,setUser]=useState('')
+const [refresh,setRefresh]=useState(true)
+const x=localStorage.userInfo
   useEffect(()=>{
     
     axios.get('http://localhost:3000/api/user/allusers').then(res=>{
       console.log(res.data)
-      setUser(res.data)
+      setUsers(res.data)
     }).catch(err=>console.log(err))
+
+    axios.get(`http://localhost:3000/api/user/real/${x}`).then (res=>{
+      console.log(res.data.id,'iiidddd')
+      setUser(res.data.id)
+      setRefresh('')
+    }).catch((err)=>{console.log(err);})
   },[])
 
   return (
@@ -58,7 +66,7 @@ function App() {
       <Route path="/Payment" element={<Payment/>}/>
       <Route path="/FailPayment" element={<FailPayment/>}/>
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
-      <Route path="/NavBar" element={<NavBar/>}/>
+      {/* <Route path="/NavBar" element={<NavBar/>}/> */}
       <Route path="/Daily" element={<Daily/>}/>
       <Route path="/Monthly" element={<Monthly/>}/>
       <Route path="/Customers" element={<Customers users={users}/>}/>
@@ -70,7 +78,7 @@ function App() {
       <Route path="/Signin" element={<Signin />} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
-      <Route path="/FavoriteList" element={<FavoriteList />}/>
+      <Route path="/FavoriteList" element={<FavoriteList x={user} refresh={refresh}/>}/>
     </Routes>
 
     </div>
