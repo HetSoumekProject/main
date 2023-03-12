@@ -40,30 +40,29 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 .oneCard{
 height: 85%;
 display: flex;
-
 border-radius: 4%;
-background-color: rgba(69, 69, 62, 0.349);
+background-color: rgba(255, 255, 255, 0.082);
 padding: 50px;
 justify-items: center;
 flex-direction: column;
 width: 80%;
-box-shadow: 0 0 1em #ff9900;
+/* box-shadow: 0 0 1em #ffffff72; */
 }
+
 .oneCard button{
-    border: #333 solid;
+    border: #ffffff solid;
     background-color: orangered;
     border-radius: 20%;
     width: 60px;
     height: 40px;
     margin-left: 40%;
+    box-shadow: 0 0 1em #ff550090;
+
 }
 .oneCard h1{
     margin-left: 40%;
-    color: aliceblue;
-    border: #333 solid;
-    background-color: black;
-    border-radius: 20%;
-}
+    color: rgb(255, 255, 255);
+    }
 .oneCard img{
     height: 200px;
     width: 250px;
@@ -119,3 +118,27 @@ box-shadow: 0 0 1em #ff9900;
         border: 1px solid #ddd;
         border-radius: 5px;
       }
+      .pendin {
+        grid-column: 1 / -1;
+        grid-row: 1 / span 2;
+        height: 400px;
+      }
+      
+      .pendin:not(:first-child) {
+        grid-row: auto;
+        height: 200px;
+      }
+      
+      .one-imgdetailes {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+      }
+      .carrrs{
+        margin-top: 4%;
+        background-image: url('https://addons-media.operacdn.com/media/CACHE/images/themes/74/230074/1.0-rev1/images/47bd9945c0570a1254700f7509d33cf8/9ac579d7b9d25bfeca811ce59133e2d3.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      

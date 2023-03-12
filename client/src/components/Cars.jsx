@@ -47,9 +47,9 @@ const Cars = (props) => {
       }).catch(err=>console.log(err))
     },[refresh])
   return (
-    <div >
+    <div className='carrrs'>
       <div className='select-container'>
-      <h1>Auctions:</h1>
+      <h1 >Auctions:</h1>
       
       <select name="years" id="years" class="chosen-select" data-placeholder="select a year" onChange={(e) => {setYears(e.target.value)
       setRefresh(!refresh)}}>
