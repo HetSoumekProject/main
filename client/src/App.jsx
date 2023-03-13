@@ -27,19 +27,31 @@ import Signin  from "./components/auth/Signin.jsx"
 import Profile from ".//components/profile/Profile.jsx"
 import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
+import FavoriteList from './components/favourite';
 import Mailer from './components/mailer/Mailer.jsx'
 import Count from './components/Count.jsx'
 function App() {
-  const [users,setUser]=useState([])
+  const [users,setUsers]=useState([])
+const [user,setUser]=useState('')
+const [refresh,setRefresh]=useState(true)
+const x=localStorage.userInfo
+  
   
   useEffect(()=>{
     
     axios.get('http://localhost:3000/api/user/allusers').then(res=>{
       console.log(res.data)
+      setUsers(res.data)
       setUser(res.data)
       
       
     }).catch(err=>console.log(err))
+
+    axios.get(`http://localhost:3000/api/user/real/${x}`).then (res=>{
+      console.log(res.data.id,'iiidddd')
+      setUser(res.data.id)
+      setRefresh('')
+    }).catch((err)=>{console.log(err);})
   },[])
 
   return (
@@ -53,6 +65,8 @@ function App() {
       <Routes>
       
       <Route path="/" exact  element={<Home/>}/>
+      <Route path="/count" element={<Count/>}/>
+
       <Route path="/Notify" element={<Notify/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
       <Route path="/mailer" element={<Mailer/>}/>
@@ -62,7 +76,7 @@ function App() {
       <Route path="/Payment" element={<Payment/>}/>
       <Route path="/FailPayment" element={<FailPayment/>}/>
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
-      <Route path="/NavBar" element={<NavBar/>}/>
+      {/* <Route path="/NavBar" element={<NavBar/>}/> */}
       <Route path="/Daily" element={<Daily/>}/>
       <Route path="/Monthly" element={<Monthly/>}/>
       <Route path="/Customers" element={<Customers users={users}/>}/>
