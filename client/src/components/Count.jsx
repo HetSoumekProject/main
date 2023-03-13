@@ -1,32 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
-
 function Count() {
   const [secondsLeft, setSecondsLeft] = useState(7 * 24 * 60 * 60);
   const [socket, setSocket] = useState(null);
   const [intervalId, setIntervalId] = useState(null);
-
   useEffect(() => {
-    const newSocket = io('http://localhost:3000'); 
+    const newSocket = io('http://localhost:3000');
     setSocket(newSocket);
-
     return () => newSocket.close();
   }, []);
-
   useEffect(() => {
     if (socket) {
       socket.on('countdown', (newSecondsLeft) => {
         setSecondsLeft(newSecondsLeft);
       });
-
       socket.on('connect_error', (error) => {
         console.error('Socket connection failed:', error);
       });
-
       socket.on('disconnect', (reason) => {
         console.error('Socket disconnected:', reason);
       });
-
       return () => {
         socket.off('countdown');
         socket.off('connect_error');
@@ -34,7 +27,6 @@ function Count() {
       };
     }
   }, [socket]);
-
   useEffect(() => {
     if (socket) {
       const countdownInterval = setInterval(() => {
@@ -54,13 +46,11 @@ function Count() {
       return () => clearInterval(countdownInterval);
     }
   }, [socket, intervalId]);
-
   useEffect(() => {
     if (socket) {
       socket.on('countdownStopped', () => {
         clearInterval(intervalId);
       });
-
       return () => {
         if (intervalId) {
           clearInterval(intervalId);
@@ -69,21 +59,17 @@ function Count() {
       };
     }
   }, [socket, intervalId]);
-
   const formatTime = (timeInSeconds) => {
     const days = Math.floor(timeInSeconds / 86400);
     const hours = Math.floor((timeInSeconds % 86400) / 3600);
     const minutes = Math.floor((timeInSeconds % 3600) / 60);
     const seconds = timeInSeconds % 60;
-
     return `${days}d ${hours}h ${minutes}m ${seconds}s`;
   };
-
   return (
     <div className="countdown">
       <p>Time remaining: {formatTime(secondsLeft)}</p>
     </div>
   );
 }
-
 export default Count;

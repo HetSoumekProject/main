@@ -49,10 +49,7 @@ module.exports = (sequelize, DataTypes) => {
     img:{
       type: DataTypes.STRING,
       allowNull: true,
-<<<<<<< HEAD
-=======
       defaultValue:"https://cdn1.iconfinder.com/data/icons/basic-ui-set-v5-user-outline/64/Account_profile_user_avatar_small-512.png"
->>>>>>> 4d8d2ea0f7c088f6346825f2e561edeb298b319b
     }
 
   });

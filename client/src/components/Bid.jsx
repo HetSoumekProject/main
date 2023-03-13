@@ -70,7 +70,7 @@ function Bid(props) {
     
   }, [socket, newBidPrice]);
   return (
-    <div>
+    <div className="bidd">
       <h2>
         current price:{currentPrice?currentPrice:"loading"}
       </h2>

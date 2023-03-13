@@ -3,17 +3,20 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+
   }
   
   .contai {
     display: flex;
     flex-direction: column;
-    background-color: #f2f2f2;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     width: 400px;
     height: 500px;
     overflow-y: scroll;
+    margin-right: -100%;
+    margin-top: -138%;
   }
   
   .message_container {
@@ -24,6 +27,7 @@
   }
   
   .message {
+
     display: flex;
     margin-bottom: 10px;
     align-items: flex-end;
@@ -51,10 +55,12 @@
   }
   
   .message__bubble {
+    margin-top: 10px;
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    background-color: #fff;
+    background-color:#c5bfbf;
     padding: 10px;
     max-width: 60%;
   }
@@ -77,6 +83,7 @@
   }
   
   .input {
+    margin-top: 10px;
     border: none;
     border-radius: 20px;
     padding: 10px 20px;
