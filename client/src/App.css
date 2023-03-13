@@ -1,4 +1,4 @@
-.one-imgdetailes{
+/* .one-imgdetailes{
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -99,8 +99,8 @@ box-shadow: 0 0 1em #ff9900;
     color: white;
 }
 .notific {
-    max-height: 500px; /* Set the maximum height for the container */
-    overflow-y: auto; /* Add a scrollbar to the container if its content overflows */
+    max-height: 500px; 
+    overflow-y: auto; 
     position: absolute;
     margin-top: 1%;
     right: 5%;
@@ -118,4 +118,4 @@ box-shadow: 0 0 1em #ff9900;
         background-color: #f2f2f2;
         border: 1px solid #ddd;
         border-radius: 5px;
-      }
+      } */

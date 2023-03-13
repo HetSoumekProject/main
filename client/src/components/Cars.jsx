@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import AllPosts from './AllPosts';
 import OneCar from './OneCar.jsx'
-import css from "./cars.css"
+import  "./cars.css"
 
 const Cars = (props) => {
     const[years,setYears]=useState("all")
@@ -47,7 +47,7 @@ const Cars = (props) => {
       }).catch(err=>console.log(err))
     },[refresh])
   return (
-    <div >
+    <div  className='body'>
       <div className='select-container'>
       <h1>Auctions:</h1>
       

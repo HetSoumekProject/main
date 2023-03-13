@@ -3,6 +3,7 @@ const cors = require ("cors")
 const orm = require('../database/orm/index');
 const router = require("./routes.js");
 const app = express();
+const nodemailer = require('nodemailer');
 
 const http = require("http");
 const { Server } = require("socket.io");
@@ -16,17 +17,20 @@ const notifivationsRoute = require('./routes/notification.js')
 const favouriteRoute = require('./routes/favourite.js')
 const paymentRoute = require('./routes/payment.js')
 const messagesRoute = require('./routes/message.js')
-const nodemailer = require('nodemailer');
+const exhbs = require('express-handlebars');
+// app.engine('handlebars', exhbs());
+// app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+
 
 
 app.use('/api/car', carsRoute);
 app.use('/api/user', usersRoute);
 app.use('/api/room', roomsRoute);
 app.use('/api/bids', bidsRoute);
-
+// app.use('/api/mail', mailRoute);
 
 app.use('/api/notifications', notifivationsRoute);
 app.use('/api/message', messagesRoute);
@@ -96,7 +100,37 @@ console.log(err);
     io.emit("bid&&price",data);
   });
 });
+let secondsLeft = 7 * 24 * 60 * 60; // 7 days in seconds
 
+io.on('connection', (socket) => {
+  console.log('Client connected');
+
+  socket.on('countdown', (newSecondsLeft) => {
+    secondsLeft = newSecondsLeft;
+    io.emit('countdown', secondsLeft);
+  });
+
+  socket.on('countdownStopped', () => {
+    console.log('Countdown stopped by client');
+    clearInterval(countdownInterval);
+  });
+
+  socket.on('countdownComplete', () => {
+    console.log('Countdown complete!');
+    clearInterval(countdownInterval);
+  });
+
+  const countdownInterval = setInterval(() => {
+    if (secondsLeft === 0) {
+      clearInterval(countdownInterval);
+      console.log('Countdown complete!');
+      io.emit('countdownComplete');
+    } else {
+      secondsLeft--;
+      io.emit('countdown', secondsLeft);
+    }
+  }, 1000);
+});
 
 
 // let transporter = nodemailer.createTransport({
@@ -117,7 +151,7 @@ console.log(err);
     service: 'gmail',
     auth: {
       type: 'OAuth2',
-      user: "farhani ahlem",
+      user: "ahlemfarhani2@gmail.com",
       pass: "mynewpassword123@",
       clientId: "911348413388-bcp6gsrht6adpkfv85l6ql8972b6h314.apps.googleusercontent.com",
       clientSecret: "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",
@@ -125,30 +159,33 @@ console.log(err);
     
   })
 
-
-  let mailOptions = {
-    from: req.body.email,
-    to: "ahlemfarhani2@gmail.com",
-    subject: 'Nodemailer Project',
-    html:"hjjjjjj"
-    
-  };
  
-  transporter.sendMail(mailOptions, function(err, data) {
-    if (err) {
-      console.log("Error " + err);
-    } else {
-      console.log("Email sent successfully");
-    }
-  });
-
-
+  
+app.post("api/send_email",(req,res)=>{
+  let mailOptions = {
+    from: "ahlemfarhani2@gmail.com",
+    to:res.body.email,
+    message:req.body.message,
+   
+  };
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error);
+        res.send('Error sending email');
+      } else {
+        console.log('Email sent: ' + info.response);
+        res.send('Email sent');
+      }
+    })
+})  
 app.get("/api/notifications", (req, res) => {
   res.json(notifications);
 
 });
 
-
+app.get('/email-form', (req, res) => {
+  res.render('email-form');
+});
 server.listen(PORT, function () {
   console.log(`Listening on port ${PORT}!`);
 });
