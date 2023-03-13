@@ -1,74 +1,93 @@
 import React, { useState } from "react";
-import './AdminDash.css'
+import "./AdminDash.css";
 import Customers from "./Customers";
-// import { UilBars } from "@iconscout/react-unicons";
-// import { motion } from "framer-motion";
 import AllPending from "./AllPending";
 import Monthly from "./Monthly";
-import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
+import { FaUsers, FaClipboardList, FaMoneyBillAlt } from "react-icons/fa";
+import { BsFillPersonFill } from "react-icons/bs";
+import { AiOutlineMenuFold } from "react-icons/ai";
+import { Col, Container, Row } from "react-bootstrap";
 
 const Dashboard = () => {
-        const [expanded, setExpaned] = useState(true)
-    const sidebarVariants = {
-      true: {
-        left : '0'
-      },
-      false:{
-        left : '-60%'
-      }
-    }
-    console.log(window.innerWidth)
-    return (
-      <>
-        <div  onClick={()=>setExpaned(!expanded)}>
-</div>
-          {/* <UilBars />
-        
-      <motion.div className='sidebar'
-      variants={sidebarVariants}
-      > */}
-        {/* logo */}
-        <div>
-          <span>
-            Auctions
-          </span>
-        </div>
-        <div>
-        <nav className="nav">
-          <ul className="list">
-            <li >
-              <label  > <Link to="/Customers">Customers</Link></label>
+  const [expanded, setExpanded] = useState(true);
+
+  const handleToggleSidebar = () => {
+    setExpanded(!expanded);
+  };
+
+  return (
+    
+      
+    <Container fluid>
+    
+      <Row>
+      <Col
+  className={`sidebar p-3 ${
+    expanded ? "col-md-3" : "col-md-1"
+  } bg-dark`}
+>
+          {/* Sidebar Header */}
+          <div className="d-flex align-items-center mb-3">
+            <h2 className="text-primary mb-0">Auctions</h2>
+            <button
+              className="btn btn-link text-decoration-none ms-auto"
+              onClick={handleToggleSidebar}
+            >
+              <AiOutlineMenuFold size={24} />
+            </button>
+          </div>
+          {/* Sidebar Menu */}
+          <ul className="list-unstyled">
+            <li>
+              <Link to="/Customers" className="text-decoration-none">
+                <FaUsers className="me-3" />
+                Customers
+              </Link>
             </li>
-            <br/>
-            <li >
-              <label   ><Link to="/AllPending">Order</Link></label>
+            <li>
+              <Link to="/AllPending" className="text-decoration-none">
+                <FaClipboardList className="me-3" />
+                Order
+              </Link>
             </li>
-            <br/>
-            <li >
-              <label  ><Link to="/Transactions">Transactions</Link></label>
+            <li>
+              <Link to="/Transactions" className="text-decoration-none">
+                <FaMoneyBillAlt className="me-3" />
+                Transactions
+              </Link>
             </li>
-            <br/>
-            <li >
-              <label   ><Link to ="/OverView">OverView</Link></label>
+            <li>
+              <Link to="/Overview" className="text-decoration-none">
+                <FaMoneyBillAlt className="me-3" />
+                Overview
+              </Link>
             </li>
-            <br/>
-            <li >
-              <label  ><Link to="/Daily">Daily</Link></label>
+            <li>
+              <Link to="/Daily" className="text-decoration-none">
+                <FaMoneyBillAlt className="me-3" />
+                Daily
+              </Link>
             </li>
-            <br/>
-            <li >
-              <label   ><Link to ="/Monthly">Monthly</Link></label>
+            <li>
+              <Link to="/Monthly" className="text-decoration-none">
+                <FaMoneyBillAlt className="me-3" />
+                Monthly
+              </Link>
             </li>
-            <br/>
-            <li >
-              <label  ><Link to="/AdminSet">Admin</Link></label>
+            <li>
+              <Link to="/AdminSet" className="text-decoration-none">
+                <BsFillPersonFill className="me-3" />
+                Admin
+              </Link>
             </li>
           </ul>
-        </nav>
-    </div>
-      {/* </motion.div> */}
-      </>
-    );
-  };
+        </Col>
+      
+      </Row>
+    </Container>
+  
+  );
+};
+
 export default Dashboard;

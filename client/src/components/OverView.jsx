@@ -1,10 +1,11 @@
 import React from 'react';
-
-
+import Dashboard from './AdminDash';
+import Cars from './Cars';
 const OverView=()=> {
   return (
     <div>
-      <h2>OverView</h2>
+      <Dashboard/>
+      <Cars/>
     </div>
   );
 };
