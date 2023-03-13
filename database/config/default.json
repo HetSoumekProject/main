@@ -1,9 +1,6 @@
 {
     "host": "localhost",
-
-
-    "user": "root",
-    "password": "Mahdi123321",
-
-    "database": "Heet_soumekk"
+    "user": "ahlem",
+    "password": "root",
+    "database": "s07249446667"
 } 

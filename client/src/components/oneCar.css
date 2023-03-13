@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 20px;
-    background-image:"https://img.freepik.com/free-photo/city-foggy-day_1149-101.jpg?1&w=740&t=st=1678548827~exp=1678549427~hmac=b91abd2217adaad880a37bf06d055b24fdb0718963c051107a05bc547fc8ac4e";
+   
   }
   
   .block {
@@ -13,9 +13,7 @@
     margin-right: 20px;
   }
   
-  .description {
-    flex: 1;
-  }
+
   
   .car-image {
     width: 100%;
@@ -25,12 +23,15 @@
   }
   
   .car-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    box-shadow:8px 8px 10px 0 rgba(65, 62, 62, 0.5);
+    border-radius: 5px 5px 0px 0px;
+    height: 200px;
+    width: 250px;
+    display: flex;
   }
   
   .chat-room-container {
+    margin-left: 100%;
     flex: 1;
     display: flex;
     justify-content: flex-end;
@@ -79,4 +80,118 @@
       margin-right: 0;
     }
   }
+  .imchat-flex{
+    display: flex;
+  }
+
+  .description {
+    max-width: 700px;
+    margin: 1rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 0 4px 6px rgba(255, 76, 5, 0.806);
+    text-align: left;
+    font-family: Arial, sans-serif;
+    margin-left: 80px;
+    margin-top: 2%;
+  }
+  
+  .description h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #303030;
+    font-family: Georgia, serif;
+  }
+  
+  .description h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #303030;
+    font-family: Georgia, serif;
+  }
+  
+  .description h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #303030;
+    font-family: Georgia, serif;
+  }
+  
+  .description h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #666666;
+    font-family: Arial, sans-serif;
+  }
+  
+  .description p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    color: #666666;
+    font-family: Arial, sans-serif;
+  }
+  
+  .description h1:last-of-type {
+    margin-top: 2rem;
+  }
+  
+  .description h2:before,
+  .description h3:before {
+    content: "";
+    display: inline-block;
+    margin-right: 0.5rem;
+    color: #f15a22;
+    font-size: 1.2rem;
+    background-image: url('https://image.flaticon.com/icons/png/512/25/25694.png');
+    background-size: 1.2rem 1.2rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  
+  .description h4:before {
+    content: "-";
+    display: inline-block;
+    margin-right: 0.5rem;
+    color: #f15a22;
+    font-size: 1rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .description {
+      font-size: 1.2rem;
+      padding: 1rem;
+      border-radius: 10px;
+      background-color: #ffffff;
+    }
+  
+    .description h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      font-family: Georgia, serif;
+    }
+  
+    .description h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+      font-family: Georgia, serif;
+    }
+  
+    .description h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      font-family: Georgia, serif;
+    }
+  
+    .description h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      font-family: Arial, sans-serif;
+    }
+  }
+  
   

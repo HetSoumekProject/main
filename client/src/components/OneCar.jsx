@@ -27,10 +27,11 @@ function OneCar(props) {
 
             <div className='description'>
          <h1>Brand :{props.car.brand_name}</h1>
-        <p>Description:{props.car.description}</p> 
-        <h1>Year: {props.car.year}</h1>
-        <h1>Transmition:{props.car.transmission}</h1>
-        <h1>Body Style:{props.car.body_style}</h1>
+       
+        <h2>Year: {props.car.year}</h2>
+        <h3>Transmition:{props.car.transmission}</h3>
+        <h4>Body Style:{props.car.body_style}</h4>
+         <p>Description:{props.car.description}</p> 
         <h1>Min amount to bid: {props.car.min_amount} dt</h1></div>
        
         </div>

@@ -5,7 +5,6 @@ import Customers from "./Customers";
 // import { motion } from "framer-motion";
 import AllPending from "./AllPending";
 import Monthly from "./Monthly";
-
 import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
 

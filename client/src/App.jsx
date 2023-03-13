@@ -63,6 +63,7 @@ const x=localStorage.userInfo
     <br></br>
 
       <Routes>
+      
       <Route path="/" exact  element={<Home/>}/>
       <Route path="/count" element={<Count/>}/>
 
@@ -87,7 +88,7 @@ const x=localStorage.userInfo
       <Route path="/Signin" element={<Signin />} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
-      <Route path="/FavoriteList" element={<FavoriteList x={user} refresh={refresh}/>}/>
+      <Route path="/Count" element={<Count />}/>
     </Routes>
 
     </div>
