@@ -8,8 +8,6 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import Notify from './Notify';
 
-
-
 const NavBar =(props)=>{
   
         useEffect(() => {

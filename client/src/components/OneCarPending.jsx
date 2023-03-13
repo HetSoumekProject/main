@@ -31,7 +31,6 @@ function OneCarPending(props) {
             <th style={{color:"white"}}>initial_price</th>
             <th style={{color:"white"}}>transmission</th>
             <th style={{color:"white"}}>body_style</th>
-
             <th style={{color:"white"}} >min_amount</th>
             <th style={{color:"white"}} >year</th>
             <th style={{color:"white"}} >pictures</th>
@@ -94,4 +93,4 @@ function OneCarPending(props) {
   )
 }
 
-export default OneCarPending
+export default OneCarPending;
