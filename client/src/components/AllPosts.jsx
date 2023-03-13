@@ -29,7 +29,6 @@ const AllPosts = ({ user, car, setCar, setView, view }) => {
         <h1 className="title">
           {car.brand_name}
         </h1>
-    
         <h4 className="character">
           ending in :  {car.ending_day}
         </h4>
