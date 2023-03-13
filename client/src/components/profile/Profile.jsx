@@ -4,6 +4,9 @@ import Profileimg from "../profile/Profileimg.jsx"
 import Itemsdetails from "../profile/Itemsdetails.jsx"
 import "./profile.css"
 import Updateinfo from "../profile/Updateinfo.jsx"
+import { MdMail } from 'react-icons/md';
+import { FaPhone } from 'react-icons/fa'
+import { FaUser } from 'react-icons/fa';
 const Profile = () => {
   const [view , setView]=useState(false)
 
@@ -28,19 +31,20 @@ const Profile = () => {
     }
 
     return (
-        <div className="container1">
+        <div className="container" >
             <div className="profile">
                 <img className="profile-image" src={data.img} alt="You" />
+                <Profileimg />
                 <div className="profile-details">
-                    <h1 className="profile-email">Email: {data.email}</h1>
-                    <h1 className="profile-name">First name: {data.first_name}</h1>
-                    <h1 className="profile-last">last name: {data.last_name}</h1>
-                    <h1 className="profile-number">Phone number: {data.phone_number}</h1>
+                    <h1 className="profile-email"><MdMail size={30}/> {data.email}</h1>
+                    <h1 className="profile-name"><FaUser size={20}/>{data.first_name} {data.last_name}</h1>
+                    <h1 className="profile-number"><FaPhone size={20}/> {data.phone_number}</h1>           
                 </div>
                 <button className="editbutton" onClick={toggleUpdate}>Update Info</button>
                 {showUpdate && <Updateinfo />}
-                {/* <Profileimg /> */}
+                <div className="grid-container">
                 <Itemsdetails props={data} refresh={refresh}/>
+            </div>
             </div>
         </div>
     );

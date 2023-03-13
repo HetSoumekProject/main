@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+// import Count from './Count.jsx'
 const AllPosts = ({user,car,setCar,setView,view}) => {
   const handleSubmitfav = (event) => {
     console.log('user',user);
@@ -25,6 +26,9 @@ const AllPosts = ({user,car,setCar,setView,view}) => {
       <h4>
       ending in :  {car.ending_day}
       </h4>
+      
+        {/* <Count/> */}
+    
       <div>
         <button type='button' onClick={()=>setView(!view)}>Bid!!</button>
       </div>

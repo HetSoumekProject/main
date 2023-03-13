@@ -28,8 +28,10 @@ const Profileimg = () => {
    }
     return (
       <div>
-        <input type="file" onChange={(e)=>{setImage(e.target.files[0])}} />
-        <button onClick={uploadimg} >Upload image</button>
+        <input 
+        className="inputsss"
+        type="file" onChange={(e)=>{setImage(e.target.files[0])}} />
+        <button className="update" onClick={uploadimg} >Upload image</button>
       </div>
     );
   };

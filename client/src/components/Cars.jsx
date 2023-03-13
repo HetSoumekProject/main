@@ -91,7 +91,7 @@ const Cars = (props) => {
       <option value="wagon"> wagon  </option>
       </select>
       </div>
-      <div div className="grid-container">
+      <div  className="grid-container">
       </div>
       {view||<div className='cars-container'>
       {(bodyStyle==="all"&&(years==="all"&&transmission==="all"))&&cars.map((item , index) => {

@@ -14,8 +14,9 @@ const Updateinfo= ( ) => {
         first_name:first_name1, 
         last_name:last_name1, 
         phone_number:phone_number1,
-   
-        })
+       
+        }) 
+        (window.location.reload())
         .then(res => res.data)
         .catch(error=>{
             console.log(error);
