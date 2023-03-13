@@ -3,6 +3,7 @@ import axios from 'axios';
 import Chart from "chart.js/auto";
 import { Bar } from 'react-chartjs-2';
 import OneCarPending from './OneCarPending.jsx'
+import Dashboard from './AdminDash.jsx';
 
 const AllPending=()=> {
     const [carsPending,setPending]=useState([])
@@ -19,7 +20,7 @@ const AllPending=()=> {
 
   return (
     <div>
-       
+       <Dashboard/>
         {carsPending.map((el,i)=>{
             return(
             <div>
