@@ -6,7 +6,6 @@ import Payment from './Payment.jsx'
 import Bid from "./Bid.jsx"
 import './oneCar.css'
 function OneCar(props) {
- 
 
   return (
     <div className='bodey'>
@@ -14,7 +13,7 @@ function OneCar(props) {
             <div className=''>
                 <div className="">
                 <div className='block'>
-  {props.car.images.length > 0 && (
+  {props.car.images.length> 0 && (
     <div className="preload-wrap main loaded">
       <CarImages image={props.car.images[0]} />
     </div>

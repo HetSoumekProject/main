@@ -17,14 +17,17 @@ const AllPosts = ({ user, car, setCar, setView, view }) => {
   };
 
   return (
-    <div className="cards">
-      <div className='car' >
+    <div className='body'>
+    <div className="box-container">
+      <div >
         <button type='button' id='add' onClick={handleSubmitfav} className="btn" > ☆</button>
-      </div>
-      {car.images[0] ? <img  className='card img' src={car.images[0].image} onClick={() => {
+      </div >
+      <div className="img-container">
+      {car.images[0] ? <img  src={car.images[0].image} onClick={() => {
         setView(!view)
         setCar(car)
       }} /> : "doesnt exist"}
+      </div>
       <div >
         <h1 className="title">
           {car.brand_name}
@@ -39,6 +42,7 @@ const AllPosts = ({ user, car, setCar, setView, view }) => {
           <button type='button' onClick={() => setView(!view)}>Bid!!</button>
         </div>
       </div>
+    </div>
     </div>
   );
 };

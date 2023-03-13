@@ -4,6 +4,7 @@ import io from 'socket.io-client';
 function Count() {
   const [secondsLeft, setSecondsLeft] = useState(7 * 24 * 60 * 60);
   const [socket, setSocket] = useState(null);
+  const [intervalId, setIntervalId] = useState(null);
 
   useEffect(() => {
     const newSocket = io('http://localhost:3000'); 
@@ -35,27 +36,39 @@ function Count() {
   }, [socket]);
 
   useEffect(() => {
-    const countdownInterval = setInterval(() => {
-      setSecondsLeft((prevSeconds) => {
-        if (prevSeconds === 0) {
-          clearInterval(countdownInterval);
-          console.log('Countdown complete!');
-          socket.emit('countdownComplete'); // notify server that countdown is complete
-          return 0;
-        } else {
-          socket.emit('countdown', prevSeconds - 1); // send countdown updates to server
-          return prevSeconds - 1;
-        }
-      });
-    }, 10000);
+    if (socket) {
+      const countdownInterval = setInterval(() => {
+        setSecondsLeft((prevSeconds) => {
+          if (prevSeconds === 0) {
+            clearInterval(intervalId);
+            console.log('Countdown complete!');
+            socket.emit('countdownComplete'); // notify server that countdown is complete
+            return 0;
+          } else {
+            socket.emit('countdown', prevSeconds - 1); // send countdown updates to server
+            return prevSeconds - 1;
+          }
+        });
+      }, 2000);
+      setIntervalId(countdownInterval);
+      return () => clearInterval(countdownInterval);
+    }
+  }, [socket, intervalId]);
 
-    return () => {
-      clearInterval(countdownInterval);
-      if (socket) {
+  useEffect(() => {
+    if (socket) {
+      socket.on('countdownStopped', () => {
+        clearInterval(intervalId);
+      });
+
+      return () => {
+        if (intervalId) {
+          clearInterval(intervalId);
+        }
         socket.emit('countdownStopped'); // notify server that countdown has been stopped
-      }
-    };
-  }, [socket]);
+      };
+    }
+  }, [socket, intervalId]);
 
   const formatTime = (timeInSeconds) => {
     const days = Math.floor(timeInSeconds / 86400);

@@ -129,7 +129,7 @@ io.on('connection', (socket) => {
       secondsLeft--;
       io.emit('countdown', secondsLeft);
     }
-  }, 1000);
+  }, 2000);
 });
 
 
