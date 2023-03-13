@@ -113,34 +113,34 @@ console.log(err);
 // const sendEmail=(req, res) =>{
 //   return new Promise((resolve,reject)=>{
 
-  // let transporter = nodemailer.createTransport({
-  //   service: 'gmail',
-  //   auth: {
-  //     type: 'OAuth2',
-  //     user: "farhani ahlem",
-  //     pass: "mynewpassword123@",
-  //     clientId: "911348413388-bcp6gsrht6adpkfv85l6ql8972b6h314.apps.googleusercontent.com",
-  //     clientSecret: "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",
-  //     refreshToken: "https://oauth2.googleapis.com/token"}
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      type: 'OAuth2',
+      user: "farhani ahlem",
+      pass: "mynewpassword123@",
+      clientId: "911348413388-bcp6gsrht6adpkfv85l6ql8972b6h314.apps.googleusercontent.com",
+      clientSecret: "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",
+      refreshToken: "https://oauth2.googleapis.com/token"}
     
-  // })
+  })
 
 
-  // let mailOptions = {
-  //   from: req.body.email,
-  //   to: "ahlemfarhani2@gmail.com",
-  //   subject: 'Nodemailer Project',
-  //   html:"hjjjjjj"
+  let mailOptions = {
+    from: "hetSoumek@gmail.com",
+    to: "ahlemfarhani2@gmail.com",
+    subject: 'Nodemailer Project',
+    html:"hjjjjjj"
     
-  // };
+  };
  
-  // transporter.sendMail(mailOptions, function(err, data) {
-  //   if (err) {
-  //     console.log("Error " + err);
-  //   } else {
-  //     console.log("Email sent successfully");
-  //   }
-  // });
+  transporter.sendMail(mailOptions, function(err, data) {
+    if (err) {
+      console.log("Error " + err);
+    } else {
+      console.log("Email sent successfully");
+    }
+  });
 let secondsLeft = 7 * 24 * 60 * 60; // 7 days in seconds
 io.on('connection', (socket) => {
   console.log('Client connected');
