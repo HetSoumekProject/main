@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import Notify from './Notify';
 
+
 const NavBar =(props)=>{
   
         useEffect(() => {
@@ -41,7 +42,7 @@ const NavBar =(props)=>{
            <Link to='/post'>SELL YOUR CAR</Link>
           </a>
           <a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
-          <Link to="/Profile" >PROFIL</Link>
+          <Link to="/Profile" >PROFILE</Link>
           </a>
           <a data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">
           <Link to='/adminDashboard'>ADMIN</Link> 

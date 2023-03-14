@@ -22,7 +22,7 @@ function OneCarPending(props) {
         axios.put(`http://localhost:3000/api/car/status/decline/${id}`).then(res=>props.setRefreshPending(!props.refreshPending)).catch(err=>console.log(err))
     }
   return (
-    <div className='pending'>
+    <div>
       <table class="table">
        <thead>
         <tr>
@@ -31,6 +31,7 @@ function OneCarPending(props) {
             <th style={{color:"white"}}>initial_price</th>
             <th style={{color:"white"}}>transmission</th>
             <th style={{color:"white"}}>body_style</th>
+
             <th style={{color:"white"}} >min_amount</th>
             <th style={{color:"white"}} >year</th>
             <th style={{color:"white"}} >pictures</th>
@@ -93,4 +94,4 @@ function OneCarPending(props) {
   )
 }
 
-export default OneCarPending;
+export default OneCarPending

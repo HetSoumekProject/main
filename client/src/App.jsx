@@ -27,32 +27,19 @@ import Signin  from "./components/auth/Signin.jsx"
 import Profile from ".//components/profile/Profile.jsx"
 import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
-import FavoriteList from './components/favourite';
 import Mailer from './components/mailer/Mailer.jsx'
-import AdminSet from './components/AdminSet';
 import Count from './components/Count.jsx'
 function App() {
-  const [users,setUsers]=useState([])
-const [user,setUser]=useState('')
-const [refresh,setRefresh]=useState(true)
-const x=localStorage.userInfo
-  
+  const [users,setUser]=useState([])
   
   useEffect(()=>{
     
     axios.get('http://localhost:3000/api/user/allusers').then(res=>{
       console.log(res.data)
-      setUsers(res.data)
       setUser(res.data)
       
       
     }).catch(err=>console.log(err))
-
-    axios.get(`http://localhost:3000/api/user/real/${x}`).then (res=>{
-      console.log(res.data.id,'iiidddd')
-      setUser(res.data.id)
-      setRefresh('')
-    }).catch((err)=>{console.log(err);})
   },[])
 
   return (
@@ -66,8 +53,6 @@ const x=localStorage.userInfo
       <Routes>
       
       <Route path="/" exact  element={<Home/>}/>
-      <Route path="/count" element={<Count/>}/>
-
       <Route path="/Notify" element={<Notify/>}/>
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
       <Route path="/mailer" element={<Mailer/>}/>
@@ -77,20 +62,19 @@ const x=localStorage.userInfo
       <Route path="/Payment" element={<Payment/>}/>
       <Route path="/FailPayment" element={<FailPayment/>}/>
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
-      {/* <Route path="/NavBar" element={<NavBar/>}/> */}
+      <Route path="/NavBar" element={<NavBar/>}/>
       <Route path="/Daily" element={<Daily/>}/>
       <Route path="/AdminDashboard" element={<Monthly/>}/>
+      <Route path="/Monthly" element={<Monthly/>}/>
       <Route path="/Customers" element={<Customers users={users}/>}/>
       <Route path="/Transactions" element={<Transactions/>}/>
       <Route path="/OverView" element={<OverView/>}/>
       <Route path="/Cars" element={<Cars/>}/>
-      <Route path="/Monthly" element={<Monthly />}/>
+      <Route path="/AdminDashboard" element={<Dashboard />}/>
       <Route path="/Signup" element={<Signup/>}/>
       <Route path="/Signin" element={<Signin />} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
-      <Route path="/FavoriteList" element={<FavoriteList x={user} refresh={refresh}/>}/>
-      <Route path="/AdminSet" element={<AdminSet />}/>
       <Route path="/Count" element={<Count />}/>
     </Routes>
 

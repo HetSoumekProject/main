@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Dashboard from './AdminDash';
 import axios from 'axios';
 import io from 'socket.io-client';
-
+import Dashboard from './AdminDash';
 const socket = io('http://localhost:3000');
 
 const Customers = (props) => {
