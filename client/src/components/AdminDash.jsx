@@ -8,19 +8,13 @@ import { FaUsers, FaClipboardList, FaMoneyBillAlt } from "react-icons/fa";
 import { BsFillPersonFill } from "react-icons/bs";
 import { AiOutlineMenuFold } from "react-icons/ai";
 import { Col, Container, Row } from "react-bootstrap";
-
 const Dashboard = () => {
   const [expanded, setExpanded] = useState(true);
-
   const handleToggleSidebar = () => {
     setExpanded(!expanded);
   };
-
   return (
-    
-      
     <Container fluid>
-    
       <Row>
       <Col
   className={`sidebar p-3 ${
@@ -83,11 +77,8 @@ const Dashboard = () => {
             </li>
           </ul>
         </Col>
-      
       </Row>
     </Container>
-  
   );
 };
-
 export default Dashboard;

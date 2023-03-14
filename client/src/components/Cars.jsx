@@ -2,7 +2,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import AllPosts from './AllPosts';
 import OneCar from './OneCar.jsx'
- 
+import css from "./cars.css"
+
 const Cars = (props) => {
     const[years,setYears]=useState("all")
     const[transmission,setTransmission]= useState("all");
@@ -12,16 +13,7 @@ const Cars = (props) => {
     const [refresh,setRefresh]=useState(true)
     const[view,setView]=useState(false)
     const [car,setCar]=useState({})
-    const [user,setUser]=useState(0)
-  const x= localStorage.userInfo
-  console.log(x);
-  useEffect(()=>{
-    axios.get(`http://localhost:3000/api/user/real/${x}`).then (res=>{
-      console.log(res.data)
-      setUser(res.data.id)
-      
-    }).catch((err)=>{console.log(err);})
-  },[refresh])
+  
     useEffect(()=>{
       axios.get('http://localhost:3000/api/car/AllCars').then(res=>{
         console.log(res.data)
@@ -99,7 +91,7 @@ const Cars = (props) => {
       <option value="wagon"> wagon  </option>
       </select>
       </div>
-      <div  className="grid-container">
+      <div div className="grid-container">
       </div>
       {view||<div className='cars-container'>
       {(bodyStyle==="all"&&(years==="all"&&transmission==="all"))&&cars.map((item , index) => {
@@ -107,7 +99,7 @@ const Cars = (props) => {
       console.log("item",item)
       return(
         <div  key = {index}>
-       <AllPosts setCar={setCar} view={view} setView={setView} car={item} user={user} x={x}/>
+       <AllPosts setCar={setCar} view={view} setView={setView} car={item}/>
        
  </div>    
 
@@ -122,10 +114,13 @@ const Cars = (props) => {
       console.log("item",item)
       return(
         <div  key = {index}>
-       <AllPosts user={props.user} setCar={setCar} view={view} setView={setView} car={item}/>
+       <AllPosts setCar={setCar} view={view} setView={setView} car={item}/>
        
  </div>    
-)
+
+      )
+             
+
 })}
 </div>}
 {view &&<OneCar user={props.user} car={car} />}
