@@ -5,6 +5,11 @@ import OneCarDetails from './OneCarDetails.jsx';
 
 
 function OneCarPending(props) {
+
+
+
+
+    
     const [seller,setSeller]=useState({})
     const [view , setView]=useState(false)
     // const getTheSeller=(id)=>{

@@ -14,9 +14,6 @@ import Payment from './components/Payment.jsx';
 import Customers from './components/Customers.jsx'
 import Signup from './components/auth/Signup.jsx'
 import AllPosts from './components/AllPosts';
-// import SuccessPayment from "./components/SuccessPayment.jsx"
-// import FailPayment from './components/FailPayment.jsx';
-// import Payment from './components/Payment.jsx';
 import Dashboard from './components/AdminDash.jsx';
 import { Route,Routes } from 'react-router-dom'
 import Monthly from './components/Monthly';
