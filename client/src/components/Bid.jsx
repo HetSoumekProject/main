@@ -101,6 +101,7 @@ function Bid(props) {
       >
         bid
       </button>
+      
     </div>
   );
 }

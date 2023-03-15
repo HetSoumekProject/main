@@ -15,6 +15,8 @@ cloudinary.config({
     car.brand_name=req.body.brandName
     car.userId=req.params.id
     car.status="pending"
+    car.longitude=req.body.longitude+""
+    car.latitude=req.body.latitude+""
    console.log(req.body)
     try{
       let rs=await orm.Car.create(car)
