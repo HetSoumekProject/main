@@ -11,7 +11,7 @@ function Post() {
   const [bodyStyle, setbodyStyle] = useState("coupe");
   const [image, setImage] = useState([]);
   const [user,setUser]=useState({})
-
+  const [viewport,setViewport]=useState({})
   const setFileToBase = (files) => {
     console.log(files)
     let i=0
@@ -32,7 +32,7 @@ function Post() {
     year,
     transmission,
     bodyStyle,
-    image
+    image,longitude,latitude
   ) => {
     axios
       .post(`http://localhost:3000/api/car/postACar/${id}`, {
@@ -43,11 +43,19 @@ function Post() {
         transmission: transmission,
         bodyStyle: bodyStyle,
         image: image,
+        longitude:longitude,
+        latitude:latitude
       })
       .then((res) => {console.log(res);setImage([])})
       .catch((err) => console.log(err));
   };
   useEffect(()=>{
+    navigator.geolocation.getCurrentPosition(pos => {
+      setViewport({
+        latitude: pos.coords.latitude,
+        longitude: pos.coords.longitude
+      });
+    });
     axios.get(`http://localhost:3000/api/user/userbyuid/${localStorage.userInfo}`)
     .then((res)=>{
         setUser(res.data);
@@ -57,7 +65,8 @@ function Post() {
   },[])
   return (
     
-    
+    <div className="post-container">
+      <img className="imgcar" src="https://file.kelleybluebookimages.com/kbb/base/evox/CP/15180/2023-Chevrolet-Corvette-front_15180_032_1838x654_GA7_cropped.png"/>
     <div className="post-item">
       <h1 className="h11">sell your car :</h1>
       <br/>
@@ -129,14 +138,15 @@ function Post() {
         <br/>
 
       <input
-        className="inputs"
-        required
-        type="file"
-        multiple
-        onChange={(e) => {
-          console.log("file",e.target.files)
-          setFileToBase(e.target.files)}}
-      />
+  className="inputs"
+  required
+  type="file"
+  multiple
+  onChange={(e) => {
+    console.log("file",e.target.files)
+    setFileToBase(e.target.files)}
+  }
+/>
             <br/>
             <br/>
 
@@ -154,13 +164,15 @@ function Post() {
             year,
             transmission,
             bodyStyle,
-            image
+            image,
+            viewport.longitude,viewport.latitude
           );
         }}
-      > <Link to='/cars'>ADD</Link></button>
+      > <Link style={{ textDecoration: 'none',color:'black' }}to='/cars'>ADD</Link></button>
       </form>
     </div>
-    
+    </div>
+
 
 
 

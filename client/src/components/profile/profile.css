@@ -1,138 +1,99 @@
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin-top: 30px;
-  margin-left: 10%;
+.page {
+  background-color: #F8F8F8;
+  max-width: 100%;
 }
 
-.profile {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: url('https://img.freepik.com/free-vector/banner-background-with-low-poly_1048-10730.jpg?w=2000') no-repeat center center fixed;
-  background-size:auto;
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  padding: 20px;
-  max-width: 600px;
+.bgimg {
+  max-height: 220px;
   width: 100%;
-  margin-top: 39%;
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+   
 }
+
+.mari{
+ position: absolute;
+ margin-left: 94%;
+ margin-top: 229px;
+ display: inline-block; 
+   
+  color: #000;
+  font-size: 20px; 
+  text-decoration: none; 
+  transition: color 0.2s;
+}
+
 
 .profile-image {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  margin-bottom: 20px;
-  border: 5px solid #fcbf49;
-  margin-left: -68%;
+  object-fit: cover;
+  margin-right: 30px;
+  border: 7px solid #F8F8F8; 
+  ;
+  
+}
+.profpos{
+  position: absolute;
+  margin-top: -100px;
+  margin-left: 10px;
+}
+
+.uploadimg{
+  margin-top: 100px;
+}
+
+
+.profile-details {
+ margin-left: 10px;
+  
+  
+  margin-right: 5px;
+  
+}
+
+.bigone{
+  
+  margin-bottom: 10px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 5px #808080;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 1rem;
 }
 
 .profile-email,
 .profile-name,
-.profile-last,
 .profile-number {
-  font-size: 18px;
-  margin: 10px 0;
-  color: #333;
+  align-items: center;
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .editbutton {
-  background-color: #fcbf49;
-  color: #fff;
-  font-size: 16px;
+  background-color: black;
+  color: white;
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
-  margin-top: 20px;
+  font-size: 16px;
   cursor: pointer;
+  
 }
 
-.editbutton:hover {
-  background-color: #fca311;
+.static {
+  text-align: center;
+  font-size: 20px;
+  
 }
-
-/* Styling for the update info form */
-.update-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50%;
-}
-
-.update-form label {
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.update-form input[type="text"],
-.update-form input[type="email"],
-.update-form input[type="tel"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  margin-bottom: 20px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-}
-
-.update-form button {
-  background-color: #fc3700;
-  color: #fff;
-  font-size: 16px;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-.update-form button:hover {
-  background-color:  #fcbf49;
-}
-.inputsss{
-  width: 100%;
+.posts{
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 5px #808080;
+  margin-left: 5px;
+  margin-right: 5px;
   border-radius: 1rem;
-  border: 0.2rem solid rgb(200, 75, 21);
-  background: none;
-  font-size: 1.5rem;
-  text-transform: none;
-  color: #aaa;
-  margin-bottom: 1rem;
-  padding: 1.2rem 1.4rem;
-  margin-left:-20%;
- 
 }
-.update{
-  background-color: #fc3700;
-  color: #fff;
-  font-size: 10px;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  margin-top: 0%;
-  cursor: pointer;
-  margin-left: -19%;
 
-}
-.profile-details h1 {
-  font-family: Arial, sans-serif;
-  font-size: 1.2rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  margin-left: -90%;
-}
-.profimg{
-  box-shadow:8px 8px 10px 0 rgba(65, 62, 62, 0.5);
-    border-radius: 5px 5px 0px 0px;
-    height: 200px;
-    width: 250px;
-    display: flex;
-}

@@ -1,14 +1,32 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import './cars.css'
+import React, { useState ,useEffect} from 'react'
+import Countdown from 'react-countdown';
 import FavoriteList from './FavoriteList';
+const AllPosts = ({user,car,setCar,setView,view}) => {
+  const [countdownDate, setCountdownDate] = useState(new Date('2023-12-31'));
 
-const AllPosts = ({car, setCar, setView, view, user}) => {
   useEffect(() => {
-    console.log('use all postr', user.id);
-    console.log('carr', car)
-  }, [])
+    const interval = setInterval(() => {
+      setCountdownDate(new Date(car.ending_day));
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
+  const Completionist = () => <span>You are good to go!</span>;
+
+  const renderer = ({ days, hours, minutes, seconds, completed }) => {
+    if (completed) {
+      return <Completionist />;
+    } else if (countdownDate < new Date()) {
+      return <span>Countdown date has passed!</span>;
+    } else {
+      return (
+        <span>
+          {days} days, {hours} hours, {minutes} minutes, {seconds} seconds
+        </span>
+      );
+    }
+  };
   const handleSubmitfav = async (event) => {
     event.preventDefault();
     console.log("user ", localStorage)
@@ -23,33 +41,29 @@ const AllPosts = ({car, setCar, setView, view, user}) => {
   }
 
   return (
-    <div className='body'>
-      {console.log(user,"useeeer")}
-      <div className="box-container">
-        <div >
-          <button type='button' id='add' onClick={handleSubmitfav} className="btn" > ☆
-          </button>
-        </div>
-        <div className="img-container">
-          {car.images[0] ? <img src={car.images[0].image} onClick={() => {
-            setView(!view)
-            setCar(car)
-          }} /> : "doesn't exist"}
-        </div>
+    <div className='oneCard'>
+     <div> <button type='button' className='' onClick={handleSubmitfav}>☆</button></div>
+ { car.images[0]?<img className='cars-pic' src={car.images[0].image} onClick={()=>{setView(!view)
+      setCar(car)
+      }}/> :"doesnt exist"}
+      <h1>
+        {car.brand_name}
+      </h1>
+      <h4>
+      ending in :  {car.ending_day}
+      </h4>
+
+      <div>
+
+      {countdownDate && (
         <div>
-          <h1 className="title">
-            {car.brand_name}
-          </h1>
-          <h4 className="character">
-            ending in :  {car.ending_day}
-          </h4>
-          <div>
-            {/* <Count/> */}
-          </div>
-          <div className="character">
-            <button type='button' onClick={() => setView(!view)}>Bid!!</button>
-          </div>
+          <Countdown date={countdownDate} renderer={renderer} />
         </div>
+      )}
+    </div>
+
+      <div>
+        <button type='button' onClick={()=>setView(!view)}>Bid!!</button>
       </div>
     </div>
   );

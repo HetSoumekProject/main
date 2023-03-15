@@ -1,8 +1,4 @@
 const { Sequelize, DataTypes } = require("sequelize");
-// const config = require("../config");
-
-//Create a Sequelize instance and pass the appropriate parameters separately
-//You should modify 'database', 'username' and 'password' to fit your own credentials.
 
 
 const sequelize = new Sequelize("Heet_soumekk","root","Mahdi123321",
@@ -12,8 +8,6 @@ const sequelize = new Sequelize("Heet_soumekk","root","Mahdi123321",
   }
 );
 
-//Create and export a db object which holds the sequelize models,
-//with the respective associations.
 const db = {};
 
 db.sequelize = sequelize;

@@ -16,7 +16,7 @@ const notifivationsRoute = require('./routes/notification.js')
 const favouriteRoute = require('./routes/favourite.js')
 const paymentRoute = require('./routes/payment.js')
 const messagesRoute = require('./routes/message.js')
-const nodemailer = require('nodemailer');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -96,51 +96,6 @@ console.log(err);
     io.emit("bid&&price",data);
   });
 });
-
-
-
-// let transporter = nodemailer.createTransport({
-//       service: 'gmail',
-//       auth: {
-//         type: 'OAuth2',
-//         user: process.env.MAIL_USERNAME,
-//         pass: process.env.MAIL_PASSWORD,
-//         clientId: process.env.OAUTH_CLIENTID,
-//         clientSecret: process.env.OAUTH_CLIENT_SECRET,
-//         refreshToken: process.env.OAUTH_REFRESH_TOKEN
-//       }
-//     });
-// const sendEmail=(req, res) =>{
-//   return new Promise((resolve,reject)=>{
-
-  // let transporter = nodemailer.createTransport({
-  //   service: 'gmail',
-  //   auth: {
-  //     type: 'OAuth2',
-  //     user: "farhani ahlem",
-  //     pass: "mynewpassword123@",
-  //     clientId: "911348413388-bcp6gsrht6adpkfv85l6ql8972b6h314.apps.googleusercontent.com",
-  //     clientSecret: "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",
-  //     refreshToken: "https://oauth2.googleapis.com/token"}
-    
-  // })
-
-
-  // let mailOptions = {
-  //   from: req.body.email,
-  //   to: "ahlemfarhani2@gmail.com",
-  //   subject: 'Nodemailer Project',
-  //   html:"hjjjjjj"
-    
-  // };
- 
-  // transporter.sendMail(mailOptions, function(err, data) {
-  //   if (err) {
-  //     console.log("Error " + err);
-  //   } else {
-  //     console.log("Email sent successfully");
-  //   }
-  // });
 
 
 app.get("/api/notifications", (req, res) => {

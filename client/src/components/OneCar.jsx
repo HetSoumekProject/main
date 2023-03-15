@@ -5,50 +5,59 @@ import ChatRoom from './ChatRoom.jsx'
 import Payment from './Payment.jsx'
 import Bid from "./Bid.jsx"
 import './oneCar.css'
+import TheMap from './TheMap.jsx'
 function OneCar(props) {
 
   return (
+    
+    
     <div className='bodey'>
-        <div className=''>
-            <div className=''>
-                <div className="">
-                <div className='block'>
-  {props.car.images.length> 0 && (
-    <div className="preload-wrap main loaded">
-      <CarImages image={props.car.images[0]} />
-    </div>
-  )}
-  {props.car.images.slice(1).map((el, i) => (
-    <div className={`car-image car-image-${i+1}`} key={i}>
-      <CarImages image={el} />
-    </div>
-  ))}
-</div>
-
-            <div className='description'>
-         <h1>Brand :{props.car.brand_name}</h1>
-       
-        <h2>Year: {props.car.year}</h2>
-        <h3>Transmition:{props.car.transmission}</h3>
-        <h4>Body Style:{props.car.body_style}</h4>
-         <p>Description:{props.car.description}</p> 
-        <h1>Min amount to bid: {props.car.min_amount} dt</h1></div>
-       
-        </div>
-        <div className=''>
+      
+         <div className='chatdiv'>
         <ChatRoom id={props.car.id}/>
         </div>
-        </div>
-        <div className=''>
-        <div>
-            <Bid car={props.car} />
-        </div>
-        <div>
-            <Payment/>
-        </div>
-        </div>
+                <div className='block'>
+  {props.car.images.map((el, i) => (
+    <div className={`car-image car-image-${i}`} key={i}>
+      <CarImages image={el} />
+      <div>
+          <TheMap car={props.car}/>
         </div>
     </div>
+  ))}
+ 
+</div>
+       <div class="table-container">
+  <table class="responsive-table">
+    <thead>
+      <tr class="table-header">
+        <th class="col col-1">Brand</th>
+        <th class="col col-2">Year</th>
+        <th class="col col-3">Transmission</th>
+        <th class="col col-4">Body Style</th>
+        <th class="col col-5">Description</th>
+        <th class="col col-6">Min. Amount to Bid</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-row">
+        <td class="col col-1" data-label="Brand">{props.car.brand_name}</td>
+        <td class="col col-2" data-label="Year">{props.car.year}</td>
+        <td class="col col-3" data-label="Transmission">{props.car.transmission}</td>
+        <td class="col col-4" data-label="Body Style">{props.car.body_style}</td>
+        <td class="col col-5" data-label="Description">{props.car.description}</td>
+        <td class="col col-6" data-label="Min. Amount to Bid">{props.car.min_amount}</td>
+      </tr>
+    </tbody>
+  </table>
+  <Bid car={props.car} />
+  <Payment/>
+</div>
+        
+            
+      
+        </div>
+  
   )
 }
 

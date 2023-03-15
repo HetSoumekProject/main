@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import AllPosts from './AllPosts';
 import OneCar from './OneCar.jsx'
 import css from "./cars.css"
+
+
 const Cars = (props) => {
     const[years,setYears]=useState("all")
     const[transmission,setTransmission]= useState("all");
@@ -46,7 +48,8 @@ const Cars = (props) => {
   return (
     <div className='carrrs'>
       <div className='select-container'>
-      <h1 >Auctions:</h1>
+      <h1 className=''>Auctions:</h1>
+      
       <select name="years" id="years" class="chosen-select" data-placeholder="select a year" onChange={(e) => {setYears(e.target.value)
       setRefresh(!refresh)}}>
         <option  value="all"> All  </option>
@@ -108,6 +111,7 @@ const Cars = (props) => {
 })}
 </div>}
 {view &&<OneCar user={props.user} car={car} />}
+
     </div>
   )
 }
