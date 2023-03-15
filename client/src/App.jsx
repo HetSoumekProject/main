@@ -27,7 +27,7 @@ import OneCarDetails from './components/OneCarDetails';
 import Mail from "./components/Mail.jsx"
 function App() {
   const [users,setUser]=useState([])
-  
+  const [refresh,setRefresh]=useState(true)
   useEffect(()=>{
     
     axios.get('http://localhost:3000/api/user/allusers').then(res=>{
@@ -40,7 +40,7 @@ function App() {
 
   return (
     <div className="App">
-    <NavBar />
+    <NavBar setRefresh={setRefresh} refresh={refresh} />
     <br></br>
     <br></br>
     <br></br>
@@ -59,6 +59,8 @@ function App() {
       <Route path="/FailPayment" element={<FailPayment/>}/>
       <Route path="/success" element={<SuccessPayment/>}/>
       <Route path="/NavBar" element={<NavBar/>}/>
+      <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
+      <Route path="/NavBar" element={<NavBar />}/>
       <Route path="/Daily" element={<Daily/>}/>
       <Route path="/AdminDashboard" element={<Monthly/>}/>
       <Route path="/Monthly" element={<Monthly/>}/>
@@ -68,7 +70,7 @@ function App() {
       <Route path="/Cars" element={<Cars/>}/>
       <Route path="/AdminDashboard" element={<Dashboard />}/>
       <Route path="/Signup" element={<Signup/>}/>
-      <Route path="/Signin" element={<Signin />} />
+      <Route path="/Signin" element={<Signin setRefresh={setRefresh} refresh={refresh}/>} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
     </Routes>
