@@ -31,22 +31,43 @@ const Profile = () => {
     }
 
     return (
-        <div className="container" >
-            <div className="profile">
+        
+            <div className="page" >
+              <div className="bigone" >
+              <div class="mari">
+            <a href="#" class="fab fa-facebook-f"></a>
+            <a href="#" class="fab fa-twitter"></a>
+            <a href="#" class="fab fa-instagram"></a>
+            <a href="#" class="fab fa-linkedin"></a>
+          </div>
+                <img className="bgimg" src="https://wallpaperaccess.com/full/123993.jpg" />
+              
+               
+                <div className="profpos" >
                 <img className="profile-image" src={data.img} alt="You" />
-                <Profileimg />
-                <div className="profile-details">
-                    <h1 className="profile-email"><MdMail size={30}/> {data.email}</h1>
-                    <h1 className="profile-name"><FaUser size={20}/>{data.first_name} {data.last_name}</h1>
-                    <h1 className="profile-number"><FaPhone size={20}/> {data.phone_number}</h1>           
                 </div>
-                <button className="editbutton" onClick={toggleUpdate}>Update Info</button>
-                {showUpdate && <Updateinfo />}
-                <div className="grid-container">
+                <div className="uploadimg" >
+                {/* <Profileimg /> */}
+                </div>
+                 <div className="profile-details">
+                
+        
+                    <h1 className="profile-email"><MdMail size={25}/> {data.email}</h1>
+                    <h1 className="profile-name"><FaUser size={25}/> {data.first_name} {data.last_name}</h1>
+                    <h1 className="profile-number"><FaPhone size={25}/> {data.phone_number}</h1>           
+                    <button className="editbutton" onClick={toggleUpdate}>Update Info</button>
+                    {showUpdate && <Updateinfo />}
+                    <div className="static" >"This is your space, Here you can customize your profile and stay updated on your cars"</div>
+                    </div>
+                    
+                 </div>
+                <div className="posts">
                 <Itemsdetails props={data} refresh={refresh}/>
+                </div>
+
+
             </div>
-            </div>
-        </div>
+        
     );
 };
 
