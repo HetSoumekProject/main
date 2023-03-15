@@ -5,7 +5,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 //You should modify 'database', 'username' and 'password' to fit your own credentials.
 
 
-const sequelize = new Sequelize("Heet_soumekk","root","s07249446667",
+const sequelize = new Sequelize("Heet_soumekk","root","Mahdi123321",
   {
     HOST: "localhost",
     dialect: "mysql",
@@ -75,17 +75,18 @@ db.Bid.belongsTo(db.User,{
      onDelete: "CASCADE",
 
 })
-db.User.hasOne(db.Favourite,);
-db.Favourite.belongsTo(db.User, {
-  foreignKey: {
-    name: 'userId'
-  }
+db.User.hasMany(db.Favourite, {
+  foreignKey: "userId",
 });
+db.Favourite.belongsTo(db.User, {
+     as: "user",
+     foreignKey: "userId",
+     onDelete: "CASCADE",
+  });
+db.User.belongsToMany(db.Room,{
+  through: "UserRoom"
 
-// db.User.belongsToMany(db.Room,{
-//   through: "UserRoom"
-
-// })
+})
 // db.Room.belongsToMany(db.User,{
 //   through: "UserRoom"
 
@@ -98,13 +99,13 @@ db.Bid.belongsTo(db.Car, {
   foreignKey: "carId",
   onDelete: "CASCADE",
 });
-db.Favourite.hasMany(db.Car,{
-  foreignKey: "favouriteId",
+db.Car.hasMany(db.Favourite,{
+  foreignKey: "carId",
 })
 
-db.Car.belongsTo(db.Favourite,{
-  as: "favourite",
-  foreignKey: "favouriteId",
+db.Favourite.belongsTo(db.Car,{
+  as: "car",
+  foreignKey: "carId",
   onDelete: "CASCADE",
 
 })

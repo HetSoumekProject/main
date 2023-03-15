@@ -22,17 +22,13 @@ const Dashboard = () => {
   } bg-dark`}
 >
           {/* Sidebar Header */}
-          <div className="d-flex align-items-center mb-3">
-            <h2 className="text-primary mb-0">Auctions</h2>
-            <button
-              className="btn btn-link text-decoration-none ms-auto"
-              onClick={handleToggleSidebar}
-            >
-              <AiOutlineMenuFold size={24} />
-            </button>
-          </div>
+          
           {/* Sidebar Menu */}
           <ul className="list-unstyled">
+          <div >
+            <h2 className="me-3">Heet_Soumekk</h2>
+           
+          </div>
             <li>
               <Link to="/Customers" className="text-decoration-none">
                 <FaUsers className="me-3" />

@@ -1,39 +1,58 @@
 import axios from 'axios';
-import React, { useState } from 'react'
-import Count from './Count.jsx'
-const AllPosts = ({user,car,setCar,setView,view}) => {
-  const handleSubmitfav = (event) => {
-    console.log('user',user);
-    console.log('carr',car)
+import React, { useEffect, useState } from 'react';
+import './cars.css'
+import FavoriteList from './FavoriteList';
+
+const AllPosts = ({car, setCar, setView, view, user}) => {
+  useEffect(() => {
+    console.log('use all postr', user.id);
+    console.log('carr', car)
+  }, [])
+
+  const handleSubmitfav = async (event) => {
     event.preventDefault();
-    axios.post(`http://localhost:3000/api/fav/addfav/${user}/${car.id}`)
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
+    console.log("user ", localStorage)
+    console.log("car", car.id)
+
+    try {
+      const response = await axios.post(`http://localhost:3000/api/fav/addfav/${user.id}/${car.id}`)
+      console.log(response.data); 
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
-    <div className='oneCard'>
-     <div> <button type='button' id='add' onClick={handleSubmitfav}   > ☆</button></div>
- { car.images[0]?<img className='cars-pic' src={car.images[0].image} onClick={()=>{setView(!view)
-      setCar(car)
-      }}/> :"doesnt exist"}
-      <h1>
-        {car.brand_name}
-      </h1>
-      <h4>
-      ending in :  {car.ending_day}
-      </h4>
-      
-        <Count/>
-    
-      <div>
-        <button type='button' onClick={()=>setView(!view)}>Bid!!</button>
+    <div className='body'>
+      {console.log(user,"useeeer")}
+      <div className="box-container">
+        <div >
+          <button type='button' id='add' onClick={handleSubmitfav} className="btn" > ☆
+          </button>
+        </div>
+        <div className="img-container">
+          {car.images[0] ? <img src={car.images[0].image} onClick={() => {
+            setView(!view)
+            setCar(car)
+          }} /> : "doesn't exist"}
+        </div>
+        <div>
+          <h1 className="title">
+            {car.brand_name}
+          </h1>
+          <h4 className="character">
+            ending in :  {car.ending_day}
+          </h4>
+          <div>
+            {/* <Count/> */}
+          </div>
+          <div className="character">
+            <button type='button' onClick={() => setView(!view)}>Bid!!</button>
+          </div>
+        </div>
       </div>
     </div>
-  )
-}
-export default AllPosts
-;
+  );
+};
+
+export default AllPosts;

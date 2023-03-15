@@ -146,6 +146,40 @@ width: 80%;
         background-size: cover;
         background-position: center;
       }
+      .MuiButton-containedPrimary {
+        color: #fff;
+        background-color: #fd0000;
+        margin-top: 67px;
+    }
+    .count{
+        
+            color: #fff;
+            background-color: #fd0000;
+            margin-top: 67px;
+        }
+        .MuiButton-containedPrimary {
+          color: #fff;
+          background-color: #fd0000;
+          margin-top: 67px;
+      }
+      .count{
+          
+              color: #fff;
+              background-color: #fd0000;
+              margin-top: 67px;
+          }
+          .MuiButton-containedPrimary {
+            color: #fff;
+            background-color: #fd0000;
+            margin-top: 67px;
+        }
+        .count{
+            
+                color: #fff;
+                background-color: #fd0000;
+                margin-top: 67px;
+            }
+                  
       
       @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
