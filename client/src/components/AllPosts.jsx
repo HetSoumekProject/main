@@ -3,8 +3,6 @@ import React, { useState ,useEffect} from 'react'
 import Countdown from 'react-countdown';
 
 const AllPosts = ({user,car,setCar,setView,view}) => {
-
-
   const [countdownDate, setCountdownDate] = useState(new Date('2023-12-31'));
 
   useEffect(() => {
@@ -30,10 +28,6 @@ const AllPosts = ({user,car,setCar,setView,view}) => {
     }
   };
 
-
-
-
-
   const handleSubmitfav = (event) => {
     console.log('user',user);
     console.log('carr',car)
@@ -48,7 +42,7 @@ const AllPosts = ({user,car,setCar,setView,view}) => {
   };
   return (
     <div className='oneCard'>
-     <div> <button type='button' id='add' onClick={handleSubmitfav}   > ☆</button></div>
+     <div> <button type='button' className='' onClick={handleSubmitfav}>☆</button></div>
  { car.images[0]?<img className='cars-pic' src={car.images[0].image} onClick={()=>{setView(!view)
       setCar(car)
       }}/> :"doesnt exist"}
@@ -58,16 +52,16 @@ const AllPosts = ({user,car,setCar,setView,view}) => {
       <h4>
       ending in :  {car.ending_day}
       </h4>
-      
+
       <div>
-      
+
       {countdownDate && (
         <div>
           <Countdown date={countdownDate} renderer={renderer} />
         </div>
       )}
     </div>
-    
+
       <div>
         <button type='button' onClick={()=>setView(!view)}>Bid!!</button>
       </div>

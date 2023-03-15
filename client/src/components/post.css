@@ -1,14 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+.post-container{
+  background-color: white;
+}
 .post-item{
 width: 590px;
 min-height: 250px;
 margin: auto;
-margin-top: -63px;
-background-color: black;
+margin-top: -38%;
+background-color: rgb(255, 255, 255);
 border-radius: 4px;
 padding: 20px 60px;
-box-shadow: 0 0 1em #ff7300;}
+box-shadow: 0 0 1em #000000;
+margin-left: 1%;}
+
+
 
 
 .inputs{
@@ -27,8 +33,8 @@ box-shadow: 0 0 1em #ff7300;}
     display: inline-block;
     padding: 1rem 3rem;
     font-size: 1.7rem;
-    color: #ff5722;
-    border: 0.5rem solid #ff5722;
+    color: #000000;
+    border: 0.5rem solid #000000;
     border-radius: 5rem;
     cursor: pointer;
     background: none;
@@ -36,13 +42,22 @@ box-shadow: 0 0 1em #ff7300;}
     font-weight: bold;
 }
 .button-1:hover {
-    background: #ff5622;
-    color: #111;
+    background: #000000;
+    color: #d8cccc;
   }
   .h11{
     font-family: 'Righteous', sans-serif;
-    color: #ff5722;
+    color: #000000;
     text-transform: uppercase;
     font-size: 2.4rem;
   }
-  
+  input[type=file] {
+    color: white;
+    background-color: black;
+    border: none;
+  }
+  .imgcar{
+    margin-top: 10%;
+    width: 85%;
+    margin-left: 35%;
+  }

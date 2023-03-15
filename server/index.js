@@ -16,7 +16,7 @@ const notifivationsRoute = require('./routes/notification.js')
 const favouriteRoute = require('./routes/favourite.js')
 const paymentRoute = require('./routes/payment.js')
 const messagesRoute = require('./routes/message.js')
-const nodemailer = require('nodemailer');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());

@@ -13,46 +13,7 @@ const Home=()=> {
 
   return (
   <div >
-    {/* <header className="header">
-      <div id="menu-btn" className="fas fa-bars">
-        <FontAwesomeIcon icon={faBars} />
-      </div>
-
-      <a data-aos="zoom-in-left" data-aos-delay="150" href="#" className="logo">
-      <img src="/images/logo1.png" width="70px" height="70px" />
-
-      </a>
-
-      <nav className="navbar">
-        <a data-aos="zoom-in-left" data-aos-delay="300" href="#home">
-          home
-        </a>
-        <a data-aos="zoom-in-left" data-aos-delay="450" href="#about">
-          about
-        </a>
-        <a data-aos="zoom-in-left" data-aos-delay="600" href="#destination">
-          Auctions
-        </a>
-        <a data-aos="zoom-in-left" data-aos-delay="750" href="#services">
-         Sell your car
-        </a>
-        <a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
-          <Link to="/Signup">SingUp</Link>
-        </a>
-        <a data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">
-          blogs
-        </a>
-      </nav>
-
-      <a
-        data-aos="zoom-in-left"
-        data-aos-delay="1300"
-        href="#book-form"
-        className="btn"
-      >
-        book now
-      </a>
-    </header> */}
+   
      <section class="home" id="home">
      <div class="content">
        {/* <span data-aos="fade-up" data-aos-delay="150"> Car Addict</span> */}
@@ -62,7 +23,7 @@ const Home=()=> {
 
        </p>
        <a data-aos="fade-up" data-aos-delay="600" href="#" class="btn"
-         ><Link to="/cars">JOIN US</Link></a>
+         ><Link style={{ textDecoration: 'none',color:'white' }} to="/cars">JOIN US</Link></a>
      </div>
    </section>
    <section class="about" id="about">
@@ -232,7 +193,7 @@ const Home=()=> {
             class="input"
           />
         </form>
-        <a href="#" class="btn">subscribe</a>
+        <a href="#" class="btn"><Link to ='mail'>SEND</Link></a>
       </div>
     </div>
 
@@ -241,11 +202,7 @@ const Home=()=> {
     <section class="footer">
       <div class="box-container">
         <div class="box" data-aos="fade-up" data-aos-delay="150">
-          {/* <a href="#" class="logo"> <i class="fas fa-car-side"></i>Logo </a>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati,
-            ad?
-          </p> */}
+          
           <div class="share">
             <a href="#" class="fab fa-facebook-f"></a>
             <a href="#" class="fab fa-twitter"></a>

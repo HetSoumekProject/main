@@ -5,7 +5,7 @@ import Post from './components/Post.jsx';
 import Cars from './components/Cars.jsx';
 import ChatRoom from './components/ChatRoom.jsx';
 import AllPending from './components/AllPending.jsx'
-import Notify from './components/Notify.jsx'
+
 import NavBar from './components/NavBar.jsx';
 import PrivatChat from './components/PrivatChat.jsx'
 import SuccessPayment from "./components/SuccessPayment.jsx"
@@ -24,11 +24,10 @@ import Signin  from "./components/auth/Signin.jsx"
 import Profile from ".//components/profile/Profile.jsx"
 import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
-import Mailer from './components/mailer/Mailer.jsx'
-
+import Mail from "./components/Mail.jsx"
 function App() {
   const [users,setUser]=useState([])
-  
+  const [refresh,setRefresh]=useState(true)
   useEffect(()=>{
     
     axios.get('http://localhost:3000/api/user/allusers').then(res=>{
@@ -41,7 +40,7 @@ function App() {
 
   return (
     <div className="App">
-    <NavBar />
+    <NavBar setRefresh={setRefresh} refresh={refresh} />
     <br></br>
     <br></br>
     <br></br>
@@ -50,16 +49,18 @@ function App() {
       <Routes>
       
       <Route path="/" exact  element={<Home/>}/>
-      <Route path="/Notify" element={<Notify/>}/>
+      {/* <Route path="/Notify" element={<Notify/>}/> */}
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
-      <Route path="/mailer" element={<Mailer/>}/>
+      <Route path="/mail" element={<Mail/>}/>
       <Route path="/AllPending" element={<AllPending/>}/>
       <Route path="/Post" element={<Post/>}/>
       <Route path="/PrivatChat" element={<PrivatChat/>}/>
       <Route path="/Payment" element={<Payment/>}/>
       <Route path="/FailPayment" element={<FailPayment/>}/>
-      <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
+      <Route path="/success" element={<SuccessPayment/>}/>
       <Route path="/NavBar" element={<NavBar/>}/>
+      <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
+      <Route path="/NavBar" element={<NavBar />}/>
       <Route path="/Daily" element={<Daily/>}/>
       <Route path="/AdminDashboard" element={<Monthly/>}/>
       <Route path="/Monthly" element={<Monthly/>}/>
@@ -69,10 +70,9 @@ function App() {
       <Route path="/Cars" element={<Cars/>}/>
       <Route path="/AdminDashboard" element={<Dashboard />}/>
       <Route path="/Signup" element={<Signup/>}/>
-      <Route path="/Signin" element={<Signin />} />
+      <Route path="/Signin" element={<Signin setRefresh={setRefresh} refresh={refresh}/>} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
-      
     </Routes>
 
     </div>

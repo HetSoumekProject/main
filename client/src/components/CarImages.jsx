@@ -5,7 +5,7 @@ function CarImages(props) {
   return (
     <div>
 
-        <img className='pendin'  src={props.image.image} />
+        <img src={props.image.image} />
 
     </div>
   )
