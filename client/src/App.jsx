@@ -24,8 +24,7 @@ import Signin  from "./components/auth/Signin.jsx"
 import Profile from ".//components/profile/Profile.jsx"
 import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
-import Mailer from './components/mailer/Mailer.jsx'
-import Count from './components/Count.jsx'
+import Mail from "./components/Mail.jsx"
 function App() {
   const [users,setUser]=useState([])
   
@@ -52,13 +51,13 @@ function App() {
       <Route path="/" exact  element={<Home/>}/>
       {/* <Route path="/Notify" element={<Notify/>}/> */}
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
-      <Route path="/mailer" element={<Mailer/>}/>
+      <Route path="/mail" element={<Mail/>}/>
       <Route path="/AllPending" element={<AllPending/>}/>
       <Route path="/Post" element={<Post/>}/>
       <Route path="/PrivatChat" element={<PrivatChat/>}/>
       <Route path="/Payment" element={<Payment/>}/>
       <Route path="/FailPayment" element={<FailPayment/>}/>
-      <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
+      <Route path="/success" element={<SuccessPayment/>}/>
       <Route path="/NavBar" element={<NavBar/>}/>
       <Route path="/Daily" element={<Daily/>}/>
       <Route path="/AdminDashboard" element={<Monthly/>}/>
@@ -72,7 +71,6 @@ function App() {
       <Route path="/Signin" element={<Signin />} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
-      <Route path="/Count" element={<Count />}/>
     </Routes>
 
     </div>
