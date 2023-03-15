@@ -15,7 +15,7 @@ const Handlesignout= (props)=>{
     }
     return (
         <div>
-           <button onClick={()=>usersignout()}  > <Link to="/" >  sign out </Link>  </button>
+           <button onClick={()=>usersignout()} className='Signup' > <Link to="/" >  sign out </Link>  </button>
            
         </div>
     )
