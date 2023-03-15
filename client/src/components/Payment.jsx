@@ -15,6 +15,7 @@ const Payment = () => {
       .post('http://localhost:3000/api/payment', form)
       .then((res) => {
         console.log(res, 'test')
+        
         const { result } = res.data
         window.location.href = result.link
       })
