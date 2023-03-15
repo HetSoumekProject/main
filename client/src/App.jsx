@@ -25,7 +25,7 @@ import Profile from ".//components/profile/Profile.jsx"
 import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
 import Mailer from './components/mailer/Mailer.jsx'
-import Count from './components/Count.jsx'
+
 function App() {
   const [users,setUser]=useState([])
   
@@ -72,7 +72,7 @@ function App() {
       <Route path="/Signin" element={<Signin />} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
-      <Route path="/Count" element={<Count />}/>
+      
     </Routes>
 
     </div>
