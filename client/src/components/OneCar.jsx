@@ -12,6 +12,7 @@ function OneCar(props) {
     
     
     <div className='bodey'>
+      
          <div className='chatdiv'>
         <ChatRoom id={props.car.id}/>
         </div>
