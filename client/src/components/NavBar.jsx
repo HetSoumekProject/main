@@ -1,20 +1,34 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import './Home/Home.css';
 import 'aos/dist/aos.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faCarSide } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import AOS from 'aos';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-
+import Handlesignout from './auth/Handlesignout.jsx'
 import Notify from './Notify.jsx'
+import axios from 'axios';
 
-const NavBar =(props)=>{
+const NavBar =({refresh,setRefresh})=>{
+ console.log(refresh)
+  const [userState,setUserState]=useState("")
   
         useEffect(() => {
           AOS.init({ duration: 1000 ,offset: 150,});
-        }, []);
-  console.log('hh',props);
+          axios.get(`http://localhost:3000/api/user/userbyuid/${localStorage.userInfo}`)
+          .then((res)=>{
+            if(res.data.role!=undefined){
+              setUserState(res.data.role)
+            }
+            else{
+              setUserState("")
+            }
+            console.log("this is user state :",userState)
+            console.log("userState:",res.data.role)
+          }).catch((err)=>{
+              console.log("user err:",err);
+          })
+        },[refresh])
  
     return(
         <div>
@@ -41,15 +55,15 @@ const NavBar =(props)=>{
           <a data-aos="zoom-in-left" data-aos-delay="750" href="#services">
            <Link   to='/post'>SELL YOUR CAR</Link>
           </a>
-          <a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
+{  userState!=""&&<a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
           <Link   to="/Profile" >PROFILE</Link>
-          </a>
-          <a data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">
+          </a>}
+{  userState==="admin" &&<a data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">
           <Link to='/adminDashboard'>ADMIN</Link> 
-          </a>
+          </a>}
         </nav>
   
-        <a
+{ userState===""&&  <a
           data-aos="zoom-in-left"
           data-aos-delay="1300"
           href="#book-form"
@@ -57,7 +71,10 @@ const NavBar =(props)=>{
         >
         <Link  style={{ textDecoration: 'none',color:'white' }} to ='/signUp'> SIGNUP/LOGIN</Link>
        
-        </a>
+        </a>}
+{ userState!="" &&<a>
+          <Handlesignout  setRefresh={setRefresh} refresh={refresh} />
+        </a>}
         <div id='notif'><Notify/></div>        
       </header>
      
