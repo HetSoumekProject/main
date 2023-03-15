@@ -13,6 +13,10 @@ import FailPayment from './components/FailPayment.jsx';
 import Payment from './components/Payment.jsx';
 import Customers from './components/Customers.jsx'
 import Signup from './components/auth/Signup.jsx'
+// import AllPosts from './components/AllPosts';
+// import SuccessPayment from "./components/SuccessPayment.jsx"
+// import FailPayment from './components/FailPayment.jsx';
+// import Payment from './components/Payment.jsx';
 import AllPosts from './components/AllPosts';
 import Dashboard from './components/AdminDash.jsx';
 import { Route,Routes } from 'react-router-dom'
@@ -24,20 +28,37 @@ import Signin  from "./components/auth/Signin.jsx"
 import Profile from ".//components/profile/Profile.jsx"
 import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
-import TheMap from './components/TheMap.jsx';
+import FavoriteList from './components/FavoriteList';
+// import Mailer from './components/mailer/Mailer.jsx'
+import AdminSet from './components/AdminSet';
+
+// import Count from './components/Count.jsx'
+
+  
+  
+// import TheMap from './components/TheMap.jsx';
 
 import Mail from "./components/Mail.jsx"
 function App() {
-  const [users,setUser]=useState([])
-  const [refresh,setRefresh]=useState(true)
+  const [users,setUsers]=useState([])
+const [user,setUser]=useState('')
+const [refresh,setRefresh]=useState(true)
+const x=localStorage.userInfo
   useEffect(()=>{
     
     axios.get('http://localhost:3000/api/user/allusers').then(res=>{
       console.log(res.data)
+      setUsers(res.data)
       setUser(res.data)
       
       
     }).catch(err=>console.log(err))
+
+    axios.get(`http://localhost:3000/api/user/real/${x}`).then (res=>{
+      console.log(res.data.id,'iiidddd')
+      setUser(res.data.id)
+      setRefresh('')
+    }).catch((err)=>{console.log(err);})
   },[])
 
   return (
@@ -64,16 +85,18 @@ function App() {
       <Route path="/NavBar" element={<NavBar />}/>
       <Route path="/Daily" element={<Daily/>}/>
       <Route path="/AdminDashboard" element={<Monthly/>}/>
-      <Route path="/Monthly" element={<Monthly/>}/>
       <Route path="/Customers" element={<Customers users={users}/>}/>
       <Route path="/Transactions" element={<Transactions/>}/>
       <Route path="/OverView" element={<OverView/>}/>
-      <Route path="/Cars" element={<Cars/>}/>
-      <Route path="/AdminDashboard" element={<Dashboard />}/>
+      <Route path="/Cars" element={<Cars user={user[0]}/>}/>
+      <Route path="/Monthly" element={<Monthly />}/>
       <Route path="/Signup" element={<Signup/>}/>
       <Route path="/Signin" element={<Signin setRefresh={setRefresh} refresh={refresh}/>} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
+      <Route path="/FavoriteList" element={<FavoriteList user={user[0]} refresh={refresh}/>}/>
+      <Route path="/AdminSet" element={<AdminSet />}/>
+      {/* <Route path="/Count" element={<Count />}/> */}
     </Routes>
 
     </div>

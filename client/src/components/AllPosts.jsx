@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState ,useEffect} from 'react'
 import Countdown from 'react-countdown';
-
+import FavoriteList from './FavoriteList';
 const AllPosts = ({user,car,setCar,setView,view}) => {
   const [countdownDate, setCountdownDate] = useState(new Date('2023-12-31'));
 
@@ -27,19 +27,19 @@ const AllPosts = ({user,car,setCar,setView,view}) => {
       );
     }
   };
-
-  const handleSubmitfav = (event) => {
-    console.log('user',user);
-    console.log('carr',car)
+  const handleSubmitfav = async (event) => {
     event.preventDefault();
-    axios.post(`http://localhost:3000/api/fav/addfav/${user}/${car.id}`)
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
+    console.log("user ", localStorage)
+    console.log("car", car.id)
+
+    try {
+      const response = await axios.post(`http://localhost:3000/api/fav/addfav/${user.id}/${car.id}`)
+      console.log(response.data); 
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <div className='oneCard'>
      <div> <button type='button' className='' onClick={handleSubmitfav}>☆</button></div>
@@ -66,7 +66,7 @@ const AllPosts = ({user,car,setCar,setView,view}) => {
         <button type='button' onClick={()=>setView(!view)}>Bid!!</button>
       </div>
     </div>
-  )
-}
-export default AllPosts
-;
+  );
+};
+
+export default AllPosts;
