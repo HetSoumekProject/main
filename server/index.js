@@ -16,7 +16,7 @@ const notifivationsRoute = require('./routes/notification.js')
 const favouriteRoute = require('./routes/favourite.js')
 const paymentRoute = require('./routes/payment.js')
 const messagesRoute = require('./routes/message.js')
-const nodemailer = require('nodemailer');
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
@@ -141,32 +141,32 @@ console.log(err);
   //     console.log("Email sent successfully");
   //   }
   // });
-  let secondsLeft = 7 * 24 * 60 * 60; // 7 days in seconds
-  io.on('connection', (socket) => {
-    console.log('Client connected');
-    socket.on('countdown', (newSecondsLeft) => {
-      secondsLeft = newSecondsLeft;
-      io.emit('countdown', secondsLeft);
-    });
-    socket.on('countdownStopped', () => {
-      console.log('Countdown stopped by client');
-      clearInterval(countdownInterval);
-    });
-    socket.on('countdownComplete', () => {
-      console.log('Countdown complete!');
-      clearInterval(countdownInterval);
-    });
-    const countdownInterval = setInterval(() => {
-      if (secondsLeft === 0) {
-        clearInterval(countdownInterval);
-        console.log('Countdown complete!');
-        io.emit('countdownComplete');
-      } else {
-        secondsLeft--;
-        io.emit('countdown', secondsLeft);
-      }
-    }, 2000);
-  });
+  // let secondsLeft = 7 * 24 * 60 * 60; // 7 days in seconds
+  // io.on('connection', (socket) => {
+  //   console.log('Client connected');
+  //   socket.on('countdown', (newSecondsLeft) => {
+  //     secondsLeft = newSecondsLeft;
+  //     io.emit('countdown', secondsLeft);
+  //   });
+  //   socket.on('countdownStopped', () => {
+  //     console.log('Countdown stopped by client');
+  //     clearInterval(countdownInterval);
+  //   });
+  //   socket.on('countdownComplete', () => {
+  //     console.log('Countdown complete!');
+  //     clearInterval(countdownInterval);
+  //   });
+  //   const countdownInterval = setInterval(() => {
+  //     if (secondsLeft === 0) {
+  //       clearInterval(countdownInterval);
+  //       console.log('Countdown complete!');
+  //       io.emit('countdownComplete');
+  //     } else {
+  //       secondsLeft--;
+  //       io.emit('countdown', secondsLeft);
+  //     }
+  //   }, 2000);
+  // });
 
 app.get("/api/notifications", (req, res) => {
   res.json(notifications);
