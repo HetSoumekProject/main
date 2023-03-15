@@ -42,7 +42,7 @@ const AllPosts = ({user,car,setCar,setView,view}) => {
   };
   return (
     <div className='oneCard'>
-     <div> <button type='button' id='add' onClick={handleSubmitfav}   > ☆</button></div>
+     <div> <button type='button' className='' onClick={handleSubmitfav}>☆</button></div>
  { car.images[0]?<img className='cars-pic' src={car.images[0].image} onClick={()=>{setView(!view)
       setCar(car)
       }}/> :"doesnt exist"}

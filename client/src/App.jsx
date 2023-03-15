@@ -26,6 +26,7 @@ import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
 import TheMap from './components/TheMap.jsx';
 
+import Mail from "./components/Mail.jsx"
 function App() {
   const [users,setUser]=useState([])
   const [refresh,setRefresh]=useState(true)
@@ -51,11 +52,14 @@ function App() {
       <Route path="/" exact  element={<Home/>}/>
       {/* <Route path="/Notify" element={<Notify/>}/> */}
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
+      <Route path="/mail" element={<Mail/>}/>
       <Route path="/AllPending" element={<AllPending/>}/>
       <Route path="/Post" element={<Post/>}/>
       <Route path="/PrivatChat" element={<PrivatChat/>}/>
       <Route path="/Payment" element={<Payment/>}/>
       <Route path="/FailPayment" element={<FailPayment/>}/>
+      <Route path="/success" element={<SuccessPayment/>}/>
+      <Route path="/NavBar" element={<NavBar/>}/>
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
       <Route path="/NavBar" element={<NavBar />}/>
       <Route path="/Daily" element={<Daily/>}/>

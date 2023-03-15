@@ -1,5 +1,5 @@
 import React from 'react'
-
+import "../payment.css"
 const SuccessPayment=()=> {
   return (
     <div className='p-4'>

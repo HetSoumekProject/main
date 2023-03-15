@@ -65,7 +65,8 @@ function Post() {
   },[])
   return (
     
-    
+    <div className="post-container">
+      <img className="imgcar" src="https://file.kelleybluebookimages.com/kbb/base/evox/CP/15180/2023-Chevrolet-Corvette-front_15180_032_1838x654_GA7_cropped.png"/>
     <div className="post-item">
       <h1 className="h11">sell your car :</h1>
       <br/>
@@ -137,14 +138,15 @@ function Post() {
         <br/>
 
       <input
-        className="inputs"
-        required
-        type="file"
-        multiple
-        onChange={(e) => {
-          console.log("file",e.target.files)
-          setFileToBase(e.target.files)}}
-      />
+  className="inputs"
+  required
+  type="file"
+  multiple
+  onChange={(e) => {
+    console.log("file",e.target.files)
+    setFileToBase(e.target.files)}
+  }
+/>
             <br/>
             <br/>
 
@@ -166,10 +168,11 @@ function Post() {
             viewport.longitude,viewport.latitude
           );
         }}
-      > <Link to='/cars'>ADD</Link></button>
+      > <Link style={{ textDecoration: 'none',color:'black' }}to='/cars'>ADD</Link></button>
       </form>
     </div>
-    
+    </div>
+
 
 
 

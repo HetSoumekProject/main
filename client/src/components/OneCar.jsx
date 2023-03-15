@@ -10,11 +10,8 @@ function OneCar(props) {
 
   return (
     
+    
     <div className='bodey'>
-
-            <div className=''>
-            
-                <div className="">
          <div className='chatdiv'>
         <ChatRoom id={props.car.id}/>
         </div>
@@ -29,8 +26,6 @@ function OneCar(props) {
   ))}
  
 </div>
-
-       
        <div class="table-container">
   <table class="responsive-table">
     <thead>
@@ -52,25 +47,14 @@ function OneCar(props) {
         <td class="col col-5" data-label="Description">{props.car.description}</td>
         <td class="col col-6" data-label="Min. Amount to Bid">{props.car.min_amount}</td>
       </tr>
-     
     </tbody>
   </table>
+  <Bid car={props.car} />
+  <Payment/>
 </div>
-
-
-       
-        </div>
         
-        </div>
-        <div className=''>
-        
-            <Bid car={props.car} />
-        
-   
-            <Payment/>
-     
-        </div>
-
+            
+      
         </div>
   
   )
