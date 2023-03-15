@@ -5,7 +5,7 @@ import Post from './components/Post.jsx';
 import Cars from './components/Cars.jsx';
 import ChatRoom from './components/ChatRoom.jsx';
 import AllPending from './components/AllPending.jsx'
-import Notify from './components/Notify.jsx'
+
 import NavBar from './components/NavBar.jsx';
 import PrivatChat from './components/PrivatChat.jsx'
 import SuccessPayment from "./components/SuccessPayment.jsx"
@@ -50,7 +50,7 @@ function App() {
       <Routes>
       
       <Route path="/" exact  element={<Home/>}/>
-      <Route path="/Notify" element={<Notify/>}/>
+      {/* <Route path="/Notify" element={<Notify/>}/> */}
       <Route path="/ChatRoom" element={<ChatRoom/>}/>
       <Route path="/mailer" element={<Mailer/>}/>
       <Route path="/AllPending" element={<AllPending/>}/>
