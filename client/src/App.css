@@ -237,3 +237,22 @@ width: 80%;
      text-align: none;
 
   }
+ 
+    .singout {
+      margin-top: 1rem;
+      display: inline-block;
+      padding: 1rem 3rem;
+      font-size: 1.7rem;
+      color: white;
+      border: 0.3rem solid white;
+      border-radius: 5rem;
+      cursor: pointer;
+      background: none;
+      transition: 0.5s;
+      font-weight: bold;
+    }
+    .singout:hover {
+      background: white;
+      color: #111;
+    }
+  

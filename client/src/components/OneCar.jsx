@@ -46,9 +46,7 @@ function OneCar(props) {
   </table>
   <Bid car={props.car} />
   <Payment/>
-</div>
-        
-            
+</div>     
       
         </div>
   
