@@ -56,8 +56,7 @@ function Post() {
     })
   },[])
   return (
-    
-    
+    <div className="post-container">
     <div className="post-item">
       <h1 className="h11">sell your car :</h1>
       <br/>
@@ -129,14 +128,15 @@ function Post() {
         <br/>
 
       <input
-        className="inputs"
-        required
-        type="file"
-        multiple
-        onChange={(e) => {
-          console.log("file",e.target.files)
-          setFileToBase(e.target.files)}}
-      />
+  className="inputs"
+  required
+  type="file"
+  multiple
+  onChange={(e) => {
+    console.log("file",e.target.files)
+    setFileToBase(e.target.files)}
+  }
+/>
             <br/>
             <br/>
 
@@ -157,10 +157,11 @@ function Post() {
             image
           );
         }}
-      > <Link to='/cars'>ADD</Link></button>
+      > <Link style={{ textDecoration: 'none',color:'black' }}to='/cars'>ADD</Link></button>
       </form>
     </div>
-    
+    </div>
+
 
 
 

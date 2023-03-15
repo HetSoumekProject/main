@@ -38,7 +38,7 @@ const Payment = () => {
           className="input"
           onChange={onChange}
         />
-        <button type="submit" className="button" onClick={onSubmit}>
+        <button className="buttonn" onClick={onSubmit}>
           Pay
         </button>
       </form>

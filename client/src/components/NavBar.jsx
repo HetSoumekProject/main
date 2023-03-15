@@ -33,7 +33,7 @@ const NavBar =(props)=>{
         <Link to ="/" >HOME</Link>
           </a>
           <a data-aos="zoom-in-left" data-aos-delay="450" href="#about">
-         ABOUT US
+           ABOUT US
           </a>
           <a data-aos="zoom-in-left" data-aos-delay="600" href="#destination">
           <Link  to="/cars" >AUCTIONS</Link>
