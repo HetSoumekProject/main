@@ -55,6 +55,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull:true,
       foreignKey:true
+    },
+    longitude:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    latitude:{
+      type:DataTypes.STRING,
+      allowNull:false
     }
   });
 

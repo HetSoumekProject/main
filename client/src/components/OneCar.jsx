@@ -5,12 +5,13 @@ import ChatRoom from './ChatRoom.jsx'
 import Payment from './Payment.jsx'
 import Bid from "./Bid.jsx"
 import './oneCar.css'
+import TheMap from './TheMap.jsx'
 function OneCar(props) {
 
   return (
     
     <div className='bodey'>
-        
+
             <div className=''>
             
                 <div className="">
@@ -21,6 +22,9 @@ function OneCar(props) {
   {props.car.images.map((el, i) => (
     <div className={`car-image car-image-${i}`} key={i}>
       <CarImages image={el} />
+      <div>
+          <TheMap car={props.car}/>
+        </div>
     </div>
   ))}
  
@@ -66,6 +70,7 @@ function OneCar(props) {
             <Payment/>
      
         </div>
+
         </div>
   
   )

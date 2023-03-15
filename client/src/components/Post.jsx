@@ -11,7 +11,7 @@ function Post() {
   const [bodyStyle, setbodyStyle] = useState("coupe");
   const [image, setImage] = useState([]);
   const [user,setUser]=useState({})
-
+  const [viewport,setViewport]=useState({})
   const setFileToBase = (files) => {
     console.log(files)
     let i=0
@@ -32,7 +32,7 @@ function Post() {
     year,
     transmission,
     bodyStyle,
-    image
+    image,longitude,latitude
   ) => {
     axios
       .post(`http://localhost:3000/api/car/postACar/${id}`, {
@@ -43,11 +43,19 @@ function Post() {
         transmission: transmission,
         bodyStyle: bodyStyle,
         image: image,
+        longitude:longitude,
+        latitude:latitude
       })
       .then((res) => {console.log(res);setImage([])})
       .catch((err) => console.log(err));
   };
   useEffect(()=>{
+    navigator.geolocation.getCurrentPosition(pos => {
+      setViewport({
+        latitude: pos.coords.latitude,
+        longitude: pos.coords.longitude
+      });
+    });
     axios.get(`http://localhost:3000/api/user/userbyuid/${localStorage.userInfo}`)
     .then((res)=>{
         setUser(res.data);
@@ -154,7 +162,8 @@ function Post() {
             year,
             transmission,
             bodyStyle,
-            image
+            image,
+            viewport.longitude,viewport.latitude
           );
         }}
       > <Link to='/cars'>ADD</Link></button>

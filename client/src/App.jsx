@@ -24,7 +24,7 @@ import Signin  from "./components/auth/Signin.jsx"
 import Profile from ".//components/profile/Profile.jsx"
 import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
-
+import TheMap from './components/TheMap.jsx';
 
 function App() {
   const [users,setUser]=useState([])
@@ -46,7 +46,6 @@ function App() {
     <br></br>
     <br></br>
     <br></br>
-
       <Routes>
       
       <Route path="/" exact  element={<Home/>}/>

@@ -4,6 +4,7 @@ import AllPosts from './AllPosts';
 import OneCar from './OneCar.jsx'
 import css from "./cars.css"
 
+
 const Cars = (props) => {
     const[years,setYears]=useState("all")
     const[transmission,setTransmission]= useState("all");
@@ -124,6 +125,7 @@ const Cars = (props) => {
 })}
 </div>}
 {view &&<OneCar user={props.user} car={car} />}
+
     </div>
      
   )
