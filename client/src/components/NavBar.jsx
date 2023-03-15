@@ -6,8 +6,8 @@ import { faBars, faCarSide } from '@fortawesome/free-solid-svg-icons';
 import AOS from 'aos';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import Notify from './Notify';
 
+import Notify from './Notify.jsx'
 
 const NavBar =(props)=>{
   
@@ -36,13 +36,13 @@ const NavBar =(props)=>{
          ABOUT US
           </a>
           <a data-aos="zoom-in-left" data-aos-delay="600" href="#destination">
-          <Link to="/cars" >AUCTIONS</Link>
+          <Link  to="/cars" >AUCTIONS</Link>
           </a>
           <a data-aos="zoom-in-left" data-aos-delay="750" href="#services">
-           <Link to='/post'>SELL YOUR CAR</Link>
+           <Link   to='/post'>SELL YOUR CAR</Link>
           </a>
           <a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
-          <Link to="/Profile" >PROFILE</Link>
+          <Link   to="/Profile" >PROFILE</Link>
           </a>
           <a data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">
           <Link to='/adminDashboard'>ADMIN</Link> 
@@ -55,11 +55,12 @@ const NavBar =(props)=>{
           href="#book-form"
           className="btn"
         >
-        <Link to ='/signUp'> SIGNUP/LOGIN</Link>
-        </a>
+        <Link  style={{ textDecoration: 'none',color:'white' }} to ='/signUp'> SIGNUP/LOGIN</Link>
        
+        </a>
+        <div id='notif'><Notify/></div>        
       </header>
-      <Notify/>
+     
     </div>
     )
 }

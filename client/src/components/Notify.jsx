@@ -13,6 +13,7 @@ const Notify = () => {
 
   useEffect(() => {
     console.log(currentProfile);
+
     axios
       .get(`http://localhost:3000/api/user/userbyuid/${currentProfile}`)
       .then((res) => {

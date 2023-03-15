@@ -26,9 +26,10 @@
   }
   
   html::-webkit-scrollbar-thumb {
-    background: #ff5722;
+    background: white;
     border-radius: 5rem;
   }
+ 
   
   body {
     background: #000000;
@@ -45,11 +46,13 @@
   }
   
   .heading span {
-    color: #ff5722;
+   
+    color: white;
     font-size: 2rem;
   }
   
   .heading h1 {
+    
     font-size: 4rem;
     color: #fff;
   }
@@ -59,8 +62,8 @@
     display: inline-block;
     padding: 1rem 3rem;
     font-size: 1.7rem;
-    color: #ff5722;
-    border: 0.5rem solid #ff5722;
+    color: white;
+    border: 0.3rem solid white;
     border-radius: 5rem;
     cursor: pointer;
     background: none;
@@ -69,7 +72,7 @@
   }
   
   .btn:hover {
-    background: #ff5722;
+    background: white;
     color: #111;
   }
   
@@ -79,38 +82,41 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    background: #222;
+    background: #000000;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.5rem 9%;
+    padding: 0.8rem 9%;
   }
   
   .header .navbar a {
+
     font-size: 1.7rem;
     color: #aaa;
     display: inline-block;
-    margin: 0 1rem;
+    margin: 0 1.5rem;
+    margin-top: 2%;
   }
   
   .header .navbar a:hover {
-    color: #ff5722;
+    color: white;
   }
   
   .header .btn {
-    margin-top: 0;
+    margin-top: 0px;
   }
   
   .logo {
+    margin-top: -19px;
     font-size: 2.5rem;
     color: #fff;
     font-weight: bolder;
   }
   
   .logo i {
-    color: #ff5722;
+    color: white;
     padding-right: 0.5rem;
   }
   
@@ -143,7 +149,7 @@
   
   .home .content span {
     font-weight: bolder;
-    color: #ff5722;
+    color: white;
     -webkit-text-stroke: 0.3rem #fff;
     font-size: 6vw;
     display: block;
@@ -194,7 +200,7 @@
   }
   
   .about .content span {
-    color: #ff5722;
+    color: white;
     font-size: 2rem;
   }
   
@@ -238,8 +244,8 @@
     position: absolute;
     top: 3rem;
     left: 3rem;
-    background: #ff5722;
-    color: #fff;
+    background: white;
+    color: #000000;
     font-size: 2rem;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
@@ -305,7 +311,7 @@
   
   .destination .box-container .box .content a {
     font-size: 1.7rem;
-    color: #ff5722;
+    color: white;
   }
   
   .destination .box-container .box .content a:hover i {
@@ -317,7 +323,7 @@
   }
   
   .review span {
-    color: #ff5722;
+    color: white;
     font-size: 2rem;
   }
   
@@ -361,7 +367,7 @@
   
   .review .box-container .box .stars i {
     font-size: 2rem;
-    color: #ff5722;
+    color: white;
     padding: 0.5rem 0;
   }
   
@@ -383,7 +389,7 @@
   
   .banner .content span {
     font-size: 2rem;
-    color: #ff5722;
+    color: white;
   }
   
   .banner .content h3 {
@@ -428,7 +434,7 @@
   
   .footer .box-container .box p i {
     padding-right: 0.5rem;
-    color: #ff5722;
+    color: white;
   }
   
   .footer .box-container .box .share {
@@ -442,14 +448,14 @@
     font-size: 2rem;
     border-radius: 50%;
     font-size: 1.7rem;
-    border: 0.2rem solid #ff5722;
-    color: #ff5722;
+    border: 0.2rem solid white;
+    color: white;
     margin-right: 0.5rem;
     text-align: center;
   }
   
   .footer .box-container .box .share a:hover {
-    background: #ff5722;
+    background: white;
     color: #111;
   }
   
@@ -461,7 +467,7 @@
   }
   
   .footer .box-container .box .links:hover {
-    color: #ff5722;
+    color: white;
   }
   
   .footer .box-container .box .links:hover i {
@@ -470,13 +476,13 @@
   
   .footer .box-container .box .links i {
     padding-right: 0.5rem;
-    color: #ff5722;
+    color: white;
   }
   
   .footer .box-container .box form .email {
     width: 100%;
     border-radius: 5rem;
-    border: 0.2rem solid #ff5722;
+    border: 0.2rem solid white;
     background: none;
     font-size: 1.5rem;
     text-transform: none;
@@ -494,7 +500,7 @@
   }
   
   .credit span {
-    color: #ff5722;
+    color: white;
   }
   
   @media (max-width: 991px) {
