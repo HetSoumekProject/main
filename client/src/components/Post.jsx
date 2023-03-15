@@ -56,7 +56,9 @@ function Post() {
     })
   },[])
   return (
+    
     <div className="post-container">
+      <img className="imgcar" src="https://file.kelleybluebookimages.com/kbb/base/evox/CP/15180/2023-Chevrolet-Corvette-front_15180_032_1838x654_GA7_cropped.png"/>
     <div className="post-item">
       <h1 className="h11">sell your car :</h1>
       <br/>

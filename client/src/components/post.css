@@ -7,11 +7,14 @@
 width: 590px;
 min-height: 250px;
 margin: auto;
-margin-top: 0%;
+margin-top: -38%;
 background-color: rgb(255, 255, 255);
 border-radius: 4px;
 padding: 20px 60px;
-box-shadow: 0 0 1em #000000;}
+box-shadow: 0 0 1em #000000;
+margin-left: 1%;}
+
+
 
 
 .inputs{
@@ -53,4 +56,8 @@ box-shadow: 0 0 1em #000000;}
     background-color: black;
     border: none;
   }
-  
+  .imgcar{
+    margin-top: 10%;
+    width: 85%;
+    margin-left: 35%;
+  }
