@@ -1,18 +1,34 @@
 .bodey {
     display: flex;
+    flex-direction: column;
+     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
     padding: 20px;
    
   }
- 
+  .block_container {
+    display: flex;
+  justify-content: center;
+   align-items: center;
+   flex-direction: ROW;
+   gap:10px
 
-  
+   }
+
+  .container_bid_payment{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap:10px
+  }
   /* .car-image {
     width: 100%;
     height: 400px;
     margin-bottom: 20px;
     overflow: hidden;
-  }
+  } */
   
   .car-image img {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -20,10 +36,10 @@
     height: 200px;
     width: 250px;
     display: flex;
-  } */
+  }
   
   .chat-room-container {
-    margin-left: 100%;
+    /* margin-left: 100%; */
     flex: 1;
     display: flex;
     justify-content: flex-end;
@@ -52,9 +68,7 @@
       flex-direction: column;
     }
   
-    .block {
-      margin-right: 0;
-    }
+
   
     .chat-room-container {
       width: 100%;
@@ -76,152 +90,34 @@
     display: flex;
   }
 
-  .description {
-    max-width: 700px;
-    margin: 1rem auto;
-    padding: 2rem;
-    background-color: #ffffff;
-    border-radius: 0px 0px 5px 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    font-family: Arial, sans-serif;
-    margin-left: 80px;
-    margin-top: 2%;
-  }
   
-  .description h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #303030;
-    font-family: Georgia, serif;
-  }
-  
-  .description h2 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #303030;
-    font-family: Georgia, serif;
-  }
-  
-  .description h3 {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #303030;
-    font-family: Georgia, serif;
-  }
-  
-  .description h4 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #666666;
-    font-family: Arial, sans-serif;
-  }
-  
-  .description p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-    margin-bottom: 2rem;
-    color: #666666;
-    font-family: Arial, sans-serif;
-  }
-  
-  .description h1:last-of-type {
-    margin-top: 2rem;
-  }
-  
-  .description h2:before,
-  .description h3:before {
-    content: "";
-    display: inline-block;
-    margin-right: 0.5rem;
-    color: #f15a22;
-    font-size: 1.2rem;
-    background-image: url('https://image.flaticon.com/icons/png/512/25/25694.png');
-    background-size: 1.2rem 1.2rem;
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-  
-  .description h4:before {
-    content: "-";
-    display: inline-block;
-    margin-right: 0.5rem;
-    color: #f15a22;
-    font-size: 1rem;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .description {
-      font-size: 1.2rem;
-      padding: 1rem;
-      border-radius: 10px;
-      background-color: #ffffff;
-    }
-  
-    .description h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      font-family: Georgia, serif;
-    }
-  
-    .description h2 {
-      font-size: 1.6rem;
-      margin-bottom: 0.5rem;
-      font-family: Georgia, serif;
-    }
-  
-    .description h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      font-family: Georgia, serif;
-    }
-  
-    .description h4 {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-      font-family: Arial, sans-serif;
-    }
-  }
-  
-  .block {
+  /* .block {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-auto-rows: minmax(200px, auto);
     gap: 20px;
-  }
+  } */
   
-  .car-image {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-top: 66.67%;
-  }
-  
-  .car-image img {
-    position: absolute;
-    top: 0%;
-    left: -150%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-  }
-  
+ 
+
   .car-image:hover img {
     transform: scale(1.4);
     transition: transform 0.3s ease-in-out;
     z-index: 1;
   }
-  
+  .block_bid_container{
+    display: grid;
+    /* background-color: blue; */
+    grid-template-columns: 1fr 1fr   ;
+  }
 .table-container {
-  max-width: 1000px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap:30px
 }
 
 .responsive-table {
@@ -229,7 +125,7 @@
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  margin-left: -18%;
+  margin-left: -3%;
 }
 
 .table-header {
@@ -299,4 +195,6 @@
   }
 }
 
-  
+.chatdiv{
+  margin-top: 0%
+}

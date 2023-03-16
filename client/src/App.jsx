@@ -41,25 +41,23 @@ import AdminSet from './components/AdminSet';
 import Mail from "./components/Mail.jsx"
 function App() {
   const [users,setUsers]=useState([])
-const [user,setUser]=useState('')
-const [refresh,setRefresh]=useState(true)
-const x=localStorage.userInfo
-  useEffect(()=>{
-    
-    axios.get('http://localhost:3000/api/user/allusers').then(res=>{
-      console.log(res.data)
-      setUsers(res.data)
-      setUser(res.data)
-      
-      
-    }).catch(err=>console.log(err))
 
-    axios.get(`http://localhost:3000/api/user/real/${x}`).then (res=>{
-      console.log(res.data.id,'iiidddd')
-      setUser(res.data.id)
-      setRefresh('')
-    }).catch((err)=>{console.log(err);})
-  },[])
+  const [user,setUser]=useState({})
+  const [refresh,setRefresh]=useState(true)
+
+  useEffect(()=>{
+    axios.get(`http://localhost:3000/api/user/userbyuid/${localStorage.userInfo}`)
+      .then((res)=>{
+          setUser(res.data);
+      }).catch((err)=>{
+          console.log("user err:",err);
+      })
+    axios.get('http://localhost:3000/api/user/allusers').then(res=>{
+
+      setUsers(res.data)
+    }).catch(err=>console.log(err))
+  },[refresh])
+
 
   return (
     <div className="App">
@@ -84,20 +82,23 @@ const x=localStorage.userInfo
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
       <Route path="/NavBar" element={<NavBar />}/>
       <Route path="/Daily" element={<Daily/>}/>
-      <Route path="/AdminDashboard" element={<Monthly/>}/>
+
+      {user.role==="admin"&&<Route path="/AdminDashboard" element={<Monthly/>}/>}
+      <Route path="/Monthly" element={<Monthly/>}/>
       <Route path="/Customers" element={<Customers users={users}/>}/>
       <Route path="/Transactions" element={<Transactions/>}/>
       <Route path="/OverView" element={<OverView/>}/>
-      <Route path="/Cars" element={<Cars user={user[0]}/>}/>
-      <Route path="/Monthly" element={<Monthly />}/>
+      <Route path="/Cars" element={<Cars/>}/>
+      {console.log("user",user.role)}
+      {user.role==="admin"&&<Route path="/AdminDashboard" element={<Dashboard />}/>}
+
       <Route path="/Signup" element={<Signup/>}/>
       <Route path="/Signin" element={<Signin setRefresh={setRefresh} refresh={refresh}/>} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
-      <Route path="/FavoriteList" element={<FavoriteList user={user[0]} refresh={refresh}/>}/>
-      <Route path="/AdminSet" element={<AdminSet />}/>
-      {/* <Route path="/Count" element={<Count />}/> */}
-    </Routes>
+
+      </Routes>
+
 
     </div>
   );

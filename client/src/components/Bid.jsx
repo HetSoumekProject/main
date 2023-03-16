@@ -70,13 +70,32 @@ function Bid(props) {
     
   }, [socket, newBidPrice]);
   return (
+
+    <div className="overlay">
+  {/* // <!-- Canvas --> */}
+{/* <canvas class="orb-canvas"></canvas> */}
+{/* // <!-- Overlay --> */}
+  {/* <!-- Overlay inner wrapper --> */}
+  <div className="overlay__inner">
+    {/* <!-- Title --> */}
+    <h1 className="overlay__title">
+      Hey, would you like to learn how to Bid
+   
+    </h1>
+    {/* <!-- Description --> */}
+    <p className="overlay__description">
+     First of all, a bid is technically a competetion and a race at the same time.So according to those words it's as easy as it seems , you just place the amount you want in the input below as long as it's allowed. Then if someone out bids you, you have two choices. Either to out bid him by following the first step or just accept the lost. Laslty when the time is over if you're lucky enough and have the courage to compete until the end you may win the car !!.
+      <strong> So let's get started ;)</strong>
+    </p>
+    {/* <!-- Buttons --> */}
+ 
     <div className="bidd">
       <h2>
         current price:{currentPrice?currentPrice:"loading"}
       </h2>
       {console.log("user;",user)}
       <h2>highest bid : {highest?highest:"loading"}</h2>
-      <h1>Enter a bid</h1>
+      
       <input
         type="number"
         placeholder="enter bid"
@@ -103,6 +122,9 @@ function Bid(props) {
       </button>
       
     </div>
+  </div>
+</div>
+    
   );
 }
 
