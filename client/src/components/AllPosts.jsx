@@ -2,6 +2,13 @@ import axios from 'axios';
 import React, { useState ,useEffect} from 'react'
 import Countdown from 'react-countdown';
 import FavoriteList from './FavoriteList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+function FavoriteIcon() {
+  return (
+    <FontAwesomeIcon icon={faHeart} />
+  )
+}
 const AllPosts = ({user,car,setCar,setView,view}) => {
   const [countdownDate, setCountdownDate] = useState(new Date('2023-12-31'));
 
@@ -42,7 +49,7 @@ const AllPosts = ({user,car,setCar,setView,view}) => {
 
   return (
     <div className='oneCard'>
-     <div> <button type='button' className='' onClick={handleSubmitfav}>☆</button></div>
+     <div> <button type='button' className='' onClick={handleSubmitfav}><FavoriteIcon /></button></div>
  { car.images[0]?<img className='cars-pic' src={car.images[0].image} onClick={()=>{setView(!view)
       setCar(car)
       }}/> :"doesnt exist"}
