@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 .form-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #000000; /* black color */
+  background-color: #ffffff; /* black color */
+  margin-top: -4%
 }
 
 .form-box {
-  background-color: #333333; /* dark gray color */
+  background-color: #ffffff; /* dark gray color */
   border-radius: 10px;
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
   padding: 2rem;
@@ -15,9 +18,10 @@
 }
 
 .Signup {
+  font-family: 'Righteous', sans-serif;
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #f8f8f8; /* white color */
+  color: #000000; /* white color */
   text-align: center;
   border-radius: 12px;
   background-color: #d8d1d1;
@@ -30,9 +34,9 @@
   border: none;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
   width: 100%;
-  color: #ffffff; /* white color */
+  color: #000000; /* white color */
   font-size: 1rem;
-  background-color: #444444; /* medium gray color */
+  background-color: #ffffff; /* medium gray color */
 }
 
 .signupinputs:focus {
@@ -41,7 +45,7 @@
 }
 
 .signupbutton {
-  background-color: #FFA500; /* orange color */
+  background-color: #000000; /* orange color */
   color: #ffffff; /* white color */
   padding: 1rem;
   border: none;
@@ -55,5 +59,23 @@
 }
 
 .signupbutton:hover {
-  background-color: #FF8C00; /* darker shade of orange */
+  background-color: #5d5c5c; /* darker shade of orange */
 }
+
+.Singout{
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 1rem 3rem;
+  font-size: 1.7rem;
+  color: rgb(0, 0, 0);
+  border: 0.3rem solid white;
+  border-radius: 5rem;
+  cursor: pointer;
+  background: none;
+  transition: 0.5s;
+  font-weight: bold;
+}
+.Singout:hover {
+  background: white;
+  color: black;
+} 
