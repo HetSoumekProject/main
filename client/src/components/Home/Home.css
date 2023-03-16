@@ -6,7 +6,7 @@
     outline: none;
     border: none;
     text-decoration: none;
-    
+    text-transform: capitalize;
     transition: 0.5s;
   }
   
@@ -33,7 +33,7 @@
   
   body {
     background: #000000;
-    
+    overflow-x: hidden;
   }
   
   section {
@@ -164,7 +164,7 @@
     max-width: 60rem;
     margin: 1rem auto;
     font-size: 1.4rem;
-    color: #aaa;
+    color: #ffffff;
     line-height: 2;
   }
   
@@ -258,7 +258,7 @@
   }
   
   .popular .box-container .box .stars i {
-    color: gold;
+    color: rgb(255, 255, 255);
     font-size: 1.7rem;
     padding: 1rem 0.1rem;
   }

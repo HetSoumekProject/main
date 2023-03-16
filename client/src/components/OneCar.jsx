@@ -10,19 +10,14 @@ function OneCar(props) {
 
   return (
     
-    
     <div className='bodey'>
       
-         <div className='chatdiv'>
-        <ChatRoom id={props.car.id}/>
-        </div>
-                <div className='block'>
+        
+  <div className='block_container'>
   {props.car.images.map((el, i) => (
     <div className={`car-image car-image-${i}`} key={i}>
       <CarImages image={el} />
-      <div>
-          <TheMap car={props.car}/>
-        </div>
+     
     </div>
   ))}
  
@@ -50,10 +45,18 @@ function OneCar(props) {
       </tr>
     </tbody>
   </table>
+<div className='block_bid_container'>
+  <div className='container_bid_payment'>
   <Bid car={props.car} />
   <Payment/>
+  </div>
+ <ChatRoom id={props.car.id}/>
+ 
 </div>     
-      
+<div className='mapposition'>
+  <TheMap car={props.car}/>
+   </div>  
+</div>   
         </div>
   
   )

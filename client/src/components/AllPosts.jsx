@@ -66,6 +66,7 @@ const AllPosts = ({user,car,setCar,setView,view}) => {
         <button type='button' onClick={()=>setView(!view)}>Bid!!</button>
       </div>
     </div>
+    
   )
 }
 export default AllPosts

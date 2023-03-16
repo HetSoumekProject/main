@@ -135,7 +135,7 @@ const Home=()=> {
     </section>
     <section class="review" id="review">
       <div class="heading">
-        <span>our customers </span>
+        <span>THE FOUNDERS </span>
         <h1>reviews</h1>
       </div>
       <div class="box-container">
