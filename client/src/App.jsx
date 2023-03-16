@@ -28,6 +28,8 @@ import Signin  from "./components/auth/Signin.jsx"
 import Profile from ".//components/profile/Profile.jsx"
 import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
+import TheMap from './components/TheMap.jsx';
+import Pop from './components/Pop.jsx'
 import FavoriteList from './components/FavoriteList';
 // import Mailer from './components/mailer/Mailer.jsx'
 import AdminSet from './components/AdminSet';
@@ -97,6 +99,8 @@ function App() {
       <Route path="/Signin" element={<Signin setRefresh={setRefresh} refresh={refresh}/>} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
+      <Route path="/pop" element={<Pop />}/>
+
       <Route path="/FavoriteList" element={<FavoriteList user={user[0]} refresh={refresh}/>}/>
       <Route path="/AdminSet" element={<AdminSet />}/>
       <Route path="/CarsForAdmin" element={<CarsForAdmin />}/>
