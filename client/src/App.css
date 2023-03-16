@@ -183,11 +183,12 @@ width: 80%;
                 margin-top: 67px;
             }
            .monthly {
-              display: block;
-              box-sizing: border-box;
+             
               height: 489px;
-              width: 978px;
-              margin-top: 4000px;
+         
+            
+              margin-top: 110px;
+              margin-left: 200px;
             }     
       
       @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
@@ -276,6 +277,15 @@ width: 80%;
     text-decoration: none;
      text-align: none;
 
+  }
+  .favvvv{
+    background-color: #f9f5f5;
+  }
+  .favvvv th {
+    color: #000000;
+  }
+  .favvvv td {
+    color: #000000;
   }
  
     .singout {

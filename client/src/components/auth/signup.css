@@ -23,6 +23,8 @@
   margin-bottom: 2rem;
   color: #000000; /* white color */
   text-align: center;
+  border-radius: 12px;
+  background-color: #d8d1d1;
 }
 
 .signupinputs {

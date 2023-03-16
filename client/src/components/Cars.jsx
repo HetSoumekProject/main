@@ -111,7 +111,7 @@ const Cars = (props) => {
 })}
 </div>}
 {view &&<OneCar user={props.user} car={car} />}
-
+ 
     </div>
   )
 }

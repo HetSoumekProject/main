@@ -31,6 +31,7 @@ import OneCarDetails from './components/OneCarDetails';
 import FavoriteList from './components/FavoriteList';
 // import Mailer from './components/mailer/Mailer.jsx'
 import AdminSet from './components/AdminSet';
+import CarsForAdmin from './components/CarsForAdmin';
 
 // import Count from './components/Count.jsx'
 
@@ -96,8 +97,13 @@ function App() {
       <Route path="/Signin" element={<Signin setRefresh={setRefresh} refresh={refresh}/>} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
+      <Route path="/FavoriteList" element={<FavoriteList user={user[0]} refresh={refresh}/>}/>
+      <Route path="/AdminSet" element={<AdminSet />}/>
+      <Route path="/CarsForAdmin" element={<CarsForAdmin />}/>
+      {/* <Route path="/Count" element={<Count />}/> */}
+    </Routes>
 
-      </Routes>
+   
 
 
     </div>
