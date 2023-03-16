@@ -63,7 +63,6 @@ function EmailJSExample() {
 
   return (
     <div>
-      <h1>EmailJS Example</h1>
       <ContactForm />
     </div>
   );
