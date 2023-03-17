@@ -1,100 +1,118 @@
 .page {
-  background-color: #F8F8F8;
-  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: white;
 }
 
-.bgimg {
-  max-height: 220px;
+.bigone {
   width: 100%;
-  background-position-y: center;
-  background-repeat: no-repeat;
-
-   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-   
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 
-.mari{
- position: absolute;
- margin-left: 94%;
- margin-top: 229px;
- display: inline-block; 
-   
-  color: #000;
-  font-size: 20px; 
-  text-decoration: none; 
-  transition: color 0.2s;
+.cover {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
 }
 
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profpos {
+  position: absolute;
+    margin-top: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  
+  background-color: #fff;
+  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+  border: 5px solid #fff;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
 
 .profile-image {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  margin-right: 30px;
-  border: 7px solid #F8F8F8; 
-  ;
-  
-}
-.profpos{
-  position: absolute;
-  margin-top: -100px;
-  margin-left: 10px;
 }
 
-.uploadimg{
-  margin-top: 100px;
+.uploadimg {
+  margin-top: -50px;
 }
-
 
 .profile-details {
- margin-left: 10px;
-  
-  
-  margin-right: 5px;
-  
-}
-
-.bigone{
-  
-  margin-bottom: 10px;
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 0px 5px #808080;
-  margin-left: 5px;
-  margin-right: 5px;
-  border-radius: 1rem;
+  margin-top: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .profile-email,
 .profile-name,
 .profile-number {
+  margin: 5px 0;
+  display: flex;
   align-items: center;
-  font-size: 24px;
-  margin-bottom: 10px;
 }
 
 .editbutton {
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 16px;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f7f7f7;
+  color: black;
+  border: solid;
+  border-color: black;
+  border-radius: 7px;
   cursor: pointer;
-  
+  transition: background-color 0.2s;
+}
+
+.editbutton:hover {
+  background-color: black;
+  color: #f7f7f7;
 }
 
 .static {
-  text-align: center;
-  font-size: 20px;
-  
-}
-.posts{
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0px 0px 5px #808080;
-  margin-left: 5px;
-  margin-right: 5px;
-  border-radius: 1rem;
-  display: grid;
+  margin-top: 30px;
+  font-size: 18px;
+  font-style: italic;
 }
 
+.posts {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.mari{
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  text-align: center;
+  position: absolute;
+  margin-right:-1140px ;
+  margin-top: -100px;
+  
+}

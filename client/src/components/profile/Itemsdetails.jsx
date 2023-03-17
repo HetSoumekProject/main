@@ -22,18 +22,18 @@ function Itemsdetails({props,refresh}) {
 
   return (
     
-    <div> {console.log(data)}   
+    <div className='itemcard' >   
             {data.map((val,key) => {
-            return  <div key={key} >
+            return  <div className='itemdetails' key={key} >
                
                <h1>{val.brand_name}</h1>
                 <p>{val.status}  </p>
-                <div>
+                <div className='itemimg' >
                   {val.images.map((imagee)=>
                   
                 {
                   {console.log('this',imagee)}
-                  return <img className='profimg' src={imagee.image} alt="car" />
+                  return <img className='itemimg' src={imagee.image} alt="car" />
                 }
                   
                   )}
