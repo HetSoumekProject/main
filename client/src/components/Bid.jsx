@@ -79,13 +79,13 @@ function Bid(props) {
   <div className="overlay__inner">
     {/* <!-- Title --> */}
     <h1 className="overlay__title">
-      Hey, would you like to learn how to Bid
+      Hey, would you like to learn how to Bid ?
    
     </h1>
     {/* <!-- Description --> */}
     <p className="overlay__description">
-     First of all, a bid is technically a competetion and a race at the same time.So according to those words it's as easy as it seems , you just place the amount you want in the input below as long as it's allowed. Then if someone out bids you, you have two choices. Either to out bid him by following the first step or just accept the lost. Laslty when the time is over if you're lucky enough and have the courage to compete until the end you may win the car !!.
-      <strong> So let's get started ;)</strong>
+    Bidding involves both competition and racing to win an item, such as a car. To bid, simply enter the amount you want in the designated field within the allowed limits. If someone outbids you, you can choose to either bid again or accept the loss. If you're persistent and fortunate enough to stay in the race until the end, you might just come out as the winner of the car.
+     <strong> So let's get started ;)</strong>
     </p>
     {/* <!-- Buttons --> */}
  

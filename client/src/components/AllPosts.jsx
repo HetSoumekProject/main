@@ -4,13 +4,16 @@ import Countdown from 'react-countdown';
 import FavoriteList from './FavoriteList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import css from './allPosts.css'
 function FavoriteIcon() {
   return (
     <FontAwesomeIcon icon={faHeart} />
   )
 }
 
+
 const AllPosts = ({user,car,setCar,setView,view}) => {
+console.log(car);
   const [countdownDate, setCountdownDate] = useState(new Date('2023-12-31'));
   const handleSubmitfav = async (event) => {
     event.preventDefault();
@@ -48,36 +51,54 @@ const AllPosts = ({user,car,setCar,setView,view}) => {
   };
   
 
+
+ 
   return (
-    <div className='oneCard'>
-     <div> <button type='button' className='' onClick={handleSubmitfav}><FavoriteIcon /></button></div>
- { car.images[0]?<img className='cars-pic' src={car.images[0].image} onClick={()=>{setView(!view)
+  <div className="example-1 car_card">
+    <div className="car_wrapper">
+    { car.images[0]?<img classNameName='cars-pic' src={car.images[0].image} onClick={()=>{setView(!view)
       setCar(car)
-      }}/> :"doesnt exist"}
-      <h1>
-        {car.brand_name}
-      </h1>
-      <h4>
-      ending in :  {car.ending_day}
-      </h4>
-
-      <div>
-
-      {countdownDate && (
+    }}/> :"doesnt exist"}
+      <div className="car_date">
+       
+       {countdownDate && (
         <div>
           <Countdown date={countdownDate} renderer={renderer} />
+          </div>
+          
+            )}
+      </div>
+      <div className="car_data">
+        <div className="car_content">
+          <span className="car_author"> brand name : <br/>
+          {car.brand_name}</span>
+          <h1 className="car_title"><a href="#">  {car.brand_name} :</a></h1>
+          <p className="car_text">"Join us to place a bid on this car and increase your chances of winning."
+           </p>
+           <div> <button type='button' className='' onClick={handleSubmitfav}><FavoriteIcon /></button></div>
+           <h4>
+            ending in :  {car.ending_day}
+            </h4>
+           
+            <button className='buttonposts' type='button' onClick={()=>{setView(!view);setCar(car)}}>Bid!!</button>
+            
+          <label for="show-menu" className="car_menu-button"><span></span></label>
         </div>
-      )}
-    </div>
-
-      <div>
-        <button type='button' onClick={()=>setView(!view)}>Bid!!</button>
+        <input type="checkbox" id="car_show-menu" />
+        <ul className="car_menu-content">
+          <li>
+            <a href="#"  className="fa fa-bookmark-o"></a>
+          </li>
+          <li><a href="#" className="fa fa-heart-o"><span>47</span></a></li>
+          <li><a href="#" className="fa fa-comment-o"><span>8</span></a></li>
+        </ul>
       </div>
     </div>
+  </div>
+
 
     
   )
 }
 export default AllPosts
 ;
-
