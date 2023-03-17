@@ -9,6 +9,12 @@ import Handlesignout from './auth/Handlesignout.jsx'
 import Notify from './Notify.jsx'
 import axios from 'axios';
 
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+function FavoriteIcon() {
+  return (
+    <FontAwesomeIcon icon={faHeart} />
+  )
+}
 const NavBar =({refresh,setRefresh})=>{
  console.log(refresh)
   const [userState,setUserState]=useState("")
@@ -55,11 +61,15 @@ const NavBar =({refresh,setRefresh})=>{
           <a data-aos="zoom-in-left" data-aos-delay="750" href="#services">
            <Link   to='/post'>SELL YOUR CAR</Link>
           </a>
+          
 {  userState!=""&&<a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
           <Link   to="/Profile" >PROFILE</Link>
           </a>}
 {  userState==="admin" &&<a data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">
           <Link to='/adminDashboard'>ADMIN</Link> 
+          </a>}
+          {  userState!=""&&<a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
+          <Link   to="/FavoriteList" ><FavoriteIcon /></Link>
           </a>}
         </nav>
   

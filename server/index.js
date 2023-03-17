@@ -26,7 +26,7 @@ app.use('/api/car', carsRoute);
 app.use('/api/user', usersRoute);
 app.use('/api/room', roomsRoute);
 app.use('/api/bids', bidsRoute);
-
+app.use('/api/fav',favouriteRoute)
 
 app.use('/api/notifications', notifivationsRoute);
 app.use('/api/message', messagesRoute);

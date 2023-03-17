@@ -66,7 +66,7 @@ console.log(car);
             ending in :  {car.ending_day}
             </h4>
            
-            <button className='buttonposts' type='button' onClick={()=>setView(!view)}>Bid!!</button>
+            <button className='buttonposts' type='button' onClick={()=>{setView(!view);setCar(car)}}>Bid!!</button>
           
           <label for="show-menu" className="car_menu-button"><span></span></label>
         </div>
