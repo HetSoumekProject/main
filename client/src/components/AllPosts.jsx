@@ -1,11 +1,32 @@
 import axios from 'axios';
 import React, { useState ,useEffect} from 'react'
 import Countdown from 'react-countdown';
+import FavoriteList from './FavoriteList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import css from './allPosts.css'
+function FavoriteIcon() {
+  return (
+    <FontAwesomeIcon icon={faHeart} />
+  )
+}
+
+
 const AllPosts = ({user,car,setCar,setView,view}) => {
 console.log(car);
   const [countdownDate, setCountdownDate] = useState(new Date('2023-12-31'));
+  const handleSubmitfav = async (event) => {
+    event.preventDefault();
+    console.log("user=<<<<<<<<<<<< ", user)
+    console.log("car", car.id)
 
+    try {
+      const response = await axios.post(`http://localhost:3000/api/fav/addfav/${user.id}/${car.id}`)
+      console.log(response.data); 
+    } catch (error) {
+      console.error(error);
+    }
+  }
   useEffect(() => {
     const interval = setInterval(() => {
       setCountdownDate(new Date(car.ending_day));
@@ -28,19 +49,10 @@ console.log(car);
       );
     }
   };
+  
 
-  const handleSubmitfav = (event) => {
-    console.log('user',user);
-    console.log('carr',car)
-    event.preventDefault();
-    axios.post(`http://localhost:3000/api/fav/addfav/${user}/${car.id}`)
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  };
+
+ 
   return (
   <div className="example-1 car_card">
     <div className="car_wrapper">
@@ -53,6 +65,7 @@ console.log(car);
         <div>
           <Countdown date={countdownDate} renderer={renderer} />
           </div>
+          
             )}
       </div>
       <div className="car_data">
@@ -62,12 +75,13 @@ console.log(car);
           <h1 className="car_title"><a href="#">  {car.brand_name} :</a></h1>
           <p className="car_text">"Join us to place a bid on this car and increase your chances of winning."
            </p>
+           <div> <button type='button' className='' onClick={handleSubmitfav}><FavoriteIcon /></button></div>
            <h4>
             ending in :  {car.ending_day}
             </h4>
            
             <button className='buttonposts' type='button' onClick={()=>{setView(!view);setCar(car)}}>Bid!!</button>
-          
+            
           <label for="show-menu" className="car_menu-button"><span></span></label>
         </div>
         <input type="checkbox" id="car_show-menu" />

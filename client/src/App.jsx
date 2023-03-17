@@ -45,11 +45,14 @@ import Mail from "./components/Mail.jsx"
 function App() {
   const [users,setUsers]=useState([])
 
-  const [user,setUser]=useState({})
-  const [refresh,setRefresh]=useState(true)
+  const [user,setUser]=useState([])
 
+  const [refresh,setRefresh]=useState(true)
+const x =localStorage.userInfo
+console.log(user,'uder');
   useEffect(()=>{
-    axios.get(`http://localhost:3000/api/user/userbyuid/${localStorage.userInfo}`)
+
+    axios.get(`http://localhost:3000/api/user/userbyuid/${x}`)
       .then((res)=>{
           setUser(res.data);
       }).catch((err)=>{
@@ -91,19 +94,20 @@ function App() {
       <Route path="/Customers" element={<Customers users={users}/>}/>
       <Route path="/Transactions" element={<Transactions/>}/>
       <Route path="/OverView" element={<OverView/>}/>
-      <Route path="/Cars" element={<Cars/>}/>
+      <Route path="/Cars" element={<Cars user={user}/>}/>
       {console.log("user",user.role)}
       {user.role==="admin"&&<Route path="/AdminDashboard" element={<Dashboard />}/>}
-
+      
       <Route path="/Signup" element={<Signup/>}/>
       <Route path="/Signin" element={<Signin setRefresh={setRefresh} refresh={refresh}/>} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
       <Route path="/pop" element={<Pop />}/>
 
-      <Route path="/FavoriteList" element={<FavoriteList user={user[0]} refresh={refresh}/>}/>
+      <Route path="/FavoriteList" element={<FavoriteList user={user} refresh={refresh}/>}/>
       <Route path="/AdminSet" element={<AdminSet />}/>
       <Route path="/CarsForAdmin" element={<CarsForAdmin />}/>
+      
       {/* <Route path="/Count" element={<Count />}/> */}
     </Routes>
 
