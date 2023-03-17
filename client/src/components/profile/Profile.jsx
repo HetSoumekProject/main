@@ -60,7 +60,7 @@ const Profile = () => {
                     <h1 className="profile-email"><MdMail size={25}/>  {data.email}</h1>          
                     <button className="editbutton" onClick={toggleUpdate}>Update Info</button>
                     {showUpdate && <Updateinfo />}
-                    <div className="static" >"This is your space, Here you can customize your profile and stay updated on your cars"</div>
+                    <div className="static" >"This is your space, Here you can customize your profile and stay up to date on your cars"</div>
                     </div>
                     
                  </div>

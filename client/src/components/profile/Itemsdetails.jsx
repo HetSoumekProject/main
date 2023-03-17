@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-
+import "./posts.css"
 function Itemsdetails({props,refresh}) {
   const [data, setData] = useState([]);
   
@@ -32,7 +32,7 @@ function Itemsdetails({props,refresh}) {
                   {val.images.map((imagee)=>
                   
                 {
-                  {console.log('this',imagee)}
+                  
                   return <img className='itemimg' src={imagee.image} alt="car" />
                 }
                   
