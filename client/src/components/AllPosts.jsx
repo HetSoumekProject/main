@@ -9,9 +9,21 @@ function FavoriteIcon() {
     <FontAwesomeIcon icon={faHeart} />
   )
 }
+
 const AllPosts = ({user,car,setCar,setView,view}) => {
   const [countdownDate, setCountdownDate] = useState(new Date('2023-12-31'));
+  const handleSubmitfav = async (event) => {
+    event.preventDefault();
+    console.log("user=<<<<<<<<<<<< ", user)
+    console.log("car", car.id)
 
+    try {
+      const response = await axios.post(`http://localhost:3000/api/fav/addfav/${user.id}/${car.id}`)
+      console.log(response.data); 
+    } catch (error) {
+      console.error(error);
+    }
+  }
   useEffect(() => {
     const interval = setInterval(() => {
       setCountdownDate(new Date(car.ending_day));
@@ -34,18 +46,7 @@ const AllPosts = ({user,car,setCar,setView,view}) => {
       );
     }
   };
-  const handleSubmitfav = async (event) => {
-    event.preventDefault();
-    console.log("user ", localStorage)
-    console.log("car", car.id)
-
-    try {
-      const response = await axios.post(`http://localhost:3000/api/fav/addfav/${user.id}/${car.id}`)
-      console.log(response.data); 
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  
 
   return (
     <div className='oneCard'>

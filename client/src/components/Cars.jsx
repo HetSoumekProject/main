@@ -5,7 +5,8 @@ import OneCar from './OneCar.jsx'
 import css from "./cars.css"
 
 
-const Cars = (props) => {
+const Cars = (props,{user}) => {
+  console.log(props.user,'=================>');
     const[years,setYears]=useState("all")
     const[transmission,setTransmission]= useState("all");
     const[bodyStyle,setbodystyle]= useState("all");
@@ -105,7 +106,7 @@ const Cars = (props) => {
       console.log("item",item)
       return(
         <div  key = {index}>
-       <AllPosts setCar={setCar} view={view} setView={setView} car={item}/>
+        <AllPosts   user={props.user} setCar={setCar} view={view} setView={setView} car={item}/>
  </div>
       )
 })}
