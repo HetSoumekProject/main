@@ -25,7 +25,7 @@ import Profile from ".//components/profile/Profile.jsx"
 import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
 import TheMap from './components/TheMap.jsx';
-
+import Pop from './components/Pop.jsx'
 import Mail from "./components/Mail.jsx"
 function App() {
   const [users,setUser]=useState([])
@@ -74,6 +74,8 @@ function App() {
       <Route path="/Signin" element={<Signin setRefresh={setRefresh} refresh={refresh}/>} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
+      <Route path="/pop" element={<Pop />}/>
+
     </Routes>
 
     </div>

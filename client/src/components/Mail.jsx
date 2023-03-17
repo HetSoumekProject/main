@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
-
+import "./mail.css"
 function ContactForm() {
   const [formValues, setFormValues] = useState({
     from_name: '',
@@ -27,31 +27,37 @@ function ContactForm() {
   }
 
   return (
+   
     <form onSubmit={handleSubmit}>
-      <label htmlFor="from_name">Name</label>
-      <input
+       <div class="inputsm">
+      <label className='labelm'>Name</label>
+      <input className='inputm'
         type="text"
         name="from_name"
         value={formValues.from_name}
         onChange={handleChange}
       />
 
-      <label htmlFor="from_email">Email</label>
+      <label className='labelm'>Email</label>
       <input
+      className='inputm'
         type="email"
         name="from_email"
         value={formValues.from_email}
         onChange={handleChange}
       />
 
-      <label htmlFor="message">Message</label>
-      <textarea
-        name="message"
-        value={formValues.message}
+      <label className='labelm'>Message</label>
+      <input 
+      className='inputm'
+      type="text"
+      name="from_message"
+        value={formValues.from_message}
         onChange={handleChange}
-      ></textarea>
-
-      <button type="submit">Send</button>
+      />
+      </div>
+      <div/>
+      <button className="buttonm" type="submit">Send</button>
     </form>
   );
 }
@@ -62,8 +68,12 @@ function EmailJSExample() {
   }, []);
 
   return (
-    <div>
+    <div className='body'>
+    <div className='container'>
+        <div className="brand-logo"></div>
+        {/* <div className="brand-title">EMAIL</div> */}
       <ContactForm />
+    </div>
     </div>
   );
 }

@@ -8,14 +8,14 @@ function TheMap({car}) {
     <div>
          <Map mapLib={maplibregl} 
          initialViewState={{
-          longitude:parseInt(car.longitude),
-          latitude:parseInt(car.latitude),
+          longitude:Number(car.longitude),
+          latitude:Number(car.latitude),
          }}
         style={{width: "100%", height: " calc(100vh - 77px)"}}
         mapStyle="https://api.maptiler.com/maps/streets/style.json?key=pTFM9jihc0CHGecZoDlj"
       >
         <NavigationControl position="top-left" />
-        <Marker longitude={parseInt(car.longitude)} latitude={parseInt(car.latitude)}/>
+        <Marker longitude={Number(car.longitude)} latitude={Number(car.latitude)}/>
       </Map>
     </div>
   )
