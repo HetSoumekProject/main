@@ -13,6 +13,10 @@ import FailPayment from './components/FailPayment.jsx';
 import Payment from './components/Payment.jsx';
 import Customers from './components/Customers.jsx'
 import Signup from './components/auth/Signup.jsx'
+// import AllPosts from './components/AllPosts';
+// import SuccessPayment from "./components/SuccessPayment.jsx"
+// import FailPayment from './components/FailPayment.jsx';
+// import Payment from './components/Payment.jsx';
 import AllPosts from './components/AllPosts';
 import Dashboard from './components/AdminDash.jsx';
 import { Route,Routes } from 'react-router-dom'
@@ -26,19 +30,37 @@ import Home from "./components/Home/Home.jsx"
 import OneCarDetails from './components/OneCarDetails';
 import TheMap from './components/TheMap.jsx';
 import Pop from './components/Pop.jsx'
+import FavoriteList from './components/FavoriteList';
+// import Mailer from './components/mailer/Mailer.jsx'
+import AdminSet from './components/AdminSet';
+import CarsForAdmin from './components/CarsForAdmin';
+
+// import Count from './components/Count.jsx'
+
+  
+  
+// import TheMap from './components/TheMap.jsx';
+
 import Mail from "./components/Mail.jsx"
 function App() {
-  const [users,setUser]=useState([])
+  const [users,setUsers]=useState([])
+
+  const [user,setUser]=useState({})
   const [refresh,setRefresh]=useState(true)
+
   useEffect(()=>{
-    
+    axios.get(`http://localhost:3000/api/user/userbyuid/${localStorage.userInfo}`)
+      .then((res)=>{
+          setUser(res.data);
+      }).catch((err)=>{
+          console.log("user err:",err);
+      })
     axios.get('http://localhost:3000/api/user/allusers').then(res=>{
-      console.log(res.data)
-      setUser(res.data)
-      
-      
+
+      setUsers(res.data)
     }).catch(err=>console.log(err))
-  },[])
+  },[refresh])
+
 
   return (
     <div className="App">
@@ -63,20 +85,30 @@ function App() {
       <Route path="/SuccessPayment" element={<SuccessPayment/>}/>
       <Route path="/NavBar" element={<NavBar />}/>
       <Route path="/Daily" element={<Daily/>}/>
-      <Route path="/AdminDashboard" element={<Monthly/>}/>
+
+      {user.role==="admin"&&<Route path="/AdminDashboard" element={<Monthly/>}/>}
       <Route path="/Monthly" element={<Monthly/>}/>
       <Route path="/Customers" element={<Customers users={users}/>}/>
       <Route path="/Transactions" element={<Transactions/>}/>
       <Route path="/OverView" element={<OverView/>}/>
       <Route path="/Cars" element={<Cars/>}/>
-      <Route path="/AdminDashboard" element={<Dashboard />}/>
+      {console.log("user",user.role)}
+      {user.role==="admin"&&<Route path="/AdminDashboard" element={<Dashboard />}/>}
+
       <Route path="/Signup" element={<Signup/>}/>
       <Route path="/Signin" element={<Signin setRefresh={setRefresh} refresh={refresh}/>} />
       <Route path="/Profile" element={<Profile />}/>
       <Route path="/OneCarDetails" element={<OneCarDetails />}/>
       <Route path="/pop" element={<Pop />}/>
 
+      <Route path="/FavoriteList" element={<FavoriteList user={user[0]} refresh={refresh}/>}/>
+      <Route path="/AdminSet" element={<AdminSet />}/>
+      <Route path="/CarsForAdmin" element={<CarsForAdmin />}/>
+      {/* <Route path="/Count" element={<Count />}/> */}
     </Routes>
+
+   
+
 
     </div>
   );

@@ -42,6 +42,7 @@ const Signup = ()=>{
      })
     }
     return (
+       
         <div className='form-container' >
         <div className='form-box' >
             
@@ -68,6 +69,7 @@ const Signup = ()=>{
             
         </div>
         </div>
+        
     )
 }
 

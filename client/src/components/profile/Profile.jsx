@@ -47,7 +47,7 @@ const Profile = () => {
                 <img className="profile-image" src={data.img} alt="You" />
                 </div>
                 <div className="uploadimg" >
-                {/* <Profileimg /> */}
+                <Profileimg />
                 </div>
                  <div className="profile-details">
                 

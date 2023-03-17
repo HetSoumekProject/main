@@ -127,7 +127,9 @@ const getUser =()=>{
              ))}
           
 
-<div class="chat-view__input">
+        </div>
+      </div>
+<div className="chat-view__input">
 <input
             className="input"
             placeholder="Message..."
@@ -136,14 +138,13 @@ const getUser =()=>{
               setMessage(event.target.value)
             }}
           />
-          <span class="input__emoticon"></span></div>
+          <span className="input__emoticon"></span>    
       
           
-          <button className="btn" onClick={sendMessage}>
+          <button className="message_btn" onClick={sendMessage}>
             <AiOutlineSend />
           </button>
-        </div>
-      </div>
+          </div>
     </div>
   );
 };

@@ -25,7 +25,7 @@ const Payment = () => {
   }
 
   return (
-    <div className="container">
+    <div className="container_payment">
       
       <form className="form">
         <label htmlFor="amount" className="label">

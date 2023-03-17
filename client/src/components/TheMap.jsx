@@ -10,6 +10,7 @@ function TheMap({car}) {
          initialViewState={{
           longitude:Number(car.longitude),
           latitude:Number(car.latitude),
+          zoom:7
          }}
         style={{width: "100%", height: " calc(100vh - 77px)"}}
         mapStyle="https://api.maptiler.com/maps/streets/style.json?key=pTFM9jihc0CHGecZoDlj"
