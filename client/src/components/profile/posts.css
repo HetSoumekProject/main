@@ -14,8 +14,11 @@
 }
 
 .itemdetails h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
+ 
+    font-family: 'Righteous', sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+
 }
 
 .itemdetails p {
@@ -35,4 +38,10 @@
   height: 100%;
   object-fit: contain;
   margin: 0 10px;
+}
+.car-img-profile{
+  min-height: 540px;
+  position: relative;
+  overflow: hidden;
+  margin-left: -13%;
 }

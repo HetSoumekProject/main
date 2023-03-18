@@ -8,7 +8,7 @@ function OneCarDetails(props) {
     
   return (
     <div>
-        <div>
+        <div >
         
         {props.data.car.images.map((el,i)=><div ><CarImages image={el} key={i}/></div>)}
         

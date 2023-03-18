@@ -59,4 +59,44 @@
     background-color: #ffffff;
     color: #000000;
   }
+ 
+  .success-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: green;
+    height: 150px;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    z-index: 9999;
+    overflow: hidden;
+  }
+  
+  .success-msg:before,
+  .success-msg:after {
+    content: "";
+    position: absolute;
+    width: 140%;
+    height: 150%;
+    top: -25%;
+    left: -20%;
+    z-index: -1;
+    background-color: white;
+    transform: rotate(45deg);
+  }
+  
+  .success-msg:after {
+    top: auto;
+    bottom: -25%;
+    background-color: green;
+  }
+  
+  .success-msg {
+    font-size: 4rem;
+  }
   
