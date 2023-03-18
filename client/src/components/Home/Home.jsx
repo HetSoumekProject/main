@@ -141,7 +141,7 @@ const Home=()=> {
       <div class="box-container">
         <div class="box">
           <img src="images/pic-1.png" alt="" />
-          <h4>Moshen rebhi</h4>
+          <h4>Mohsen rebhi</h4>
           <div class="stars">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>

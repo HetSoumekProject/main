@@ -29,15 +29,15 @@ function Itemsdetails({props,refresh}) {
                <h1>{val.brand_name}</h1>
                 <p>{val.status}  </p>
                 <div className='itemimg' >
-                  {val.images.map((imagee)=>
+                  {/* {val.images.map((imagee)=>
                   
                 {
                   
                   return <img className='itemimg' src={imagee.image} alt="car" />
                 }
                   
-                  )}
-                  
+                  )} */}
+                  <img className="car-img-profile" src={val.images[0].image} alt="car" />
                 </div>
               </div>
             })}

@@ -3,7 +3,7 @@ import React from 'react'
 function CarImages(props) {
   console.log("image",props.image)
   return (
-    <div>
+    <div >
 
         <img src={props.image.image} />
 

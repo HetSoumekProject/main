@@ -12,6 +12,7 @@ const Dashboard = () => {
     setExpanded(!expanded);
   };
   return (
+  
     <Container fluid>
       <Row>
       <Col
@@ -71,6 +72,7 @@ const Dashboard = () => {
         </Col>
       </Row>
     </Container>
+   
   );
 };
 export default Dashboard;

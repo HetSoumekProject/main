@@ -39,8 +39,8 @@ const CarsForAdmin = () => {
   Object.keys(carStatsByBrand).forEach((brand) => {
     const brandStats = {
       label: brand,
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
+      backgroundColor: 'white',
+      borderColor: 'white',
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
       hoverBorderColor: 'rgba(255,99,132,1)',
