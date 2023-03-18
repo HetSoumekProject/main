@@ -179,3 +179,19 @@ margin-left: -315px;
   transition: background-color 0.2s;
   
 }
+.inputs1{
+  color: white;
+  background-color: black;
+  border: none;
+  margin-top: 5px;
+  width: 100%;
+  border-radius: 1rem;
+  border: 0.2rem solid rgb(72, 68, 68);
+  background: none;
+  font-size: 1.5rem;
+  text-transform: none;
+  color: #aaa;
+  margin-bottom: 1rem;
+  padding: 1.2rem 1.4rem;
+  margin-left: -40%;
+}
