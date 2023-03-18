@@ -28,21 +28,25 @@ const Updateinfo= ( ) => {
       <div>
              
              <input 
+             className="inputs"
              placeholder="New First name"
              onChange={(e)=>setFirst_name1(e.target.value)}
              value={first_name1}
              />
              <input 
+             className="inputs"
+
              placeholder="New Last name"
              onChange={(e)=>setLast_name1(e.target.value)}
              value={last_name1}
              />
              <input 
+             className="inputs"
              placeholder="New Phone number"
              onChange={(e)=>setPhone_number1(e.target.value)}
              value={phone_number1}
              />  
-             <button onClick={()=>handleupdate()} >Confirm</button>
+             <button className="editbutton" onClick={()=>handleupdate()} >Confirm</button>
       </div>
     );
   };

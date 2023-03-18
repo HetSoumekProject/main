@@ -1,25 +1,47 @@
-.card {
-    background-color: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 10px;
-    padding: 20px;
-    width: 300px;
-  }
-  
-  .card h1 {
+.itemcard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.itemdetails {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.itemdetails h1 {
+ 
+    font-family: 'Righteous', sans-serif;
     font-size: 24px;
-    font-weight: bold;
     margin-bottom: 10px;
-  }
-  
-  .card p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .card img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
+
+}
+
+.itemdetails p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.itemimg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.itemimg img {
+  height: 100%;
+  object-fit: contain;
+  margin: 0 10px;
+}
+.car-img-profile{
+  min-height: 540px;
+  position: relative;
+  overflow: hidden;
+  margin-left: -13%;
+}

@@ -40,11 +40,11 @@ const Monthly = () => {
     if (carMonth === today.getMonth() && carYear === today.getFullYear() && !carStats.datasets.find((d) => d.label === car.title)) {
       carStats.datasets.push({
         label: car.title,
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderColor: 'rgba(255,99,132,1)',
+        backgroundColor: 'white',
+        borderColor: 'white',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
+        hoverBackgroundColor: 'white',
+        hoverBorderColor: 'white',
         data: Array(daysInMonth).fill(0),
       });
     }

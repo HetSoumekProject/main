@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-
+import "./posts.css"
 function Itemsdetails({props,refresh}) {
   const [data, setData] = useState([]);
   
@@ -22,22 +22,22 @@ function Itemsdetails({props,refresh}) {
 
   return (
     
-    <div> {console.log(data)}   
+    <div className='itemcard' >   
             {data.map((val,key) => {
-            return  <div key={key} >
+            return  <div className='itemdetails' key={key} >
                
                <h1>{val.brand_name}</h1>
                 <p>{val.status}  </p>
-                <div>
-                  {val.images.map((imagee)=>
+                <div className='itemimg' >
+                  {/* {val.images.map((imagee)=>
                   
                 {
-                  {console.log('this',imagee)}
-                  return <img className='profimg' src={imagee.image} alt="car" />
+                  
+                  return <img className='itemimg' src={imagee.image} alt="car" />
                 }
                   
-                  )}
-                  
+                  )} */}
+                  <img className="car-img-profile" src={val.images[0].image} alt="car" />
                 </div>
               </div>
             })}

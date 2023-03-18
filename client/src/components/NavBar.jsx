@@ -66,7 +66,7 @@ const NavBar =({refresh,setRefresh})=>{
           <Link   to="/Profile" >PROFILE</Link>
           </a>}
 {  userState==="admin" &&<a data-aos="zoom-in-left" data-aos-delay="1150" href="#blogs">
-          <Link to='/adminDashboard'>ADMIN</Link> 
+          <Link to='/adminDashboard'>DASHBOARD</Link> 
           </a>}
           {  userState!=""&&<a data-aos="zoom-in-left" data-aos-delay="900" href="#gallery">
           <Link   to="/FavoriteList" ><FavoriteIcon /></Link>
