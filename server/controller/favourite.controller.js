@@ -37,7 +37,7 @@ let getFavouritesForUser = (req, res) => {
   const userId = req.params.userId;
   orm.Favourite.findAll({
     where: { userId: req.params.userId },
-    include: [{ model: orm.Car, as: "car" }],
+    include: [{ model: orm.Car, as: "car" ,include:orm.Image}],
   })
     .then((favorites) => res.json(favorites))
     .catch((err) => {

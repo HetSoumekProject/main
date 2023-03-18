@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 import { AiOutlineSend } from 'react-icons/ai';
 import '../ChatRoom.css'
 import axios from 'axios'
-
+import graphite from './Home/images/graph.jpg'
 const socket = io.connect("http://localhost:3000");
 
 const ChatRoom = (props) => {
@@ -47,6 +47,7 @@ const[user,setUser]=useState({})
       carId: room,
       content:message,
       photo: user.img
+    
     }
     if (message.trim() === '') return;
     socket.emit("send_message",obj );
@@ -105,8 +106,9 @@ const getUser =()=>{
 
 
   return (
-    <div className='window'>
-      <div className="contai">
+    <div className='window' style={{backgroundImage:`url(${graphite})`,backgroundPosition:"center"}}>
+      <div className="contai" >
+
         <div className="message_container">
 
           {messages.map((message, index) => (
@@ -114,8 +116,9 @@ const getUser =()=>{
                 //  className={`message ${message.name === currentUser.displayName ? "sent" : "received"}`}
                  key={index}
                >
+                <div className="message_content">
                  <div className="avatar">
-                   <img src={user.img} />
+                   <img  className='avatar_img'src={user.img} />
                  </div>
                  <div className="message__bubble">
                    <div className="message__info">
@@ -123,6 +126,9 @@ const getUser =()=>{
                    </div>
                    <div className="message__text">{message.content}</div>
                  </div>
+                 </div>
+
+                 
                </div>
              ))}
           
@@ -131,7 +137,7 @@ const getUser =()=>{
       </div>
 <div className="chat-view__input">
 <input
-            className="input"
+            className="input_chat"
             placeholder="Message..."
             // value={message}
             onChange={(event) => {

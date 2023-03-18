@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import AllPosts from './AllPosts';
 import OneCar from './OneCar.jsx'
 import css from "./cars.css"
-import Notify from './Notify';
 
 
 const Cars = (props,{user}) => {
@@ -110,14 +109,12 @@ const Cars = (props,{user}) => {
       return(
         <div  key = {index}>
         <AllPosts   user={props.user} setCar={setCar} view={view} setView={setView} car={item}/>
-        <Notify setCar={setCar} view={view} setView={setView} car={item} />
-
  </div>
       )
 })}
 </div>}
 {view &&<OneCar user={props.user} car={car} />}
-
+ 
     </div>
   )
 }

@@ -85,7 +85,7 @@ const NavBar =({refresh,setRefresh})=>{
 { userState!="" &&<a>
           <Handlesignout  setRefresh={setRefresh} refresh={refresh} />
         </a>}
-        <div id='notif'><Notify/></div>        
+        <div id='notif'><Notify /></div>        
       </header>
      
     </div>
