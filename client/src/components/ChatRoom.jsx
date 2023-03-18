@@ -47,6 +47,7 @@ const[user,setUser]=useState({})
       carId: room,
       content:message,
       photo: user.img
+    
     }
     if (message.trim() === '') return;
     socket.emit("send_message",obj );

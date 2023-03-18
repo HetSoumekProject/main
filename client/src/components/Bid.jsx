@@ -114,7 +114,6 @@ function Bid(props) {
           } else {
             makeABid(user.id, props.car.id, amount);
             newBidPrice()
-         
           }
         }}
       >

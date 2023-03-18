@@ -122,6 +122,16 @@ let carsofuser=async (req,res)=>{
     res.send(err)
   }
 }
+const getCarByid=async (req,res)=>{
+  try{
+    const car=await orm.Car.findAll({
+      where:{id:req.params.id}
+    })
+    res.send(car)
+  }catch(err){
+    res.send(err)
+  }
+}
   
   module.exports={
     createAcar,
@@ -131,5 +141,6 @@ let carsofuser=async (req,res)=>{
     declineCar,
     getAllCars,
     carsofuser,
-    getAllCarsforuser
+    getAllCarsforuser,
+    getCarByid
   }

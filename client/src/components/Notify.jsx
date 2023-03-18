@@ -3,7 +3,7 @@ import axios from 'axios';
 import io from 'socket.io-client';
 const socket = io.connect('http://localhost:3000');
 
-const Notify = () => {
+const Notify = ({user,car,setCar,setView,view}) => {
   const [currentProfile, setCurrentProfile] = useState(localStorage.userInfo);
   const [data, setData] = useState({});
   const [refresh, setRefresh] = useState(null);
@@ -67,12 +67,11 @@ const Notify = () => {
       {isNotificationShown && (
         <div className="notific">
           {notifications.map((notification, index) => (
-            <p  key={index}>
+            <p  key={index} >
               {notification.bidder_name} bid on {notification.brand_name} with{' '}
-              {notification.added_bid}    
+              {notification.added_bid} 
             </p>
           ))}
-       
         </div>
       )}
     </div>
