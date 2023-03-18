@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import "./profile.css"
 
 const Profileimg = () => {
     const [image,setImage] = useState("")
@@ -31,7 +31,7 @@ const Profileimg = () => {
         <input 
         className="inp"
         type="file" onChange={(e)=>{setImage(e.target.files[0])}} />
-        <button className="upd" onClick={uploadimg} >Upload image</button>
+        <button className="editbutton1" onClick={uploadimg} >Upload image</button>
       </div>
     );
   };

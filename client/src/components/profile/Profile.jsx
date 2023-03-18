@@ -33,6 +33,12 @@ const Profile = () => {
     return (
         
             <div className="page" >
+              <div class="mari">
+               <a href="#" class="fab fa-facebook-f"></a>
+               <a href="#" class="fab fa-twitter"></a>
+               <a href="#" class="fab fa-instagram"></a>
+               <a href="#" class="fab fa-linkedin"></a>
+               </div>
               <div className="bigone" >
               
                 <div className="cover" >
@@ -47,12 +53,7 @@ const Profile = () => {
                 <Profileimg />
                 </div>
                  <div className="profile-details">
-                 <div class="mari">
-               <a href="#" class="fab fa-facebook-f"></a>
-               <a href="#" class="fab fa-twitter"></a>
-               <a href="#" class="fab fa-instagram"></a>
-               <a href="#" class="fab fa-linkedin"></a>
-               </div>
+                 
         
                     
                     <h1 className="profile-name"><FaUser size={25}/>  {data.first_name} {data.last_name}</h1>
@@ -64,8 +65,10 @@ const Profile = () => {
                     </div>
                     
                  </div>
+                 <div className="postscontainer" >
                 <div className="posts">
                 <Itemsdetails props={data} refresh={refresh}/>
+                </div>
                 </div>
 
 
