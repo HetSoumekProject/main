@@ -24,22 +24,24 @@ function Itemsdetails({props,refresh}) {
     
     <div className='itemcard' >   
             {data.map((val,key) => {
-            return  <div className='itemdetails' key={key} >
-               
-               <h1>{val.brand_name}</h1>
-                <p>{val.status}  </p>
-                <div className='itemimg' >
-                  {/* {val.images.map((imagee)=>
-                  
-                {
-                  
-                  return <img className='itemimg' src={imagee.image} alt="car" />
-                }
-                  
-                  )} */}
-                  <img className="car-img-profile" src={val.images[0].image} alt="car" />
-                </div>
-              </div>
+            return  <div class="product-card">
+		<div class="badge">{val.status} </div>
+		<div class="product-tumb">
+			<img  src={val.images[0].image}   />
+		</div>
+		<div class="product-details">
+			<span class="product-catagory">{val.brand_name}</span>
+			<h4><a href="">{val.brand_name}</a></h4>
+			<p>{val.description}<br/>
+      </p>
+			<div class="product-bottom-details">
+				<div class="product-price"><small>$Initial Price</small>TND{val.initial_price}</div>
+				<div class="product-links">
+				
+				</div>
+			</div>
+		</div>
+	</div>
             })}
           </div>
          )

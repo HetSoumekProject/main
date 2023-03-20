@@ -33,7 +33,7 @@ const Profile = () => {
     return (
         
             <div className="page" >
-              <div class="mari">
+              {/* <div class="mari">
                <a href="#" class="fab fa-facebook-f"></a>
                <a href="#" class="fab fa-twitter"></a>
                <a href="#" class="fab fa-instagram"></a>
@@ -56,9 +56,9 @@ const Profile = () => {
                  
         
                     
-                    <h1 className="profile-name"><FaUser size={25}/>  {data.first_name} {data.last_name}</h1>
+                    <h1 className="profile-name"></h1>
                     <h1 className="profile-number"><FaPhone size={25}/>  {data.phone_number}</h1> 
-                    <h1 className="profile-email"><MdMail size={25}/>  {data.email}</h1>          
+                    <h1 className="profile-email"></h1>          
                     <button className="editbutton" onClick={toggleUpdate}>Update Info</button>
                     {showUpdate && <Updateinfo />}
                     <div className="static" >"This is your space, Here you can customize your profile and stay up to date on your cars"</div>
@@ -69,9 +69,53 @@ const Profile = () => {
                 <div className="posts">
                 <Itemsdetails props={data} refresh={refresh}/>
                 </div>
+                </div> */}
+	<span class="back">
+		<i class="fas fa-long-arrow-alt-left"></i>
+		back
+	</span>
+
+	<section class="profile_container">
+		<div class="profile_img_section">
+			<img class="profile_img-LG" src={data.img} />
+			<div class="flag_wrapper">
+				<img class="flag" src="https://png.pngtree.com/element_origin_min_pic/16/09/12/1757d670c8f366c.jpg" alt="South Korean Flag" />
+			</div>
+      <div className="uploadimg" >
+                <Profileimg />
                 </div>
+		</div>
 
+		<div class="profile_desc_section">
+			<h2>{data.first_name} {data.last_name}</h2>
+			<h3>HET SOUMEK</h3>
+			<p class="description">"This is your space, Here you can customize your profile and stay up to date on your cars".</p>
 
+			<div class="interests">
+				
+      <button className="interests_item" onClick={toggleUpdate}>Update Info</button>
+      {showUpdate && <Updateinfo />}
+			</div>
+		</div>
+
+	</section>
+
+	<div class="info">
+		<ul>
+			<li>
+			<FaUser size={20}/>  {data.first_name} {data.last_name}
+			</li>
+			<li>
+      <FaPhone size={20}/>  {data.phone_number}
+			</li>
+			<li>
+      <MdMail size={25}/>  {data.email}
+			</li>
+		</ul>
+	</div>
+ <div className="posts">
+                <Itemsdetails props={data} refresh={refresh}/>
+                </div>
             </div>
         
     );

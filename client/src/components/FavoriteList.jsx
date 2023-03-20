@@ -3,6 +3,7 @@ import axios from 'axios';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import css from './favorite.css'
 function FavoriteList({ user }) {
   const [favorites, setFavorites] = useState([]);
   useEffect(() => {
@@ -27,36 +28,42 @@ function FavoriteList({ user }) {
     }
   };
   return (
-    <Row xs={1} sm={2} md={3} lg={3} className="g-4">
+    <div className='favoListt'>
       {favorites.map((favorite) => (
-        <Col key={favorite.id}>
-          <Card className="h-100" style={{width:"300px",position:"flex",flexWrap:"wrap",flexDirection:"row",justifyContent:"space-between",padding:"20px",marginLeft:"100px"}}>
-            <Card.Img variant="top" src={favorite.car.images[0].image} style={{width:"250px"}} />
-            <Card.Body>
-              <ul style={{ listStyle: 'disc', textAlign: 'center' }}>
-              <li style={{ color: 'black' }}>{favorite.car.brand_name}</li>
-              <Card.Text style={{ color: 'black' }}>{favorite.car.description}</Card.Text>
-                <li style={{ color: 'black' }}>Initial Price: {favorite.car.initial_price}</li>
-                <li style={{ color: 'black' }}>Transmission: {favorite.car.transmission}</li>
-                <li style={{ color: 'black' }}>Body Style: {favorite.car.body_style}</li>
-                <li style={{ color: 'black' }}>Minimum Amount: {favorite.car.min_amount}</li>
-                <li style={{ color: 'black' }}>Year: {favorite.car.year}</li>
-              </ul>
-            </Card.Body>
-            <Card.Footer>
-              <button
+
+<div class="product-card">
+		<div class="badge">fav</div>
+		<div class="product-tumb">
+			<img  src={favorite.car.images[0].image}  />
+		</div>
+		<div class="product-details">
+			<span class="product-catagory">{favorite.car.brand_name}</span>
+			<h4 className='h4fav'><a href="">{favorite.car.brand_name}</a></h4>
+			<p>{favorite.car.description}<br/>
+      Transmission: {favorite.car.transmission} <br/>
+      Body Style: {favorite.car.body_style}<br/>
+      Year: {favorite.car.year}
+      </p>
+			<div class="product-bottom-details">
+				<div class="product-price"><small>$Initial Price</small>TND{favorite.car.initial_price}</div>
+				<div class="product-links">
+					<a href=""><i class="fa fa-heart"></i></a> <br/>
+          <button
                 type="button"
-                style={{ color: 'black' }}
+                style={{ color: 'red' }}
                 className="btn btn-danger"
                 onClick={() => handleDeleteFavorite(favorite.car.id)}
               >
                 Delete
               </button>
-            </Card.Footer>
-          </Card>
-        </Col>
-      ))}
-    </Row>
+				</div>
+			</div>
+		</div>
+	</div>
+        ))}    
+     
+        
+       </div>
   );
 }
 export default FavoriteList;
