@@ -138,7 +138,8 @@ function Post() {
         <br/>
 
       <input
-  className="inputs"
+     
+  className="custom-file-input" 
   required
   type="file"
   multiple

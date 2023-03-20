@@ -91,10 +91,10 @@ function Bid(props) {
  
     <div className="bidd">
       <h2>
-        current price:{currentPrice?currentPrice:"loading"}
+        current price:{currentPrice?currentPrice+" "+"TND":"loading"}
       </h2>
       {console.log("user;",user)}
-      <h2>highest bid : {highest?highest:"loading"}</h2>
+      <h2>highest bid : {highest?highest+" "+"TND":"loading"}</h2>
       
       <input
         type="number"

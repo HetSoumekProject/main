@@ -47,7 +47,7 @@ const Updateinfo= ( ) => {
              value={phone_number1}
              />  
              <br/>
-             <button className="editbutton" onClick={()=>handleupdate()} >Confirm</button>
+             <button className="button-3" onClick={()=>handleupdate()} >Confirm</button>
       </div>
     );
   };
