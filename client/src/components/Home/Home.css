@@ -71,10 +71,10 @@
     font-weight: bold;
   }
   
-  .btn:hover {
+  /* .btn:hover {
     background: white;
     color: #111;
-  }
+  } */
   
   .header {
     position: fixed;

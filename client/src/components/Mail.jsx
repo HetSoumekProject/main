@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import emailjs from 'emailjs-com';
-import "./mail.css"
+import swal from 'sweetalert';
+
+import './mail.css';
+
 function ContactForm() {
   const [formValues, setFormValues] = useState({
     from_name: '',
@@ -13,11 +16,11 @@ function ContactForm() {
     emailjs.sendForm('service_cka6ko7', 'template_pysgxio', event.target)
       .then((result) => {
         console.log('Email sent successfully:', result.text);
-        alert('Email sent successfully!');
+        swal('Success', 'Email sent successfully!', 'success');
       })
       .catch((error) => {
         console.error('Error sending email:', error);
-        alert('Failed to send email.');
+        swal('Error', 'Failed to send email.', 'error');
       });
   }
 
@@ -27,7 +30,7 @@ function ContactForm() {
   }
 
   return (
-   
+   <div className='bak'>
     <form onSubmit={handleSubmit}>
        <div class="inputsm">
       <label className='labelm'>Name</label>
@@ -59,6 +62,7 @@ function ContactForm() {
       <div/>
       <button className="buttonm" type="submit">Send</button>
     </form>
+    </div>
   );
 }
 
@@ -68,11 +72,15 @@ function EmailJSExample() {
   }, []);
 
   return (
+    <div>
     <div className='body'>
+      </div>
+      <div>
     <div className='container'>
         <div className="brand-logo"></div>
         {/* <div className="brand-title">EMAIL</div> */}
       <ContactForm />
+    </div>
     </div>
     </div>
   );

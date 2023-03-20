@@ -44,7 +44,7 @@ const Signin = (props)=>{
                 onChange={(e)=> setEmail(e.target.value) }  ></input>
                 <input className='signupinputs' type="password" placeholder="enter password" value={password} 
                 onChange={(e)=> setPassword(e.target.value) } ></input>
-                <button className='signupbutton' onClick={submit}  type='submit' ><Link to ='/cars'>submit</Link></button>
+                <button className='signupbutton' onClick={submit}  type='submit' ><Link style={{ textDecoration: 'none',color:'white' }} to ='/cars'>submit</Link></button>
                 <Handlesignout/>
                 
         </div>

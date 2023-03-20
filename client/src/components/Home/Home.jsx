@@ -193,7 +193,7 @@ const Home=()=> {
             class="input"
           />
         </form>
-        <a href="#" class="btn"><Link to ='mail'>SEND</Link></a>
+        <a href="#" class="btn"><Link style={{ textDecoration: 'none',color:'black' }} to ='mail'>SEND</Link></a>
       </div>
     </div>
 

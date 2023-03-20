@@ -3,8 +3,18 @@
 .inputm {
   caret-color: red;
 }
-
-.body {
+.body{ background: url("https://www.autocar.co.uk/sites/autocar.co.uk/files/range-rover-2022-001-tracking-front.jpg") no-repeat center center fixed;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity:20%;
+ 
+}
+/* .body {
   margin: 0;
   width: 100vw;
   height: 100vh;
@@ -16,9 +26,10 @@
   place-items: center;
   overflow: hidden;
   font-family: poppins;
-}
+} */
 
 .container {
+  margin-top: 60px;
   position: relative;
   width: 350px;
   height: 500px;
@@ -26,7 +37,7 @@
   padding: 40px;
   box-sizing: border-box;
   background:white;
-  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  /* box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white; */
 }
 
 .brand-logo {
@@ -39,7 +50,7 @@
     margin: auto;
     border-radius: 30%;
     box-sizing: border-box;
-    box-shadow: 7px 7px 10px #8b8e90, -7px -7px 10px white;
+    /* box-shadow: 3px 3px 6px #8b8e90, -7px -7px 10px white; */
   }
   
 
