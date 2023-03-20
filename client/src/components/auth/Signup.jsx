@@ -59,9 +59,10 @@ const Signup = ()=>{
                 onChange={(e)=> setConfirmPassword(e.target.value) } ></input>
                 <input type="number" className='signupinputs' placeholder="phone number" value={phonenumber} 
                 onChange={(e)=> setPhonenumber(e.target.value) } ></input>
-                <button className='signupbutton' onClick={submitup}   >submit</button>
-                
-                <p> Already a user ? <Link to="/Signin"  >   Sign in </Link> </p>
+                <button className='signupbutton' onClick={submitup}><Link style={{ textDecoration: 'none',color:'white' }} to="/Signin"> submit</Link></button>
+                <br/>
+                <br/>
+                <p> Already a user ? <Link style={{ textDecoration: 'none',color:'black' }} to="/Signin">  Sign in </Link> </p>
                 
                 
                 

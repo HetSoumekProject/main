@@ -4,6 +4,7 @@ import { getAuth } from "firebase/auth";
 import { AiOutlineSend } from 'react-icons/ai';
 import '../ChatRoom.css'
 import axios from 'axios'
+
 import graphite from './Home/images/graph.jpg'
 const socket = io.connect("http://localhost:3000");
 
@@ -111,26 +112,23 @@ const getUser =()=>{
 
         <div className="message_container">
 
-          {messages.map((message, index) => (
-                 <div
-                //  className={`message ${message.name === currentUser.displayName ? "sent" : "received"}`}
-                 key={index}
-               >
-                <div className="message_content">
-                 <div className="avatar">
-                   <img  className='avatar_img'src={user.img} />
-                 </div>
-                 <div className="message__bubble">
-                   <div className="message__info">
-                     <div className="message__author">{user.first_name}</div>
-                   </div>
-                   <div className="message__text">{message.content}</div>
-                 </div>
-                 </div>
-
-                 
-               </div>
-             ))}
+        {messages.map((message, index) => (
+  <div
+    key={index}
+  >
+    <div className="message_content">
+      <div className="avatar">
+        <img  className='avatar_img'src={user.img} />
+      </div>
+      <div className="message__bubble">
+        <div className="message__info">
+          <div className="message__author">{message.name}</div>
+        </div>
+        <div className="message__text">{message.content}</div>
+      </div>
+    </div>
+  </div>
+))}
           
 
         </div>

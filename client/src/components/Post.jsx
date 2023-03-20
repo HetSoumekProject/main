@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import css from "./post.css"
 import { Link } from 'react-router-dom';
+import Pop from "./Pop.jsx"
 function Post() {
   const [brandName, setBrandName] = useState("");
   const [description, setDescription] = useState("");
@@ -11,6 +12,7 @@ function Post() {
   const [bodyStyle, setbodyStyle] = useState("coupe");
   const [image, setImage] = useState([]);
   const [user,setUser]=useState({})
+  const [showPopup, setShowPopup] = useState(false);
   const [viewport,setViewport]=useState({})
   const setFileToBase = (files) => {
     console.log(files)
@@ -22,8 +24,12 @@ function Post() {
       img.onloadend = () => image.push(img.result);
       i++
     }
+  
+ 
   };
-
+  const handleSuccess = () => {
+    setShowPopup(true);
+  };
   const postACar = (
     id,
     brandName,
@@ -46,7 +52,8 @@ function Post() {
         longitude:longitude,
         latitude:latitude
       })
-      .then((res) => {console.log(res);setImage([])})
+      .then((res) => {
+       setImage([])})
       .catch((err) => console.log(err));
   };
   useEffect(()=>{
@@ -169,16 +176,14 @@ function Post() {
             viewport.longitude,viewport.latitude
           );
         }}
-      > <Link style={{ textDecoration: 'none',color:'black' }}to='/cars'>ADD</Link></button>
+      > <Link style={{ textDecoration: 'none',color:'black' }}to='/pop'>ADD</Link></button>
       </form>
     </div>
+    <div className="post-container">
+
+    {showPopup && <Pop />}
+  </div>
     </div>
-
-
-
-
-
   );
-}
-
+      }
 export default Post;
